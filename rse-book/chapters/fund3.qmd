@@ -1,0 +1,51 @@
+---
+title: "Which of the following sources are used to pay for your effort as a Research Software Engineer?"
+question_id: fund3
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r, echo = FALSE}
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap(df, "funding")
+```
+
+```{r}
+recode_map <- tibble::tribble(
+  ~raw, ~clean,
+
+  # Public grants and programmes
+  "(?i)\\b(european project|eu(rope)?)(s)?\\b", "Public grants and programmes",
+  "(?i)\\b(federal funding|national funding)\\b", "Public grants and programmes",
+
+  # Private/philanthropy
+  "(?i)\\b(private philanthropy|philanthropy)\\b", "Private/philanthropic support",
+
+  # Earned/contract income (includes subscriptions + service contracts + freelance)
+  "(?i)\\b(service contracts?)\\b", "Earned/contract income",
+  "(?i)\\b(subscriptions?)\\b", "Earned/contract income",
+  "(?i)\\b(self[- ]employment|self employment|freelance|consult(ing|ancy))\\b", "Earned/contract income",
+
+  # Institutional/core
+  "(?i)\\b(institutional|core funding).*\\b|\\bsupposed to become institutional over the next years\\b",
+  "Institutional/core funding"
+)
+
+data_coded <- process_text_codes_with_allocation(
+  df = df,
+  col_name = "funding",
+  recode_map = recode_map,
+  header = "Funding",
+  other = TRUE,
+  cache_id = "fund3"
+)
+
+data_coded$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.

@@ -1,0 +1,95 @@
+# Preface {.unnumbered}
+
+This is an initial analysis of the data from the International RSE Survey 2026.
+It includes currently the following questions:
+
+# How to use this book
+
+## Assumptions
+
++ raw data, as received from SW, is saved as folder `RSE_survey_2026_data` in 
+root directory
++ create preprocessed data sets in `data` folder by running from the root 
+directory `Rscript ./rse-book/R/create_datasets.R` (the `data` folder will 
+appear in `rse-book/data`)
+
+## Folder structure
+
+The book (`rse-book/`) is organized in the following folders:
+
++ `appendices`: Contains the appendices of the book: 
+    + Data/Postprocessing/Methodology
+    + detailed codebook of free-text answers per question
++ `chapters`: Contains the chapters of the book.
++ `data`: Contains the preprocessed data files used in the analysis.
++ `R`: Contains the R code for data preprocessing, plotting, and analysis.
++ `_quarto.yml`: Contains the configuration of the book.
++ `references.bib`: Contains the references used in the book (currently empty)
+
+## How to run the book
+
+To run the book, you need to have Quarto installed. 
+You can install it from <https://quarto.org/docs/get-started/>.
+
+When you need to update the appendix, you can run the following command:
+
+```bash
+quarto render appendices/recoding.qmd --no-cache
+```
+
+For rendering the whole book. 
+Go to the directory `rse-book` (`cd rse-book`) and then you can render the 
+book using the following command:
+
+```bash
+quarto render
+```
+
+Open then `_book\index.html`.
+
+# Current content
+
++ Conferences
+    - What conferences have you attended in the last 12 months? (`conf2can_0`)
++ Employment
+    - What is the nature of your current employment? (`currentEmp13`)
+    - What is the nature of your current work? (`currentWork2qcl`)
++ Funding
+    - What funding sources have you used in the last 12 months? (`fund3`)
+    - What funding sources have you used in the last 12 months? (`fund3qnl_0`)
++ Generative AI
+    - What is your experience with generative AI? (`genAI2`)
+    - What is your experience with generative AI? (`genAI3`)
++ Tooling
+    - What programming languages do you use at work? (`tool4`)
+    - On which platform(s) is your most recent research software project 
+    deployed? (`tool5`)
++ Training
+    - What training programs are you involved with? (`train3_0`)
+    - In what capacity do you contribute? (`train5`)
++ General
+    - What are the main challenges you face in developing research software? 
+    (`turnOver3zaf`)
+    - What kind of research software do you develop as part of your job? 
+    (`turnOver4zaf`)
+    - How did you learn the skills you need to become a Research Software 
+    Engineer / Research Software Developer? (`ukrse3`)
++ RSE Organisation
+    - What would you hope to get out of such an organisation? (`org2can`)
+    - How could Nordic-RSE or a potential Nordic research software institute 
+    foster community engagement and knowledge transfer? (`org3nord`)
+    - What tasks should a national research software institution primarily 
+    undertake in your opinion? (`org4de`)
+    - With Nordic-RSE we have an association dedicated to the community of 
+    Research Software Engineers in the Nordics. What tasks do you think should 
+    be undertaken by Nordic-RSE or a future Nordic institute for research 
+    software? (`org4nord`)
+    - How should a national research software institution foster community 
+    engagement and knowledge transfer? (`org6de`)
++ Project Management Tools
+    - How do you test the software that you produce? (`proj4can`)
+    - Which version control tools do you use for software development? 
+    (`proj5zaf`)
+    - Which collaboration tools do you use for software development? 
+    (`proj6zaf`)
+

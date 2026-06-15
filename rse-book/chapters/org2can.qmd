@@ -1,0 +1,35 @@
+---
+title: "What would you hope to get out of such an organisation?"
+question_id: org2can
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r, echo = FALSE}
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap(df2, "org_benefit")
+```
+
+```{r}
+recode_map <- tibble::tribble(
+  ~raw, ~clean,
+)
+
+cleaned_data <- process_text_codes_with_allocation(
+  df = df2, 
+  col_name = "org_benefit", 
+  recode_map = recode_map, 
+  header = "Benefits",
+  other = TRUE,
+  cache_id = "org2can"
+)
+
+cleaned_data$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.

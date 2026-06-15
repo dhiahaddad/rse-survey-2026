@@ -1,0 +1,86 @@
+---
+title: "Which generative AI tools do you currently use in your RSE work?"
+question_id: genAI3
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r, echo = FALSE}
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap(df, "ai_tool")
+```
+
+```{r}
+recode_map <- tibble::tribble(
+  ~raw, ~clean,
+
+  # Specific vendors/models
+  "(?i)\\bmistral(\\s*vibe)?\\b|\\ble\\s*chat\\b|\\bmistral(ai)?\\s*le\\s*chat\\b", "Mistral (Le Chat, Vibe)",
+  "(?i)\\bperplexity(\\.ai)?\\b", "Perplexity",
+  "(?i)\\bdeep\\s*seek\\b", "DeepSeek",
+  "(?i)\\bqwen\\b|\\bqwen\\s*3\\b|\\bqwen3\\b|qwen-?coder|qwen3-?next|qwen3 coder|qwent 3 coder|locally hosted qwen", "Qwen family",
+  "(?i)\\bclaude(\\s*code)?\\b", "Claude",
+  "(?i)\\bgrok\\b", "Grok",
+  "(?i)\\bphind\\b", "Phind",
+  "(?i)\\bjetbrains\\s*ai\\b", "JetBrains AI",
+  "(?i)\\bsupermaven\\b", "Supermaven",
+  "(?i)\\bwind\\s*surf\\b", "Windsurf",
+  "(?i)\\bcodex\\b|openai\\s*codex", "OpenAI Codex",
+  "(?i)\\bmicrosoft\\s*co-?pilot\\b|\\bms\\s*copilot\\b|\\bcopilot\\b", "Microsoft/GitHub Copilot",
+  "(?i)\\bmistral\\b", "Mistral (Le Chat, Vibe)",
+
+  # Institution-/service-specific deployments
+  "(?i)helmholtz\\s*blablador|\\bblablador\\b", "Helmholtz Blablador",
+  "(?i)gwdg\\s*chat-?ai|academiccloud|chat-?ai\\.?academiccloud\\.de|chat-?ai\\s*gwdg", "GWDG / AcademicCloud Chat-AI",
+  "chatai", "GWDG / AcademicCloud Chat-AI",
+  "(?i)inference-?as-?a-?service.*(epfl|rcp)|rcp\\s*@\\s*epfl", "EPFL RCP inference service",
+
+  # in-house hosting (on-prem, vLLM, internal GPT, company-internal)
+  "(?i)(self[-\\s]?hosted|self\\s* hosted)|\\bon-?prem\\b|\\bvllm\\b|\\bin-?house\\b|\\bin house\\b|\\binternal(ly)?\\b|company\\s*ai|gpt\\s*uio|firmeninterne agents",
+  "Institution-hosted LLMs",
+
+  # local models
+  "\\blocal(ly)?(-|\\s)?(hosted|deployed)?\\b|local openai instance|we run local models", "Local LLMs",
+
+  # Ollama and via-Ollama
+  "(?i)\\bollama\\b", "Ollama",
+
+  # Open-source/open-weights mentions
+  "(?i)open\\s*(source|weights)\\s*models|gpt-oss", "Open-source/open-weights models",
+
+  # Platforms/brands: Proton, DuckDuckGo, OpenCode
+  "(?i)\\bproton\\s*lumo\\b|\\blumo\\b", "Proton Lumo",
+  "(?i)duck\\s*ai|duckduckgo", "DuckDuckGo AI",
+  "(?i)open\\s*code\\b|\\bopencode\\b", "OpenCode platform",
+
+  # Other named tools
+  "(?i)\\bkimi\\b|kimi-?k2", "Kimi",
+  "(?i)serena", "Serena",
+  "(?i)antigravity", "Antigravity",
+
+  # Generic IDE-integrated AI
+  "(?i)ide\\s*integrated\\s*ai\\s*tools|continue", "IDE-integrated AI",
+
+  # Catch-all examples/abbreviations
+  "(?i)^e\\.g\\.$", NA_character_,
+  "e.g.", NA_character_
+)
+
+data_coded <- process_text_codes_with_allocation(
+  df = df,
+  col_name = "ai_tool",
+  recode_map = recode_map,
+  header = "AI Tools",
+  other = TRUE,
+  cache_id = "genAI3"
+)
+
+data_coded$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.

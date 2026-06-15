@@ -1,0 +1,35 @@
+---
+title: "How do you test the software that you produce?"
+question_id: proj4can
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r, echo = FALSE}
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap(df3, "testing_how")
+```
+
+```{r}
+recode_map <- tibble::tribble(
+  ~raw, ~clean,
+)
+
+cleaned_data <- process_text_codes_with_allocation(
+  df = df3, 
+  col_name = "testing_how", 
+  recode_map = recode_map, 
+  header = "Testing",
+  other = TRUE,
+  cache_id = "proj4can"
+)
+
+cleaned_data$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.

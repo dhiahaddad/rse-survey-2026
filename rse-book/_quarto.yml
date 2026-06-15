@@ -1,0 +1,68 @@
+project:
+  type: book
+  output-dir: _book
+book:
+  title: "International RSE Survey 2026"
+  author: "RSE Survey Team"
+  date: today
+  chapters:
+    - index.qmd
+    - part: "Conferences"
+      chapters:
+        - chapters/conf2can_0.qmd
+    - part: "Employment"
+      chapters:
+        - chapters/currentEmp13.qmd
+        - chapters/currentWork2qcl.qmd
+    - part: "Funding"
+      chapters:
+        - chapters/fund3.qmd
+        - chapters/fund3qnl_0.qmd
+    - part: "Generative AI"
+      chapters:
+        - chapters/genAI2.qmd
+        - chapters/genAI3.qmd
+    - part: "Tooling"
+      chapters:
+        - chapters/tool4.qmd
+        - chapters/tool5.qmd
+    - part: "Training"
+      chapters:
+        - chapters/skill2.qmd
+        - chapters/train3_0.qmd
+        - chapters/train5.qmd
+    - part: "General"
+      chapters:
+        - chapters/turnOver3zaf.qmd
+        - chapters/turnOver4zaf.qmd
+        - chapters/ukrse3.qmd
+    - part: "RSE Organisation"
+      chapters:
+        - chapters/org2can.qmd
+        - chapters/org3nord.qmd
+        - chapters/org4de.qmd
+        - chapters/org4nord.qmd
+        - chapters/org6de.qmd
+    - part: "Project Management Tools"
+      chapters:
+        - chapters/proj4can.qmd
+        - chapters/proj5zaf.qmd
+        - chapters/proj6zaf.qmd
+  appendices:
+    - appendices/methodology.qmd
+    - appendices/recoding.qmd
+    - references.qmd
+bibliography: references.bib
+format:
+  html:
+    theme: cosmo
+    toc: true
+    # code-fold: true
+    # embed-resources: true
+execute:
+  dir: project
+  freeze: auto
+resources:
+  - data/
+
+

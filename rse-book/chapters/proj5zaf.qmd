@@ -1,0 +1,35 @@
+---
+title: "Which version control tools do you use for software development?"
+question_id: proj5zaf
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r, echo = FALSE}
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap(df3, "version_control")
+```
+
+```{r}
+recode_map <- tibble::tribble(
+  ~raw, ~clean,
+)
+
+cleaned_data <- process_text_codes_with_allocation(
+  df = df3, 
+  col_name = "version_control", 
+  recode_map = recode_map, 
+  header = "Version Control",
+  other = TRUE,
+  cache_id = "proj5zaf"
+)
+
+cleaned_data$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.

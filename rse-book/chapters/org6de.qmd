@@ -1,0 +1,35 @@
+---
+title: "How should a national research software institution foster community engagement and knowledge transfer?"
+question_id: org6de
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r, echo = FALSE}
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap(df2, "national_community")
+```
+
+```{r}
+recode_map <- tibble::tribble(
+  ~raw, ~clean,
+)
+
+cleaned_data <- process_text_codes_with_allocation(
+  df = df2, 
+  col_name = "national_community", 
+  recode_map = recode_map, 
+  header = "RSE Institute - Community",
+  other = TRUE,
+  cache_id = "org6de"
+)
+
+cleaned_data$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.

@@ -1,0 +1,16 @@
+---
+title: "What are the main challenges you face in developing research software?"
+question_id: turnOver3zaf
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r, echo = FALSE}
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap(df, "challenges")
+```

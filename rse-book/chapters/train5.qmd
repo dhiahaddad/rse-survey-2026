@@ -1,0 +1,59 @@
+---
+title: "In what capacity do you contribute?"
+question_id: train5
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r, echo = FALSE}
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap(df, "training_role")
+```
+
+```{r}
+recode_map <- tibble::tribble(
+  ~raw, ~clean,
+
+  # Course materials/infrastructure development (apps, packages, setup, tooling)
+  "(?i)develop(ped|ment).*web (applications|apps|packages)|documentation and setup|software and tools.*lecture|containers",
+  "Course materials/infrastructure development",
+
+  # Lecturer / instructor (incl. guest lecturer, teaching course sections)
+  "(?i)guest lecturer|teaching .*course section|lecture\\b",
+  "Lecturer / instructor",
+
+  # Tutor roles
+  "(?i)\\btutor\\b",
+  "Tutor",
+
+  # Practical sessions / labs
+  "(?i)practical sessions?",
+  "Practical/lab instructor",
+
+  # Supervision / mentoring
+  "(?i)supervision",
+  "Supervision / mentoring",
+
+  # Ad hoc cover
+  "(?i)ad hoc replacement",
+  "Ad hoc teaching cover"
+)
+
+cleaned_data <- process_text_codes_with_allocation(
+  df = df, 
+  col_name = "training_role", 
+  recode_map = recode_map, 
+  header = "Training Capacity",
+  other = TRUE,
+  cache_id = "train5"
+)
+
+cleaned_data$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.
