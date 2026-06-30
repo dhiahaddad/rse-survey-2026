@@ -8,14 +8,16 @@ question_id: fund3
 #| file: ../R/_load_common.R
 ```
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 #| fig-width: 10
 #| fig-height: 6
 
-plot_heatmap(df, "funding")
+plot_heatmap(FILTER, "fund3")
 ```
 
 ```{r}
+#| echo: false
 recode_map <- tibble::tribble(
   ~raw, ~clean,
 
@@ -37,8 +39,8 @@ recode_map <- tibble::tribble(
 )
 
 data_coded <- process_text_codes_with_allocation(
-  df = df,
-  col_name = "funding",
+  filter = FILTER,
+  question_code = "fund3",
   recode_map = recode_map,
   header = "Funding",
   other = TRUE,

@@ -8,21 +8,23 @@ question_id: proj5zaf
 #| file: ../R/_load_common.R
 ```
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 #| fig-width: 10
 #| fig-height: 6
 
-plot_heatmap(df3, "version_control")
+plot_heatmap(FILTER, "proj5zaf")
 ```
 
 ```{r}
+#| echo: false
 recode_map <- tibble::tribble(
   ~raw, ~clean,
 )
 
 cleaned_data <- process_text_codes_with_allocation(
-  df = df3, 
-  col_name = "version_control", 
+  filter = FILTER,
+  question_code = "proj5zaf",
   recode_map = recode_map, 
   header = "Version Control",
   other = TRUE,

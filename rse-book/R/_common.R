@@ -5,19 +5,17 @@ if (is.na(book_root) || !nzchar(book_root)) {
   } else if (file.exists("../_quarto.yml")) {
     ".."
   } else {
-    "."
+    "rse-book/"
   }
 }
 
 source(file.path(book_root, "R/postprocessing.R"))
-df <- read.csv(file.path(book_root, "data/df_all.csv"))
-df2 <- read.csv(file.path(book_root, "data/df_institute.csv"))
-df3 <- read.csv(file.path(book_root, "data/df_proj.csv"))
+source(file.path(book_root, "R/.config"))
 
 survey_data_dir <- if (file.exists(file.path(book_root, 
-"RSE_survey_2026_data/2026_all_cols.csv"))) {
-  file.path(book_root, "RSE_survey_2026_data")
+paste0(DATA_DIR, "/2026_all_cols.csv")))) {
+  file.path(book_root, DATA_DIR)
 } else {
-  file.path(book_root, "../RSE_survey_2026_data")
+  file.path(book_root, paste0("../", DATA_DIR))
 }
 cols <- read.csv(file.path(survey_data_dir, "2026_all_cols.csv"))

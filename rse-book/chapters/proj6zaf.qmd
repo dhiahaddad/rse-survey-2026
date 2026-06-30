@@ -8,21 +8,23 @@ question_id: proj6zaf
 #| file: ../R/_load_common.R
 ```
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 #| fig-width: 10
 #| fig-height: 6
 
-plot_heatmap(df3, "collaboration_tool")
+plot_heatmap(FILTER, "proj6zaf")
 ```
 
 ```{r}
+#| echo: false
 recode_map <- tibble::tribble(
   ~raw, ~clean,
 )
 
 cleaned_data <- process_text_codes_with_allocation(
-  df = df3, 
-  col_name = "collaboration_tool", 
+  filter = FILTER,
+  question_code = "proj6zaf",
   recode_map = recode_map, 
   header = "Collaboration Tools",
   other = TRUE,

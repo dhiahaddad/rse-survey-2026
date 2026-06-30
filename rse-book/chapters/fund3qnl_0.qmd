@@ -9,6 +9,7 @@ question_id: fund3qnl_0
 ```
 
 ```{r}
+#| echo: false
 recode_map <- tibble::tribble(
   ~raw, ~clean,
   # Multiple/combined funding
@@ -49,10 +50,10 @@ recode_map <- tibble::tribble(
 )
 
 data_coded <- process_text_codes_with_allocation(
-  df = df,
-  col_name = "grant",
+  filter = "Netherlands",
+  question_code = "fund3qnl_0",
   recode_map = recode_map,
-  header = "Grant",
+  header = "Grant (Netherlands)",
   other = FALSE,
   cache_id = "fund3qnl_0"
 )

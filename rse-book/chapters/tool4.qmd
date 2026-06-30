@@ -8,14 +8,16 @@ question_id: tool4
 #| file: ../R/_load_common.R
 ```
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 #| fig-width: 10
 #| fig-height: 6
 
-plot_heatmap(df, "software_language")
+plot_heatmap(FILTER, "tool4can")
 ```
 
 ```{r}
+#| echo: false
 recode_map <- tibble::tribble(
   ~raw, ~clean,
 
@@ -88,8 +90,8 @@ recode_map <- tibble::tribble(
 )
 
 data_coded <- process_text_codes_with_allocation(
-  df = df,
-  col_name = "software_language",
+  filter = FILTER,
+  question_code = "tool4can",
   recode_map = recode_map,
   header = "Software Languages",
   other = TRUE,

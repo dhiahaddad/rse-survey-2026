@@ -8,14 +8,8 @@ question_id: skill2
 #| file: ../R/_load_common.R
 ```
 
-```{r, echo = FALSE}
-#| fig-width: 10
-#| fig-height: 6
-
-plot_heatmap(df2, "org_benefit")
-```
-
 ```{r}
+#| echo: false
 recode_map <- tibble::tribble(
   ~raw, ~clean,
 
@@ -214,8 +208,8 @@ recode_map <- tibble::tribble(
 )
 
 skills_coded <- process_text_codes_with_allocation(
-  df = df,
-  col_name = "skills",
+  filter = FILTER,
+  question_code = "skill2",
   recode_map = recode_map,
   header = "Skills",
   other = FALSE,

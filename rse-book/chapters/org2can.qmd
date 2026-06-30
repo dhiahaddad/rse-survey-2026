@@ -8,21 +8,23 @@ question_id: org2can
 #| file: ../R/_load_common.R
 ```
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 #| fig-width: 10
 #| fig-height: 6
 
-plot_heatmap(df2, "org_benefit")
+plot_heatmap(FILTER, "org2can")
 ```
 
 ```{r}
+#| echo: false
 recode_map <- tibble::tribble(
   ~raw, ~clean,
 )
 
 cleaned_data <- process_text_codes_with_allocation(
-  df = df2, 
-  col_name = "org_benefit", 
+  filter = FILTER,
+  question_code = "org2can",
   recode_map = recode_map, 
   header = "Benefits",
   other = TRUE,

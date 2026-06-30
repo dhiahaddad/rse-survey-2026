@@ -8,21 +8,23 @@ question_id: proj4can
 #| file: ../R/_load_common.R
 ```
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 #| fig-width: 10
 #| fig-height: 6
 
-plot_heatmap(df3, "testing_how")
+plot_heatmap(FILTER, "proj4can")
 ```
 
 ```{r}
+#| echo: false
 recode_map <- tibble::tribble(
   ~raw, ~clean,
 )
 
 cleaned_data <- process_text_codes_with_allocation(
-  df = df3, 
-  col_name = "testing_how", 
+  filter = FILTER,
+  question_code = "proj4can",
   recode_map = recode_map, 
   header = "Testing",
   other = TRUE,

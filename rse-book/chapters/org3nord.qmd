@@ -8,21 +8,23 @@ question_id: org3nord
 #| file: ../R/_load_common.R
 ```
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 #| fig-width: 10
 #| fig-height: 6
 
-plot_heatmap(df2, "nordic_rse_community")
+plot_heatmap(FILTER, "org3nord")
 ```
 
 ```{r}
+#| echo: false
 recode_map <- tibble::tribble(
   ~raw, ~clean,
 )
 
 cleaned_data <- process_text_codes_with_allocation(
-  df = df2, 
-  col_name = "nordic_rse_community", 
+  filter = FILTER,
+  question_code = "org3nord",
   recode_map = recode_map, 
   header = "Nordic RSE - Community",
   other = TRUE,

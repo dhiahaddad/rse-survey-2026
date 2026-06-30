@@ -8,14 +8,16 @@ question_id: train5
 #| file: ../R/_load_common.R
 ```
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 #| fig-width: 10
 #| fig-height: 6
 
-plot_heatmap(df, "training_role")
+plot_heatmap(FILTER, "train5")
 ```
 
 ```{r}
+#| echo: false
 recode_map <- tibble::tribble(
   ~raw, ~clean,
 
@@ -45,8 +47,8 @@ recode_map <- tibble::tribble(
 )
 
 cleaned_data <- process_text_codes_with_allocation(
-  df = df, 
-  col_name = "training_role", 
+  filter = FILTER,
+  question_code = "train5",
   recode_map = recode_map, 
   header = "Training Capacity",
   other = TRUE,

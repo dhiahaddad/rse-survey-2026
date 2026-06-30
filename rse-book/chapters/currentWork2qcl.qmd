@@ -8,14 +8,16 @@ question_id: currentWork2qcl
 #| file: ../R/_load_common.R
 ```
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 #| fig-width: 10
 #| fig-height: 6
 
-plot_heatmap(df, "user_group")
+plot_heatmap(FILTER, "currentWork2qcl")
 ```
 
 ```{r}
+#| echo: false
 recode_map <- tibble::tribble(
   ~raw, ~clean,
 
@@ -41,8 +43,8 @@ recode_map <- tibble::tribble(
 )
 
 data_coded <- process_text_codes_with_allocation(
-  df = df,
-  col_name = "user_group",
+  filter = FILTER,
+  question_code = "currentWork2qcl",
   recode_map = recode_map,
   header = "User Group",
   other = TRUE,

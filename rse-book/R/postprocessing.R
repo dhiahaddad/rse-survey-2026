@@ -90,6 +90,150 @@ prepare_text_tokens <- function(df, col_name, other = TRUE) {
     dplyr::filter(.data[[col_name]] != "")
 }
 
+#' Locate the raw survey data directory across known render contexts
+#'
+#' @return Character path to the directory holding `2026_*.csv` raw files.
+#' @keywords internal
+survey_raw_data_dir <- function() {
+  existing <- tryCatch(
+    get("survey_data_dir", envir = globalenv()),
+    error = function(e) NULL
+  )
+  if (!is.null(existing) && file.exists(file.path(existing, "2026_tf.csv"))) {
+    return(existing)
+  }
+  data_dir_name <- tryCatch(
+    get("DATA_DIR", envir = globalenv()),
+    error = function(e) "RSE_survey_2026_data"
+  )
+  book_root <- Sys.getenv("QUARTO_PROJECT_DIR", unset = "")
+  candidates <- c(
+    file.path(book_root, data_dir_name),
+    file.path(book_root, "..", data_dir_name),
+    data_dir_name,
+    file.path("..", data_dir_name),
+    file.path("rse-book", "..", data_dir_name)
+  )
+  candidates <- candidates[nzchar(candidates)]
+  hit <- candidates[file.exists(file.path(candidates, "2026_tf.csv"))]
+  if (length(hit) > 0L) {
+    return(hit[[1]])
+  }
+  data_dir_name
+}
+
+#' Identify the `2026_tf.csv` columns that belong to one question code
+#'
+#' Matches the single column named exactly `question_code` (single-response
+#' questions, e.g. `"conf2can_0"`) plus every multi-response sub-column of the
+#' form `question_code[...]_0` (e.g. `"org2can[SQ001]_0"`). The trailing `[`
+#' anchor prevents collisions between related codes (e.g. `currentEmp1` vs
+#' `currentEmp13`, or `tool5` vs `tool5can`).
+#'
+#' @param question_code Survey question code (the column-name stem used in
+#'   `2026_tf.csv`).
+#' @param all_names Character vector of column names from `2026_tf.csv`.
+#' @return Character vector of matching column names.
+#' @keywords internal
+question_columns <- function(question_code, all_names) {
+  all_names[
+    all_names == question_code |
+      startsWith(all_names, paste0(question_code, "["))
+  ]
+}
+
+#' Build the column-code -> option-label lookup from `2026_all_cols.csv`
+#'
+#' Used to decode multi-response check-box columns (which store `"True"` /
+#' `"False"` in `2026_tf.csv`) into their human-readable option labels.
+#'
+#' @param data_dir Directory holding `2026_all_cols.csv`.
+#' @return Named character vector mapping `New_name` (column code) to `Option`.
+#' @keywords internal
+question_label_lookup <- function(data_dir) {
+  meta <- read.csv(
+    file.path(data_dir, "2026_all_cols.csv"),
+    check.names = FALSE
+  )
+  stats::setNames(as.character(meta$Option), as.character(meta$New_name))
+}
+
+#' Reshape a question's `2026_tf.csv` columns into long response rows
+#'
+#' Pivots the selected question columns to long form, decodes multi-response
+#' check-box columns (`"True"` -> option label, `"False"` -> dropped), keeps
+#' free-text columns verbatim, flags "other/specify" responses, and drops empty
+#' values.
+#'
+#' @param df Respondent rows from `2026_tf.csv` (already country-filtered).
+#' @param col_name Output column name for the response values.
+#' @param question_cols Columns belonging to the question (see
+#'   [question_columns()]).
+#' @param label_lookup Named vector mapping column codes to option labels (see
+#'   [question_label_lookup()]).
+#' @return Tibble with `row_id`, `is_other`, and `question_code` columns.
+#' @keywords internal
+clean_cols <- function(df, question_code, question_cols, label_lookup) {
+  df |>
+    dplyr::select(row_id, dplyr::all_of(question_cols)) |>
+    dplyr::mutate(dplyr::across(dplyr::all_of(question_cols), as.character)) |>
+    tidyr::pivot_longer(
+      cols = dplyr::all_of(question_cols),
+      names_to = "question",
+      values_to = "value"
+    ) |>
+    dplyr::mutate(
+      label = unname(label_lookup[.data$question]),
+      !!rlang::sym(question_code) := dplyr::case_when(
+        .data$value == "True" ~ .data$label,
+        .data$value == "False" ~ NA_character_,
+        TRUE ~ .data$value
+      ),
+      is_other = stringr::str_detect(.data$question, "other")
+    ) |>
+    dplyr::select(row_id, is_other, dplyr::all_of(question_code)) |>
+    tidyr::drop_na(dplyr::all_of(question_code)) |>
+    dplyr::filter(.data[[question_code]] != "")
+}
+
+#' Build the dataset for one question and country filter on the fly
+#'
+#' Reads the full respondent table `2026_tf.csv`, keeps the rows whose
+#' `socio1_0` country is in `filter`, selects the columns matching the
+#' question's code, and reshapes them into the `row_id` / `is_other` / value
+#' tibble used downstream. No per-question CSV files are read.
+#'
+#' @param question_code The question code, i.e. the column-name stem in
+#'   `2026_tf.csv` (e.g. `"conf2can_0"` for a single-response question or
+#'   `"org2can"` for the `org2can[...]_0` multi-response sub-columns). Also used
+#'   as the name of the returned value column.
+#' @param filter A single country name or a vector of country names, matched
+#'   against the `socio1_0` column of `2026_tf.csv`.
+#' @param data_dir Directory holding `2026_tf.csv` and `2026_all_cols.csv`.
+#' @return Tibble with `row_id`, `is_other`, and `question_code` columns.
+#' @keywords internal
+load_question_data <- function(
+    question_code,
+    filter,
+    data_dir = survey_raw_data_dir()
+) {
+  tf <- read.csv(
+    file.path(data_dir, "2026_tf.csv"),
+    check.names = FALSE
+  )
+  empty_names <- !nzchar(names(tf)) | is.na(names(tf))
+  names(tf)[empty_names] <- paste0(".unnamed", seq_len(sum(empty_names)))
+  tf <- dplyr::filter(tf, socio1_0 %in% filter)
+  question_cols <- question_columns(question_code, names(tf))
+  if (length(question_cols) == 0L) {
+    stop(sprintf(
+      "No columns in 2026_tf.csv match question code '%s'.",
+      question_code
+    ))
+  }
+  clean_cols(tf, question_code, question_cols, question_label_lookup(data_dir))
+}
+
 #' Resolve the allocation-cache directory for the current Quarto render context
 #'
 #' @return Character path to `_allocation_cache`.
@@ -223,12 +367,16 @@ summarize_text_codes_from_tokens <- function(
 
 #' Recode free-text responses and render summary plus allocation tables
 #'
-#' Main entry point for question chapters. Tokenizes responses once, applies
-#' the recode map, optionally caches the allocation audit trail, and returns
-#' both gt tables.
+#' Main entry point for question chapters. Builds the dataset for the requested
+#' country `filter` on the fly, tokenizes responses once, applies the recode
+#' map, optionally caches the allocation audit trail, and returns both gt
+#' tables.
 #'
-#' @param df Survey data frame with `is_other` and the target column.
-#' @param col_name Free-text column to recode.
+#' @param filter Country filter for the respondents to include: a single
+#'   country name or a vector of country names. The dataset is computed
+#'   accordingly via [load_question_data()].
+#' @param question_code The question code to recode, i.e. the column-name stem
+#'   in `2026_tf.csv` (e.g. `"conf2can_0"`). Passed to [load_question_data()].
 #' @param recode_map Tibble with `raw` (regex) and `clean` (category) columns.
 #'   Rows with `NA` in `clean` exclude matching responses.
 #' @param header Chapter display title used in table headers.
@@ -241,26 +389,27 @@ summarize_text_codes_from_tokens <- function(
 #'   `summary_table` (gt), and `allocation_table` (gt).
 #' @export
 process_text_codes_with_allocation <- function(
-    df,
-    col_name,
+    filter,
+    question_code,
     recode_map,
     header,
     other = TRUE,
     show_excluded = TRUE,
     cache_id = NULL
 ) {
+  df <- load_question_data(question_code, filter)
   map <- prepare_recode_map(recode_map)
-  tokens <- prepare_text_tokens(df, col_name, other = other)
+  tokens <- prepare_text_tokens(df, question_code, other = other)
 
   allocation_tbl <- allocate_text_codes_from_tokens(
     tokens,
-    col_name,
+    question_code,
     map$to_remove,
     map$active_map
   )
   coded_tbl <- summarize_text_codes_from_tokens(
     tokens,
-    col_name,
+    question_code,
     map$to_remove,
     map$active_map
   )
@@ -279,7 +428,7 @@ process_text_codes_with_allocation <- function(
     coded = coded_tbl,
     allocation = allocation_tbl,
     summary_table = render_code_table(
-      coded_tbl, col_name, header, other = other
+      coded_tbl, question_code, header, other = other
       ),
     allocation_table = render_allocation_table(
       allocation_tbl,
@@ -391,40 +540,49 @@ render_allocation_appendix <- function() {
 #' Plot a respondent-by-category selection heatmap with marginal counts
 #'
 #' Visualizes multi-select (non-other) responses: each row is a respondent,
-#' each column is a category, and a filled tile indicates selection.
+#' each column is a category, and a filled tile indicates selection. Builds the
+#' dataset for the requested country `filter` on the fly.
 #'
-#' @param df Survey data frame with `row_id`, `is_other`, and `col_name`.
-#' @param col_name Column containing category labels (one per row per respondent).
+#' @param filter Country filter for the respondents to include: a single
+#'   country name or a vector of country names. The dataset is computed
+#'   accordingly via [load_question_data()].
+#' @param question_code The question code to plot, i.e. the column-name stem in
+#'   `2026_tf.csv` (e.g. `"currentEmp13"`). Passed to [load_question_data()].
+#' @param title Optional overall plot title spanning both panels. `NULL`
+#'   (default) draws no title.
 #' @return A patchwork object combining the heatmap and marginal bar chart.
 #' @export
-plot_heatmap <- function(df, col_name) {
-  plot_data <- as_tibble(df) |>
-    dplyr::select(row_id, is_other, dplyr::all_of(col_name)) |>
+plot_heatmap <- function(filter, question_code, title = NULL) {
+  plot_data <- load_question_data(question_code, filter) |>
+    as_tibble() |>
+    dplyr::select(row_id, is_other, dplyr::all_of(question_code)) |>
     dplyr::filter(is_other == FALSE) |>
-    dplyr::distinct(row_id, !!rlang::sym(col_name)) |>
+    dplyr::distinct(row_id, !!rlang::sym(question_code)) |>
     tidyr::drop_na() |>
     dplyr::mutate(value = 1L) |>
     tidyr::complete(
       row_id,
-      !!rlang::sym(col_name),
+      !!rlang::sym(question_code),
       fill = list(value = 0L)
     ) |>
     dplyr::group_by(row_id) |>
     dplyr::mutate(row_sum = sum(.data$value)) |>
     dplyr::ungroup() |>
-    dplyr::group_by(.data[[col_name]]) |>
+    dplyr::group_by(.data[[question_code]]) |>
     dplyr::mutate(cat_sum = sum(.data$value)) |>
     dplyr::ungroup() |>
     dplyr::mutate(
       row_id = forcats::fct_reorder(row_id, row_sum),
-      !!rlang::sym(col_name) := forcats::fct_reorder(.data[[col_name]], 
-      .data$cat_sum)
+      !!rlang::sym(question_code) := forcats::fct_reorder(
+        .data[[question_code]],
+        .data$cat_sum
+      )
     )
 
   p_heat <- plot_data |>
     ggplot2::ggplot(ggplot2::aes(
       x = row_id,
-      y = .data[[col_name]],
+      y = .data[[question_code]],
       fill = factor(value)
     )) +
     ggplot2::geom_tile(color = "white", linewidth = 0.01) +
@@ -442,8 +600,8 @@ plot_heatmap <- function(df, col_name) {
     ggplot2::labs(x = "Respondent (ordered by #)", y = NULL)
 
   p_margin <- plot_data |>
-    dplyr::distinct(!!rlang::sym(col_name), cat_sum) |>
-    ggplot2::ggplot(ggplot2::aes(x = cat_sum, y = .data[[col_name]])) +
+    dplyr::distinct(!!rlang::sym(question_code), cat_sum) |>
+    ggplot2::ggplot(ggplot2::aes(x = cat_sum, y = .data[[question_code]])) +
     ggplot2::geom_col(fill = "darkblue") +
     ggplot2::geom_text(
       ggplot2::aes(label = cat_sum),
@@ -459,7 +617,12 @@ plot_heatmap <- function(df, col_name) {
     ) +
     ggplot2::labs(x = "n", y = NULL)
 
-  p_heat + p_margin +
+  combined <- p_heat + p_margin +
     patchwork::plot_layout(widths = c(5, 2)) &
     ggplot2::theme(legend.position = "none")
+
+  if (!is.null(title)) {
+    combined <- combined + patchwork::plot_annotation(title = title)
+  }
+  combined
 }

@@ -9,6 +9,7 @@ question_id: train3_0
 ```
 
 ```{r}
+#| echo: false
 recode_map <- tibble::tribble(
   ~raw, ~clean,
 
@@ -85,8 +86,8 @@ recode_map <- tibble::tribble(
 )
 
 data_coded <- process_text_codes_with_allocation(
-  df = df,
-  col_name = "training_programs",
+  filter = FILTER,
+  question_code = "train3_0",
   recode_map = recode_map,
   header = "Training programs",
   other = FALSE,

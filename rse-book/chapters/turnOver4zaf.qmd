@@ -8,23 +8,25 @@ question_id: turnOver4zaf
 #| file: ../R/_load_common.R
 ```
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 #| fig-width: 10
 #| fig-height: 6
 
-plot_heatmap(df, "software_type")
+plot_heatmap("South Africa", "turnOver4zaf", title = "South Africa")
 ```
 
 ```{r}
+#| echo: false
 recode_map <- tibble::tribble(
   ~raw, ~clean,
 )
 
 data_coded <- process_text_codes_with_allocation(
-  df = df,
-  col_name = "software_type",
+  filter = "South Africa",
+  question_code = "turnOver4zaf",
   recode_map = recode_map,
-  header = "Software Type",
+  header = "Software Type (South Africa)",
   other = TRUE,
   cache_id = "turnOver4zaf"
 )

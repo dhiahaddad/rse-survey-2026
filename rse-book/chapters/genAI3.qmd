@@ -8,14 +8,16 @@ question_id: genAI3
 #| file: ../R/_load_common.R
 ```
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 #| fig-width: 10
 #| fig-height: 6
 
-plot_heatmap(df, "ai_tool")
+plot_heatmap(FILTER, "genAI3")
 ```
 
 ```{r}
+#| echo: false
 recode_map <- tibble::tribble(
   ~raw, ~clean,
 
@@ -72,8 +74,8 @@ recode_map <- tibble::tribble(
 )
 
 data_coded <- process_text_codes_with_allocation(
-  df = df,
-  col_name = "ai_tool",
+  filter = FILTER,
+  question_code = "genAI3",
   recode_map = recode_map,
   header = "AI Tools",
   other = TRUE,

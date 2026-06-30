@@ -19,7 +19,10 @@ question_text <- cols |>
 ```
 
 ## At which conference(s)/workshop(s) have you presented your software work?
+
 ```{r}
+#| echo: false
+
 recode_map <- tibble::tribble(
   ~raw, ~clean,
 
@@ -126,12 +129,29 @@ recode_map <- tibble::tribble(
   "(?i)research area specific not software specific conferences|diverses conférences|gordon research conference",
   "Multiple or unspecified conferences"
 )
+```
 
+```{r}
+#| echo: false
 data_coded <- process_text_codes_with_allocation(
-  df = df,
-  col_name = "conferences",
+  filter = FILTER,
+  question_code = "conf2can_0",
   recode_map = recode_map,
-  header = "Conference",
+  header = "Conference (Nordics)",
+  other = FALSE,
+  cache_id = "conf2can_0"
+)
+
+data_coded$summary_table
+```
+
+```{r}
+#| echo: false
+data_coded <- process_text_codes_with_allocation(
+  filter = "Germany",
+  question_code = "conf2can_0",
+  recode_map = recode_map,
+  header = "Conference (Germany)",
   other = FALSE,
   cache_id = "conf2can_0"
 )

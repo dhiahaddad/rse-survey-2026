@@ -5,7 +5,7 @@ if (is.na(book_root) || !nzchar(book_root)) {
   } else if (file.exists("../_quarto.yml")) {
     ".."
   } else {
-    "."
+    "rse-book"
   }
 }
 source(file.path(book_root, "R/_common.R"))

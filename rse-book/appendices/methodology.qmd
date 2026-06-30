@@ -1,3 +1,132 @@
 # Data and methodology {#sec-appendix-methodology}
 
-TODO
+This appendix explains how to read the two kinds of output you will see in the
+question chapters and how those outputs are produced from the raw survey
+answers. It is meant to be read together with the rendered book.
+
+## What you are looking at
+
+Every chapter analyses **one survey question**. Two kinds of answers are handled
+differently:
+
++ **Pre-defined, multi-select options** (the respondent ticks one or more boxes)
+  are shown as a **selection heatmap**.
++ **Free-text answers** (the respondent types their own text, typically under
+  "other, please specify") are cleaned, grouped into categories, and shown as a
+  **summary table**.
+
+A single question can have both: a heatmap for the ticked options and a table
+for the typed-in "other" answers.
+
+::: {.callout-note}
+All figures and tables describe the **country or set of countries** selected in
+the configuration (`FILTER`). Unless stated otherwise in a chapter, the numbers
+are for that scope only, not the whole survey.
+:::
+
+## The selection heatmap
+
+### What it shows
+
+The heatmap visualises *who selected what* for a multi-select question. It has
+two panels side by side:
+
++ **Left panel (the heatmap):** a grid where every **column is one respondent**
+  and every **row is one answer option (category)**. A **dark blue** tile means
+  that respondent selected that option; a **white** tile means they did not.
++ **Right panel (the bar chart):** for each option, the **total number of
+  respondents** who selected it, with the count printed at the end of the bar.
+
+### How it is constructed
+
+1. Only the pre-defined selections are used (the typed-in "other" answers are
+   excluded from the heatmap).
+2. Each respondent-by-option combination is marked as selected (1) or not
+   selected (0), so every respondent is represented even if they selected
+   nothing for a given option.
+3. **Respondents (columns)** are ordered by how many options they selected, and
+   **options (rows)** are ordered by how often they were selected. This sorting
+   is what gives the plot its characteristic "staircase" shape.
+
+### How to read it
+
++ A **row that is mostly dark** is a popular option; this is confirmed by a long
+  bar on the right.
++ A **column that is mostly dark** is a respondent who selected many options;
+  columns are sorted so these accumulate toward one side.
++ The **shape of the filled area** tells you whether selections are concentrated
+  in a few options (a few dark rows) or spread out.
+
+## Free-text answers: from raw text to a tidy table
+
+Typed-in answers are inconsistent: the same idea appears with different
+spellings, capitalisation, abbreviations, and several answers are often put in
+one box. The summary table you see in a chapter is the result of normalising and
+grouping these raw responses.
+
+### Step 1: Normalisation (tokenisation)
+
+Each raw answer is:
+
+1. **Split** into separate entries wherever it contains a comma (so
+   "Python, R" becomes two entries).
+2. **Lowercased** and **stripped** of extra whitespace.
+3. **De-duplicated** (identical raw answers are collapsed) and emptied entries
+   are dropped.
+
+The result is a clean list of individual response entries ready to be
+categorised.
+
+### Step 2: Recoding into categories
+
+Each chapter defines a **recode map**: an ordered list of rules, where each rule
+has a pattern (a regular expression) and the category it should map to. Every
+response entry is compared against the rules and assigned to the matching
+category. Rules are applied **in order**, so earlier rules take precedence.
+
+Some rules instead mark responses to be **excluded** (for example blank,
+nonsensical, or "not applicable" answers). Excluded responses do not appear in
+the summary table.
+
+### Step 3: The summary table
+
+The cleaned, categorised entries are counted per category and presented as a
+"pretty" table with three columns:
+
++ **Response Category**: the category an answer was mapped to.
++ **Frequency (n)**: how many response entries fall into that category.
++ **Percentage (%)**: that category's share of all counted entries.
+
+The table title carries a suffix that tells you which part of the question it
+summarises:
+
++ **`[Others]`**: the typed-in "other, please specify" free text.
++ **`[Main]`**: the main pre-defined answers (used when those were also free
+  text rather than tick boxes).
+
+::: {.callout-tip}
+Because identical raw answers are de-duplicated and multi-answer boxes are split
+before counting, **`n` counts normalised response entries, not unique
+respondents.** Read the frequencies as the relative weight of each theme, not as
+a headcount of people.
+:::
+
+## Where to find the recoding tables
+
+To keep the grouping of free text into categories transparent and reproducible, 
+every chapter records exactly how each raw answer was handled, and these are 
+collected in the **Recoding** appendix (@sec-appendix-recoding).
+
+For each question, the allocation (codebook) table lists, one row per normalised
+raw answer:
+
++ **Raw response**: the normalised text as typed by a respondent.
++ **Assigned category**: the category it was mapped to (empty if excluded).
++ **Allocation type**: one of:
+    + **Unchanged**: the raw answer was already a clean category label.
+    + **Recoded**: the raw answer was mapped to a different category by a rule.
+    + **Excluded**: the answer was removed from the analysis.
++ **Frequency (n)**: how often that raw answer occurred.
+
+So if you see a category in a chapter's summary table and want to know which raw
+answers it contains, look up that question in @sec-appendix-recoding.

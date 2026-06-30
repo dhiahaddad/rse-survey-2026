@@ -8,9 +8,10 @@ question_id: turnOver3zaf
 #| file: ../R/_load_common.R
 ```
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 #| fig-width: 10
 #| fig-height: 6
 
-plot_heatmap(df, "challenges")
+plot_heatmap("South Africa", "turnOver3zaf", title = "South Africa")
 ```
