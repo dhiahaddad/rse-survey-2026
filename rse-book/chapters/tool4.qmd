@@ -1,0 +1,104 @@
+---
+title: "What programming languages do you use at work? Please select all that apply."
+question_id: tool4
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap(FILTER, "tool4can")
+```
+
+```{r}
+#| echo: false
+recode_map <- tibble::tribble(
+  ~raw, ~clean,
+
+  # Specific grouped or multi-variant tools
+  "(?i)wolfram\\s*language|wolfram\\s*/?\\s*mathematica|^wolfram\\b|^mathematica$", "Wolfram Language (Mathematica)",
+  "(?i)idl\\b|pv\\s*-?\\s*wave|pvwave", "IDL/PV-WAVE",
+  "(?i)xquery|\\bxql\\b", "XQuery/XQL",
+  "(?i)^xslt$", "XSLT",
+  "(?i)^sparql$", "SPARQL",
+  "(?i)^shacl$", "SHACL",
+  "(?i)^nextflow$", "Nextflow",
+  "(?i)^snakemake$", "Snakemake",
+  "(?i)knime\\s*(workflow|work?flow\\s*engine)?", "KNIME (workflow engine)",
+  "(?i)^lab\\s*view$|^labview$", "LabVIEW",
+  "(?i)\\bcuda\\b", "CUDA",
+  "(?i)\\bhip\\b", "HIP (AMD GPU)",
+  "(?i)^powershell$", "PowerShell",
+
+  # Bash / Shell family (map various phrasings)
+  "linux\\s*bash|bash\\s*shell(\\s*scripting)?|bash/shell (languages|scripts)|shell \\(bash\\)|shell\\s*script(ing|s)?|^bash$|^shell$",
+  "Bash/Shell",
+  ".*bash", "Bash/Shell",
+
+  # Build and config tools
+  "(?i)^cmake$", "CMake",
+  "(?i)^makefiles?$", "Makefiles",
+  "(?i)^m4$", "m4 (macro processor)",
+  "(?i)^hcl$", "HCL (HashiCorp Configuration Language)",
+  "(?i)^nix$", "Nix (language)",
+
+  # Web and UI frameworks/tech
+  "(?i)^angular$|frameworks\\s*angular\\s*y\\s*springboot", "Angular / Spring Boot",
+  "(?i)mern\\s*stack", "MERN stack",
+  "(?i)^html$", "HTML",
+  "(?i)^css$", "CSS",
+
+  # Data formats
+  "(?i)^json\\b", "JSON",
+
+  # Probabilistic programming / stats tools
+  "(?i)^stan$", "Stan",
+  "(?i)^jags$", "JAGS",
+
+  # Languages (misc)
+  "(?i)^ocaml$", "OCaml",
+  "(?i)^scheme$", "Scheme",
+  "(?i)^prolog$", "Prolog",
+  "(?i)^purescript$", "PureScript",
+  "(?i)^elm$", "Elm",
+  "(?i)^kotlin$", "Kotlin",
+  "(?i)^dart$", "Dart",
+  "(?i)^vhdl$", "VHDL",
+  "(?i)^cobol$", "COBOL",
+  "(?i)^latex$", "LaTeX",
+  "(?i)^matlab$", "MATLAB",
+
+  # Misc tools/languages
+  "(?i)^souffle$", "Soufflé (Datalog)",
+  "(?i)^links$", "Links (language)",
+  "(?i)^lablisp$", "LabLisp",
+
+  # Domain-specific, infra, or other mentions
+  "(?i)^ansible$", "Ansible",
+  "(?i)^ant$", "Apache Ant",
+
+  # Catch-alls for minor variants
+  "(?i)^dsls$", "DSLs (domain-specific languages)",
+  "(?i)^xql$", "XQuery/XQL",
+  "(?i)^hip$", "HIP (AMD GPU)"
+)
+
+data_coded <- process_text_codes_with_allocation(
+  filter = FILTER,
+  question_code = "tool4can",
+  recode_map = recode_map,
+  header = "Software Languages",
+  other = TRUE,
+  cache_id = "tool4"
+)
+
+data_coded$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.

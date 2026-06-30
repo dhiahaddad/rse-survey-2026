@@ -1,0 +1,20 @@
+# Recoding {#sec-appendix-recoding}
+
+This appendix lists the raw-to-category allocation tables for free-text questions. Each row links one normalized raw response to its assigned category in the corresponding chapter summary table.
+
+Allocation tables are generated when question chapters are rendered and cached for display here.
+
+<!-- quarto render appendices/recoding.qmd --no-cache -->
+
+```{r}
+#| include: false
+#| message: false
+#| warning: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+#| results: asis
+render_allocation_appendix()
+```

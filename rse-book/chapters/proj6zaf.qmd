@@ -1,0 +1,37 @@
+---
+title: "Which collaboration tools do you use for software development?"
+question_id: proj6zaf
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap(FILTER, "proj6zaf")
+```
+
+```{r}
+#| echo: false
+recode_map <- tibble::tribble(
+  ~raw, ~clean,
+)
+
+cleaned_data <- process_text_codes_with_allocation(
+  filter = FILTER,
+  question_code = "proj6zaf",
+  recode_map = recode_map, 
+  header = "Collaboration Tools",
+  other = TRUE,
+  cache_id = "proj6zaf"
+)
+
+cleaned_data$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.

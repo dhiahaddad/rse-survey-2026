@@ -1,0 +1,37 @@
+---
+title: "How could Nordic-RSE or a potential Nordic research software institute foster community engagement and knowledge transfer?"
+question_id: org3nord
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap(FILTER, "org3nord")
+```
+
+```{r}
+#| echo: false
+recode_map <- tibble::tribble(
+  ~raw, ~clean,
+)
+
+cleaned_data <- process_text_codes_with_allocation(
+  filter = FILTER,
+  question_code = "org3nord",
+  recode_map = recode_map, 
+  header = "Nordic RSE - Community",
+  other = TRUE,
+  cache_id = "org3nord"
+)
+
+cleaned_data$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.

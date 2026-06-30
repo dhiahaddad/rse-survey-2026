@@ -1,0 +1,222 @@
+---
+title: "What three skills would you like to acquire or improve to help your work as a Research Software Engineer / Research Software Developer? The skills can be technical and non-technical."
+question_id: skill2
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+recode_map <- tibble::tribble(
+  ~raw, ~clean,
+
+  # AI-assisted software development (tools/agents to code)
+  "(?i)\\b(ai[- ]assisted|ai[- ]enhanced|llm[- ]assisted|coding agents?|agent(ic)? (ai|coding|loops)|ai tools?|gen( )?ai|mcp|model context protocol|prompt(ing)? ai|use of ai( tools)?|usage of ai|ai usage|using ai\\b|using llms? and agents|integrat(e|ion) of ai|harness(ing)? ai|leverage(ing)? ai|proper use of llm|local llm|via llama\\.cpp|coding with ai|ai agent(s)?|ai assistants|effective ai use|utili[sz]ation de l.*intelligence artificielle|utiliation de l'?ia|c[oó]mo usar .* ia|utilizing ai agents|ai in rse proficiency|ai‑enhanced software engineering|llm agent (management|orchestration)|ki als hilfe)|coding in cooperation with coding assistants",
+  "AI-assisted development and agents",
+  "(?i)ai development|\\bai\\b|vibe coding|but with human oversight.*", "AI-assisted development and agents",
+
+  # Core AI/ML learning (models, training, frameworks)
+  "(?i)\\b(ml/ai|ai ?& ?ml|ai and ml|ai/ml|machine learning(?!.*assist)|deep learning|neural (nets?|networks)|statistical learning|transformer|diffusion|pytorch|jax|reinforcement learning|how to train large neural networks|ml algorithms?|ml/ops|llm(?!.*assist)|llm and ml development|language technology|nlp\\b)\\b",
+  "AI/ML theory and model development",
+  "(?i)\\bml\\b|algorithm assessment|e\\.g\\. anomaly detection", "AI/ML theory and model development",
+
+  # HPC, parallel and GPU computing
+  "(?i)\\b(hpc|high[- ]performance( and parallel)? computing|parallel( programming|i[sz]ation| processing| management)?|cuda|openacc|openmp|mpi|slurm|gpu( computing| programming| offload| processing| support|-based| acceleration)?|tpu|bare[- ]metal gpu|multi gpu|multi cpu|vectori[sz]ation|ray\\b|dask\\b|numba\\b|cupy\\b|driver level understanding of hpc|cluster management|pipeline with hpc|learning .*accelerators such as gpus/tpus|using gpus)\\b",
+  "HPC, parallel and GPU computing",
+  "(?i)paralellization \\(in-depth\\)|parallized hardware", "HPC, parallel and GPU computing",
+
+  # Programming languages
+  "(?i)\\brust\\b|rust (fluency|proficiency|programming|development|integration with python|hpc with rust|embedded with rust)",
+  "Programming language: Rust",
+
+  "(?i)(\\bc\\+\\+|advanced c\\+\\+|c\\+\\+\\s*23|always improving c\\+\\+ skills|improve c\\+\\+|c\\+\\+ language|c\\+\\+ programming|deeper understanding of julia and c\\+\\+)|\\badvanced c programming\\b|\\blow[- ]level programming in c/c\\+\\+\\b",
+  "Programming language: C/C++",
+
+  "(?i)\\bpython\\b|advanced python|better at python|improve on python|python best practices|python ecosystem|fastapi|pandas|geopandas|django\\b|mypyc\\b",
+  "Programming language: Python",
+  "(?i)generating code using symbolic tools \\(sympy\\)", "Programming language: Python",
+
+  "(?i)\\bjulia\\b|documenter\\.jl",
+  "Programming language: Julia",
+
+  "(?i)\\bR\\b(?!SE)|\\bshiny\\b|visualisation with r|cran compliance|programming shiny",
+  "Programming language: R",
+
+  "(?i)\\b(go|golang)\\b|learning go / web assembly|web ?assembly|wasm\\b|learning rust / zig|zig\\b|\\bassembly\\b",
+  "Programming language: Go/Zig/WASM/Assembly",
+
+  "(?i)javascript|modern javascript|advanced javascript|typescript|angular\\b|react\\b|java\\b|dart\\b",
+  "Programming language: JS/TS/Java",
+
+  # Data storage and databases
+  "(?i)\\bsql\\b|database(s)?|postgres|mongodb|proper sql course|using a \"real\" database|base de datos|base de donn(?:é|e)es|knowledge of databases|i would like to understand databases better|xquery\\b",
+  "Data storage and databases",
+
+  # DevOps, CI/CD and pipelines
+  "(?i)\\b(devops|ci/?cd|\\bci\\b|\\bcd\\b|continuous (integration|deployment)|pipelines?|github actions|gitlab( ci)?/ci/cd|helm|ansible|orchestration\\b|the ops part of devops|advanced ci/cd|gitlab-ci|caching effectively|deployment(?!.*/)|software deployment|operations\\b|webhooks?)\\b",
+  "DevOps, CI/CD and pipelines",
+  "(?i)reliability engineering", "DevOps, CI/CD and pipelines",
+
+  # Cloud, containers and Kubernetes
+  "(?i)\\b(container(isation|ization|s?)|docker|kubernetes|k8s|cloud( computing| infrastructure| native|/?high performance computing)?|aws|amazon web services|azure|gcp|okd\\b|scaling cloud|cloud/distributed systems|cloud-related skills|leveraging cloud resources|resource allocation on cloud|arquitectura serverless|contenedores docker|distributed (computing|systems)|compute resource management)\\b",
+  "Cloud, containers and Kubernetes",
+
+  # Version control (Git) and collaboration
+  "(?i)\\b(git\\b|version control|version management|branches|pre-commit|github(?! actions)|gitlab\\b|use of git|better routine in version control|uso github)\\b",
+  "Version control (Git) and collaboration",
+  "(?i)collaborating", "Version control (Git) and collaboration",
+
+  # Software architecture and system design
+  "(?i)^(architecture)$|\\b(software (architecture|architektur|achitecture|achitecture patterns)|systems? (architecture|design)|system-engineering|system design|architecture (design|documentation|and road mapping|road ?mapping|& road mapping)|enterprise architecture|deepen .* software architecture|planen der sw architektur|architektur|aquitectura de software|softwarearchitekturgestaltung|noch mehr über softwarearchitektur lernen)\\b",
+  "Software architecture and system design",
+  "(?i)code base structures|scalability\\)|socio-technical systems thinking|learn more about structuring|formale softwarearchitektur für objektorientierte sprachen", "Software architecture and system design",
+
+  # Requirements engineering and analysis
+  "(?i)\\b(requirements( engineering| analysis| elicitation)?|analisis de requerimientos|requirement engineering( methology)?)\\b",
+  "Requirements engineering and analysis",
+
+  # Software design principles and patterns
+  "(?i)\\b(software design( and architecture)?|software design process|software design patterns|object[- ]oriented (programming|scientific software design)|design patterns( for .*|)|codebase design|clean code|clean coding|good practices? in software development|best practices(?!.*testing)|proper design instead of patching holes|aprender .* diseñar código a nivel avanzado|bonnes pratiques de conception|reusable patterns)\\b",
+  "Software design principles and patterns",
+  "(?i)choosing the right pattern the first time around|matching code complexity .*|modular(ity)?|naming and structuring files and directories", "Software design principles and patterns",
+
+  # Mathematics / Statistics / Computer Science (Foundations)
+  "(?i)\\b(mathematics|linear algebra|h[öo]here mathematik|fortgeschrittene algebra und analysis|foundational maths? and computer science|general computer science knowledge|more basics of computer science|formal algorithmic and data structure education|data structure(s)? and algorithms?|statistics\\b|statistical theory|foundational programming|theory)\\b|data analysis|data science",
+  "Mathematics/Statistics/Computer Science",
+
+  # Software development practices and SDLC
+  "(?i)^(software development)$|^(coding)$|\\b(professional software development|software development lifecycle|modern collaborative software practices|nuevas metodolog(i|í)as de desarrollo|experience with professional code production|using development methodologies in academic environment|software development - in the sense of professional technique|up to industry standards|software engineering skills|software development tools|software development with a team|software development/management models|core coding|coding expert|general coding skills|just improve my coding knowledge|functional programming|asynchronous programming|learning new programming languages|second programming language|better programming)\\b",
+  "Software development practices and SDLC",
+  "(?i)better coding knowledge\\.|but more techniques should help|e\\.g\\. in a software company|fast prototyping|methods|technical coding skills|better understanding of how to do things.*|bonnes pratiques de maintenance|me gustaría mejorar mi conocimiento sobre.*", "Software development practices and SDLC",
+
+  # Software testing, QA and verification
+  "(?i)\\b(test(ing)?(?!.*data)|unit tests?|tdd|test[- ]driven|mock(ing)? frameworks?|qa|quality control|formal testing|verification|validation|ci.*testing|automated testing|automatic testing|test harness(es)?|extended software testing|testing strategies|gute tests|testing tools and methodologies|understand how to really write tests|systematischeres testen|software quality assessment|separating e?vironments and running tests with big data|automatisiertes testen|formale begriffe des softwaretestings)\\b",
+  "Software testing, QA and verification",
+  "(?i)debuging|formale methoden", "Software testing, QA and verification",
+
+  # Software Documentation
+  "(?i)\\b(documentation|documenting\\b|docstrings|readme|documentation generation|documentation maintenance|documentation management|documentation writing|developing code documentation|effektive dokumentation|better documentation skills|more time for writing proper documentation|research device documentation|latex|tikz)\\b",
+  "Software Documentation",
+  "(?i)developing content for longer courses versus one-shot tutorials|generación de contenido|rse vocabulary|organising courses .*", "Software Documentation",
+
+  # Performance engineering and optimisation
+  "(?i)\\b(profil(e|ing)|optim(iz|is)e|optimization|optimierung|performance( engineering| testing)?|benchmark(ing)?|vectori[sz]ation|code optimisation|runtime optimization|ptx/gfx analysis|deeper knowledge of performance optimizations|profiling code both cpu and gpu|producing an efficient code|scaling up applications to be production ready)\\b",
+  "Performance engineering and optimisation",
+  "(?i)efficient\\b", "Performance engineering and optimisation",
+
+  # Security and secure engineering
+  "(?i)\\b(security|cyber(security)?|network security|secure coding|pentest|airworthiness certification|höheres maß an sicherheit|application security|web development security principles|security skills for mobile applications)\\b",
+  "Security and secure engineering",
+
+  # Web development, UI and UX
+  "(?i)\\b(web( dev| development| framework| app| backend| frontend|[- ]based application)|front[- ]?end development|back[- ]?end development|backend development|full[- ]stack development|ui/?ux|ux/?ui|user (experience|interface design|profiling|management and interaction)|interface(s)? graphiques|web ui|css|working with user interface toolkits|ui design|ux design|\\(web\\) ui creation and design|ux( /|/)? ?ui design|ux/?ui research|\\bmobile (app|application)s?\\b|ios\\b|android\\b|gui development|interface design)\\b",
+  "Web development, UI and UX",
+  "(?i)ux research|.*creation and design|full stack management|localization", "Web development, UI and UX",
+
+  # Data engineering/management and FAIR
+  "(?i)\\b(data (engineering|management|storage|sharing))\\b",
+  "Data engineering/management and FAIR",
+  "(?i)analytics|data visualization|interoperability|estadistica|systems engineering|data fair and metadata standards", "Data engineering/management and FAIR",
+
+  # Project/product/time management
+  "(?i)\\b(project (management|planning|manangement|managing|organisation|leadership|publishing|resilience)|product management|portfolio management|roadmaps?|milestones?|technical project management|project/time management|project management/ roadmaps/ milestone setting|research (software )?project management|softwareprojektmanagement|projektmanagement|gesti[oó]n de proyectos|gestion de projets|methodology for agile multiproject management|scrum/agile|agile management|agile methoden|risk management|issue triage and management|handling large-scale projects|managing large software projects|managing many projects|more formal ways to assess the resources needed|better planning .* required for a project|ressourcenmanagement|planning/scoping research software projects)\\b",
+  "Project/product/time management",
+  "(?i)traveling skills|time & workload estimation|learn how to properly organize of bigger projects|change management|accounting|costs of work.*|estimation\\b|planning$|planning/organisation|\\bproject$|thinking about the bigger picture / next step in the project", "Project/product/time management",
+
+  # People leadership and stakeholder management
+  "(?i)^(management)$|\\b(lead(ership)?|team (lead(ing|ership)?|management)|manag(e|ing) a team|stakeholder (management|communication|product ownership)|supervision of junior rses|mentoring(?!.*tools)|mentoring junior developers|mentoring more junior colleagues|rse leadership management|coordinating teams of rses|group management|people management|laterales f[üu]hren|leader skills|management skills\\b|management/delegation|delegation\\b|how to deal with people who aren't team players|how delegate tasks\\)?)\\b",
+  "People leadership and stakeholder management",
+  "(?i)coaching|better / more efficient communicaton skills|better management of people's expectations|how to build an internal rse organization\\.|how to convince management to invest in paying down technical debt\\.|relationship management|running meetings well|staff management\\)|strategy\\b|metodolog[ií]as para coordinar equipos de trabajo .*|teamleading|gaining more experience with leading a group", "People leadership and stakeholder management",
+
+  # Communication, teaching and writing
+  "(?i)\\b(communication|communicat(e|ing)|presentation|presenting|teaching|pedagogy|didactic|story telling|scientific communication|technical writing|professional writing|report writing|writing (skills|papers|software papers)|academic writing|research writing|presenting/teaching|create more effective learning content|being more effective with outreach|outreach|talking about what i do|talking with non technical pis|better academic skills in regards to publishing papers|mejorar en la comunicaci[oó]n y planificaci[oó]n|kommunikationsf[aä]higkeiten|training graduate or undergraduate students)\\b",
+  "Communication, teaching and writing",
+  "(?i)knowledge transfer of software paradigms|organising courses .*|how to teach effectively\\?|to be a better teacher|long-form writing|asking the right questions", "Communication, teaching and writing",
+
+  # Grants, funding, consultancy and marketing
+  "(?i)\\b(grant( |-)?(writing|proposal|application|applications?)|fund(ing|raise|raising)|nsf\\b|nasa\\b|broadening funding base|consult(ing|ancy)|sales( & marketing)?|marketing|promote my (projects|work)|acquiring new projects|grant/application writing|publicizing and promoting my software|find a longterm contract|how to find people who value my skills and want to offer me a job|gesch[aä]ftst[üu]chtigkeit|gr[üu]ndermentalit[aä]t|business management|contract negotiations|negotiation|negotiating|writing successful grant proposals)\\b",
+  "Grants, funding, consultancy and marketing",
+  "(?i)sell yourself better|how to sell infrastructure work|difusi[oó]n de productos|reaching / engaging users|improving institutional-level appreciation of rse work", "Grants, funding, consultancy and marketing",
+
+  # Workflow management and automation
+  "(?i)\\b(workflow(s)?( management)?|snakemake\\b|automation\\b|automated\\b|dirk\\b|jube\\b|streamlined workflow development|efficiently managing research software projects|formal use of project managment software|learn to use a workflow management tool|efficiently using the gui|task management)\\b",
+  "Workflow management and automation",
+
+  # Packaging and software distribution
+  "(?i)\\b(packag(e|ing)|software distribu(tion|ion)|cross platform packaging|guides for packaging python with conda|decisiones a la hora de crear paquetes|using virtual environments|proper db management)\\b",
+  "Packaging and software distribution",
+
+  # Research software sustainability and open source
+  "(?i)\\b(sustainab(le|ility)|maintainab(le|ility)|software maintenance|research software maintenance|reproducib(le|ility)|open-?source|licen[cs]es?|ip\\b|intellectual property|software carpentry|software sustainability|fair expertise|making software fair and reproducible|reproducibilidad y sostenibilidad del software|licenciamiento y atribuci[oó]n|research software management|research software dissemination)\\b",
+  "Research software sustainability and open source",
+  "(?i)open source hardware", "Research software sustainability and open source",
+
+  # Systems, OS, embedded and hardware/FPGA
+  "(?i)\\b(linux\\b|system administration|kernel|driver|low[- ]level (linux|cpu|programming|computing)|lower[- ]level programming|operating systems|os details|embedded\\b|fpga\\b|vhdl\\b|verilog\\b|computer architecture|hardware accelerated computing|high-level synthesis for fpgas|formal verification for fpgas|systems-level development|server configuration|how to set up a server|infrastructure/cluster development|ros\\b|more on the configuration of local servers/clsuters|more on the configuration of local servers/clusters)\\b",
+  "Systems, OS, embedded and hardware/FPGA",
+  "(?i)deeper knowledge of underlying infrastructure|reverse engineering von proprietären dateiformaten|more hardware knowledge|better understanding of hardware", "Systems, OS, embedded and hardware/FPGA",
+
+  # Networking, observability and monitoring (technical)
+  "(?i)\\b(network (engineering|security)|observability|monitoring|metrics|grafana)\\b",
+  "Networking, observability and monitoring",
+
+  # Collaboration and community building
+  "(?i)\\b(collaboration|collaborative (coding|software development)|community( building| management| organizing)?|communities of practice|networking(?! (engineering|security))\\b|seeking collaborations|recruiting contributors|team- und communitybuilding|kollaborations-modelle|partner\\(s\\) for code reviews|most of my projects are solo and i find combining efforts|überblick .* fachcommunity|colaboraci[oó]n efectiva|closer contact to scientists and scientific methods|participatory (co-production) approaches)\\b",
+  "Collaboration and community building",
+  "(?i)accessibility and inclusivity|code review|hackathon management|building code all alone|especially within collaborations\\)|navigating the politics of science collaborations|since all the positions i curently see are hiring .*", 
+  "Collaboration and community building",
+
+  # Refactoring and code quality
+  "(?i)\\b(refactor(ing)?|improve ability to refactor|legacy code|code sustainability|code future-proofing|readability of code|clean code in long term project|proper software engineering|better understanding of how to do things \"properly\"|debug(ging)?)\\b",
+  "Refactoring and code quality",
+  "(?i)and navigable code\\.", "Refactoring and code quality",
+
+  # Personal stress/time/task management
+  "(?i)\\b(soft skills|confidence|self-accountability|saying no|empathy|social( skills|ising)|working with difficult personalities|better (organisation|organization) and time prioritisation|time management|gtd\\b|organise myself better|better estimate of how long work will take|better prioritisation skills|stress management|having more time|know how to free time slots|remembering people's name|thinking outside the box)\\b",
+  "Personal stress/time/task management",
+  "(?i)expectation management|managing my time across many projects|more time for practice|creative problem solving", "Personal stress/time/task management",
+
+  # Domain-specific scientific knowledge
+  "(?i)\\b(physics|chemistry|structural biology|atmospheric science|computational biology|genomic data|differential equations|numerical computing|process modeling and mining|signal processing|simulations?|cosmo( transitions)?|synchrotron|airworthiness|simulaton based inference|causality analysis|image and video processing|computational minimization techniques)\\b",
+  "Domain-specific scientific knowledge",
+  "(?i)research skills|research skills required|\\bresearch\\b|binary fission|better domain knowledge on long-term projects", "Domain-specific scientific knowledge",
+
+  # Developer tooling
+  "(?i)\\b(ides?|language server protocol|github prof+ecienc(y|e))\\b",
+  "Developer tooling",
+  "(?i)analysis tooling\\+\\+.*|new tools", "Developer tooling",
+
+  # From notebooks to apps and productization
+  "(?i)\\b(how to go from \"code in jupyter notebook\" to an \"interactiave app\"|browser-based visualisations|python packages for webapp backend development|despliegue de modelos .* entornos web)\\b",
+  "From notebooks to apps and productization",
+
+  # Legal knowledge
+  "(?i)law|legal aspects|legal knowledge|cross border dta", "Legal Knowledge",
+
+  # New programming language (generic catch-all; must come after specific language rules)
+  "(?i)specific languages|new programming language|learn object orientation\\?|expanding to other languages|better matlab|additional language with object oriented environment|\\bstan\\b|structured way of improving my coding knowledge|3d game engine programming|differentiable programming|improve knowledge of my main programming language",
+  "New programming language (generic)",
+
+  # Map to NA / None/Unsure
+  "i dont know|idk|none|telepathy|adjust chair for comfortable sitting|and the primary maintainer treats it like a personal fief and resists basic things like branch protection for main|to gain experience|participatory (co-production) approaches to rs development|trainings|more infra mainly|i am occasional developer\\.", NA_character_,
+  "(?i)^(etc\\.?\\)?|e\\.g\\.?)$", NA_character_,
+  "(?i)^programming$", NA_character_,
+  "(?i)^\\.\\.\\.\\)?$", NA_character_
+)
+
+skills_coded <- process_text_codes_with_allocation(
+  filter = FILTER,
+  question_code = "skill2",
+  recode_map = recode_map,
+  header = "Skills",
+  other = FALSE,
+  cache_id = "skill2"
+)
+
+skills_coded$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.

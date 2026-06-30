@@ -1,0 +1,37 @@
+---
+title: "With Nordic-RSE we have an association dedicated to the community of Research Software Engineers in the Nordics. What tasks do you think should be undertaken by Nordic-RSE or a future Nordic institute for research software?"
+question_id: org4nord
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap(FILTER, "org4nord")
+```
+
+```{r}
+#| echo: false
+recode_map <- tibble::tribble(
+  ~raw, ~clean,
+)
+
+cleaned_data <- process_text_codes_with_allocation(
+  filter = FILTER,
+  question_code = "org4nord",
+  recode_map = recode_map, 
+  header = "Nordic RSE - Tasks",
+  other = TRUE,
+  cache_id = "org4nord"
+)
+
+cleaned_data$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.
