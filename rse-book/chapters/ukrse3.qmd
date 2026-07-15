@@ -10,63 +10,51 @@ question_id: ukrse3
 
 ```{r}
 #| echo: false
-#| fig-width: 10
-#| fig-height: 6
+question_code <- "ukrse3"
 
-plot_heatmap(FILTER, "ukrse3")
+nordic_countries <- c(
+  "Finland", "Norway", "Sweden", "Denmark", "Iceland", "Estonia"
+)
+country_groups <- list(
+  Nordics = nordic_countries,
+  Germany = "Germany",
+  Netherlands = "Netherlands"
+)
+plot_countries <- countries_from_groups(country_groups)
+```
+
+## Nordics
+
+### Descriptive Statistics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  FILTER,
+  question_code,
+  header = "Skill development (Nordics)"
+)
 ```
 
 ```{r}
 #| echo: false
-recode_map <- tibble::tribble(
-  ~raw, ~clean,
+#| fig-width: 10
+#| fig-height: 6
 
-  # AI-assisted learning
-  "(?i)with ai help|prompt for code", "AI-assisted learning",
+plot_heatmap(FILTER, question_code, title = "Nordics")
+```
 
-  # Academic research experience (PhD/postdoc)
-  "(?i)during my (own )?phd|postdoc[s]?|while working on my phd", "Academic research (PhD/Postdoc)",
+### Free-text responses
 
-  # Apprenticeships and industrial placements
-  "(?i)apprenticeship|industrial placement", "Apprenticeship/industrial placement",
-
-  # Industry and prior employment experience
-  "(?i)industry\\b|private sector|previous (employment|industry experience)|learned on[- ]the[- ]job.*industry|previous work as consultant", 
-  "Industry/prior employment experience",
-
-  # Employer-provided or vocational training programs
-  "(?i)courses? (offered|organised) by (my )?employer|attending training courses while previously employed|qualifikationsma(ß|ss)nahme.*bundesagentur",
-  "Employer-provided/vocational training",
-
-  # Institutional/national HPC centres and RC staff training
-  "(?i)courses offered by csc in finland|university high[- ]performance computing center staff",
-  "Institutional/national HPC/RC training",
-
-  # Formal education (degrees, school)
-  "(?i)studium|habe informatik studiert|other school",
-  "Formal education (degrees/school)",
-
-  # Self-directed online resources
-  "(?i)you ?tube|online articles|free talks|books|stack overflow", 
-  "Self-directed online learning",
-
-  # Peer learning and mentorship
-  "(?i)peers|co[- ]?working with a software engineer", 
-  "Peer learning/mentorship",
-
-  # Open source contributions
-  "(?i)working on open source projects", 
-  "Open source contributions",
-
-  # Clarifications/other
-  "(?i)i'm answering here|rather than software development generally|not in my current role in academia", 
-  "Other/clarification"
-)
+```{r}
+#| echo: false
+source(file.path(book_root, "R/recodes/ukrse3_recode.R"))
 
 cleaned_data <- process_text_codes_with_allocation(
   filter = FILTER,
   question_code = "ukrse3",
-  recode_map = recode_map, 
+  recode_map = ukrse3_recode_map, 
   header = "Skill Development",
   other = TRUE,
   cache_id = "ukrse3"
@@ -76,3 +64,57 @@ cleaned_data$summary_table
 ```
 
 The raw-to-category allocation table for this question is in @sec-appendix-recoding.
+
+### Statistics by age group
+
+```{r}
+#| echo: false
+
+print_heatmap_category_age_wide_table(
+  FILTER,
+  question_code,
+  header = "Skill development by age group (Nordics)"
+)
+```
+
+
+## Within Nordics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  nordic_countries,
+  question_code,
+  header = "Skill development selections within Nordic countries",
+  group_by = nordic_countries
+)
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap_category_stacked_bars(
+  nordic_countries,
+  question_code,
+  countries = nordic_countries,
+  title = "Skill development selections within Nordic countries"
+)
+```
+
+## Between Countries
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap_category_stacked_bars(
+  plot_countries,
+  question_code,
+  country_groups = country_groups,
+  title = "Skill development selections by country group"
+)
+```

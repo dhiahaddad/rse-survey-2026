@@ -1,0 +1,35 @@
+---
+title: "What is your official job title?"
+question_id: currentEmp5_0
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+## Nordics
+
+### Coded job titles
+
+```{r}
+#| echo: false
+
+source(file.path(book_root, "R/recodes/currentEmp5_0_recode.R"))
+```
+
+```{r}
+#| echo: false
+
+data_coded <- process_current_emp5_with_allocation(
+  filter = FILTER,
+  recode_map = currentEmp5_recode_map,
+  header = "Official job title (Nordics)",
+  other = FALSE,
+  cache_id = "currentEmp5_0"
+)
+
+data_coded$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.

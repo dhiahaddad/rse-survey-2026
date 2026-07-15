@@ -10,42 +10,51 @@ question_id: currentWork2qcl
 
 ```{r}
 #| echo: false
-#| fig-width: 10
-#| fig-height: 6
+question_code <- "currentWork2qcl"
 
-plot_heatmap(FILTER, "currentWork2qcl")
+nordic_countries <- c(
+  "Finland", "Norway", "Sweden", "Denmark", "Iceland", "Estonia"
+)
+country_groups <- list(
+  Nordics = nordic_countries,
+  Germany = "Germany",
+  Netherlands = "Netherlands"
+)
+plot_countries <- countries_from_groups(country_groups)
+```
+
+## Nordics
+
+### Descriptive Statistics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  FILTER,
+  question_code,
+  header = "User group (Nordics)"
+)
 ```
 
 ```{r}
 #| echo: false
-recode_map <- tibble::tribble(
-  ~raw, ~clean,
+#| fig-width: 10
+#| fig-height: 6
 
-  # External institutional partners (national or cross-institution)
-  "(?i)instituci(ó|o)nes|\\binstitution(s)?\\b", "External institutional partners",
+plot_heatmap(FILTER, question_code, title = "Nordics")
+```
 
-  # Project-based collaborators (incl. international projects)
-  "(?i)project[- ]based", "Project-based collaborators",
+### Free-text responses
 
-  # Within institution (department or university)
-  "(?i)within the university|\\bdepartment\\b", "Within institution (dept/university)",
-
-  # Field-specific researchers
-  "(?i)\\bfield of research\\b|\\bmy field\\b|researchers in our field", "Field-specific researchers",
-
-  # Business/internal automation use
-  "(?i)business automation", "Business process automation",
-
-  # Global or international researchers
-  "(?i)global(ly)?\\)?|worldwide|international(ly)?|anywhere|no matter which country|forschende international|researchers around the world|researchers worldwide|global research area",
-  "Global/international researchers",
-  "(?i)in principle anyone|anyone who wants to use|regardless of affiliation|international projects|maintained public services", "Global/international researchers"
-)
+```{r}
+#| echo: false
+source(file.path(book_root, "R/recodes/currentWork2qcl_recode.R"))
 
 data_coded <- process_text_codes_with_allocation(
   filter = FILTER,
   question_code = "currentWork2qcl",
-  recode_map = recode_map,
+  recode_map = currentWork2qcl_recode_map,
   header = "User Group",
   other = TRUE,
   cache_id = "currentWork2qcl"
@@ -55,3 +64,57 @@ data_coded$summary_table
 ```
 
 The raw-to-category allocation table for this question is in @sec-appendix-recoding.
+
+### Statistics by age group
+
+```{r}
+#| echo: false
+
+print_heatmap_category_age_wide_table(
+  FILTER,
+  question_code,
+  header = "User group by age group (Nordics)"
+)
+```
+
+
+## Within Nordics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  nordic_countries,
+  question_code,
+  header = "User group selections within Nordic countries",
+  group_by = nordic_countries
+)
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap_category_stacked_bars(
+  nordic_countries,
+  question_code,
+  countries = nordic_countries,
+  title = "User group selections within Nordic countries"
+)
+```
+
+## Between Countries
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap_category_stacked_bars(
+  plot_countries,
+  question_code,
+  country_groups = country_groups,
+  title = "User group selections by country group"
+)
+```

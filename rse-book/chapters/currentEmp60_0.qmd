@@ -1,0 +1,36 @@
+---
+title: "Please enter the job title you use."
+question_id: currentEmp60_0
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+## Nordics
+
+### Coded job titles
+
+```{r}
+#| echo: false
+
+source(file.path(book_root, "R/recodes/currentEmp60_0_recode.R"))
+```
+
+```{r}
+#| echo: false
+
+data_coded <- process_text_codes_with_allocation(
+  filter = FILTER,
+  question_code = "currentEmp60_0",
+  recode_map = currentEmp60_0_recode_map,
+  header = "Job title used (Nordics)",
+  other = FALSE,
+  cache_id = "currentEmp60_0"
+)
+
+data_coded$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.

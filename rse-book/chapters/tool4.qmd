@@ -10,89 +10,51 @@ question_id: tool4
 
 ```{r}
 #| echo: false
-#| fig-width: 10
-#| fig-height: 6
+question_code <- "tool4can"
 
-plot_heatmap(FILTER, "tool4can")
+nordic_countries <- c(
+  "Finland", "Norway", "Sweden", "Denmark", "Iceland", "Estonia"
+)
+country_groups <- list(
+  Nordics = nordic_countries,
+  Germany = "Germany",
+  Netherlands = "Netherlands"
+)
+plot_countries <- countries_from_groups(country_groups)
+```
+
+## Nordics
+
+### Descriptive Statistics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  FILTER,
+  question_code,
+  header = "Programming language (Nordics)"
+)
 ```
 
 ```{r}
 #| echo: false
-recode_map <- tibble::tribble(
-  ~raw, ~clean,
+#| fig-width: 10
+#| fig-height: 6
 
-  # Specific grouped or multi-variant tools
-  "(?i)wolfram\\s*language|wolfram\\s*/?\\s*mathematica|^wolfram\\b|^mathematica$", "Wolfram Language (Mathematica)",
-  "(?i)idl\\b|pv\\s*-?\\s*wave|pvwave", "IDL/PV-WAVE",
-  "(?i)xquery|\\bxql\\b", "XQuery/XQL",
-  "(?i)^xslt$", "XSLT",
-  "(?i)^sparql$", "SPARQL",
-  "(?i)^shacl$", "SHACL",
-  "(?i)^nextflow$", "Nextflow",
-  "(?i)^snakemake$", "Snakemake",
-  "(?i)knime\\s*(workflow|work?flow\\s*engine)?", "KNIME (workflow engine)",
-  "(?i)^lab\\s*view$|^labview$", "LabVIEW",
-  "(?i)\\bcuda\\b", "CUDA",
-  "(?i)\\bhip\\b", "HIP (AMD GPU)",
-  "(?i)^powershell$", "PowerShell",
+plot_heatmap(FILTER, question_code, title = "Nordics")
+```
 
-  # Bash / Shell family (map various phrasings)
-  "linux\\s*bash|bash\\s*shell(\\s*scripting)?|bash/shell (languages|scripts)|shell \\(bash\\)|shell\\s*script(ing|s)?|^bash$|^shell$",
-  "Bash/Shell",
-  ".*bash", "Bash/Shell",
+### Free-text responses
 
-  # Build and config tools
-  "(?i)^cmake$", "CMake",
-  "(?i)^makefiles?$", "Makefiles",
-  "(?i)^m4$", "m4 (macro processor)",
-  "(?i)^hcl$", "HCL (HashiCorp Configuration Language)",
-  "(?i)^nix$", "Nix (language)",
-
-  # Web and UI frameworks/tech
-  "(?i)^angular$|frameworks\\s*angular\\s*y\\s*springboot", "Angular / Spring Boot",
-  "(?i)mern\\s*stack", "MERN stack",
-  "(?i)^html$", "HTML",
-  "(?i)^css$", "CSS",
-
-  # Data formats
-  "(?i)^json\\b", "JSON",
-
-  # Probabilistic programming / stats tools
-  "(?i)^stan$", "Stan",
-  "(?i)^jags$", "JAGS",
-
-  # Languages (misc)
-  "(?i)^ocaml$", "OCaml",
-  "(?i)^scheme$", "Scheme",
-  "(?i)^prolog$", "Prolog",
-  "(?i)^purescript$", "PureScript",
-  "(?i)^elm$", "Elm",
-  "(?i)^kotlin$", "Kotlin",
-  "(?i)^dart$", "Dart",
-  "(?i)^vhdl$", "VHDL",
-  "(?i)^cobol$", "COBOL",
-  "(?i)^latex$", "LaTeX",
-  "(?i)^matlab$", "MATLAB",
-
-  # Misc tools/languages
-  "(?i)^souffle$", "Soufflé (Datalog)",
-  "(?i)^links$", "Links (language)",
-  "(?i)^lablisp$", "LabLisp",
-
-  # Domain-specific, infra, or other mentions
-  "(?i)^ansible$", "Ansible",
-  "(?i)^ant$", "Apache Ant",
-
-  # Catch-alls for minor variants
-  "(?i)^dsls$", "DSLs (domain-specific languages)",
-  "(?i)^xql$", "XQuery/XQL",
-  "(?i)^hip$", "HIP (AMD GPU)"
-)
+```{r}
+#| echo: false
+source(file.path(book_root, "R/recodes/tool4_recode.R"))
 
 data_coded <- process_text_codes_with_allocation(
   filter = FILTER,
   question_code = "tool4can",
-  recode_map = recode_map,
+  recode_map = tool4_recode_map,
   header = "Software Languages",
   other = TRUE,
   cache_id = "tool4"
@@ -102,3 +64,57 @@ data_coded$summary_table
 ```
 
 The raw-to-category allocation table for this question is in @sec-appendix-recoding.
+
+### Statistics by age group
+
+```{r}
+#| echo: false
+
+print_heatmap_category_age_wide_table(
+  FILTER,
+  question_code,
+  header = "Programming language by age group (Nordics)"
+)
+```
+
+
+## Within Nordics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  nordic_countries,
+  question_code,
+  header = "Programming language selections within Nordic countries",
+  group_by = nordic_countries
+)
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap_category_stacked_bars(
+  nordic_countries,
+  question_code,
+  countries = nordic_countries,
+  title = "Programming language selections within Nordic countries"
+)
+```
+
+## Between Countries
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap_category_stacked_bars(
+  plot_countries,
+  question_code,
+  country_groups = country_groups,
+  title = "Programming language selections by country group"
+)
+```

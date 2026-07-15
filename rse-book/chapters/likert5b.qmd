@@ -1,0 +1,100 @@
+---
+title: "Career prospects and labour market"
+question_id: likert5b
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+question_code <- "likert5b"
+
+nordic_countries <- c(
+  "Finland", "Norway", "Sweden", "Denmark", "Iceland", "Estonia"
+)
+country_groups <- list(
+  Nordics = nordic_countries,
+  Germany = "Germany",
+  Netherlands = "Netherlands"
+)
+plot_countries <- countries_from_groups(country_groups)
+
+df <- load_filtered_tf(plot_countries)
+likert_cols <- question_columns(question_code, names(df))
+```
+
+## Nordics
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+#| results: asis
+
+df_nordics <- load_filtered_tf(nordic_countries)
+
+print_likert_items(
+  df_nordics,
+  likert_cols,
+  meta = cols,
+  empty_message = "No responses available for Nordic countries in the current filter."
+)
+```
+
+### Statistics by age group
+
+```{r}
+#| echo: false
+#| results: asis
+
+df_nordics <- load_filtered_tf(nordic_countries)
+
+print_likert_items(
+  df_nordics,
+  likert_cols,
+  meta = cols,
+  group_by = "age_group",
+  include_plot = FALSE,
+  heading_level = 4L,
+  empty_message = "No responses available for Nordic countries in the current filter."
+)
+```
+
+## Within Nordics
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+#| results: asis
+
+df_nordics <- load_filtered_tf(nordic_countries)
+
+print_likert_items(
+  df_nordics,
+  likert_cols,
+  meta = cols,
+  group_by = nordic_countries,
+  empty_message = "No responses available for Nordic countries in the current filter."
+)
+```
+
+## Between Countries
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+#| results: asis
+
+print_likert_items(
+  df,
+  likert_cols,
+  meta = cols,
+  country_groups = country_groups,
+  empty_message = "No responses available for the selected country groups."
+)
+```

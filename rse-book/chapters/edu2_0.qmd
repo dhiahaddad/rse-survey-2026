@@ -1,6 +1,6 @@
 ---
-title: "Which collaboration tools do you use for software development?"
-question_id: proj6zaf
+title: "In which discipline is your highest academic qualification?"
+question_id: edu2_0
 ---
 
 ```{r}
@@ -10,7 +10,7 @@ question_id: proj6zaf
 
 ```{r}
 #| echo: false
-question_code <- "proj6zaf"
+question_code <- "edu2_0"
 
 nordic_countries <- c(
   "Finland", "Norway", "Sweden", "Denmark", "Iceland", "Estonia"
@@ -33,37 +33,21 @@ plot_countries <- countries_from_groups(country_groups)
 print_heatmap_category_table(
   FILTER,
   question_code,
-  header = "Collaboration tool (Nordics)"
+  header = "Qualification discipline (Nordics)"
 )
 ```
 
 ```{r}
 #| echo: false
 #| fig-width: 10
-#| fig-height: 6
+#| fig-height: 10
 
-plot_heatmap(FILTER, question_code, title = "Nordics")
-```
-
-### Free-text responses
-
-```{r}
-#| echo: false
-source(file.path(book_root, "R/recodes/proj6zaf_recode.R"))
-
-cleaned_data <- process_text_codes_with_allocation(
-  filter = FILTER,
-  question_code = "proj6zaf",
-  recode_map = proj6zaf_recode_map, 
-  header = "Collaboration Tools",
-  other = TRUE,
-  cache_id = "proj6zaf"
+plot_heatmap_category_barplot(
+  FILTER,
+  question_code,
+  title = "Qualification discipline (Nordics)"
 )
-
-cleaned_data$summary_table
 ```
-
-The raw-to-category allocation table for this question is in @sec-appendix-recoding.
 
 ### Statistics by age group
 
@@ -73,10 +57,9 @@ The raw-to-category allocation table for this question is in @sec-appendix-recod
 print_heatmap_category_age_wide_table(
   FILTER,
   question_code,
-  header = "Collaboration tool by age group (Nordics)"
+  header = "Qualification discipline by age group (Nordics)"
 )
 ```
-
 
 ## Within Nordics
 
@@ -86,7 +69,7 @@ print_heatmap_category_age_wide_table(
 print_heatmap_category_table(
   nordic_countries,
   question_code,
-  header = "Collaboration tool selections within Nordic countries",
+  header = "Qualification discipline within Nordic countries",
   group_by = nordic_countries
 )
 ```
@@ -94,13 +77,13 @@ print_heatmap_category_table(
 ```{r}
 #| echo: false
 #| fig-width: 10
-#| fig-height: 6
+#| fig-height: 10
 
 plot_heatmap_category_stacked_bars(
   nordic_countries,
   question_code,
   countries = nordic_countries,
-  title = "Collaboration tool selections within Nordic countries"
+  title = "Qualification discipline within Nordic countries"
 )
 ```
 
@@ -109,12 +92,12 @@ plot_heatmap_category_stacked_bars(
 ```{r}
 #| echo: false
 #| fig-width: 10
-#| fig-height: 6
+#| fig-height: 10
 
 plot_heatmap_category_stacked_bars(
   plot_countries,
   question_code,
   country_groups = country_groups,
-  title = "Collaboration tool selections by country group"
+  title = "Qualification discipline by country group"
 )
 ```

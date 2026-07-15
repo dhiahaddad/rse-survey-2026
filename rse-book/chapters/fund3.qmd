@@ -10,38 +10,51 @@ question_id: fund3
 
 ```{r}
 #| echo: false
-#| fig-width: 10
-#| fig-height: 6
+question_code <- "fund3"
 
-plot_heatmap(FILTER, "fund3")
+nordic_countries <- c(
+  "Finland", "Norway", "Sweden", "Denmark", "Iceland", "Estonia"
+)
+country_groups <- list(
+  Nordics = nordic_countries,
+  Germany = "Germany",
+  Netherlands = "Netherlands"
+)
+plot_countries <- countries_from_groups(country_groups)
+```
+
+## Nordics
+
+### Descriptive Statistics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  FILTER,
+  question_code,
+  header = "Funding source (Nordics)"
+)
 ```
 
 ```{r}
 #| echo: false
-recode_map <- tibble::tribble(
-  ~raw, ~clean,
+#| fig-width: 10
+#| fig-height: 6
 
-  # Public grants and programmes
-  "(?i)\\b(european project|eu(rope)?)(s)?\\b", "Public grants and programmes",
-  "(?i)\\b(federal funding|national funding)\\b", "Public grants and programmes",
+plot_heatmap(FILTER, question_code, title = "Nordics")
+```
 
-  # Private/philanthropy
-  "(?i)\\b(private philanthropy|philanthropy)\\b", "Private/philanthropic support",
+### Free-text responses
 
-  # Earned/contract income (includes subscriptions + service contracts + freelance)
-  "(?i)\\b(service contracts?)\\b", "Earned/contract income",
-  "(?i)\\b(subscriptions?)\\b", "Earned/contract income",
-  "(?i)\\b(self[- ]employment|self employment|freelance|consult(ing|ancy))\\b", "Earned/contract income",
-
-  # Institutional/core
-  "(?i)\\b(institutional|core funding).*\\b|\\bsupposed to become institutional over the next years\\b",
-  "Institutional/core funding"
-)
+```{r}
+#| echo: false
+source(file.path(book_root, "R/recodes/fund3_recode.R"))
 
 data_coded <- process_text_codes_with_allocation(
   filter = FILTER,
   question_code = "fund3",
-  recode_map = recode_map,
+  recode_map = fund3_recode_map,
   header = "Funding",
   other = TRUE,
   cache_id = "fund3"
@@ -51,3 +64,57 @@ data_coded$summary_table
 ```
 
 The raw-to-category allocation table for this question is in @sec-appendix-recoding.
+
+### Statistics by age group
+
+```{r}
+#| echo: false
+
+print_heatmap_category_age_wide_table(
+  FILTER,
+  question_code,
+  header = "Funding source by age group (Nordics)"
+)
+```
+
+
+## Within Nordics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  nordic_countries,
+  question_code,
+  header = "Funding source selections within Nordic countries",
+  group_by = nordic_countries
+)
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap_category_stacked_bars(
+  nordic_countries,
+  question_code,
+  countries = nordic_countries,
+  title = "Funding source selections within Nordic countries"
+)
+```
+
+## Between Countries
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap_category_stacked_bars(
+  plot_countries,
+  question_code,
+  country_groups = country_groups,
+  title = "Funding source selections by country group"
+)
+```
