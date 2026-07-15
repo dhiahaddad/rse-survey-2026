@@ -7,47 +7,111 @@ book:
   date: today
   chapters:
     - index.qmd
-    - part: "Conferences"
+    - part: "RSE role"
       chapters:
-        - chapters/conf2can_0.qmd
-    - part: "Employment"
+        - chapters/rse1_0.qmd
+        - chapters/rse3_0.qmd
+        - chapters/rse4de_0.qmd
+    - part: "Education"
       chapters:
-        - chapters/currentEmp13.qmd
-        - chapters/currentWork2qcl.qmd
-    - part: "Funding"
+        - chapters/edu2_0.qmd
+        - chapters/edu1_0.qmd
+    - part: "Software experience"
       chapters:
-        - chapters/fund3.qmd
-        - chapters/fund3qnl_0.qmd
-    - part: "Generative AI"
+        - chapters/soft2can_0.qmd
+        - chapters/soft1can_0.qmd
+    - part: "Open science"
       chapters:
-        - chapters/genAI2.qmd
-        - chapters/genAI3.qmd
-    - part: "Tooling"
+        - chapters/open1de_0.qmd
+        - chapters/open1can.qmd
+    - part: "UK RSE network"
       chapters:
-        - chapters/tool4.qmd
-        - chapters/tool5.qmd
-    - part: "Training"
-      chapters:
-        - chapters/skill2.qmd
-        - chapters/train3_0.qmd
-        - chapters/train5.qmd
-    - part: "General"
-      chapters:
-        - chapters/turnOver3zaf.qmd
-        - chapters/turnOver4zaf.qmd
+        - chapters/ukrse1_0.qmd
         - chapters/ukrse3.qmd
     - part: "RSE Organisation"
       chapters:
+        - chapters/org1can_0.qmd
         - chapters/org2can.qmd
         - chapters/org3nord.qmd
-        - chapters/org4de.qmd
         - chapters/org4nord.qmd
-        - chapters/org6de.qmd
-    - part: "Project Management Tools"
+    - part: "Employment"
       chapters:
+        - chapters/currentEmp1_0.qmd
+        - chapters/prevEmp1.qmd
+        - chapters/currentEmp5_0.qmd
+        - chapters/currentEmp6_0.qmd
+        - chapters/currentEmp60_0.qmd
+        - chapters/currentEmp12_0.qmd
+        - chapters/currentEmp10_0.qmd
+        - chapters/currentEmp11_0.qmd
+        - chapters/currentEmp13.qmd
+        - chapters/currentEmp2q_0.qmd
+    - part: "Likert scales"
+      chapters:
+        - chapters/likert01.qmd
+        - chapters/likert3a.qmd
+        - chapters/likert3b.qmd
+        - chapters/likert4b.qmd
+        - chapters/likert5b.qmd
+        - chapters/likert5a.qmd
+        - chapters/likert2a.qmd
+        - chapters/likert2b.qmd
+    - part: "Turnover"
+      chapters:
+        - chapters/turnOver3.qmd
+    - part: "Work activities"
+      chapters:
+        - chapters/currentWork2_0.qmd
+        - chapters/currentWork1_0.qmd
+        - chapters/currentWork2qcl.qmd
+        - chapters/currentWork3nord_0.qmd
+    - part: "Publications"
+      chapters:
+        - chapters/paper3mod_0.qmd
+        - chapters/paper2mod.qmd
+    - part: "Conferences"
+      chapters:
+        - chapters/conf1can_0.qmd
+        - chapters/conf2can_0.qmd
+    - part: "Project Management"
+      chapters:
+        - chapters/proj1can_0.qmd
+        - chapters/proj8can_0.qmd
         - chapters/proj4can.qmd
         - chapters/proj5zaf.qmd
         - chapters/proj6zaf.qmd
+    - part: "Job stability"
+      chapters:
+        - chapters/stability1_0.qmd
+        - chapters/stability2_0.qmd
+    - part: "Training"
+      chapters:
+        - chapters/train2_0.qmd
+        - chapters/train3_0.qmd
+        - chapters/train4_0.qmd
+        - chapters/train5.qmd
+        - chapters/skillNord_0.qmd
+        - chapters/skill2.qmd
+    - part: "Funding"
+      chapters:
+        - chapters/fund3.qmd
+        - chapters/fund1nord_0.qmd
+    - part: "Tooling"
+      chapters:
+        - chapters/tool5.qmd
+        - chapters/tool2.qmd
+        - chapters/tool4.qmd
+    - part: "Generative AI"
+      chapters:
+        - chapters/genAI1_0.qmd
+        - chapters/genAI2.qmd
+        - chapters/genAI3.qmd
+        - chapters/genAI4.qmd
+        - chapters/genAI5.qmd
+        - chapters/genAI6_0.qmd
+    - part: "Demographics"
+      chapters:
+        - chapters/socio3_0.qmd
   appendices:
     - appendices/methodology.qmd
     - appendices/recoding.qmd
@@ -61,8 +125,6 @@ format:
     # embed-resources: true
 execute:
   dir: project
-  freeze: auto
+  freeze: false
 resources:
   - data/
-
-

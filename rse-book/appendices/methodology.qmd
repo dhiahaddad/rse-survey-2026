@@ -1,22 +1,36 @@
 # Data and methodology {#sec-appendix-methodology}
 
-This appendix explains how to read the two kinds of output you will see in the
-question chapters and how those outputs are produced from the raw survey
+This appendix explains how chapter outputs are produced from the raw survey
 answers. It is meant to be read together with the rendered book.
+
+## Respondent inclusion
+
+Analyses in this book use only respondents who **submitted** the survey. A row
+is included when its `submitdate_0` field is non-empty. Partial responses that
+were saved without a submission timestamp are excluded, because they typically
+contain only early answers and would distort question-level percentages.
+
+Within that submitted sample, the configured country filter (`FILTER`) is
+applied via `socio1_0`. Question-level **N** can still differ when submitted
+respondents skipped a question or it did not apply to them.
 
 ## What you are looking at
 
-Every chapter analyses **one survey question**. Two kinds of answers are handled
+Every chapter analyses **one survey question**. Question types are handled
 differently:
 
++ **Single-select options** are summarised as counts and percentages.
 + **Pre-defined, multi-select options** (the respondent ticks one or more boxes)
   are shown as a **selection heatmap**.
++ **Likert-scale items** are shown as ordered response distributions, sometimes
+  split by country or age group.
++ **Time-allocation items** compare actual and desired percentages by activity.
 + **Free-text answers** (the respondent types their own text, typically under
   "other, please specify") are cleaned, grouped into categories, and shown as a
   **summary table**.
 
-A single question can have both: a heatmap for the ticked options and a table
-for the typed-in "other" answers.
+A question can combine types: for example, a heatmap for ticked options and a
+table for typed-in "other" answers.
 
 ::: {.callout-note}
 All figures and tables describe the **country or set of countries** selected in

@@ -1,28 +1,29 @@
 # Preface {.unnumbered}
 
-This book is a **qualitative analysis of the free-text and multi-select answers**
-of the International RSE Survey 2026. Many survey questions let respondents type
-their own answers ("other, please specify") or pick several options. 
-This book turns those raw responses into a small set of meaningful categories 
-and presents them as summary tables (and, for multi-select questions, heatmaps).
+This book analyses the International RSE Survey 2026, including single-select,
+multi-select, Likert-scale, time-allocation, and free-text questions. It presents
+descriptive tables and figures for submitted responses and groups free-text
+answers into auditable categories.
 
-Each chapter covers **one survey question**. The analysis can be focused on a
-single country or a set of countries through one configuration value
-(`FILTER`) in `R\.config`, so the same code can produce, for example, a Nordic 
-view or a German view of every question.
+Each chapter covers **one survey question or closely related question group**.
+The analysis can be focused on a single country or a set of countries through
+one configuration value (`FILTER`) in `R/.config`, so the shared code can
+produce, for example, Nordic or German views.
 
 # The general idea
 
-For every question the workflow is the same:
+The common workflow is:
 
 1. **Load and filter** the raw survey data for the configured country/countries.
-2. **Tokenize** the responses (split comma-separated answers, lowercase, trim).
-3. **Recode** the raw responses into categories using a per-chapter
-   regular-expression map (`recode_map`).
-4. **Summarize** the categories into a frequency/percentage table.
-5. **Audit** the recoding with a raw-to-category allocation table, which is
-   collected in the @sec-appendix-recoding appendix so every categorization
-   decision is transparent and reproducible.
+   Only **submitted** responses are kept (`submitdate_0` non-empty); partial
+   sessions without a submission timestamp are excluded.
+2. **Select and summarise** the columns for the chapter's question type.
+3. **Visualise** response counts or percentages using the appropriate
+   single-select, multi-select, Likert, or time-allocation display.
+4. For free text, **tokenize and recode** responses with an ordered
+   regular-expression map.
+5. **Audit free-text recoding** with a raw-to-category allocation table,
+   collected in the @sec-appendix-recoding appendix.
 
 # Folder and file overview
 
@@ -31,18 +32,21 @@ The book lives in `rse-book/` and is organized as follows:
 + `index.qmd`: This page (preface and usage guide).
 + `_quarto.yml`: Book configuration (chapter order, output format, execution
   options).
-+ `chapters/`: One `.qmd` file per survey question (the analysis chapters).
++ `chapters/`: One `.qmd` file per survey question or question group.
 + `appendices/`:
     + `methodology.qmd`: Data and methodology notes.
     + `recoding.qmd`: The codebook, i.e. the raw-to-category allocation tables
       collected from all chapters.
 + `R/`: The shared R code.
     + `.config`: User configuration (data directory and country filter).
-    + `postprocessing.R`: All analysis and plotting functions
-      (`process_text_codes_with_allocation()`, `plot_heatmap()`, the data
-      loading helpers, table renderers, etc.).
-    + `_common.R` / `_load_common.R`: Setup sourced by every chapter; it loads
-      the configuration, the analysis functions, and the question metadata.
+    + `postprocessing.R`: Shared data loading, filtering, analysis, table, and
+      plotting functions.
+    + `_common.R`: Loads the configuration, shared functions, and question
+      metadata.
+    + `_load_common.R`: Location-independent entry point sourced by each
+      chapter.
+    + `recodes/`: Reusable free-text recoding maps, kept separate from chapter
+      layout and plotting code.
 + `references.bib` / `references.qmd`: Bibliography (currently empty).
 + `_book/`: Rendered output (generated, not edited by hand).
 + `_freeze/` and `_allocation_cache/`: Generated caches (see
@@ -54,6 +58,19 @@ analysis reads just two files there: `2026_tf.csv` (the full respondent table,
 one row per respondent, used for both country filtering via `socio1_0` and for
 selecting each question's columns) and `2026_all_cols.csv` (question metadata,
 used to decode multi-response option labels).
+
+The repository root also contains the standalone Nordic report `insights.qmd`.
+Its R code is split into focused modules in
+`RSE_survey_insights_helper/`. Survey-flow documentation and the generator for
+the Nordic question inventory live in `RSE_survey_outline/`; those documents
+are separate from the book chapters.
+
+::: {.callout-note title="Exclusion criteria"}
+Analyses include only respondents who **submitted** the survey, identified by
+a non-empty `submitdate_0`. Partial responses saved without a submission
+timestamp are excluded. Question-level **N** can still vary when a submitted
+respondent skipped a question or it did not apply to them.
+:::
 
 # Setup the config file
 
@@ -72,15 +89,16 @@ Whatever you set here becomes the default country scope for every chapter.
 ::: {.callout-tip}
 You can also analyze a different country for a single table or plot without
 touching the config, by passing `filter =` directly to the functions, e.g.
-`plot_heatmap("Germany", "currentEmp13")` or
-`process_text_codes_with_allocation(filter = c("Sweden", "Norway"), ...)`.
-This is handy for comparing countries side by side in one chapter. As is done
-for example in the chapters `currentEmp13` and `conf2can_0`.
+`process_text_codes_with_allocation(filter = nordic_countries, ...)`.
+Many multi-select and Likert chapters compare **Nordics** (descriptive
+statistics and free-text responses), **within Nordic countries**, and
+**between countries** (Nordics vs Germany vs Netherlands).
 :::
 
 # Anatomy of a chapter
 
-Each chapter in `chapters/` follows the same pattern:
+Each chapter in `chapters/` starts with the same setup and then uses the
+analysis appropriate to its question type:
 
 1. **Front matter** with the question title and `question_id`.
 2. A setup cell that loads the shared code:
@@ -90,28 +108,31 @@ Each chapter in `chapters/` follows the same pattern:
 #| file: ../R/_load_common.R
 ```
 
-3. (Multi-select questions) a **heatmap** of who selected what:
+3. Multi-select questions can show a **heatmap** of who selected what:
 
 ```{{r}}
 #| echo: false
 plot_heatmap(FILTER, "tool4can")
 ```
 
-4. A **recode map**: a `tibble` of `raw` (regex) and `clean` (category) pairs.
-   A row with `NA` in `clean` excludes matching responses from the analysis.
+4. Free-text questions load a **recode map**, normally from `R/recodes/`.
+   A map is a `tibble` of `raw` (regex) and `clean` (category) pairs. A row with
+   `NA` in `clean` excludes matching responses from the analysis.
 
 5. The **analysis call**, which produces the summary table and caches the
    allocation (audit) table for the recoding appendix:
 
 ```{{r}}
 #| echo: false
+source(file.path(book_root, "R/recodes/skill2_recode.R"))
+
 data_coded <- process_text_codes_with_allocation(
   filter = FILTER,
-  question_code = "tool4can",
-  recode_map = recode_map,
-  header = "Software Languages",
-  other = TRUE,
-  cache_id = "tool4"
+  question_code = "skill2",
+  recode_map = skill2_recode_map,
+  header = "Skills to acquire (Nordics)",
+  other = FALSE,
+  cache_id = "skill2"
 )
 
 data_coded$summary_table
@@ -134,8 +155,8 @@ figures but not the underlying R code.
 # How to run
 
 You need [Quarto](https://quarto.org/docs/get-started/) and R (with the
-packages used in `R/postprocessing.R`: `dplyr`, `tidyr`, `stringr`, `purrr`,
-`forcats`, `ggplot2`, `patchwork`, `gt`, `scales`, `tibble`).
+packages used by the analysis: `dplyr`, `tidyr`, `stringr`, `purrr`, `forcats`,
+`ggplot2`, `patchwork`, `gt`, `scales`, and `tibble`).
 
 Run the commands from inside the `rse-book/` directory:
 
@@ -171,56 +192,19 @@ quarto render appendices/recoding.qmd --no-cache
 
 # Caching and rebuilds
 
-+ **`_freeze/`** (`freeze: auto` in `_quarto.yml`): Quarto re-executes a chapter
-  only when its source changes. If you change the data or the shared R code and
-  a chapter looks stale, re-render it (or delete its `_freeze/` entry) to force
-  re-execution.
++ **`_freeze/`**: Existing frozen output may remain from earlier builds, but
+  `_quarto.yml` sets `freeze: false` so full renders always execute the current
+  chapter code against the current data and shared R functions.
 + **`_allocation_cache/`**: each chapter writes its allocation table here (keyed
   by `cache_id`); the recoding appendix reads them back. If you rename or remove
-  questions, you may want to clear stale `.rds` files here.
+  questions, clear stale `.rds` files before rendering the full book so removed
+  questions cannot remain in the appendix.
 
 # Current content
 
-+ Conferences
-    - What conferences have you attended in the last 12 months? (`conf2can_0`)
-+ Employment
-    - What is the nature of your current employment? (`currentEmp13`)
-    - What is the nature of your current work? (`currentWork2qcl`)
-+ Funding
-    - What funding sources have you used in the last 12 months? (`fund3`)
-    - What funding sources have you used in the last 12 months? (`fund3qnl_0`)
-+ Generative AI
-    - What is your experience with generative AI? (`genAI2`)
-    - What is your experience with generative AI? (`genAI3`)
-+ Tooling
-    - What programming languages do you use at work? (`tool4`)
-    - On which platform(s) is your most recent research software project 
-    deployed? (`tool5`)
-+ Training
-    - What training programs are you involved with? (`train3_0`)
-    - In what capacity do you contribute? (`train5`)
-+ General
-    - What are the main challenges you face in developing research software? 
-    (`turnOver3zaf`)
-    - What kind of research software do you develop as part of your job? 
-    (`turnOver4zaf`)
-    - How did you learn the skills you need to become a Research Software 
-    Engineer / Research Software Developer? (`ukrse3`)
-+ RSE Organisation
-    - What would you hope to get out of such an organisation? (`org2can`)
-    - How could Nordic-RSE or a potential Nordic research software institute 
-    foster community engagement and knowledge transfer? (`org3nord`)
-    - What tasks should a national research software institution primarily 
-    undertake in your opinion? (`org4de`)
-    - With Nordic-RSE we have an association dedicated to the community of 
-    Research Software Engineers in the Nordics. What tasks do you think should 
-    be undertaken by Nordic-RSE or a future Nordic institute for research 
-    software? (`org4nord`)
-    - How should a national research software institution foster community 
-    engagement and knowledge transfer? (`org6de`)
-+ Project Management Tools
-    - How do you test the software that you produce? (`proj4can`)
-    - Which version control tools do you use for software development? 
-    (`proj5zaf`)
-    - Which collaboration tools do you use for software development? 
-    (`proj6zaf`)
+The chapter list in `_quarto.yml` is the authoritative inventory and determines
+the book navigation and render order. It currently covers RSE roles, education,
+software experience, open science, RSE organisations, employment, Likert
+scales, turnover, work and publication practices, conferences, project
+management, job stability, training, funding, tooling, generative AI, and
+demographics.

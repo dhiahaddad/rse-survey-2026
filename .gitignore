@@ -1,2 +1,13 @@
 RSE_survey_2026_data
 *_files
+.agents/*
+agent/*
+*_cache
+Rplots.pdf
+*.html
+!rse-book/_book/**
+rse-book/_book/
+rse-book/*.zip
+skills-lock.json
+!insights.html
+*.log
