@@ -11,3 +11,4 @@ rse-book/*.zip
 skills-lock.json
 !insights.html
 *.log
+!rse-book/_book.zip
