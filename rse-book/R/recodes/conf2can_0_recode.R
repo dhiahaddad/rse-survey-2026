@@ -1,0 +1,106 @@
+conf2can_0_recode_map <- tibble::tribble(
+  ~raw, ~clean,
+
+  # RSE community conferences (group all variants together)
+  "(?i)\\b(rse ?con|rsecon|de\\s*rse|us[- ]?rse|nordic\\s*rse|rsse|rse[- ]?day|rslondonsoutheast|rseaunz)\\b", "RSE community conferences",
+  "(?i)rse conferences|ukrse|rseconuk|nordicrsecon|gamms\\s*rse|rse\\s+chile|res? ?con\\b", "RSE community conferences",
+
+  # HPC / Supercomputing / e-Infrastructure
+  "(?i)\\b(sc|supercomputing)\\b|\\bisc\\b(?!b)|\\bpasc\\b|pearc|cray user|\\bchpc\\b|techx|\\bwlcg\\b|openacc|durham hpc|globus(world)?|prace|ipdps|hpc days",
+  "HPC and e-infrastructure",
+  "(?i)egi\\b|neic\\b|hipeac\\b|jlesc\\b|google cloud summit|grid\\b", "HPC and e-infrastructure",
+  "ceci meeting|espresso summer school|cecam espresso summer school|adac", "HPC and e-infrastructure",
+
+  # Python, Julia, Jupyter, PyData ecosystem
+  "(?i)pycon|scipy|euroscipy|pydata|jupytercon|juliacon|python in heliophysics|pyhep", "Python/Julia/Jupyter ecosystem",
+  "(?i)knime\\b", "Python/Julia/Jupyter ecosystem",
+
+  # R ecosystem (useR!, posit/rstudio, LatinR, Rencontres R)
+  "(?i)\\buseR!\\b|\\buser!\\b|posit::conf|rstudio::conf|latinr|rencontres\\s*r", "R ecosystem",
+  "(?i)user!|european r users meeting", "R ecosystem",
+
+  # Digital Humanities, Libraries, GLAM
+  "(?i)\\bdh\\b(?!tech)|digital humanities|dh ?benelux|dhnb|eadh|caa\\b|tei|tpdl|swib|elag|ests|archeofoss|språkbanken|theory and practice of digital libraries|text encoding",
+  "Digital Humanities and GLAM",
+  "(?i)dhtech symposium|including adho|huminfra nodes conference|european society for textual scholarship", "Digital Humanities and GLAM",
+  "(?i)barcamp open science", "Digital Humanities and GLAM",
+  "african digital scholarship and curation|chr|dhd|digikult|musikwissenschaftliche themenkonferenz.*", "Digital Humanities and GLAM",
+
+  # Bioinformatics, Life Sciences, Medical imaging
+  "(?i)miccai|ismb|iscb|recomb\\b|galaxy community|elixir|eccb|virus genomics|plant and animal genome|cancer genomics|ismrm|attd|one health|omics|sib\\b|vibiom",
+  "Bioinformatics and life sciences",
+  "(?i)summer rosetta ?con", "Bioinformatics and life sciences",
+  "annual meeting of the american ornithological society|evolution and bioinformatics", "Bioinformatics and life sciences",
+
+  # Astronomy, Space, HEP, Physics (incl. APS/AIAA and accelerator controls)
+  "(?i)\\baas\\b|american astronomical|iau\\b|cospar|spie(.*astronom)|\\bastronom|space weather|heliophys|ivoa\\b|lhcp|atlas|hep(?!a)|hepix|wlcg\\b|lhc\\b|aps(\\s|$)|aiaa|magnetism|strong lensing|shine|higgs",
+  "Astronomy, space and physics",
+  "(?i)american physical society division of plasma physics annual meetings|acat\\b|adass\\b|adass and|icalepcs|pcapac|uklft|skach winter meeting|software defined space",
+  "Astronomy, space and physics",
+  "icns|inmm|iss|leipzig summer schoon on active matter|pac|spie", "Astronomy, space and physics",
+
+  # Geosciences, Earth and Environmental sciences
+  "(?i)\\bagu\\b|european geosciences union|\\begu\\b|goldschmidt|noaa.*space weather|ocean sciences|esa living planet|ewri|seismolog|\\bssa\\b|geophys|meteorolog|\\bams\\b(?![a-z])",
+  "Geosciences and environment",
+  "(?i)california forestry science symposium|ecological modelling conference|north american forestry ecology workshop|igarss\\b|nerc digital gathering|liege colloquium",
+  "Geosciences and environment",
+  "ciroh developers conference|monogram|programación en ciencias pesqueras|south african society of atmospheric scientists", "Geosciences and environment",
+
+  # Mathematics, Statistics, Mechanics
+  "(?i)\\bsiam\\b|compstat|cmstatistics|\\bjsm\\b|\\bgamm\\b|euromech|icosahom|lattice conference|\\bwccm\\b|\\becm\\b|siam (cse|pp)",
+  "Mathematics and statistics",
+  "(?i)biometrisches kolloquium|australasian region biometrics conference|rss\\b|uk fluids",
+  "Mathematics and statistics",
+
+  # NLP / AI / Vision / Data
+  "(?i)\\bacl\\b|emnlp|coling|cvpr|vision sciences society|\\bai\\b|machine learning",
+  "AI, NLP and vision",
+  "(?i)empirical methods in natural language processing conference|lrec\\b|swedish language technology conference|dlr llm wissensaustauschworkshop",
+  "AI, NLP and vision",
+
+  # Chemistry, Materials, Crystallography, Photon science
+  "(?i)\\bacs\\b|iucr\\b|epdic|emrs|synchrotron|\\bsri\\b|nobugs|crystallograph|diffraction|watoc",
+  "Chemistry, materials and photon science",
+  "(?i)american chemical society|faraday discussions|siesta advanced workshop|mse\\b",
+  "Chemistry, materials and photon science",
+  "(?i)sers\\b", "Chemistry, materials and photon science",
+
+  # Software engineering, e-Science, Open Source practice
+  "(?i)\\bicse\\b|icsew|pepm|doceng|chase|wssspe|ssp(\\s|\\()|fosdem|declarative amsterdam|open source software for fusion|ieee e?science|eresearch|tnc\\b|cni\\b",
+  "Software engineering and e-Science",
+  "(?i)escience|chaos communication congress|gitkon|tiime\\b|knime\\b|google cloud summit|hpsf conference|u?car sea'?s improving scientific software",
+  "Software engineering and e-Science",
+  "acts developer workshop|aviose|cakefest|forge",
+  "Software engineering and e-Science",
+  ".*(ssp)","Software engineering and e-Science",
+
+  # Social sciences, Networks, Survey research, Linguistics
+  "(?i)sunbelt|insna|\\beusn\\b|netsci|\\bwapor\\b|vision sciences society",
+  "Social sciences and networks",
+  "(?i)aoir\\b|oecd\\b|ifd&tc|afrilex|comparative.*linguistics|issi\\b|issb\\b",
+  "Social sciences and networks",
+  "land warfare conference|military information and communications symposium.*", "Social sciences and networks",
+
+  # Neuroscience and Psychology
+  "(?i)\\bsfn\\b|society for neuroscience|ocns annual|interamerican congress of psychology|caribbean regional conference of psychology",
+  "Neuroscience and psychology",
+  "(?i)ebrains ?/ ?hbp summit|practicalmeeg", "Neuroscience and psychology",
+
+  # Data management, RDM, Metadata
+  "(?i)metadata|\\bhmc\\b|mpg fdm|fdm workshop|nfdi|saxfdm",
+  "Research data management and metadata",
+  "(?i)eln workshops|educause|worktribe connect", "Research data management and metadata",
+  "acm document engineering|dash", "Research data management and metadata",
+
+  # Domain-/project-specific and internal workshops
+  "(?i)domain (conferences|workshops)|project (workshops|specific conference)|other consortium|community workshops|mostly community|workshops hosted|workshops within|internal (workshops|wissensaustausch)|university|open science days|collegeville|collaborations workshop",
+  "Domain/project/internal workshops",
+  "(?i)interne wissensaustausch workshop|interne workshops|topical conferences|user meetings|eln workshops",
+  "Domain/project/internal workshops",
+
+  # General 'multiple/varies/other' catch-alls (keep last)
+  "(?i)multiple|varies|very different|a few|many|not software conferences|where our users go to|other online formats|canberra|england|stockholm|sweden|gdansk",
+  "Multiple or unspecified conferences",
+  "(?i)research area specific not software specific conferences|diverses conférences|gordon research conference",
+  "Multiple or unspecified conferences"
+)

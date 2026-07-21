@@ -1,0 +1,31 @@
+---
+title: "Which university do you work for?"
+question_id: currentEmp2q_0
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+## Nordics
+
+### Free-text responses
+
+```{r}
+#| echo: false
+source(file.path(book_root, "R/recodes/currentEmp2q_0_recode.R"))
+
+cleaned_data <- process_text_codes_with_allocation(
+  filter = FILTER,
+  question_code = "currentEmp2q_0",
+  recode_map = currentEmp2q_0_recode_map,
+  header = "Which university do you work for? (Nordics)",
+  other = TRUE,
+  cache_id = "currentEmp2q_0"
+)
+
+cleaned_data$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.

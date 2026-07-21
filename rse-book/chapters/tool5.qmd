@@ -10,55 +10,51 @@ question_id: tool5
 
 ```{r}
 #| echo: false
-#| fig-width: 10
-#| fig-height: 6
+question_code <- "tool5"
 
-plot_heatmap(FILTER, "tool5")
+nordic_countries <- c(
+  "Finland", "Norway", "Sweden", "Denmark", "Iceland", "Estonia"
+)
+country_groups <- list(
+  Nordics = nordic_countries,
+  Germany = "Germany",
+  Netherlands = "Netherlands"
+)
+plot_countries <- countries_from_groups(country_groups)
+```
+
+## Nordics
+
+### Descriptive Statistics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  FILTER,
+  question_code,
+  header = "Deployment platform (Nordics)"
+)
 ```
 
 ```{r}
 #| echo: false
-recode_map <- tibble::tribble(
-  ~raw, ~clean,
+#| fig-width: 10
+#| fig-height: 6
 
-  # Specific services and platforms
-  "(?i)\\bbinderhub\\b", "BinderHub",
-  "(?i)^cran$", "CRAN (R package repository)",
-  "(?i)github\\s*actions", "CI/CD platform (GitHub Actions)",
+plot_heatmap(FILTER, question_code, title = "Nordics")
+```
 
-  # Kubernetes / OpenShift (incl. mentions of Docker/Kubernetes platforms and pod capacity)
-  "(?i)\\bk8(s)?\\b|kubernetes|openshift|docker/kubernetes|spin up kubernetes pods",
-  "Kubernetes/OpenShift",
+### Free-text responses
 
-  # University-hosted infrastructure
-  "(?i)university hosted (docker/kubernetes platforms|virtual servers)",
-  "University-hosted infrastructure",
-
-  # Embedded / IoT / Edge / Avionics / Industrial PCs
-  "(?i)avionics|embedded( system)?\\b|industrial pc[s]?|iot( edge)?",
-  "Embedded/IoT/Edge",
-
-  # Virtual machines / local VMs
-  "(?i)local\\s*(\"?cloud\"?)?\\s*\\(=\\s*vms?\\)?|local virtual machines?|virtual machine.*zentraler serverinfrastruktur|\\bvms?\\b",
-  "Virtual machines (local/on-prem)",
-
-  # Private/on-prem cloud
-  "(?i)private\\s*cloud|we have our own cloud infrastructure",
-  "Private/on‑prem cloud",
-
-  # Clusters / Grid / Server farms
-  "(?i)\\bgrid\\b|self[- ]maintained cluster|server farms|cluster\\b",
-  "Clusters/Grid (on‑prem)",
-
-  # Local/individual machines
-  "(?i)^local$", "Local (on‑prem)",
-  "(?i)workstations?", "Workstations"
-)
+```{r}
+#| echo: false
+source(file.path(book_root, "R/recodes/tool5_recode.R"))
 
 data_coded <- process_text_codes_with_allocation(
   filter = FILTER,
   question_code = "tool5",
-  recode_map = recode_map,
+  recode_map = tool5_recode_map,
   header = "Platforms",
   other = TRUE,
   cache_id = "tool5"
@@ -68,3 +64,57 @@ data_coded$summary_table
 ```
 
 The raw-to-category allocation table for this question is in @sec-appendix-recoding.
+
+### Statistics by age group
+
+```{r}
+#| echo: false
+
+print_heatmap_category_age_wide_table(
+  FILTER,
+  question_code,
+  header = "Deployment platform by age group (Nordics)"
+)
+```
+
+
+## Within Nordics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  nordic_countries,
+  question_code,
+  header = "Deployment platform selections within Nordic countries",
+  group_by = nordic_countries
+)
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap_category_stacked_bars(
+  nordic_countries,
+  question_code,
+  countries = nordic_countries,
+  title = "Deployment platform selections within Nordic countries"
+)
+```
+
+## Between Countries
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap_category_stacked_bars(
+  plot_countries,
+  question_code,
+  country_groups = country_groups,
+  title = "Deployment platform selections by country group"
+)
+```

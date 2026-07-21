@@ -10,73 +10,51 @@ question_id: genAI3
 
 ```{r}
 #| echo: false
-#| fig-width: 10
-#| fig-height: 6
+question_code <- "genAI3"
 
-plot_heatmap(FILTER, "genAI3")
+nordic_countries <- c(
+  "Finland", "Norway", "Sweden", "Denmark", "Iceland", "Estonia"
+)
+country_groups <- list(
+  Nordics = nordic_countries,
+  Germany = "Germany",
+  Netherlands = "Netherlands"
+)
+plot_countries <- countries_from_groups(country_groups)
+```
+
+## Nordics
+
+### Descriptive Statistics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  FILTER,
+  question_code,
+  header = "Generative AI tool (Nordics)"
+)
 ```
 
 ```{r}
 #| echo: false
-recode_map <- tibble::tribble(
-  ~raw, ~clean,
+#| fig-width: 10
+#| fig-height: 6
 
-  # Specific vendors/models
-  "(?i)\\bmistral(\\s*vibe)?\\b|\\ble\\s*chat\\b|\\bmistral(ai)?\\s*le\\s*chat\\b", "Mistral (Le Chat, Vibe)",
-  "(?i)\\bperplexity(\\.ai)?\\b", "Perplexity",
-  "(?i)\\bdeep\\s*seek\\b", "DeepSeek",
-  "(?i)\\bqwen\\b|\\bqwen\\s*3\\b|\\bqwen3\\b|qwen-?coder|qwen3-?next|qwen3 coder|qwent 3 coder|locally hosted qwen", "Qwen family",
-  "(?i)\\bclaude(\\s*code)?\\b", "Claude",
-  "(?i)\\bgrok\\b", "Grok",
-  "(?i)\\bphind\\b", "Phind",
-  "(?i)\\bjetbrains\\s*ai\\b", "JetBrains AI",
-  "(?i)\\bsupermaven\\b", "Supermaven",
-  "(?i)\\bwind\\s*surf\\b", "Windsurf",
-  "(?i)\\bcodex\\b|openai\\s*codex", "OpenAI Codex",
-  "(?i)\\bmicrosoft\\s*co-?pilot\\b|\\bms\\s*copilot\\b|\\bcopilot\\b", "Microsoft/GitHub Copilot",
-  "(?i)\\bmistral\\b", "Mistral (Le Chat, Vibe)",
+plot_heatmap(FILTER, question_code, title = "Nordics")
+```
 
-  # Institution-/service-specific deployments
-  "(?i)helmholtz\\s*blablador|\\bblablador\\b", "Helmholtz Blablador",
-  "(?i)gwdg\\s*chat-?ai|academiccloud|chat-?ai\\.?academiccloud\\.de|chat-?ai\\s*gwdg", "GWDG / AcademicCloud Chat-AI",
-  "chatai", "GWDG / AcademicCloud Chat-AI",
-  "(?i)inference-?as-?a-?service.*(epfl|rcp)|rcp\\s*@\\s*epfl", "EPFL RCP inference service",
+### Free-text responses
 
-  # in-house hosting (on-prem, vLLM, internal GPT, company-internal)
-  "(?i)(self[-\\s]?hosted|self\\s* hosted)|\\bon-?prem\\b|\\bvllm\\b|\\bin-?house\\b|\\bin house\\b|\\binternal(ly)?\\b|company\\s*ai|gpt\\s*uio|firmeninterne agents",
-  "Institution-hosted LLMs",
-
-  # local models
-  "\\blocal(ly)?(-|\\s)?(hosted|deployed)?\\b|local openai instance|we run local models", "Local LLMs",
-
-  # Ollama and via-Ollama
-  "(?i)\\bollama\\b", "Ollama",
-
-  # Open-source/open-weights mentions
-  "(?i)open\\s*(source|weights)\\s*models|gpt-oss", "Open-source/open-weights models",
-
-  # Platforms/brands: Proton, DuckDuckGo, OpenCode
-  "(?i)\\bproton\\s*lumo\\b|\\blumo\\b", "Proton Lumo",
-  "(?i)duck\\s*ai|duckduckgo", "DuckDuckGo AI",
-  "(?i)open\\s*code\\b|\\bopencode\\b", "OpenCode platform",
-
-  # Other named tools
-  "(?i)\\bkimi\\b|kimi-?k2", "Kimi",
-  "(?i)serena", "Serena",
-  "(?i)antigravity", "Antigravity",
-
-  # Generic IDE-integrated AI
-  "(?i)ide\\s*integrated\\s*ai\\s*tools|continue", "IDE-integrated AI",
-
-  # Catch-all examples/abbreviations
-  "(?i)^e\\.g\\.$", NA_character_,
-  "e.g.", NA_character_
-)
+```{r}
+#| echo: false
+source(file.path(book_root, "R/recodes/genAI3_recode.R"))
 
 data_coded <- process_text_codes_with_allocation(
   filter = FILTER,
   question_code = "genAI3",
-  recode_map = recode_map,
+  recode_map = genAI3_recode_map,
   header = "AI Tools",
   other = TRUE,
   cache_id = "genAI3"
@@ -86,3 +64,57 @@ data_coded$summary_table
 ```
 
 The raw-to-category allocation table for this question is in @sec-appendix-recoding.
+
+### Statistics by age group
+
+```{r}
+#| echo: false
+
+print_heatmap_category_age_wide_table(
+  FILTER,
+  question_code,
+  header = "Generative AI tool by age group (Nordics)"
+)
+```
+
+
+## Within Nordics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  nordic_countries,
+  question_code,
+  header = "Generative AI tool selections within Nordic countries",
+  group_by = nordic_countries
+)
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap_category_stacked_bars(
+  nordic_countries,
+  question_code,
+  countries = nordic_countries,
+  title = "Generative AI tool selections within Nordic countries"
+)
+```
+
+## Between Countries
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap_category_stacked_bars(
+  plot_countries,
+  question_code,
+  country_groups = country_groups,
+  title = "Generative AI tool selections by country group"
+)
+```

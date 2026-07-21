@@ -1,0 +1,493 @@
+---
+title: "Actual and desired time spent on activities"
+question_id: likert01
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+nordic_countries <- c(
+  "Finland", "Norway", "Sweden", "Denmark", "Iceland", "Estonia"
+)
+country_groups <- list(
+  Nordics = nordic_countries,
+  Germany = "Germany",
+  Netherlands = "Netherlands"
+)
+plot_countries <- countries_from_groups(country_groups)
+
+df_allocation <- load_filtered_tf(plot_countries)
+
+nordics_fig_height <- likert_allocation_fig_height(
+  likert_allocation_n_respondents(df_allocation, nordic_countries)
+)
+```
+
+```{r}
+#| echo: false
+#| results: asis
+
+actual_cols <- question_columns("likert0", names(df_allocation))
+desired_cols <- question_columns("likert1", names(df_allocation))
+
+actual_question <- cols |>
+  dplyr::filter(.data$New_name %in% actual_cols) |>
+  dplyr::pull(.data$Question) |>
+  unique() |>
+  stringr::str_remove_all("\\[.*?\\]") |>
+  trimws()
+
+desired_question <- cols |>
+  dplyr::filter(.data$New_name %in% desired_cols) |>
+  dplyr::pull(.data$Question) |>
+  unique() |>
+  stringr::str_remove_all("\\[.*?\\]") |>
+  trimws()
+
+activity_labels <- purrr::map_chr(actual_cols, question_label, meta = cols)
+
+cat("### Survey question and tasks\n\n")
+if (length(actual_question) > 0L) {
+  cat("- **Actual:** ", actual_question[[1]], "\n", sep = "")
+}
+if (length(desired_question) > 0L) {
+  cat("- **Desired:** ", desired_question[[1]], "\n\n", sep = "")
+}
+cat("Tasks included:\n")
+cat(paste0("- ", activity_labels), sep = "\n")
+cat("\n\n")
+```
+
+```{r}
+#| echo: false
+
+render_allocation_summary_table <- function(
+    summary_tbl,
+    title,
+    subtitle,
+    group_col = NULL,
+    group_label = NULL,
+    group_order = NULL
+) {
+  table_df <- summary_tbl |>
+    dplyr::mutate(activity = as.character(.data$activity))
+
+  if (is.null(group_col)) {
+    table_df <- table_df |>
+      dplyr::select(activity, actual, desired, change)
+
+    gt_tbl <- table_df |>
+      gt::gt() |>
+      gt::cols_label(
+        activity = "Activity",
+        actual = "Actual (%)",
+        desired = "Desired (%)",
+        change = "Desired - actual"
+      )
+  } else {
+    if (is.null(group_label)) {
+      group_label <- "Group"
+    }
+    if (is.null(group_order)) {
+      group_order <- unique(as.character(table_df[[group_col]]))
+    }
+    table_df <- table_df |>
+      dplyr::mutate(
+        !!rlang::sym(group_col) := as.character(.data[[group_col]])
+      ) |>
+      dplyr::select(dplyr::all_of(group_col), activity, actual, desired, change)
+
+    display_df <- table_df |>
+      dplyr::select(activity, actual, desired, change)
+    group_vec <- table_df[[group_col]]
+    row_groups <- split(seq_len(nrow(display_df)), group_vec)
+
+    gt_tbl <- display_df |>
+      gt::gt() |>
+      gt::cols_label(
+        activity = "Activity",
+        actual = "Actual (%)",
+        desired = "Desired (%)",
+        change = "Desired - actual"
+      )
+
+    for (group_name in group_order) {
+      if (!group_name %in% names(row_groups)) {
+        next
+      }
+      gt_tbl <- gt_tbl |>
+        gt::tab_row_group(
+          label = group_name,
+          rows = row_groups[[group_name]]
+        )
+    }
+  }
+
+  gt_tbl |>
+    gt::tab_header(
+      title = title,
+      subtitle = subtitle
+    ) |>
+    gt::fmt_number(
+      columns = c(actual, desired, change),
+      decimals = 1
+    ) |>
+    gt::tab_style(
+      style = gt::cell_text(weight = "bold"),
+      locations = gt::cells_column_labels()
+    ) |>
+    gt::tab_options(table.font.size = gt::px(14))
+}
+
+render_allocation_age_wide_table <- function(summary_tbl, title, subtitle) {
+  age_levels <- c("Below 35", "35-45", "45+")
+  age_tables <- purrr::set_names(
+    purrr::map(age_levels, function(age_level) {
+      summary_tbl |>
+        dplyr::filter(.data$country == age_level) |>
+        dplyr::arrange(.data$activity) |>
+        dplyr::mutate(activity = as.character(.data$activity)) |>
+        dplyr::select(activity, actual, desired, change)
+    }),
+    age_levels
+  )
+
+  n_rows <- max(purrr::map_int(age_tables, nrow))
+  if (n_rows == 0L) {
+    stop("No age-group allocation summaries available for the requested selection.")
+  }
+
+  pad_tbl <- function(tbl, n) {
+    if (nrow(tbl) >= n) {
+      return(tbl)
+    }
+    dplyr::bind_rows(
+      tbl,
+      tibble::tibble(
+        activity = rep("", n - nrow(tbl)),
+        actual = rep(NA_real_, n - nrow(tbl)),
+        desired = rep(NA_real_, n - nrow(tbl)),
+        change = rep(NA_real_, n - nrow(tbl))
+      )
+    )
+  }
+
+  age_tables <- purrr::map(age_tables, pad_tbl, n = n_rows)
+
+  wide_df <- tibble::tibble(
+    activity_below_35 = age_tables[["Below 35"]]$activity,
+    actual_below_35 = age_tables[["Below 35"]]$actual,
+    desired_below_35 = age_tables[["Below 35"]]$desired,
+    change_below_35 = age_tables[["Below 35"]]$change,
+    activity_35_45 = age_tables[["35-45"]]$activity,
+    actual_35_45 = age_tables[["35-45"]]$actual,
+    desired_35_45 = age_tables[["35-45"]]$desired,
+    change_35_45 = age_tables[["35-45"]]$change,
+    activity_45_plus = age_tables[["45+"]]$activity,
+    actual_45_plus = age_tables[["45+"]]$actual,
+    desired_45_plus = age_tables[["45+"]]$desired,
+    change_45_plus = age_tables[["45+"]]$change
+  )
+
+  wide_df |>
+    gt::gt() |>
+    gt::tab_header(
+      title = title,
+      subtitle = subtitle
+    ) |>
+    gt::tab_spanner(
+      label = "Below 35",
+      columns = c(activity_below_35, actual_below_35, desired_below_35, change_below_35)
+    ) |>
+    gt::tab_spanner(
+      label = "35-45",
+      columns = c(activity_35_45, actual_35_45, desired_35_45, change_35_45)
+    ) |>
+    gt::tab_spanner(
+      label = "45+",
+      columns = c(activity_45_plus, actual_45_plus, desired_45_plus, change_45_plus)
+    ) |>
+    gt::cols_label(
+      activity_below_35 = "Activity",
+      actual_below_35 = "Actual (%)",
+      desired_below_35 = "Desired (%)",
+      change_below_35 = "Desired - actual",
+      activity_35_45 = "Activity",
+      actual_35_45 = "Actual (%)",
+      desired_35_45 = "Desired (%)",
+      change_35_45 = "Desired - actual",
+      activity_45_plus = "Activity",
+      actual_45_plus = "Actual (%)",
+      desired_45_plus = "Desired (%)",
+      change_45_plus = "Desired - actual"
+    ) |>
+    gt::cols_width(
+      activity_below_35 ~ gt::px(170),
+      activity_35_45 ~ gt::px(240),
+      activity_45_plus ~ gt::px(170)
+    ) |>
+    gt::fmt_number(
+      columns = c(
+        actual_below_35, desired_below_35, change_below_35,
+        actual_35_45, desired_35_45, change_35_45,
+        actual_45_plus, desired_45_plus, change_45_plus
+      ),
+      decimals = 1
+    ) |>
+    gt::sub_missing(
+      columns = c(
+        actual_below_35, desired_below_35, change_below_35,
+        actual_35_45, desired_35_45, change_35_45,
+        actual_45_plus, desired_45_plus, change_45_plus
+      ),
+      missing_text = ""
+    ) |>
+    gt::tab_style(
+      style = gt::cell_text(weight = "bold"),
+      locations = gt::cells_column_labels()
+    ) |>
+    gt::tab_options(table.font.size = gt::px(14))
+}
+```
+
+## Nordics
+
+### Descriptive Statistics
+
+```{r}
+#| echo: false
+#| results: asis
+
+actual_cols <- question_columns("likert0", names(df_allocation))
+desired_cols <- question_columns("likert1", names(df_allocation))
+
+if (
+  !has_likert_observations(df_allocation, actual_cols) ||
+    !has_likert_observations(df_allocation, desired_cols)
+) {
+  cat("Nordics: No responses available for Nordic countries in the current filter.\n\n")
+} else {
+  summary_tbl <- prepare_likert_allocation_summary(
+    df_allocation,
+    nordic_countries,
+    meta = cols,
+    stat = "mean"
+  )
+
+  render_allocation_summary_table(
+    summary_tbl = summary_tbl,
+    title = "Time allocation (Nordics)",
+    subtitle = "Mean percentages by activity"
+  )
+}
+```
+
+For each activity, the chart shows actual time as the baseline (black square) and the corresponding desired level (black triangle) after rescaling each respondent to 100% and computing `desired − actual`. Lines always run from the actual baseline to `actual + change`; **solid** lines indicate an increase, **dotted** lines a decrease.
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 5
+#| results: asis
+
+print_likert_allocation_summary(
+  df_allocation,
+  nordic_countries,
+  meta = cols,
+  country_label = "Nordics",
+  stat = "mean",
+  empty_message = "No responses available for Nordic countries in the current filter."
+)
+```
+
+### Statistics by age group
+
+```{r}
+#| echo: false
+#| results: asis
+
+df_nordics_age <- df_allocation |>
+  dplyr::filter(.data$socio1_0 %in% nordic_countries) |>
+  assign_age_groups_two() |>
+  dplyr::mutate(socio1_0 = .data$age_group)
+
+actual_cols <- question_columns("likert0", names(df_nordics_age))
+desired_cols <- question_columns("likert1", names(df_nordics_age))
+
+if (
+  !has_likert_observations(df_nordics_age, actual_cols) ||
+    !has_likert_observations(df_nordics_age, desired_cols)
+) {
+  cat("Nordics by age group: No responses available for the current filter.\n\n")
+} else {
+  summary_tbl_age <- prepare_likert_allocation_summary(
+    df_nordics_age,
+    c("Below 35", "35-45", "45+"),
+    meta = cols,
+    stat = "mean",
+    by_country = TRUE
+  )
+
+  render_allocation_age_wide_table(
+    summary_tbl = summary_tbl_age,
+    title = "Time allocation by age group (Nordics)",
+    subtitle = "Mean percentages by activity within each age group"
+  )
+}
+```
+
+### Participant allocation
+
+::: {.callout-note}
+## Rescaled time allocations (\*)
+
+In the charts below, a bracketed asterisk `(*)` at the end of a bar marks respondents whose reported activity shares did not sum to 100%. For those individuals, each share was rescaled proportionally (multiplied by \(100 / \text{total}\)) so the bar reaches 100% while preserving the relative split across tasks.
+:::
+
+Each row is one respondent; bar segments show time shares per activity (rescaled to 100% where needed; see note above).
+Respondents are sorted by their largest single-task share in actual time (specialists at the top); the same row order is used for desired time.
+
+```{r}
+#| echo: false
+#| fig-width: 16
+#| fig-height: !expr nordics_fig_height
+#| results: asis
+
+print_likert_allocation_paired(
+  df_allocation,
+  nordic_countries,
+  meta = cols,
+  country_label = "Nordics",
+  empty_message = "No responses available for Nordic countries in the current filter."
+)
+```
+
+## Within Nordics
+
+### Descriptive Statistics
+
+```{r}
+#| echo: false
+#| results: asis
+
+actual_cols <- question_columns("likert0", names(df_allocation))
+desired_cols <- question_columns("likert1", names(df_allocation))
+
+if (
+  !has_likert_observations(df_allocation, actual_cols) ||
+    !has_likert_observations(df_allocation, desired_cols)
+) {
+  cat("Within Nordics: No responses available for Nordic countries in the current filter.\n\n")
+} else {
+  summary_tbl_within <- prepare_likert_allocation_summary(
+    df_allocation,
+    nordic_countries,
+    meta = cols,
+    stat = "mean",
+    by_country = TRUE
+  )
+
+  render_allocation_summary_table(
+    summary_tbl = summary_tbl_within,
+    title = "Time allocation within Nordic countries",
+    subtitle = "Mean percentages by activity and country",
+    group_col = "country",
+    group_label = "Country",
+    group_order = nordic_countries
+  )
+}
+```
+
+The same summary with one line per Nordic country within each activity (tasks on the y-axis):
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 14
+#| results: asis
+
+print_likert_allocation_summary_by_country(
+  df_allocation,
+  nordic_countries,
+  group_label = "Nordics",
+  meta = cols,
+  stat = "mean",
+  empty_message = "No responses available for Nordic countries in the current filter."
+)
+```
+
+## Between Countries
+
+### Descriptive Statistics
+
+```{r}
+#| echo: false
+#| results: asis
+
+df_groups <- df_allocation |>
+  dplyr::mutate(
+    socio1_0 = dplyr::case_when(
+      .data$socio1_0 %in% nordic_countries ~ "Nordics",
+      .data$socio1_0 == "Germany" ~ "Germany",
+      .data$socio1_0 == "Netherlands" ~ "Netherlands",
+      TRUE ~ .data$socio1_0
+    )
+  )
+
+actual_cols <- question_columns("likert0", names(df_groups))
+desired_cols <- question_columns("likert1", names(df_groups))
+
+if (
+  !has_likert_observations(df_groups, actual_cols) ||
+    !has_likert_observations(df_groups, desired_cols)
+) {
+  cat("Country groups: No responses available for the selected country groups.\n\n")
+} else {
+  summary_tbl_between <- prepare_likert_allocation_summary(
+    df_groups,
+    names(country_groups),
+    meta = cols,
+    stat = "mean",
+    by_country = TRUE
+  )
+
+  render_allocation_summary_table(
+    summary_tbl = summary_tbl_between,
+    title = "Time allocation by country groups",
+    subtitle = "Mean percentages by activity and country group",
+    group_col = "country",
+    group_label = "Country group",
+    group_order = names(country_groups)
+  )
+}
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+#| results: asis
+
+df_groups <- df_allocation |>
+  dplyr::mutate(
+    socio1_0 = dplyr::case_when(
+      .data$socio1_0 %in% nordic_countries ~ "Nordics",
+      .data$socio1_0 == "Germany" ~ "Germany",
+      .data$socio1_0 == "Netherlands" ~ "Netherlands",
+      TRUE ~ .data$socio1_0
+    )
+  )
+
+print_likert_allocation_summary_by_country(
+  df_groups,
+  names(country_groups),
+  group_label = "Country groups",
+  meta = cols,
+  stat = "mean",
+  empty_message = "No responses available for the selected country groups."
+)
+```

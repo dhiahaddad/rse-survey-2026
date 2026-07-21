@@ -1,0 +1,119 @@
+---
+title: "In general, when your software contributes to a paper, are you acknowledged in that paper?"
+question_id: paper2mod
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+question_code <- "paper2mod"
+
+nordic_countries <- c(
+  "Finland", "Norway", "Sweden", "Denmark", "Iceland", "Estonia"
+)
+country_groups <- list(
+  Nordics = nordic_countries,
+  Germany = "Germany",
+  Netherlands = "Netherlands"
+)
+plot_countries <- countries_from_groups(country_groups)
+```
+
+## Nordics
+
+### Descriptive Statistics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  FILTER,
+  question_code,
+  header = "In general, when your software contributes to a paper, are you acknowledged in that paper? (Nordics)"
+)
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap(FILTER, question_code, title = "Nordics")
+```
+
+### Free-text responses
+
+```{r}
+#| echo: false
+source(file.path(book_root, "R/recodes/paper2mod_recode.R"))
+
+cleaned_data <- process_text_codes_with_allocation(
+  filter = FILTER,
+  question_code = "paper2mod",
+  recode_map = paper2mod_recode_map,
+  header = "In general, when your software contributes to a paper, are you acknowledged in that paper?",
+  other = TRUE,
+  cache_id = "paper2mod"
+)
+
+cleaned_data$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.
+
+### Statistics by age group
+
+```{r}
+#| echo: false
+
+print_heatmap_category_age_wide_table(
+  FILTER,
+  question_code,
+  header = "In general, when your software contributes to a paper, are you acknowledged in that paper? by age group (Nordics)"
+)
+```
+
+## Within Nordics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  nordic_countries,
+  question_code,
+  header = "In general, when your software contributes to a paper, are you acknowledged in that paper? within Nordic countries",
+  group_by = nordic_countries
+)
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap_category_stacked_bars(
+  nordic_countries,
+  question_code,
+  countries = nordic_countries,
+  title = "In general, when your software contributes to a paper, are you acknowledged in that paper? within Nordic countries"
+)
+```
+
+## Between Countries
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap_category_stacked_bars(
+  plot_countries,
+  question_code,
+  country_groups = country_groups,
+  title = "In general, when your software contributes to a paper, are you acknowledged in that paper? by country group"
+)
+```

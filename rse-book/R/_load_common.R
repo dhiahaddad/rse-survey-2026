@@ -8,4 +8,19 @@ if (is.na(book_root) || !nzchar(book_root)) {
     "rse-book"
   }
 }
-source(file.path(book_root, "R/_common.R"))
+common_path <- file.path(book_root, "R/_common.R")
+if (!file.exists(common_path)) {
+  candidates <- unique(c(
+    file.path(book_root, ".."),
+    if (file.exists("_quarto.yml")) "." else NULL,
+    if (file.exists("../_quarto.yml")) ".." else NULL,
+    "rse-book"
+  ))
+  candidate_paths <- file.path(candidates, "R/_common.R")
+  hit <- candidates[file.exists(candidate_paths)]
+  if (length(hit) > 0L) {
+    book_root <- hit[[1]]
+    common_path <- file.path(book_root, "R/_common.R")
+  }
+}
+source(common_path)

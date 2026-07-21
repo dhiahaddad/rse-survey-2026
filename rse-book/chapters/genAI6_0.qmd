@@ -1,0 +1,31 @@
+---
+title: "What skills do you think are necessary to effectively use generative AI for research software development tasks?"
+question_id: genAI6_0
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+## Nordics
+
+### Free-text responses
+
+```{r}
+#| echo: false
+source(file.path(book_root, "R/recodes/genAI6_0_recode.R"))
+
+cleaned_data <- process_text_codes_with_allocation(
+  filter = FILTER,
+  question_code = "genAI6_0",
+  recode_map = genAI6_0_recode_map,
+  header = "What skills do you think are necessary to effectively use generative AI for research software development tasks? (Nordics)",
+  other = FALSE,
+  cache_id = "genAI6_0"
+)
+
+cleaned_data$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.

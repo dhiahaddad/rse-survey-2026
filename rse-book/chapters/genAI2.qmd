@@ -10,69 +10,51 @@ question_id: genAI2
 
 ```{r}
 #| echo: false
-#| fig-width: 10
-#| fig-height: 6
+question_code <- "genAI2"
 
-plot_heatmap(FILTER, "genAI2")
+nordic_countries <- c(
+  "Finland", "Norway", "Sweden", "Denmark", "Iceland", "Estonia"
+)
+country_groups <- list(
+  Nordics = nordic_countries,
+  Germany = "Germany",
+  Netherlands = "Netherlands"
+)
+plot_countries <- countries_from_groups(country_groups)
+```
+
+## Nordics
+
+### Descriptive Statistics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  FILTER,
+  question_code,
+  header = "Generative AI usage purpose (Nordics)"
+)
 ```
 
 ```{r}
 #| echo: false
-recode_map <- tibble::tribble(
-  ~raw, ~clean,
+#| fig-width: 10
+#| fig-height: 6
 
-  # Evaluation / decision support (pros/cons, second opinion)
-  "(?i)pros and cons|trade[- ]?off|second opinion|abw(ä|a)gen|choices", 
-  "Evaluation and decision support",
+plot_heatmap(FILTER, question_code, title = "Nordics")
+```
 
-  # Prototyping and scaffolding (PoC, templates, outlines, Dockerfiles, parsers)
-  "(?i)\\bpo[cf]\\b|proof of concept|scaffold|template(s)?\\b|code outline|outline(s)?\\b|dockerfile|pattern implementation|prototyp|writing parsers",
-  "Prototyping and scaffolding",
+### Free-text responses
 
-  # Code comprehension and problem solving (understand/navigate code, rubber ducking)
-  "(?i)understanding( ill-documented)? code|make? ?ing sense of code|navigate.*code ?bases?|responsive rubber duck(y)?|rubber duck|problem solving|verstehen von code|prompting for a solution of a task that does not seem to have a straightforward answer on forums",
-  "Code comprehension and problem solving",
-
-  # Code assistance and refactoring (syntax, APIs, libraries, formatting, naming, tooling)
-  "(?i)checking syntax|get(ting)? (information )?about syntax|get(ting)? help with (libraries|library|api)|which libraries exist|question on how to use a library|refactor(ing)?|formatting|naming variables|tooling|testing crazy ideas.*",
-  "Code assistance and refactoring",
-
-  # Code review and linting
-  "(?i)code review(s)?|review(ing)? (my )?code|linting",
-  "Code review and linting",
-
-  # Documentation (docs discovery)
-  "(?i)documentations|documenting existing codebases|entry points? to documentation|learn(ing)? (new|unknown)? (software )?technolog|finding resources|domain knowledge",
-  "Documentation",
-  "understanding ill-documented legacy code", "Documentation",
-
-  # Brainstorming and planning
-  "(?i)brainstorm|conceptualis(e|ing)|planning|getting ideas|exploratory prigramming",
-  "Brainstorming and planning",
-
-  # Writing and communication (editing, summarizing, emails, blogs, presentations)
-  "(?i)improv(ing|e) (the )?wording|spelling/grammar|grammar checking|summari(s|z)e|check my own writing|writing (documents|non-technical overviews)|emails?|blog posts|turning my .*infodumps|general non-technical communication|making images? for presentations",
-  "Writing (grammar/spelling) and communication",
-
-  # Data and analysis tasks (extraction, NLP, enrichment, plotting, sentiment)
-  "(?i)data extraction|datenanreicherung|natural language processing|text classification|sentiment analysis|plotting of data",
-  "Data and analysis tasks",
-  
-  # Writing
-  "papers", "Papers",
-  
-  # Learning
-  "learn how to apply new or unknown technologies|ask(ing)? questions of rag|\\brag[- ]?based|research on technical solutions|to get the domain knowledge that i need for the current projects|double check techniques.*|where i can learn the details error free|best practices", "Learning",
-  
-  # NAs
-  "specially when it's a technology i'm not very familiar with.|etc.", NA_character_,
-  "(?i)ai is rarely good enough|mostly checking if llms can be helpful|^etc\\.?$|have a laugh|launching pad", NA_character_
-)
+```{r}
+#| echo: false
+source(file.path(book_root, "R/recodes/genAI2_recode.R"))
 
 data_coded <- process_text_codes_with_allocation(
   filter = FILTER,
   question_code = "genAI2",
-  recode_map = recode_map,
+  recode_map = genAI2_recode_map,
   header = "Usage of AI",
   other = TRUE,
   cache_id = "genAI2"
@@ -82,3 +64,57 @@ data_coded$summary_table
 ```
 
 The raw-to-category allocation table for this question is in @sec-appendix-recoding.
+
+### Statistics by age group
+
+```{r}
+#| echo: false
+
+print_heatmap_category_age_wide_table(
+  FILTER,
+  question_code,
+  header = "Generative AI usage purpose by age group (Nordics)"
+)
+```
+
+
+## Within Nordics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  nordic_countries,
+  question_code,
+  header = "Generative AI usage purpose selections within Nordic countries",
+  group_by = nordic_countries
+)
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap_category_stacked_bars(
+  nordic_countries,
+  question_code,
+  countries = nordic_countries,
+  title = "Generative AI usage purpose selections within Nordic countries"
+)
+```
+
+## Between Countries
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap_category_stacked_bars(
+  plot_countries,
+  question_code,
+  country_groups = country_groups,
+  title = "Generative AI usage purpose selections by country group"
+)
+```

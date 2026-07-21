@@ -1,0 +1,105 @@
+---
+title: "Are you a member of any of the following associations of Research Software Engineers (called Research Software Developers in Canada)?"
+question_id: ukrse1_0
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+question_code <- "ukrse1_0"
+response_levels <- c("False", "True")
+
+nordic_countries <- c(
+  "Finland", "Norway", "Sweden", "Denmark", "Iceland", "Estonia"
+)
+country_groups <- list(
+  Nordics = nordic_countries,
+  Germany = "Germany",
+  Netherlands = "Netherlands"
+)
+plot_countries <- countries_from_groups(country_groups)
+
+df <- load_filtered_tf(plot_countries)
+likert_cols <- question_code
+```
+
+## Nordics
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+#| results: asis
+
+df_nordics <- load_filtered_tf(nordic_countries)
+
+print_likert_items(
+  df_nordics,
+  likert_cols,
+  meta = cols,
+  levels = response_levels,
+  empty_message = "No responses available for Nordic countries in the current filter."
+)
+```
+
+### Statistics by age group
+
+```{r}
+#| echo: false
+#| results: asis
+
+df_nordics <- load_filtered_tf(nordic_countries)
+
+print_likert_items(
+  df_nordics,
+  likert_cols,
+  meta = cols,
+  group_by = "age_group",
+  include_plot = FALSE,
+  heading_level = 4L,
+  levels = response_levels,
+  empty_message = "No responses available for Nordic countries in the current filter."
+)
+```
+
+## Within Nordics
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+#| results: asis
+
+df_nordics <- load_filtered_tf(nordic_countries)
+
+print_likert_items(
+  df_nordics,
+  likert_cols,
+  meta = cols,
+  group_by = nordic_countries,
+  levels = response_levels,
+  empty_message = "No responses available for Nordic countries in the current filter."
+)
+```
+
+## Between Countries
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+#| results: asis
+
+print_likert_items(
+  df,
+  likert_cols,
+  meta = cols,
+  country_groups = country_groups,
+  levels = response_levels,
+  empty_message = "No responses available for the selected country groups."
+)
+```
