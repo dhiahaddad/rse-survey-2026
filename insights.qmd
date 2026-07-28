@@ -26,7 +26,7 @@ ns <- insights_question_ns(nordic_countries, meta, df_nordics)
 alloc_age_ns <- insights_allocation_age_ns(df_nordics, nordic_countries, meta)
 ```
 
-This post shows results from the 5th international RSE survey that ran in early 2026. Over 950 Research Software Engineers from 55 countries shared insights into their career and interests. The full dataset is available for downlaod at <https://github.com/softwaresaved/RSE_survey_longitudinal/>. An interactive dashboard with all international RSE survey data is available at <https://rse-survey.soton.ac.uk/superset/dashboard/RSE_survey/>. This page presents and analyses the findings on the Nordic and Baltic countries. 
+This post shows results from the 5th international RSE survey that ran in early 2026. Over 950 Research Software Engineers from 55 countries shared insights into their career and interests. The full dataset is available for download at <https://github.com/softwaresaved/RSE_survey_longitudinal/>. An interactive dashboard with all international RSE survey data is available at <https://rse-survey.soton.ac.uk/superset/dashboard/RSE_survey/>. This page presents and analyses the findings on the Nordic and Baltic countries. 
 
 Figures use a colorblind-safe palette (Okabe–Ito). **Affirmative** responses (Agree/Strongly Agree, True, Yes, Always) share green; **negative** responses (Disagree/Strongly disagree, False, No, Never) share orange-red; neutral options and aggregated **Other** categories are grey.
 
