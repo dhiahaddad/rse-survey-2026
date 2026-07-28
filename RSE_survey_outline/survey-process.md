@@ -351,7 +351,7 @@ Each chapter in `rse-book/` follows the same pipeline:
 1. **Load** `2026_tf.csv`
 2. **Filter** to submitted rows with `socio1_0 ∈ FILTER`
 3. **Select columns** for one question code (exact match or `code[...]_0` sub-columns)
-4. **Decode** multi-select `"True"`/`"False"` values using labels from `2026_all_cols.csv`
+4. **Decode** values: multi-select `"True"`/`"False"` → option labels from `2026_all_cols.csv`; single Yes/No `"True"`/`"False"` → `"Yes"`/`"No"`
 5. **Visualise** multi-select answers as heatmaps; recode free text via chapter-specific regex maps
 6. **Cache** raw-to-category allocation tables for the Recoding appendix
 

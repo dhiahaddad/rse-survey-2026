@@ -48,7 +48,12 @@ insights_init <- function() {
     local = parent.frame()
   )
 
-  nordic_countries <- FILTER
+  # Always Nordic: independent of chapter FILTER in R/.config.
+  nordic_countries <- if (exists("NORDIC_COUNTRIES", inherits = TRUE)) {
+    NORDIC_COUNTRIES
+  } else {
+    c("Finland", "Norway", "Sweden", "Denmark", "Iceland", "Estonia")
+  }
   df_nordics <- load_filtered_tf(nordic_countries)
   n_excluded <- survey_unsubmitted_n(nordic_countries)
 

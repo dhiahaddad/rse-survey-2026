@@ -1,8 +1,8 @@
 # rse-survey-2026
 
 Analysis and reporting code for the International RSE Survey 2026. The
-repository contains a question-by-question Quarto book, a Nordic insights
-report, and generated descriptions of the survey flow.
+repository contains a question-by-question Quarto book (with Nordic insights as
+the landing page) and generated descriptions of the survey flow.
 
 ## Data
 
@@ -19,12 +19,13 @@ The data are not committed to this repository.
 
 | Path | Purpose |
 |------|---------|
-| [`rse-book/`](rse-book/) | Main Quarto book containing the question-by-question analysis |
+| [`rse-book/`](rse-book/) | Main Quarto book; About part (insights + user guide) plus question-by-question chapters |
+| [`rse-book/index.qmd`](rse-book/index.qmd) | Nordic insights landing page |
+| [`rse-book/about/user-guide.qmd`](rse-book/about/user-guide.qmd) | User guide for working with the book |
 | [`rse-book/chapters/`](rse-book/chapters/) | One Quarto chapter per survey question or question group |
 | [`rse-book/R/`](rse-book/R/) | Book configuration, data preparation, analysis, and plotting code |
 | [`rse-book/R/recodes/`](rse-book/R/recodes/) | Reusable free-text recoding maps |
-| [`insights.qmd`](insights.qmd) | Nordic insights report |
-| [`RSE_survey_insights_helper/`](RSE_survey_insights_helper/) | Refactored data, plotting, caption, theme, and setup modules used by `insights.qmd` |
+| [`RSE_survey_insights_helper/`](RSE_survey_insights_helper/) | Data, plotting, caption, theme, and setup modules for the Nordic insights page |
 | [`RSE_survey_outline/survey-process.md`](RSE_survey_outline/survey-process.md) | Global survey flow, routing, and analysis filtering |
 | [`RSE_survey_outline/survey-process-nordics.md`](RSE_survey_outline/survey-process-nordics.md) | Generated Nordic question inventory with per-question **N** and routing notes |
 | [`RSE_survey_outline/build-survey-process-nordics.R`](RSE_survey_outline/build-survey-process-nordics.R) | Generator for the Nordic survey-process document |
@@ -34,21 +35,16 @@ The data are not committed to this repository.
 Book and report code share `rse-book/R/.config`:
 
 - `DATA_DIR` gives the data directory name;
-- `FILTER` gives the country or countries included by default.
+- `NORDIC_COUNTRIES` is the Nordic set (landing page always uses this);
+- `FILTER` is the primary country scope for chapters;
+- `FILTER_COMPARE` is a named list of extra groups for Between Countries.
 
-The current filter contains Finland, Norway, Sweden, Denmark, Iceland, and
-Estonia. Analyses retain only submitted responses (rows with a non-empty
+Analyses retain only submitted responses (rows with a non-empty
 `submitdate_0`).
 
 ## Build the outputs
 
 Run these commands from the repository root.
-
-Render the Nordic insights report:
-
-```bash
-quarto render insights.qmd
-```
 
 Regenerate the Nordic survey-process document:
 
@@ -56,7 +52,7 @@ Regenerate the Nordic survey-process document:
 Rscript RSE_survey_outline/build-survey-process-nordics.R
 ```
 
-Render the complete analysis book:
+Render the complete analysis book (Nordic insights landing page plus chapters):
 
 ```bash
 cd rse-book
@@ -70,8 +66,8 @@ cd rse-book
 quarto render chapters/conf2can_0.qmd
 ```
 
-The book is written to `rse-book/_book/`; the standalone Nordic report is
-written to `insights.html`, with supporting assets in `insights_files/`.
+The book is written to `rse-book/_book/`. Open `_book/index.html` for the
+Nordic insights landing page.
 
 ## Publish the book
 
@@ -96,13 +92,3 @@ HTML from those freezes and deploys to the `gh-pages` branch.
 3. Push to `main`. The `Publish Quarto book` workflow deploys automatically
    when `rse-book/` changes. You can also run it manually from the Actions tab.
 
-One-time repository setup (requires admin access): **Settings → Pages → Build
-and deployment**, set Source to **Deploy from a branch**, Branch `gh-pages` /
-`/ (root)`.
-
-Fallback from a machine with data and Quarto authenticated to GitHub:
-
-```bash
-cd rse-book
-quarto publish gh-pages
-```

@@ -100,58 +100,58 @@ This document lists **71** question groups shown to Nordics with N > 0 (of 110 t
 | # | Code | Type | N | Filtering / routing | Question |
 |---|------|------|---|---------------------|----------|
 | 9 | `open1de` | Single / free-text | 62 | — | Do you have an ORCID ID? |
-| 79 | `open1can` | Single / free-text | 39 | — | How often do you license your software with an open-source licence? [] |
+| 79 | `open1can` | Single / free-text | 39 | — | How often do you license your software with an open-source licence? |
 
 ### UK RSE network
 
 | # | Code | Type | N | Filtering / routing | Question |
 |---|------|------|---|---------------------|----------|
-| 11 | `ukrse1` | Single / free-text | 59 | — | Are you a member of any of the following associations of Research Software Engineers (called "Research Software Developers" in Canada)? Belgium https://be-rse.org/ French https://www.devlog.cnrs.fr/, https://www.devlog.cnrs.fr/, https://ri3.in2p3.fr/ or https://resinfo.org/ Germany http://de-rse.org/ Netherlands http://nl-rse.org/ Nordic http://nordic-rse.org/ Canada https://github.com/alliancecan/RSCAN RSE Asia https://rse-asia.github.io/RSE_Asia/ Australia and New Zealand https://rse-aunz.github.io/ Chile https://rse-chile.github.io/ RSSE Africa https://rsse.africa/ United Kingdom https://society-rse.org/ Switzerland https://rse.swiss// United States http://us-rse.org/ |
-| 99 | `ukrse3` | Multi-select | 61 | — | How did you learn the skills you need to become a Research Software Engineer / Research Software Developer? [Conferences] |
+| 11 | `ukrse1` | Single / free-text | 59 | — | Are you a member of any of the following associations of Research Software Engineers (called "Research Software Developers" in Canada)? |
+| 99 | `ukrse3` | Multi-select | 61 | — | How did you learn the skills you need to become a Research Software Engineer / Research Software Developer? |
 
 ### RSE organisation
 
 | # | Code | Type | N | Filtering / routing | Question |
 |---|------|------|---|---------------------|----------|
 | 12 | `org1can` | Single / free-text | 28 | Global question; `org2can` follows if respondent is interested or an association member. | Would you be interested in joining such an organisation? |
-| 15 | `org2can` | Multi-select | 47 | Follow-up when `org1can = Yes` or respondent is an RSE association member (`ukrse1`). | What would you hope to get out of such an organisation (check all that apply)? [Networking] |
-| 21 | `org3nord` | Multi-select | 60 | Shown when `socio1_0` is a Nordic country. | How could Nordic-RSE or a potential Nordic research software institute foster community engagement and knowledge transfer? [Organisation of conferences, workshops and similar events] |
-| 22 | `org4nord` | Multi-select | 60 | Shown when `socio1_0` is a Nordic country. | With Nordic-RSE we have an association dedicated to the community of Research Software Engineers in the Nordics. What tasks do you think should be undertaken by Nordic-RSE or a future Nordic institute for research software? [Offer funding for research software projects] |
+| 15 | `org2can` | Multi-select | 47 | Follow-up when `org1can = Yes` or respondent is an RSE association member (`ukrse1`). | What would you hope to get out of such an organisation (check all that apply)? |
+| 21 | `org3nord` | Multi-select | 60 | Shown when `socio1_0` is a Nordic country. | How could Nordic-RSE or a potential Nordic research software institute foster community engagement and knowledge transfer? |
+| 22 | `org4nord` | Multi-select | 60 | Shown when `socio1_0` is a Nordic country. | With Nordic-RSE we have an association dedicated to the community of Research Software Engineers in the Nordics. What tasks do you think should be undertaken by Nordic-RSE or a future Nordic institute for research software? |
 
 ### Employment
 
 | # | Code | Type | N | Filtering / routing | Question |
 |---|------|------|---|---------------------|----------|
-| 23 | `currentEmp1` | Multi-select | 62 | Nordics see `currentEmp1` (not `currentEmp1qde`, `currentEmp1nl`, etc.). | Please select your organization type [Other] |
-| 36 | `prevEmp1` | Multi-select | 62 | Nordics see `prevEmp1` (not `prevEmp1qde`, `prevEmp1nl`, etc.). | Where was your previous job based? [Other] |
+| 23 | `currentEmp1` | Multi-select | 62 | Nordics see `currentEmp1` (not `currentEmp1qde`, `currentEmp1nl`, etc.). | Please select your organization type |
+| 36 | `prevEmp1` | Multi-select | 62 | Nordics see `prevEmp1` (not `prevEmp1qde`, `prevEmp1nl`, etc.). | Where was your previous job based? |
 | 40 | `currentEmp5` | Single / free-text | 56 | — | What is your official job title? |
 | 41 | `currentEmp6` | Single / free-text | 55 | If Yes, respondent is asked `currentEmp60` for alternate job title. | Are you known in your group by a different job title? |
 | 42 | `currentEmp60` | Single / free-text | 16 | Follow-up when `currentEmp6 = Yes`. | Please enter the job title you use. |
 | 43 | `currentEmp12` | Single / free-text | 62 | — | Do you work full time or part time? |
-| 44 | `currentEmp10` | Multi-select | 62 | — | What is the nature of your current employment? [Other] |
+| 44 | `currentEmp10` | Multi-select | 62 | — | What is the nature of your current employment? |
 | 45 | `currentEmp11` | Single / free-text | 13 | — | What is the expected duration (in years) of your current position (in total)? |
-| 46 | `currentEmp13` | Multi-select | 62 | — | Please select the discipline(s) in which you work. Please select all that apply. [Social sciences] |
+| 46 | `currentEmp13` | Multi-select | 62 | — | Please select the discipline(s) in which you work. Please select all that apply. |
 | 109 | `currentEmp2q` | Single / free-text | 38 | — | Which university do you work for? |
 
 ### Attitudes (Likert)
 
 | # | Code | Type | N | Filtering / routing | Question |
 |---|------|------|---|---------------------|----------|
-| 47 | `likert0` | Likert | 62 | — | On average, how much of your time is spent on [developing software?] |
-| 48 | `likert1` | Likert | 62 | — | On average, how much time would you like to spend on [developing software?] |
-| 49 | `likert3a` | Likert | 62 | — | In general, I am satisfied with my current position. [] |
-| 50 | `likert3b` | Likert | 61 | — | In general, I am satisfied with my career. [] |
-| 52 | `likert4b` | Likert | 60 | — | I feel that my contribution to research is recognised by... [my institution.] |
-| 54 | `likert5b` | Likert | 60 | — | [My experience is in demand on the labour market] |
-| 55 | `likert5a` | Likert | 60 | — | [It would not be very difficult for me to get an equivalent job in a different institution] |
-| 80 | `likert2a` | Likert | 33 | — | When you are writing about your software, do you reference the software directly or do you reference a paper describing your software? [Directly reference the software (i.e. through Github link or Zenodo)] |
-| 81 | `likert2b` | Likert | 25 | — | How often do you generate a DOI or other persistent identifier for your software? [] |
+| 47 | `likert0` | Likert | 62 | — | On average, how much of your time is spent on |
+| 48 | `likert1` | Likert | 62 | — | On average, how much time would you like to spend on |
+| 49 | `likert3a` | Likert | 62 | — | In general, I am satisfied with my current position. |
+| 50 | `likert3b` | Likert | 61 | — | In general, I am satisfied with my career. |
+| 52 | `likert4b` | Likert | 60 | — | I feel that my contribution to research is recognised by my institution. |
+| 54 | `likert5b` | Likert | 60 | — | NA |
+| 55 | `likert5a` | Likert | 60 | — | NA |
+| 80 | `likert2a` | Likert | 33 | — | When you are writing about your software, do you reference the software directly or do you reference a paper describing your software? |
+| 81 | `likert2b` | Likert | 25 | — | How often do you generate a DOI or other persistent identifier for your software? |
 
 ### Turnover
 
 | # | Code | Type | N | Filtering / routing | Question |
 |---|------|------|---|---------------------|----------|
-| 56 | `turnOver3` | Single / free-text | 61 | — | How likely are you to choose to leave your job in the next 12 months? [] |
+| 56 | `turnOver3` | Single / free-text | 61 | — | How likely are you to choose to leave your job in the next 12 months? |
 
 ### Work activities
 
@@ -159,7 +159,7 @@ This document lists **71** question groups shown to Nordics with N > 0 (of 110 t
 |---|------|------|---|---------------------|----------|
 | 64 | `currentWork2` | Single / free-text | 59 | — | Are you part of a dedicated research software group within your institution? |
 | 65 | `currentWork1` | Single / free-text | 62 | — | Do you always work with the same researchers, or do you regularly change the researchers you work with? |
-| 66 | `currentWork2qcl` | Multi-select | 62 | Shown to Nordics (and Chile via QCL path). Replaces generic audience question for this group. | Who are you writing code for, supporting with your code or providing services to? [Researchers in own group] |
+| 66 | `currentWork2qcl` | Multi-select | 62 | Shown to Nordics (and Chile via QCL path). Replaces generic audience question for this group. | Who are you writing code for, supporting with your code or providing services to? |
 | 72 | `currentWork3nord` | Single / free-text | 58 | Shown when `socio1_0` is a Nordic country. | Do you feel like you have a network of peers that extends beyond your close colleagues? (By "peers", we mean other people in a similar position to yours; please do not count networks that you may have built before, e.g. during a PhD) |
 
 ### Publications
@@ -167,7 +167,7 @@ This document lists **71** question groups shown to Nordics with N > 0 (of 110 t
 | # | Code | Type | N | Filtering / routing | Question |
 |---|------|------|---|---------------------|----------|
 | 67 | `paper3mod` | Single / free-text | 62 | — | Have you published a paper about your software? (For example in journals such as JOSS or Software-x) |
-| 68 | `paper2mod` | Multi-select | 49 | — | In general, when your software contributes to a paper, are you acknowledged in that paper? [Not mentioned at all] |
+| 68 | `paper2mod` | Multi-select | 49 | — | In general, when your software contributes to a paper, are you acknowledged in that paper? |
 
 ### Conferences
 
@@ -182,9 +182,9 @@ This document lists **71** question groups shown to Nordics with N > 0 (of 110 t
 |---|------|------|---|---------------------|----------|
 | 73 | `proj1can` | Single / free-text | 61 | — | How many software projects are you currently involved in? |
 | 76 | `proj8can` | Single / free-text | 58 | — | Do your research software projects typically include a project manager? |
-| 78 | `proj4can` | Multi-select | 61 | — | How do you test the software that you produce? Please check all that apply. [No formal testing] |
-| 82 | `proj5zaf` | Multi-select | 61 | — | Which version control tools do you use for software development? [CVS] |
-| 83 | `proj6zaf` | Multi-select | 61 | — | Which collaboration tools do you use for software development? [Travis] |
+| 78 | `proj4can` | Multi-select | 61 | — | How do you test the software that you produce? Please check all that apply. |
+| 82 | `proj5zaf` | Multi-select | 61 | — | Which version control tools do you use for software development? |
+| 83 | `proj6zaf` | Multi-select | 61 | — | Which collaboration tools do you use for software development? |
 
 ### Job stability
 
@@ -200,34 +200,34 @@ This document lists **71** question groups shown to Nordics with N > 0 (of 110 t
 | 85 | `train2` | Single / free-text | 61 | — | On average, how many times a year do you take part in providing training? |
 | 87 | `train3` | Single / free-text | 32 | — | What training programs are you involved with? |
 | 88 | `train4` | Single / free-text | 57 | If Yes, respondent is asked `train5` about teaching contribution. | Do you teach or support the teaching of credit bearing modules or courses? |
-| 89 | `train5` | Multi-select | 29 | Follow-up when `train4 = Yes`. | In what capacity do you contribute? [Module or course leader] |
+| 89 | `train5` | Multi-select | 29 | Follow-up when `train4 = Yes`. | In what capacity do you contribute? |
 | 100 | `skillNord` | Single / free-text | 60 | Shown when `socio1_0` is a Nordic country. | Are you granted time for personal skills acquisition or professional development? (For example, learning a new technique that is not specifically needed for a current project) |
-| 101 | `skill2` | Single / free-text | 40 | — | What three skills would you like to acquire or improve to help your work as a Research Software Engineer / Research Software Developer? The skills can be technical and non-technical. [] |
+| 101 | `skill2` | Single / free-text | 40 | — | What three skills would you like to acquire or improve to help your work as a Research Software Engineer / Research Software Developer? The skills can be technical and non-technical. |
 
 ### Funding
 
 | # | Code | Type | N | Filtering / routing | Question |
 |---|------|------|---|---------------------|----------|
-| 90 | `fund3` | Multi-select | 59 | — | Which of the following sources are used to pay for your effort as a Research Software Engineer? [Institutional support (centrally funded)] |
+| 90 | `fund3` | Multi-select | 59 | — | Which of the following sources are used to pay for your effort as a Research Software Engineer? |
 | 94 | `fund1nord` | Single / free-text | 60 | Shown when `socio1_0` is a Nordic country. | Do you have access to grants in your institutions/country for RSE type of work (ie not research grants)? |
 
 ### Tooling
 
 | # | Code | Type | N | Filtering / routing | Question |
 |---|------|------|---|---------------------|----------|
-| 95 | `tool5` | Multi-select | 58 | — | On which platform(s) is your most recent research software project deployed? Please select all that apply. [HPC] |
-| 97 | `tool2` | Multi-select | 60 | — | Which operating system do you primarily use for development? [Other] |
-| 98 | `tool4can` | Multi-select | 61 | — | What programming languages do you use at work? Please select all that apply. [Assembly] |
+| 95 | `tool5` | Multi-select | 58 | — | On which platform(s) is your most recent research software project deployed? Please select all that apply. |
+| 97 | `tool2` | Multi-select | 60 | — | Which operating system do you primarily use for development? |
+| 98 | `tool4can` | Multi-select | 61 | — | What programming languages do you use at work? Please select all that apply. |
 
 ### Generative AI
 
 | # | Code | Type | N | Filtering / routing | Question |
 |---|------|------|---|---------------------|----------|
 | 102 | `genAI1` | Single / free-text | 61 | If answer is not Never, `genAI2` and `genAI3` are shown. | How frequently do you use generative AI tools in your RSE-related tasks (e.g., coding, documentation, testing, or design)? |
-| 103 | `genAI2` | Multi-select | 50 | Follow-up when `genAI1 ≠ Never`. | For what purposes do you use generative AI tools? [Writing or debugging code] |
-| 104 | `genAI3` | Multi-select | 49 | Follow-up when `genAI1 ≠ Never`. | Which generative AI tools do you currently use in your RSE work? [ChatGPT] |
-| 105 | `genAI4` | Single / free-text | 54 | — | Over the next five years, how do you think generative AI tools will affect demand for RSEs roles? [] |
-| 106 | `genAI5` | Multi-select | 59 | — | Over the next five years, how do you think generative AI tools will affect [your productivity?] |
+| 103 | `genAI2` | Multi-select | 50 | Follow-up when `genAI1 ≠ Never`. | For what purposes do you use generative AI tools? |
+| 104 | `genAI3` | Multi-select | 49 | Follow-up when `genAI1 ≠ Never`. | Which generative AI tools do you currently use in your RSE work? |
+| 105 | `genAI4` | Single / free-text | 54 | — | Over the next five years, how do you think generative AI tools will affect demand for RSEs roles? |
+| 106 | `genAI5` | Multi-select | 59 | — | Over the next five years, how do you think generative AI tools will affect |
 | 107 | `genAI6` | Single / free-text | 43 | — | What skills do you think are necessary to effectively use generative AI for research software development tasks? |
 
 ### Demographics

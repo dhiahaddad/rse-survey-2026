@@ -32,7 +32,10 @@ meta <- read.csv(
   check.names = FALSE
 )
 meta2 <- meta |>
-  mutate(stem = question_stem(New_name), q_text = str_squish(Question))
+  mutate(
+    stem = question_stem(New_name),
+    q_text = clean_question_text(Question)
+  )
 text_map <- meta2 |>
   group_by(stem) |>
   summarise(text = first(na.omit(q_text[q_text != ""])), .groups = "drop")
@@ -294,5 +297,6 @@ md <- c(
   ""
 )
 
-writeLines(md, "survey-process-nordics.md")
-message("Wrote survey-process-nordics.md (", nrow(qdf), " questions, ", length(md), " lines)")
+out_path <- file.path("RSE_survey_outline", "survey-process-nordics.md")
+writeLines(md, out_path)
+message("Wrote ", out_path, " (", nrow(qdf), " questions, ", length(md), " lines)")
