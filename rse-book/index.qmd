@@ -21,11 +21,7 @@ ns <- insights_question_ns(nordic_countries, meta, df_nordics)
 alloc_age_ns <- insights_allocation_age_ns(df_nordics, nordic_countries, meta)
 ```
 
-::: {.callout-note}
-This page summarises Nordic findings from the International RSE Survey 2026.
-See the [User Guide](about/user-guide.qmd) for how the book is organised, and
-the following parts for question-by-question tables and figures.
-:::
+This post shows results from the 5th international RSE survey that ran in early 2026. Over 950 Research Software Engineers from 55 countries shared insights into their career and interests. The full dataset is available for download at <https://github.com/softwaresaved/RSE_survey_longitudinal/>. An interactive dashboard with all international RSE survey data is available at <https://rse-survey.soton.ac.uk/superset/dashboard/RSE_survey/>. This page presents and analyses the findings on the Nordic and Baltic countries. 
 
 Figures use a colorblind-safe palette (Okabe–Ito). **Affirmative** responses (Agree/Strongly Agree, True, Yes, Always) share green; **negative** responses (Disagree/Strongly disagree, False, No, Never) share orange-red; neutral options and aggregated **Other** categories are grey.
 
@@ -83,7 +79,7 @@ The majority or respondents write software for more than 2 users (accounting for
 
 Most respondents reported relatively stable employment conditions. **74.2%** indicated that they are in permanent employment, while **22.6%** reported fixed-term employment, and **95.2%** reported working full time. However, among respondents under 35, permanent and fixed-term positions are roughly balanced (**55.0%** permanent and **45.0%** fixed-term). This likely reflects the fact that many younger respondents are employed in PhD or postdoctoral positions, which are typically fixed-term by design.
 
-Official job titles may vary. Among retained coded job-title entries, the most frequent category was Software Engineer or Developer (**25.9%**), followed by Researcher (**12.1%**), Technical/Professional Support Role (**8.6%**), and Faculty/Professor (**5.2%**). In addition, **30.9%** of respondents are known in their group by a different job title than their official one; among retained coded alternative-title entries, the most common categories were Bioinformatician (**18.8%**), Research Software Engineer (**12.5%**), and Application Expert (**6.2%**).
+Official job titles may vary. Among retained coded job-title entries, the most frequent category was Software Engineer or Developer (**37.5%**), followed by Researcher (**17.5%**), Technical/Professional Support Role (**12.5%**), and Faculty/Professor (**7.5%**). In addition, **30.9%** of respondents are known in their group by a different job title than their official one; among retained coded alternative-title entries, the most common categories were Bioinformatician (**18.8%**), Research Software Engineer (**12.5%**), and Application Expert (**6.2%**).
 
 Most respondents work in universities (**79.0%**), and this is also the most common background for their previous role (**51.6%**), followed by private companies (**22.6%**).
 
@@ -472,5 +468,10 @@ Respondents see a Nordic-RSE institute primarily as a platform for conferences a
 plot_nordic_institute_by_age(nordic_countries)
 ```
 
+## Please share your thoughts or comments!
 
+We would love to hear what you think. Please take a moment and share your thoughts about the survey and the analysis in our collaborative document: <https://hackmd.io/@nordic-rse/rse-survey-2026>.
 
+## What's next
+
+These findings will directly shape how we, together with you at Nordic-RSE develop our activities and priorities going forward. We'll follow up with a separate post on the concrete steps we're taking in response.  We will also link to resources on where to find training, networking and career that already exist for RSEs in the Nordics today. If you would like to get involved, come to one of our coffee breaks or biweekly meetings: <https://nordic-rse.org/join/>
