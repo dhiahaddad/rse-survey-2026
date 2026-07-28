@@ -1,0 +1,53 @@
+---
+title: "Which Leibniz institute do you work for?"
+question_id: currentEmp22deqde_0
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+question_code <- "currentEmp22deqde_0"
+audience <- "Germany"
+```
+
+## Germany
+
+### Descriptive Statistics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  audience,
+  question_code,
+  header = "Leibniz institute (Germany)"
+)
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 8
+
+plot_heatmap_category_barplot(
+  audience,
+  question_code,
+  title = "Leibniz institute (Germany)"
+)
+```
+
+### Statistics by age group
+
+```{r}
+#| echo: false
+
+print_heatmap_category_age_wide_table(
+  audience,
+  question_code,
+  header = "Leibniz institute by age group (Germany)"
+)
+```

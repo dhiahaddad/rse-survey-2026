@@ -1,0 +1,54 @@
+---
+title: "Would you be interested in joining a national Swiss RSE association?"
+question_id: org1swiss_0
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+question_code <- "org1swiss_0"
+response_levels <- c("False", "True")
+audience <- "Switzerland"
+
+df <- load_filtered_tf(audience)
+likert_cols <- question_code
+```
+
+## Switzerland
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+#| results: asis
+
+print_likert_items(
+  df,
+  likert_cols,
+  meta = cols,
+  levels = response_levels,
+  empty_message = "No responses available for Switzerland in the current filter."
+)
+```
+
+### Statistics by age group
+
+```{r}
+#| echo: false
+#| results: asis
+
+print_likert_items(
+  df,
+  likert_cols,
+  meta = cols,
+  group_by = "age_group",
+  include_plot = FALSE,
+  heading_level = 4L,
+  levels = response_levels,
+  empty_message = "No responses available for Switzerland in the current filter."
+)
+```

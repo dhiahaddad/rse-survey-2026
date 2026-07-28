@@ -5,6 +5,7 @@ book:
   title: "International RSE Survey 2026"
   author: "RSE Survey Team"
   date: today
+  site-url: https://nordic-rse.github.io/rse-survey-2026/
   chapters:
     - index.qmd
     - part: "RSE role"
@@ -125,6 +126,6 @@ format:
     # embed-resources: true
 execute:
   dir: project
-  freeze: false
+  freeze: auto
 resources:
   - data/

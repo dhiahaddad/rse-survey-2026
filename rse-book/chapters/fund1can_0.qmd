@@ -1,0 +1,53 @@
+---
+title: "How is your current research software work funded?"
+question_id: fund1can_0
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+question_code <- "fund1can_0"
+audience <- "Canada"
+```
+
+## Canada
+
+### Descriptive Statistics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  audience,
+  question_code,
+  header = "Research software funding (Canada)"
+)
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 8
+
+plot_heatmap_category_barplot(
+  audience,
+  question_code,
+  title = "Research software funding (Canada)"
+)
+```
+
+### Statistics by age group
+
+```{r}
+#| echo: false
+
+print_heatmap_category_age_wide_table(
+  audience,
+  question_code,
+  header = "Research software funding by age group (Canada)"
+)
+```

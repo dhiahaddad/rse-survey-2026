@@ -1,0 +1,53 @@
+---
+title: "Please select your organization type"
+question_id: currentEmp1qzaf_0
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+question_code <- "currentEmp1qzaf_0"
+audience <- "South Africa"
+```
+
+## South Africa
+
+### Descriptive Statistics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  audience,
+  question_code,
+  header = "Organization type (South Africa)"
+)
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 8
+
+plot_heatmap_category_barplot(
+  audience,
+  question_code,
+  title = "Organization type (South Africa)"
+)
+```
+
+### Statistics by age group
+
+```{r}
+#| echo: false
+
+print_heatmap_category_age_wide_table(
+  audience,
+  question_code,
+  header = "Organization type by age group (South Africa)"
+)
+```

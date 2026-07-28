@@ -1,0 +1,29 @@
+---
+title: "What organization do you work for?"
+question_id: currentEmp11qzaf_0
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+recode_map <- tibble::tribble(
+  ~raw, ~clean,
+)
+
+data_coded <- process_text_codes_with_allocation(
+  filter = "South Africa",
+  question_code = "currentEmp11qzaf_0",
+  recode_map = recode_map,
+  header = "Organization (South Africa)",
+  other = FALSE,
+  cache_id = "currentEmp11qzaf_0"
+)
+
+data_coded$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.
