@@ -26,6 +26,8 @@ ns <- insights_question_ns(nordic_countries, meta, df_nordics)
 alloc_age_ns <- insights_allocation_age_ns(df_nordics, nordic_countries, meta)
 ```
 
+This post shows results from the 5th international RSE survey that ran in early 2026. Over 950 Research Software Engineers from 55 countries shared insights into their career and interests. The full dataset is available for download at <https://github.com/softwaresaved/RSE_survey_longitudinal/>. An interactive dashboard with all international RSE survey data is available at <https://rse-survey.soton.ac.uk/superset/dashboard/RSE_survey/>. This page presents and analyses the findings on the Nordic and Baltic countries. 
+
 Figures use a colorblind-safe palette (Okabe–Ito). **Affirmative** responses (Agree/Strongly Agree, True, Yes, Always) share green; **negative** responses (Disagree/Strongly disagree, False, No, Never) share orange-red; neutral options and aggregated **Other** categories are grey.
 
 Percentages are computed from the number of respondents who answered each question. Analyses include only **submitted** Nordic responses (`submitdate_0` non-empty): **`r ns$total`** respondents in total, with **`r n_excluded`** partial responses excluded. Question-level **N** can still vary when respondents skipped a question or it did not apply to them.
@@ -471,5 +473,12 @@ Respondents see a Nordic-RSE institute primarily as a platform for conferences a
 plot_nordic_institute_by_age(nordic_countries)
 ```
 
+## Please share your thoughts or comments!
+
+We would love to hear what you think. Please take a moment and share your thoughts about the survey and the analysis in our collaborative document: <https://hackmd.io/@nordic-rse/rse-survey-2026>.
+
+## What's next
+
+These findings will directly shape how we, together with you at Nordic-RSE develop our activities and priorities going forward. We'll follow up with a separate post on the concrete steps we're taking in response.  We will also link to resources on where to find training, networking and career that already exist for RSEs in the Nordics today. If you would like to get involved, come to one of our coffee breaks or biweekly meetings: <https://nordic-rse.org/join/>
 
 
