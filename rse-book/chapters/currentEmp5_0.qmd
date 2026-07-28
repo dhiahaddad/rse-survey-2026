@@ -8,7 +8,7 @@ question_id: currentEmp5_0
 #| file: ../R/_load_common.R
 ```
 
-## Nordics
+## `r filter_label`
 
 ### Coded job titles
 
@@ -24,7 +24,7 @@ source(file.path(book_root, "R/recodes/currentEmp5_0_recode.R"))
 data_coded <- process_current_emp5_with_allocation(
   filter = FILTER,
   recode_map = currentEmp5_recode_map,
-  header = "Official job title (Nordics)",
+  header = paste0("Official job title (", filter_label, ")"),
   other = FALSE,
   cache_id = "currentEmp5_0"
 )

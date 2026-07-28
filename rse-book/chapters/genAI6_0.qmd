@@ -8,7 +8,7 @@ question_id: genAI6_0
 #| file: ../R/_load_common.R
 ```
 
-## Nordics
+## `r filter_label`
 
 ### Free-text responses
 
@@ -20,7 +20,7 @@ cleaned_data <- process_text_codes_with_allocation(
   filter = FILTER,
   question_code = "genAI6_0",
   recode_map = genAI6_0_recode_map,
-  header = "What skills do you think are necessary to effectively use generative AI for research software development tasks? (Nordics)",
+  header = paste0("What skills do you think are necessary to effectively use generative AI for research software development tasks? (", filter_label, ")"),
   other = FALSE,
   cache_id = "genAI6_0"
 )

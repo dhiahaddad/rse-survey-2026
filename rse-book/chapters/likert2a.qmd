@@ -12,21 +12,12 @@ question_id: likert2a
 #| echo: false
 question_code <- "likert2a"
 
-nordic_countries <- c(
-  "Finland", "Norway", "Sweden", "Denmark", "Iceland", "Estonia"
-)
-country_groups <- list(
-  Nordics = nordic_countries,
-  Germany = "Germany",
-  Netherlands = "Netherlands"
-)
-plot_countries <- countries_from_groups(country_groups)
 
 df <- load_filtered_tf(plot_countries)
 likert_cols <- question_columns(question_code, names(df))
 ```
 
-## Nordics
+## `r filter_label`
 
 ```{r}
 #| echo: false
@@ -34,14 +25,14 @@ likert_cols <- question_columns(question_code, names(df))
 #| fig-height: 6
 #| results: asis
 
-df_nordics <- load_filtered_tf(nordic_countries)
+df_nordics <- load_filtered_tf(FILTER)
 
 print_likert_items(
   df_nordics,
   likert_cols,
   meta = cols,
   levels = likert_frequency_levels(),
-  empty_message = "No responses available for Nordic countries in the current filter."
+  empty_message = paste0("No responses available for ", filter_label, " in the current filter.")
 )
 ```
 
@@ -51,7 +42,7 @@ print_likert_items(
 #| echo: false
 #| results: asis
 
-df_nordics <- load_filtered_tf(nordic_countries)
+df_nordics <- load_filtered_tf(FILTER)
 
 print_likert_items(
   df_nordics,
@@ -61,27 +52,36 @@ print_likert_items(
   include_plot = FALSE,
   heading_level = 4L,
   levels = likert_frequency_levels(),
-  empty_message = "No responses available for Nordic countries in the current filter."
+  empty_message = paste0("No responses available for ", filter_label, " in the current filter.")
 )
 ```
 
-## Within Nordics
+```{r}
+#| echo: false
+#| results: asis
+#| eval: !expr show_within
+cat("## Within ", filter_label, "
+
+", sep = "")
+```
+
 
 ```{r}
+#| eval: !expr show_within
 #| echo: false
 #| fig-width: 10
 #| fig-height: 6
 #| results: asis
 
-df_nordics <- load_filtered_tf(nordic_countries)
+df_nordics <- load_filtered_tf(FILTER)
 
 print_likert_items(
   df_nordics,
   likert_cols,
   meta = cols,
-  group_by = nordic_countries,
+  group_by = FILTER,
   levels = likert_frequency_levels(),
-  empty_message = "No responses available for Nordic countries in the current filter."
+  empty_message = paste0("No responses available for ", filter_label, " in the current filter.")
 )
 ```
 

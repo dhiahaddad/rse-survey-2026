@@ -12,18 +12,9 @@ question_id: currentEmp13
 #| echo: false
 question_code <- "currentEmp13"
 
-nordic_countries <- c(
-  "Finland", "Norway", "Sweden", "Denmark", "Iceland", "Estonia"
-)
-country_groups <- list(
-  Nordics = nordic_countries,
-  Germany = "Germany",
-  Netherlands = "Netherlands"
-)
-plot_countries <- countries_from_groups(country_groups)
 ```
 
-## Nordics
+## `r filter_label`
 
 ### Descriptive Statistics
 
@@ -33,7 +24,7 @@ plot_countries <- countries_from_groups(country_groups)
 print_heatmap_category_table(
   FILTER,
   question_code,
-  header = "Discipline (Nordics)"
+  header = paste0("Discipline (", filter_label, ")")
 )
 ```
 
@@ -42,7 +33,7 @@ print_heatmap_category_table(
 #| fig-width: 10
 #| fig-height: 6
 
-plot_heatmap(FILTER, question_code, title = "Nordics")
+plot_heatmap(FILTER, question_code, title = filter_label)
 ```
 
 ### Free-text responses
@@ -56,7 +47,7 @@ data_coded <- process_text_codes_with_allocation(
   filter = FILTER,
   question_code = "currentEmp13",
   recode_map = currentEmp13_recode_map,
-  header = "Discipline (Nordics)",
+  header = paste0("Discipline (", filter_label, ")"),
   other = TRUE,
   cache_id = "currentEmp13"
 )
@@ -74,34 +65,44 @@ The raw-to-category allocation table for this question is in @sec-appendix-recod
 print_heatmap_category_age_wide_table(
   FILTER,
   question_code,
-  header = "Discipline by age group (Nordics)"
+  header = paste0("Discipline by age group (", filter_label, ")")
 )
 ```
 
-
-## Within Nordics
 
 ```{r}
 #| echo: false
+#| results: asis
+#| eval: !expr show_within
+cat("## Within ", filter_label, "
+
+", sep = "")
+```
+
+
+```{r}
+#| eval: !expr show_within
+#| echo: false
 
 print_heatmap_category_table(
-  nordic_countries,
+  FILTER,
   question_code,
-  header = "Discipline selections within Nordic countries",
-  group_by = nordic_countries
+  header = paste0("Discipline selections within ", filter_label),
+  group_by = FILTER
 )
 ```
 
 ```{r}
+#| eval: !expr show_within
 #| echo: false
 #| fig-width: 10
 #| fig-height: 6
 
 plot_heatmap_category_stacked_bars(
-  nordic_countries,
+  FILTER,
   question_code,
-  countries = nordic_countries,
-  title = "Discipline selections within Nordic countries"
+  countries = FILTER,
+  title = paste0("Discipline selections within ", filter_label)
 )
 ```
 

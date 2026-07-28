@@ -8,7 +8,7 @@ question_id: currentEmp60_0
 #| file: ../R/_load_common.R
 ```
 
-## Nordics
+## `r filter_label`
 
 ### Coded job titles
 
@@ -25,7 +25,7 @@ data_coded <- process_text_codes_with_allocation(
   filter = FILTER,
   question_code = "currentEmp60_0",
   recode_map = currentEmp60_0_recode_map,
-  header = "Job title used (Nordics)",
+  header = paste0("Job title used (", filter_label, ")"),
   other = FALSE,
   cache_id = "currentEmp60_0"
 )

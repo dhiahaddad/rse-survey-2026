@@ -18,7 +18,7 @@ question_text <- cols |>
   unique()
 ```
 
-## Nordics
+## `r filter_label`
 
 ### Free-text responses
 
@@ -34,7 +34,7 @@ data_coded <- process_text_codes_with_allocation(
   filter = FILTER,
   question_code = "conf2can_0",
   recode_map = conf2can_0_recode_map,
-  header = "Conference (Nordics)",
+  header = paste0("Conference (", filter_label, ")"),
   other = FALSE,
   cache_id = "conf2can_0"
 )

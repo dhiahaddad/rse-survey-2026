@@ -12,18 +12,9 @@ question_id: genAI2
 #| echo: false
 question_code <- "genAI2"
 
-nordic_countries <- c(
-  "Finland", "Norway", "Sweden", "Denmark", "Iceland", "Estonia"
-)
-country_groups <- list(
-  Nordics = nordic_countries,
-  Germany = "Germany",
-  Netherlands = "Netherlands"
-)
-plot_countries <- countries_from_groups(country_groups)
 ```
 
-## Nordics
+## `r filter_label`
 
 ### Descriptive Statistics
 
@@ -33,7 +24,7 @@ plot_countries <- countries_from_groups(country_groups)
 print_heatmap_category_table(
   FILTER,
   question_code,
-  header = "Generative AI usage purpose (Nordics)"
+  header = paste0("Generative AI usage purpose (", filter_label, ")")
 )
 ```
 
@@ -42,7 +33,7 @@ print_heatmap_category_table(
 #| fig-width: 10
 #| fig-height: 6
 
-plot_heatmap(FILTER, question_code, title = "Nordics")
+plot_heatmap(FILTER, question_code, title = filter_label)
 ```
 
 ### Free-text responses
@@ -73,34 +64,44 @@ The raw-to-category allocation table for this question is in @sec-appendix-recod
 print_heatmap_category_age_wide_table(
   FILTER,
   question_code,
-  header = "Generative AI usage purpose by age group (Nordics)"
+  header = paste0("Generative AI usage purpose by age group (", filter_label, ")")
 )
 ```
 
-
-## Within Nordics
 
 ```{r}
 #| echo: false
+#| results: asis
+#| eval: !expr show_within
+cat("## Within ", filter_label, "
+
+", sep = "")
+```
+
+
+```{r}
+#| eval: !expr show_within
+#| echo: false
 
 print_heatmap_category_table(
-  nordic_countries,
+  FILTER,
   question_code,
-  header = "Generative AI usage purpose selections within Nordic countries",
-  group_by = nordic_countries
+  header = paste0("Generative AI usage purpose selections within ", filter_label),
+  group_by = FILTER
 )
 ```
 
 ```{r}
+#| eval: !expr show_within
 #| echo: false
 #| fig-width: 10
 #| fig-height: 6
 
 plot_heatmap_category_stacked_bars(
-  nordic_countries,
+  FILTER,
   question_code,
-  countries = nordic_countries,
-  title = "Generative AI usage purpose selections within Nordic countries"
+  countries = FILTER,
+  title = paste0("Generative AI usage purpose selections within ", filter_label)
 )
 ```
 

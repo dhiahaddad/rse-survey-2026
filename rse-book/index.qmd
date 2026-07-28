@@ -1,210 +1,476 @@
-# Preface {.unnumbered}
+---
+subtitle: "Nordic RSEs: satisfied, skilled and in demand but looking for clearer career paths"
+execute:
+  echo: false
+  warning: false
+  message: false
+---
 
-This book analyses the International RSE Survey 2026, including single-select,
-multi-select, Likert-scale, time-allocation, and free-text questions. It presents
-descriptive tables and figures for submitted responses and groups free-text
-answers into auditable categories.
+# Nordic insights {.unnumbered}
 
-Each chapter covers **one survey question or closely related question group**.
-The analysis can be focused on a single country or a set of countries through
-one configuration value (`FILTER`) in `R/.config`, so the shared code can
-produce, for example, Nordic or German views.
-
-# The general idea
-
-The common workflow is:
-
-1. **Load and filter** the raw survey data for the configured country/countries.
-   Only **submitted** responses are kept (`submitdate_0` non-empty); partial
-   sessions without a submission timestamp are excluded.
-2. **Select and summarise** the columns for the chapter's question type.
-3. **Visualise** response counts or percentages using the appropriate
-   single-select, multi-select, Likert, or time-allocation display.
-4. For free text, **tokenize and recode** responses with an ordered
-   regular-expression map.
-5. **Audit free-text recoding** with a raw-to-category allocation table,
-   collected in the @sec-appendix-recoding appendix.
-
-# Folder and file overview
-
-The book lives in `rse-book/` and is organized as follows:
-
-+ `index.qmd`: This page (preface and usage guide).
-+ `_quarto.yml`: Book configuration (chapter order, output format, execution
-  options).
-+ `chapters/`: One `.qmd` file per survey question or question group.
-+ `appendices/`:
-    + `methodology.qmd`: Data and methodology notes.
-    + `recoding.qmd`: The codebook, i.e. the raw-to-category allocation tables
-      collected from all chapters.
-+ `R/`: The shared R code.
-    + `.config`: User configuration (data directory and country filter).
-    + `postprocessing.R`: Shared data loading, filtering, analysis, table, and
-      plotting functions.
-    + `_common.R`: Loads the configuration, shared functions, and question
-      metadata.
-    + `_load_common.R`: Location-independent entry point sourced by each
-      chapter.
-    + `recodes/`: Reusable free-text recoding maps, kept separate from chapter
-      layout and plotting code.
-+ `references.bib` / `references.qmd`: Bibliography (currently empty).
-+ `_book/`: Rendered output (generated, not edited by hand).
-+ `_freeze/` and `_allocation_cache/`: Generated caches (see
-  [Caching and rebuilds]).
-
-The **raw survey data** is *not* inside `rse-book/`. It lives in a separate
-directory at the repository root (default `RSE_survey_2026_data/`). The
-analysis reads just two files there: `2026_tf.csv` (the full respondent table,
-one row per respondent, used for both country filtering via `socio1_0` and for
-selecting each question's columns) and `2026_all_cols.csv` (question metadata,
-used to decode multi-response option labels).
-
-The repository root also contains the standalone Nordic report `insights.qmd`.
-Its R code is split into focused modules in
-`RSE_survey_insights_helper/`. Survey-flow documentation and the generator for
-the Nordic question inventory live in `RSE_survey_outline/`; those documents
-are separate from the book chapters.
-
-::: {.callout-note title="Exclusion criteria"}
-Analyses include only respondents who **submitted** the survey, identified by
-a non-empty `submitdate_0`. Partial responses saved without a submission
-timestamp are excluded. Question-level **N** can still vary when a submitted
-respondent skipped a question or it did not apply to them.
-:::
-
-# Setup the config file
-
-All user configuration is in `rse-book/R/.config`. It is plain R that is
-`source()`d at the start of every chapter:
-
-+ `DATA_DIR`: the directory name where the raw survey data lives
-  (default `RSE_survey_2026_data`).
-+ `FILTER`: which respondents to include. This can be:
-    + a **single country**, e.g. `FILTER = "Germany"`, or
-    + a **set of countries**, e.g. the Nordics:
-      `FILTER = c("Finland", "Norway", "Sweden", "Denmark", "Iceland", "Estonia")`.
-
-Whatever you set here becomes the default country scope for every chapter.
-
-::: {.callout-tip}
-You can also analyze a different country for a single table or plot without
-touching the config, by passing `filter =` directly to the functions, e.g.
-`process_text_codes_with_allocation(filter = nordic_countries, ...)`.
-Many multi-select and Likert chapters compare **Nordics** (descriptive
-statistics and free-text responses), **within Nordic countries**, and
-**between countries** (Nordics vs Germany vs Netherlands).
-:::
-
-# Anatomy of a chapter
-
-Each chapter in `chapters/` starts with the same setup and then uses the
-analysis appropriate to its question type:
-
-1. **Front matter** with the question title and `question_id`.
-2. A setup cell that loads the shared code:
-
-```{{r}}
+```{r}
 #| include: false
-#| file: ../R/_load_common.R
+source("../RSE_survey_insights_helper/insights-nordics-helpers.R")
+ctx <- insights_init()
+book_root <- ctx$book_root
+nordic_countries <- ctx$nordic_countries
+meta <- ctx$meta
+df_nordics <- ctx$df_nordics
+n_excluded <- ctx$n_excluded
+ns <- insights_question_ns(nordic_countries, meta, df_nordics)
+alloc_age_ns <- insights_allocation_age_ns(df_nordics, nordic_countries, meta)
 ```
 
-3. Multi-select questions can show a **heatmap** of who selected what:
+::: {.callout-note}
+This page summarises Nordic findings from the International RSE Survey 2026.
+See the [User Guide](about/user-guide.qmd) for how the book is organised, and
+the following parts for question-by-question tables and figures.
+:::
 
-```{{r}}
-#| echo: false
-plot_heatmap(FILTER, "tool4can")
+Figures use a colorblind-safe palette (Okabe–Ito). **Affirmative** responses (Agree/Strongly Agree, True, Yes, Always) share green; **negative** responses (Disagree/Strongly disagree, False, No, Never) share orange-red; neutral options and aggregated **Other** categories are grey.
+
+Percentages are computed from the number of respondents who answered each question. Analyses include only **submitted** Nordic responses (`submitdate_0` non-empty): **`r ns$total`** respondents in total, with **`r n_excluded`** partial responses excluded. Question-level **N** can still vary when respondents skipped a question or it did not apply to them.
+
+Submitted responses came primarily from Finland (**32.3%**), Sweden (**30.6%**), and Norway (**16.1%**), with smaller shares from Estonia (**12.9%**), Denmark (**6.5%**), and Iceland (**1.6%**).
+
+The sample spans early-career and mid-career respondents. The most common age groups were **35 to 44 years** (**44.3%**) and **25 to 34 years** (**32.8%**), followed by **45 to 54 years** (**18.0%**). In the following we analyse age groups as three classes: under 35, 35-45, and 45+.   
+
+## Interdisciplinary RSE community: Broad but concentrated in STEM
+
+Respondents selected a wide range of disciplines in which they work, underlining the interdisciplinary nature of RSE roles. The most frequently selected area was Computer Science, chosen by **71.0%** of respondents. This was followed by Biological Sciences at **37.1%**, Physical Sciences at **32.3%**, and Medicine/Health Sciences at **27.4%**.
+
+When respondents described their own disciplinary background, Computer Science was again the most frequently selected option, at **38.7%**. Physical Sciences followed at **22.6%**, Biological Sciences at **9.7%**, and Mathematical Sciences at **8.1%**. 
+
+In terms of highest education attained, **54.8%** held a PhD and **40.3%** a Master's degree. 
+
+::: {.callout-note title="Key finding"}
+The Nordic RSE community is strongly rooted in computing, but its work spans many scientific domains. However, survey responses are strongly concentrated in STEM while social sciences appear underrepresented.
+:::
+
+```{r}
+#| fig-width: 14
+#| fig-cap: !expr 'insights_fig_cap_multi("Disciplines Nordic respondents work in (multi-select, left) and highest academic qualification discipline (single-select, right).", c(sprintf("disciplines worked in: N = %d", ns$currentEmp13), sprintf("qualification discipline: N = %d", ns$edu2_0)))'
+#| fig-alt: >
+#|   Two-panel figure. Left: horizontal bar chart of work disciplines ranked by
+#|   selection share among Nordic respondents. Computer Science is highest.
+#|   Right: horizontal bar chart of qualification disciplines with Computer
+#|   Science again most common. Both panels use a single blue accent colour.
+patchwork::wrap_plots(
+  insights_heatmap(
+    nordic_countries,
+    "currentEmp13",
+    title = insights_panel_title("Work disciplines", ns$currentEmp13)
+  ),
+  insights_category_barplot(
+    nordic_countries,
+    "edu2_0",
+    title = insights_panel_title("Qualification discipline", ns$edu2_0)
+  ),
+  ncol = 2,
+  widths = c(1.4, 1)
+) +
+  insights_panel_annotation("Interdisciplinary RSE community")
 ```
 
-4. Free-text questions load a **recode map**, normally from `R/recodes/`.
-   A map is a `tibble` of `raw` (regex) and `clean` (category) pairs. A row with
-   `NA` in `clean` excludes matching responses from the analysis.
+## RSE role and software experience
+Of the respondents, **93.5%** write software for academic research as part of their job, and **67.2%** consider themselves professional software developers.
+The experience levels are high: **35.5%** reported **15+ years** of software development experience, followed by **10 years** (**17.7%**) and **5 years** (**11.3%**).
 
-5. The **analysis call**, which produces the summary table and caches the
-   allocation (audit) table for the recoding appendix:
+Most respondents have no leadership role: only **8.2%** said that the majority of their role comprises leading a group of software developers or RSEs. 
+The majority or respondents write software for more than 2 users (accounting for 75.9%).
 
-```{{r}}
-#| echo: false
-source(file.path(book_root, "R/recodes/skill2_recode.R"))
+## Employment and job titles
 
-data_coded <- process_text_codes_with_allocation(
-  filter = FILTER,
-  question_code = "skill2",
-  recode_map = skill2_recode_map,
-  header = "Skills to acquire (Nordics)",
-  other = FALSE,
-  cache_id = "skill2"
+Most respondents reported relatively stable employment conditions. **74.2%** indicated that they are in permanent employment, while **22.6%** reported fixed-term employment, and **95.2%** reported working full time. However, among respondents under 35, permanent and fixed-term positions are roughly balanced (**55.0%** permanent and **45.0%** fixed-term). This likely reflects the fact that many younger respondents are employed in PhD or postdoctoral positions, which are typically fixed-term by design.
+
+Official job titles may vary. Among retained coded job-title entries, the most frequent category was Software Engineer or Developer (**25.9%**), followed by Researcher (**12.1%**), Technical/Professional Support Role (**8.6%**), and Faculty/Professor (**5.2%**). In addition, **30.9%** of respondents are known in their group by a different job title than their official one; among retained coded alternative-title entries, the most common categories were Bioinformatician (**18.8%**), Research Software Engineer (**12.5%**), and Application Expert (**6.2%**).
+
+Most respondents work in universities (**79.0%**), and this is also the most common background for their previous role (**51.6%**), followed by private companies (**22.6%**).
+
+::: {.callout-note title="Key finding"}
+Most respondents are in permanent, full-time employment, while the higher share of fixed-term contracts among younger respondents likely reflects PhD and postdoctoral career stages. RSE work also appears under different job titles.
+:::
+
+```{r}
+#| fig-width: 12
+#| fig-cap: !expr 'insights_fig_cap_multi("Employment nature by age group (stacked bars) and recoded official job titles (ranked bar chart).", c(sprintf("employment nature: N = %d", ns$currentEmp10_0), sprintf("official job titles: N = %d", ns$currentEmp5_0)))'
+#| fig-alt: >
+#|   Two-panel figure. Left: stacked bar chart of employment nature categories
+#|   by three age groups (Below 35, 35-45, 45+), with colour-coded contract
+#|   types. Right: ranked horizontal bar chart of recoded official job titles
+#|   showing percentage and count labels; Software Engineer or Developer leads.
+patchwork::wrap_plots(
+  plot_category_stacked_by_age(
+    nordic_countries,
+    "currentEmp10_0",
+    title = insights_panel_title("Employment nature by age group", ns$currentEmp10_0)
+  ),
+  plot_coded_category_bar(
+    get_current_emp5_coded(nordic_countries)$coded,
+    "currentEmp5_0",
+    title = insights_panel_title("Official job titles", ns$currentEmp5_0),
+    top_n = 8L
+  ),
+  ncol = 2,
+  widths = c(1, 1.2)
+) +
+  insights_panel_annotation("Employment and job titles")
+```
+
+## Time allocation: Protecting time for software and research from management overhead
+
+Respondents indicate that software development sits at the heart of RSE work. Respondents reported spending the largest share of their time on software development, at **44.7%** on average. This was followed by research at **20.0%**, other activities at **15.6%**, and teaching at **14.9%**.
+
+When comparing actual and desired time allocation, respondents indicated that they would prefer to spend more time on software development and research, and less time on management and "other activities". The desired reduction in management time was **-6.6 percentage points**, while "other activities" showed a desired reduction of **-3.2 percentage points**. Respondents aged 35-45 and 45+ also indicated a wish to reduce teaching time slightly, by **-1.0 percentage point** and **-3.4 percentage points**, respectively, while respondents under 35 indicated a wish to increase teaching time by **+3.5 percentage points**. (This may reflect the fact that more experienced respondents are also more likely to hold roles with formal teaching or supervision responsibilities. In other words, the wish to reduce teaching time may say less about teaching itself and more about the broader workload attached to more senior or established positions.)
+
+This suggests that RSEs see their greatest value in the direct combination of technical development and research contribution, but that organisational responsibilities can draw time away from this core work.
+
+::: {.callout-note title="Key finding"}
+RSEs spend most of their time developing software and would like even more time for software development and research, with less time spent on management. Older respondents’ wish to reduce teaching may reflect greater teaching responsibilities in more senior roles.
+:::
+
+```{r}
+#| fig-width: 10
+#| fig-cap: !expr 'insights_with_n("Mean actual time (baseline) and desired change by activity. Solid lines indicate an increase; dotted lines a decrease.", n = ns$allocation)'
+#| fig-alt: >
+#|   Horizontal lollipop-style chart comparing mean actual time spent on each
+#|   work activity with the mean desired change. Software development has the
+#|   longest actual-time bars; management and other activities show desired
+#|   decreases (orange-red dotted lines) while software and research show
+#|   desired increases (green solid lines).
+insights_allocation_summary(
+  df_nordics,
+  nordic_countries,
+  meta = meta,
+  country_label = "Nordics",
+  stat = "mean"
 )
-
-data_coded$summary_table
 ```
 
-Useful arguments:
-
-+ `question_code`: the question code, i.e. the column-name stem in
-  `2026_tf.csv` (e.g. `"conf2can_0"`, or `"org2can"` for the `org2can[...]_0`
-  multi-response sub-columns). The helpers select the matching columns and
-  decode option labels automatically.
-+ `other`: `TRUE` for the "other, please specify" free-text responses, `FALSE`
-  for the main pre-defined options.
-+ `cache_id`: an identifier under which the allocation table is saved so it
-  appears in the @sec-appendix-recoding appendix.
-
-All code cells use `#| echo: false`, so the rendered book shows tables and
-figures but not the underlying R code.
-
-# How to run
-
-You need [Quarto](https://quarto.org/docs/get-started/) and R (with the
-packages used by the analysis: `dplyr`, `tidyr`, `stringr`, `purrr`, `forcats`,
-`ggplot2`, `patchwork`, `gt`, `scales`, and `tibble`).
-
-Run the commands from inside the `rse-book/` directory:
-
-```bash
-cd rse-book
+```{r}
+#| fig-width: 14
+#| fig-cap: !expr 'sprintf("Mean actual vs desired time by activity in three age-group columns (Below 35, 35–45, 45+). Green lines indicate a desired increase; orange-red a decrease. (N = %d; %d of %d allocation respondents excluded for missing age.)", alloc_age_ns$with_age, alloc_age_ns$excluded, alloc_age_ns$allocation)'
+#| fig-alt: >
+#|   Faceted horizontal chart in three columns by age group. Each row is a work
+#|   activity; solid bars show mean actual time and overlaid lines show mean
+#|   desired change. Green lines mark desired increases, orange-red lines mark
+#|   desired decreases. Software development dominates actual time across all
+#|   age groups; management shows the largest desired reduction.
+insights_allocation_summary_by_age(
+  df_nordics,
+  nordic_countries,
+  meta = meta,
+  country_label = "Nordics",
+  stat = "mean"
+)
 ```
 
-## Run a single chapter
+## Technical toolbox: Python, GitHub, HPC and collaboration
 
-```bash
-quarto render chapters/conf2can_0.qmd
+In the multi-select responses on programming languages, Python was selected by **95.1%** of respondents, making it by far the most commonly used language. Git was reported as a version control tool by all respondents, and GitHub was selected by **93.4%** as a collaboration platform for software development.
+
+Other frequently selected collaboration tools included Git at **70.5%**, GitLab at **52.5%**, and Slack at **50.8%**. Regarding deployment environments, HPC was the most frequently selected platform, at **58.6%**, followed by laptops or desktops at **48.3%**, stand-alone servers at **39.7%**, and cloud platforms at **31.0%**. For day-to-day development, **73.3%** primarily use GNU/Linux, followed by macOS (**15.0%**) and Windows (**10.0%**).
+
+There are also some age-group differences in programming language selections. Among respondents aged 45+, the most frequently selected languages after Python were JavaScript at **42.9%**, C++ at **28.6%**, and SQL at **28.6%**. Among those aged 35-45, R was selected by **48.1%**, JavaScript by **44.4%**, and SQL by **37%**. Among respondents under 35, JavaScript was selected by **30%**, while C++ and Rust were each selected by **25%**. 
+
+::: {.callout-note title="Key finding"}
+Python, Git, GitHub and HPC form a central part of the Nordic RSE technical toolbox.
+:::
+
+```{r}
+#| fig-width: 14
+#| fig-height: !expr INSIGHTS_TWO_ROW_FIG_HEIGHT
+#| fig-cap: !expr 'insights_fig_cap_multi("Technical toolbox: programming languages, collaboration tools, deployment platforms (multi-select), and programming languages by age group (stacked bars).", c(sprintf("programming languages: N = %d", ns$tool4can), sprintf("collaboration tools: N = %d", ns$proj6zaf), sprintf("deployment platforms: N = %d", ns$tool5)))'
+#| fig-alt: >
+#|   Four-panel grid. Top left: programming languages ranked by selection share,
+#|   with Python highest. Top right: stacked bars of programming languages by
+#|   age group. Bottom left: collaboration tools ranked, GitHub and Git leading.
+#|   Bottom right: deployment platforms ranked, HPC most common.
+plot_toolbox_grid(nordic_countries)
 ```
 
-The result is written to `_book/chapters/conf2can_0.html`.
+## Generative AI in RSE work
 
-## Run the entire book
+When asked how frequently respondents use generative AI tools in RSE-related tasks, **42.6%** reported daily use and **19.7%** weekly use. A further **9.8%** used generative AI monthly and **11.5%** rarely, while **16.4%** reported never using generative AI in their RSE work.
 
-```bash
-quarto render
+When asked for what purposes participants use generative AI tools, respondents most frequently selected writing and debugging code, at **82.0%**. By contrast, designing software architecture was the least frequently selected use case, at **20.0%**. Suggesting that respondents see currently the value in generative AI mainly for practical coding tasks rather than for higher-level software design.
+
+In terms of tools used at work, ChatGPT was selected by **63.3%**, followed by Claude at **40.8%** and Gemini at **26.5%**. 
+
+Looking ahead, **59.3%** expected generative AI not to significantly change demand for RSE roles over the next five years, while **22.2%** expected increased demand and **18.5%** expected reduced demand. Most respondents expected positive effects on their own productivity (**66.1%** increase), but effects on code quality and job satisfaction were more mixed: **44.6%** expected code quality to stay the same and **36.8%** expected job satisfaction to decrease. When asked what skills are needed to use generative AI effectively, most often answers could be subsummed under the following labels "Critical thinking, scepticism and output validation", "Foundational software engineering skills", "Prompt engineering and generative AI literacy", "Judgment on when and how to use AI", "Programming language and code comprehension", and "Testing, QA and verification".
+
+::: {.callout-note title="Key finding"}
+Generative AI is widely used for writing and debugging code, but software architecture is the least common use case, suggesting that higher-level design decisions remain largely human-led.
+:::
+
+```{r}
+#| fig-width: 14
+#| fig-height: !expr INSIGHTS_TWO_ROW_FIG_HEIGHT
+#| fig-cap: !expr 'insights_genai_fig_cap(nordic_countries, ns)'
+#| fig-alt: >
+#|   Three-panel figure. Top: horizontal bar chart of generative AI usage
+#|   frequency (daily use most common). Bottom left: purposes ranked by selection
+#|   share, with writing and debugging code highest and software architecture
+#|   lowest. Bottom right: tools ranked, ChatGPT leading, then Claude and Gemini.
+p_genai <- patchwork::wrap_plots(
+  insights_category_barplot(
+    nordic_countries,
+    "genAI1_0",
+    title = insights_panel_title("Generative AI usage frequency", ns$genAI1_0)
+  ),
+  patchwork::wrap_plots(
+    insights_heatmap(
+      nordic_countries,
+      "genAI2",
+      title = insights_panel_title("Generative AI purposes", ns$genAI2)
+    ),
+    insights_heatmap(
+      nordic_countries,
+      "genAI3",
+      title = insights_panel_title("Generative AI tools", ns$genAI3)
+    ),
+    ncol = 2
+  ),
+  ncol = 1,
+  heights = c(0.85, 1)
+) +
+  insights_panel_annotation("Generative AI in RSE work")
+p_genai
 ```
 
-Then open `_book/index.html`.
+## Software quality, testing and software citation
 
-## Update the recoding appendix
+When asked how respondents test the software they produce, respondents most often selected “developers do their own testing”, at **78.7%**. Automated testing with continuous integration was selected by **52.5%**, while **31.1%** selected “no formal testing but user feedback”.
 
-The codebook in `appendices/recoding.qmd` is built from allocation tables that
-the **chapters** produce while they render. So render the chapters first (e.g.
-render the whole book), then refresh the appendix:
+Among respondents who answered the citation questions, referencing software appears to be common practice. **82.1%** said they always reference software directly (N = 28) and **66.7%** always reference a published paper describing the software (N = 24). Generating persistent identifiers is less common: **80%** (N = 25) said they never generate a DOI or other persistent identifier for their software.
 
-```bash
-quarto render appendices/recoding.qmd --no-cache
+Open-science practices appear widespread with **88.7%** of respondents reported having an ORCID ID, and among those who answered the licensing question (N = 39), **94.9%** said they always license their software with an open-source licence.
+
+::: {.callout-note title="Key finding"}
+Testing is common and referencing software seems to be standard practice among those who answered the citation questions, but generating persistent identifiers such as DOIs is less common. ORCID use and open-source licensing are already widespread.
+:::
+
+```{r}
+#| fig-width: 14
+#| fig-height: !expr INSIGHTS_TWO_ROW_FIG_HEIGHT
+#| fig-cap: !expr 'insights_citation_fig_cap(ns)'
+#| fig-alt: >
+#|   Two-row figure. Top row: three side-by-side horizontal Likert bar charts
+#|   for software citation practices (direct reference, paper reference, DOI
+#|   generation) using Never/Sometimes/Always colours. Bottom: horizontal bar
+#|   chart of software testing methods ranked by selection share; developer
+#|   self-testing is most common.
+p_citation <- patchwork::wrap_plots(
+  insights_likert_row(list(
+    insights_likert_barplot(
+      df_nordics,
+      "likert2a[1]_0",
+      meta = meta,
+      levels = likert_frequency_levels(),
+      title = insights_panel_title("Reference software directly", ns$likert2a_ref_direct)
+    ),
+    insights_likert_barplot(
+      df_nordics,
+      "likert2a[2]_0",
+      meta = meta,
+      levels = likert_frequency_levels(),
+      title = insights_panel_title("Reference via published paper", ns$likert2a_ref_paper)
+    ),
+    insights_likert_barplot(
+      df_nordics,
+      "likert2b[SQ001]_0",
+      meta = meta,
+      levels = likert_frequency_levels(),
+      title = insights_panel_title("Generating DOIs for software", ns$likert2b_doi)
+    )
+  )),
+  insights_heatmap(
+    nordic_countries,
+    "proj4can",
+    title = insights_panel_title("Software testing methods", ns$proj4can)
+  ),
+  ncol = 1,
+  heights = c(1, 1.15)
+) +
+  insights_panel_annotation("Software quality, testing and citation")
+p_citation
 ```
 
-# Caching and rebuilds
+## Job satisfaction and labour market demand
 
-+ **`_freeze/`**: Existing frozen output may remain from earlier builds, but
-  `_quarto.yml` sets `freeze: false` so full renders always execute the current
-  chapter code against the current data and shared R functions.
-+ **`_allocation_cache/`**: each chapter writes its allocation table here (keyed
-  by `cache_id`); the recoding appendix reads them back. If you rename or remove
-  questions, clear stale `.rds` files before rendering the full book so removed
-  questions cannot remain in the appendix.
+A positive result is the high level of satisfaction among respondents. **87.1%** reported being satisfied with their current job position, while only **4.8%** were unsatisfied. Career satisfaction was also high, with **80.3%** satisfied and **9.8%** unsatisfied.
 
-# Current content
+Respondents also generally viewed their expertise as relevant beyond their current workplace: **69.0%** agreed that their experience is in demand on the labour market, compared with **15.5%** who disagreed. This confidence appears across age groups, and is especially strong among respondents aged 45+, where **83.3%** agreed that their experience is in demand. Among those under 35, **73.7%** agreed, and among those aged 35-45, **57.7%** agreed while **19.2%** disagreed.
 
-The chapter list in `_quarto.yml` is the authoritative inventory and determines
-the book navigation and render order. It currently covers RSE roles, education,
-software experience, open science, RSE organisations, employment, Likert
-scales, turnover, work and publication practices, conferences, project
-management, job stability, training, funding, tooling, generative AI, and
-demographics.
+Recognition of research contribution was stronger from supervisors than institutions. **81.4%** agreed that their contribution is recognised by their supervisor, compared with **61.0%** who agreed that it is recognised by their institution. Among respondents aged 45+, institutional recognition was lower (**53.8%** agree, **30.8%** disagree), while supervisor recognition remained high (**85.7%** agree).
+
+::: {.callout-note title="Key finding"}
+Most respondents are satisfied with their jobs and careers, and feel their experience is in demand. Recognition from supervisors is felt stronger than recognition from institutions.
+:::
+
+```{r}
+#| fig-width: 14
+#| fig-cap: !expr 'insights_fig_cap_multi("Job satisfaction, career satisfaction and perceived labour market demand.", c(sprintf("job satisfaction: N = %d", ns$likert3a_job), sprintf("career satisfaction: N = %d", ns$likert3b_career), sprintf("labour market demand: N = %d", ns$likert5b_demand)))'
+#| fig-alt: >
+#|   Three side-by-side horizontal Likert bar charts for job satisfaction, career
+#|   satisfaction, and perceived labour market demand. Green bars show agree
+#|   responses, orange-red bars show disagree; satisfaction is high on all
+#|   three items with job satisfaction strongest.
+plot_satisfaction_triple(df_nordics, meta)
+```
+
+## Career progression and promotion uncertainty
+
+While RSEs are satisfied and feel in demand, many do not see clear opportunities for progression within their current roles.
+
+When asked whether it would be difficult to get an equivalent job, **42.4%** agreed that it would not be very difficult, while **28.8%** disagreed. 
+
+Regarding promotion prospects, overall, **48.3%** disagreed that they are likely to gain a promotion within their current group, while only **20.7%** agreed. This becomes more pronounced with age and experience. Among respondents aged 45+, **58.3%** disagreed and only **8.3%** agreed. Among those aged 35-45, **53.8%** disagreed and **15.4%** agreed. Respondents under 35 were more optimistic, with **36.8%** disagreeing and **31.6%** agreeing. However, this age pattern might simply reflect the fact that more experienced respondents may already be in more senior positions, where further promotion is naturally less frequent or less clearly defined.
+
+The clarity of promotion processes appears more challenging. Overall, **51.8%** disagreed that the process to gain a promotion is clear and understandable, compared with **28.6%** who agreed. Uncertainty is stronger among older respondents: in the 45+ group, **58.3%** disagreed and **25%** agreed, while in the 35-45 group, **58.3%** disagreed and **20.8%** agreed. Respondents under 35 found the process somewhat clearer, with **42.1%** disagreeing and **36.8%** agreeing. This age difference may partly reflect how respondents at different career stages interpret “promotion”. For many younger respondents, especially those in PhD positions, the next step may be relatively well defined: completing the doctoral thesis and moving to the next career stage. For mid-career and senior RSEs, progression may be less standardised, particularly where institutions do not have formal RSE career ladders or clear technical advancement routes.
+
+The same pattern appears in perceptions of wider career opportunities. Overall, **40.4%** disagreed that there are many opportunities within their chosen career plan, while **33.3%** agreed. Younger respondents were much more optimistic: among those under 35, **60%** agreed and **20%** disagreed. Among those aged 35-45, only **15.4%** agreed, while **42.3%** disagreed and many were indifferent. Among respondents aged 45+, **72.7%** disagreed and **27.3%** agreed.
+
+At the same time, **43.9%** agreed that their next position is likely to be a Research Software Engineer or Research Software Developer role, suggesting that many respondents still see themselves continuing on an RSE career path even when promotion routes feel unclear.
+
+::: {.callout-note title="Key finding"}
+Promotion routes are often unclear, especially beyond early-career stages where progression may no longer be tied to defined PhD milestones.
+:::
+
+```{r}
+#| fig-width: 10
+#| fig-cap: !expr 'insights_fig_cap_multi("Agreement and disagreement with three career progression statements, by age group.", c(sprintf("likely promotion: N = %d", ns$likert5a_promotion), sprintf("clear promotion process: N = %d", ns$likert5b_process), sprintf("career-plan opportunities: N = %d", ns$likert5a_opportunities)))'
+#| fig-alt: >
+#|   Faceted grouped bar chart with three rows, one per career statement, and
+#|   three age groups along the x-axis. Green bars show agree share, orange-red
+#|   bars show disagree share (neutral excluded). Disagree exceeds agree for
+#|   promotion likelihood and process clarity, especially among older groups;
+#|   younger respondents are more optimistic about career-plan opportunities.
+plot_career_progression_by_age(df_nordics)
+```
+
+## Skills development and training needs
+
+On the question how respondents did learn the skills they need to be come RSE, **83.6%** selected learning on the job, while **65.6%** selected self-taught learning. A university course or module was selected by **50.8%**, and online courses by **32.8%**. 
+
+Looking ahead, the most common categories among retained coded skill entries were "AI-assisted development and agents" (**22.5%**), "HPC, parallel and GPU computing" (**22.5%**), "communication, teaching and writing" (**20.0%**), "DevOps, CI/CD and pipelines" (**12.5%**), and "software testing, QA and verification" (**12.5%**).
+
+Training involvement is varied. **47.5%** of respondents reported taking part in providing training one to two times per year, while **29.5%** reported no training provision. When asked about training programmes, most responses referred to local/in-house trainings, CodeRefinery, HPC and research computing trainings, and workshops, tutorials, and hackathons.
+
+Half of respondents (**50.9%**) teach or support credit-bearing modules or courses, including **61.1%** of those under 35 and **35.7%** of those aged 45+. When granted time for personal skills development, **38.3%** said they always have some time to dedicate to their own skills, while **28.3%** have time only in weeks with a low workload.
+Many respondents also reported teaching-related roles: lecturing or content delivery was selected by **65.5%**, teaching assistant by **44.8%**, and content creation by **37.9%**. 
+
+::: {.callout-note title="Key finding"}
+Most RSEs learned their skills through practice and self-study, and want further development in AI development, HPC, DevOps, testing and communication.
+:::
+
+```{r}
+#| fig-width: 14
+#| fig-height: !expr INSIGHTS_TWO_ROW_FIG_HEIGHT
+#| fig-cap: !expr 'insights_fig_cap_multi("How respondents learned RSE skills, skills they would like to acquire next, and teaching or training roles.", c(sprintf("skills learned: N = %d", ns$ukrse3), sprintf("skills to acquire: N = %d", ns$skill2), sprintf("teaching/training roles: N = %d", ns$train5)))'
+#| fig-alt: >
+#|   Three-panel figure. Top: ranked horizontal bar chart of skills respondents
+#|   want to acquire, led by AI-assisted development and HPC. Bottom left:
+#|   learning pathways ranked by selection share. Bottom right: teaching and
+#|   training roles ranked; lecturing or content delivery is most common.
+skills_coded <- get_skill2_coded(nordic_countries)
+
+p_skills <- patchwork::wrap_plots(
+  plot_coded_category_bar(
+    skills_coded$coded,
+    "skill2",
+    title = insights_panel_title("Skills to acquire or improve", ns$skill2),
+    top_n = 10L
+  ),
+  patchwork::wrap_plots(
+    insights_heatmap(
+      nordic_countries,
+      "ukrse3",
+      title = insights_panel_title("How skills were learned", ns$ukrse3)
+    ),
+    insights_heatmap(
+      nordic_countries,
+      "train5",
+      title = insights_panel_title("Teaching and training roles", ns$train5)
+    ),
+    ncol = 2
+  ),
+  ncol = 1,
+  heights = c(1.6, 1)
+) +
+  insights_panel_annotation("Skills development and training needs")
+p_skills
+```
+
+## Networks, community and local support structures
+
+**62.0%** of respondents reported having a peer network beyond their closest colleagues, including **37.9%** for whom it came naturally with the job and **24.1%** who had to build such a network from scratch. **17.2%** indicated that they do not need a peer network.
+
+A majority of respondents, **55.9%**, reported being part of a dedicated research software group within their organisation. This suggests that Nordic RSEs are already finding ways to connect, but that stronger structures could make peer support, knowledge exchange and collaboration more accessible to everyone.
+
+**54.8%** regularly change the researchers they work with, and the most common audiences for their code were researchers in their own group (**48.4%**), their whole organisation (**41.9%**), and researchers anywhere in their country (**38.7%**).
+
+**44.1%** are members of an RSE association, with membership highest among respondents aged 35-45 (**56.0%**) and lowest among those aged 45+ (**21.4%**). Among respondents who answered the follow-up on interest in joining an RSE organisation, **78.6%** said they would be interested. For those who answered what they would hope to get from such an organisation, networking was selected by **85.1%**, research software standards by **72.3%**, training by **57.4%**, and research collaborations by **53.2%**. Priorities varied by age: respondents under 35 emphasised job opportunities (**66.7%**), while those aged 45+ placed more weight on research collaborations (**63.6%**).
+
+Funding sources show a combination of institutional and project-based support. Institutional support was selected by **72.9%** and grants by **67.8%**. However access to dedicated RSE funding appears limited: only **16.7%** said they have access to RSE-type grants in their institution or country, while **40.0%** said no and **43.3%** did not know. 
+
+::: {.callout-note title="Key finding"}
+Many RSEs have peer networks, but a significant share had to build them themselves. A majority also belong to dedicated research software groups, and many see value in joining broader RSE associations for networking, standards and training.
+:::
+
+```{r}
+#| fig-width: 14
+#| fig-height: !expr INSIGHTS_TWO_ROW_FIG_HEIGHT
+#| fig-cap: !expr 'insights_fig_cap_multi("Peer networks and dedicated research software groups (top row), and funding sources (bottom row).", c(sprintf("peer network: N = %d", ns$currentWork3nord_0), sprintf("dedicated RSE group: N = %d", ns$currentWork2_group), sprintf("funding sources: N = %d", ns$fund3)))'
+#| fig-alt: >
+#|   Three-panel figure. Top left: peer-network categories ranked by selection
+#|   share. Top right: binary Likert chart showing 56% belong to a dedicated
+#|   research software group. Bottom: funding sources ranked, institutional
+#|   support and grants most common.
+plot_network_community_row(nordic_countries, df_nordics, meta)
+```
+
+## Publications, dissemination and conferences
+
+**51.6%** of respondents have published a paper about their software, for example in journals such as JOSS or SoftwareX. When software contributes to a paper, acknowledgement practices vary: being named as co-author is common (**25.8%** always, **54.8%** sometimes), while being named as main author is rare (**2.9%** always, **64.7%** never). Younger respondents were more likely to be named as co-authors (**57.1%** always among those under 35).
+
+**47.4%** of respondents have presented software work at a conference or workshop. Often named conference were related to labels "Digital Humanities and GLAM", "HPC and e-infrastructure", "Chemistry, materials and photon science", "Astronomy, space and physics", and "RSE community conferences".
+
+::: {.callout-note title="Key finding"}
+Many Nordic RSEs publish and present their software, but authorship and acknowledgement practices remain varied, especially for main-author credit.
+:::
+
+## Project workload and resilience
+
+RSE workloads typically span multiple projects. **80.3%** of respondents are currently involved in one to four software projects, and **39.7%** work on projects that typically include a project manager.
+
+Project resilience is a concern. **58.9%** said their current project would stall if just one knowledgeable developer left, and only **16.9%** work on projects that typically have a plan to cope with developers leaving.
+
+::: {.callout-note title="Key finding"}
+Many projects depend on very few knowledgeable developers and rarely have succession or departure plans in place.
+:::
+
+## What respondents want from a Nordic-RSE institute
+
+When asked how Nordic-RSE could foster community engagement and knowledge transfer, respondents most often selected organisation of conferences, workshops and similar events, at **86.7%**. Other priorities differed by career stage. Respondents under 35 most often selected compilation and development of freely available training materials (**68.4%**). Those aged 35-45 most often selected organisation of online and/or in-person trainings (**59.3%**). Respondents aged 45+ most often selected fostering networking within the RSE community via a moderated chat (**61.5%**).
+
+When asked what tasks should be undertaken by a Nordic-RSE institute, respondents most often selected advocating for research software towards politicians and decision makers (**71.7%**), community engagement and training (**70.0%**), and promotion of career paths in the RSE field (**70.0%**). Among respondents under 35, all three ranked equally at **73.7%**. These priorities align closely with the broader survey findings: the community is skilled and satisfied, but wants clearer career structures, and more opportunities to learn and connect.
+
+::: {.callout-note title="Key finding"}
+Respondents see a Nordic-RSE institute primarily as a platform for conferences and workshops, advocacy, career development, and community training.
+:::
+
+```{r}
+#| fig-width: 14
+#| fig-height: !expr INSIGHTS_TWO_ROW_FIG_HEIGHT
+#| fig-cap: !expr 'insights_fig_cap_multi("Community engagement priorities and institute tasks by age group (multi-select; three columns show Below 35, 35–45, and 45+).", c(sprintf("community engagement: N = %d", ns$org3nord), sprintf("institute tasks: N = %d", ns$org4nord)))'
+#| fig-alt: >
+#|   Two stacked horizontal bar charts, each faceted into three age-group columns.
+#|   Top chart: how Nordic-RSE could foster community engagement; conferences and
+#|   workshops rank highest across all ages. Bottom chart: tasks the institute
+#|   should undertake; advocacy, community training, and career-path promotion lead overall.
+plot_nordic_institute_by_age(nordic_countries)
+```
+
+
+

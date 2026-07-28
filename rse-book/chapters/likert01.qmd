@@ -10,20 +10,11 @@ question_id: likert01
 
 ```{r}
 #| echo: false
-nordic_countries <- c(
-  "Finland", "Norway", "Sweden", "Denmark", "Iceland", "Estonia"
-)
-country_groups <- list(
-  Nordics = nordic_countries,
-  Germany = "Germany",
-  Netherlands = "Netherlands"
-)
-plot_countries <- countries_from_groups(country_groups)
 
 df_allocation <- load_filtered_tf(plot_countries)
 
 nordics_fig_height <- likert_allocation_fig_height(
-  likert_allocation_n_respondents(df_allocation, nordic_countries)
+  likert_allocation_n_respondents(df_allocation, FILTER)
 )
 ```
 
@@ -254,7 +245,7 @@ render_allocation_age_wide_table <- function(summary_tbl, title, subtitle) {
 }
 ```
 
-## Nordics
+## `r filter_label`
 
 ### Descriptive Statistics
 
@@ -269,18 +260,18 @@ if (
   !has_likert_observations(df_allocation, actual_cols) ||
     !has_likert_observations(df_allocation, desired_cols)
 ) {
-  cat("Nordics: No responses available for Nordic countries in the current filter.\n\n")
+  cat(filter_label, ": No responses available for the current filter.\n\n", sep = "")
 } else {
   summary_tbl <- prepare_likert_allocation_summary(
     df_allocation,
-    nordic_countries,
+    FILTER,
     meta = cols,
     stat = "mean"
   )
 
   render_allocation_summary_table(
     summary_tbl = summary_tbl,
-    title = "Time allocation (Nordics)",
+    title = paste0("Time allocation (", filter_label, ")"),
     subtitle = "Mean percentages by activity"
   )
 }
@@ -296,11 +287,11 @@ For each activity, the chart shows actual time as the baseline (black square) an
 
 print_likert_allocation_summary(
   df_allocation,
-  nordic_countries,
+  FILTER,
   meta = cols,
-  country_label = "Nordics",
+  country_label = filter_label,
   stat = "mean",
-  empty_message = "No responses available for Nordic countries in the current filter."
+  empty_message = paste0("No responses available for ", filter_label, " in the current filter.")
 )
 ```
 
@@ -311,7 +302,7 @@ print_likert_allocation_summary(
 #| results: asis
 
 df_nordics_age <- df_allocation |>
-  dplyr::filter(.data$socio1_0 %in% nordic_countries) |>
+  dplyr::filter(.data$socio1_0 %in% FILTER) |>
   assign_age_groups_two() |>
   dplyr::mutate(socio1_0 = .data$age_group)
 
@@ -322,7 +313,7 @@ if (
   !has_likert_observations(df_nordics_age, actual_cols) ||
     !has_likert_observations(df_nordics_age, desired_cols)
 ) {
-  cat("Nordics by age group: No responses available for the current filter.\n\n")
+  cat(filter_label, " by age group: No responses available for the current filter.\n\n", sep = "")
 } else {
   summary_tbl_age <- prepare_likert_allocation_summary(
     df_nordics_age,
@@ -334,7 +325,7 @@ if (
 
   render_allocation_age_wide_table(
     summary_tbl = summary_tbl_age,
-    title = "Time allocation by age group (Nordics)",
+    title = paste0("Time allocation by age group (", filter_label, ")"),
     subtitle = "Mean percentages by activity within each age group"
   )
 }
@@ -359,18 +350,23 @@ Respondents are sorted by their largest single-task share in actual time (specia
 
 print_likert_allocation_paired(
   df_allocation,
-  nordic_countries,
+  FILTER,
   meta = cols,
-  country_label = "Nordics",
-  empty_message = "No responses available for Nordic countries in the current filter."
+  country_label = filter_label,
+  empty_message = paste0("No responses available for ", filter_label, " in the current filter.")
 )
 ```
 
-## Within Nordics
-
-### Descriptive Statistics
+```{r}
+#| echo: false
+#| results: asis
+#| eval: !expr show_within
+cat("## Within ", filter_label, "\n\n", sep = "")
+cat("### Descriptive Statistics\n\n")
+```
 
 ```{r}
+#| eval: !expr show_within
 #| echo: false
 #| results: asis
 
@@ -381,11 +377,11 @@ if (
   !has_likert_observations(df_allocation, actual_cols) ||
     !has_likert_observations(df_allocation, desired_cols)
 ) {
-  cat("Within Nordics: No responses available for Nordic countries in the current filter.\n\n")
+  cat("Within ", filter_label, ": No responses available for the current filter.\n\n", sep = "")
 } else {
   summary_tbl_within <- prepare_likert_allocation_summary(
     df_allocation,
-    nordic_countries,
+    FILTER,
     meta = cols,
     stat = "mean",
     by_country = TRUE
@@ -393,18 +389,24 @@ if (
 
   render_allocation_summary_table(
     summary_tbl = summary_tbl_within,
-    title = "Time allocation within Nordic countries",
+    title = paste0("Time allocation within ", filter_label),
     subtitle = "Mean percentages by activity and country",
     group_col = "country",
     group_label = "Country",
-    group_order = nordic_countries
+    group_order = filter_countries
   )
 }
 ```
 
-The same summary with one line per Nordic country within each activity (tasks on the y-axis):
+```{r}
+#| eval: !expr show_within
+#| echo: false
+#| results: asis
+cat("The same summary with one line per country within each activity (tasks on the y-axis):\n\n")
+```
 
 ```{r}
+#| eval: !expr show_within
 #| echo: false
 #| fig-width: 10
 #| fig-height: 14
@@ -412,11 +414,11 @@ The same summary with one line per Nordic country within each activity (tasks on
 
 print_likert_allocation_summary_by_country(
   df_allocation,
-  nordic_countries,
-  group_label = "Nordics",
+  FILTER,
+  group_label = filter_label,
   meta = cols,
   stat = "mean",
-  empty_message = "No responses available for Nordic countries in the current filter."
+  empty_message = paste0("No responses available for ", filter_label, " in the current filter.")
 )
 ```
 
@@ -428,15 +430,8 @@ print_likert_allocation_summary_by_country(
 #| echo: false
 #| results: asis
 
-df_groups <- df_allocation |>
-  dplyr::mutate(
-    socio1_0 = dplyr::case_when(
-      .data$socio1_0 %in% nordic_countries ~ "Nordics",
-      .data$socio1_0 == "Germany" ~ "Germany",
-      .data$socio1_0 == "Netherlands" ~ "Netherlands",
-      TRUE ~ .data$socio1_0
-    )
-  )
+df_groups <- assign_country_groups(df_allocation, country_groups) |>
+  dplyr::mutate(socio1_0 = .data$country_group)
 
 actual_cols <- question_columns("likert0", names(df_groups))
 desired_cols <- question_columns("likert1", names(df_groups))
@@ -472,15 +467,8 @@ if (
 #| fig-height: 6
 #| results: asis
 
-df_groups <- df_allocation |>
-  dplyr::mutate(
-    socio1_0 = dplyr::case_when(
-      .data$socio1_0 %in% nordic_countries ~ "Nordics",
-      .data$socio1_0 == "Germany" ~ "Germany",
-      .data$socio1_0 == "Netherlands" ~ "Netherlands",
-      TRUE ~ .data$socio1_0
-    )
-  )
+df_groups <- assign_country_groups(df_allocation, country_groups) |>
+  dplyr::mutate(socio1_0 = .data$country_group)
 
 print_likert_allocation_summary_by_country(
   df_groups,

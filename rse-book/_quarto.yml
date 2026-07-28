@@ -7,7 +7,10 @@ book:
   date: today
   site-url: https://nordic-rse.github.io/rse-survey-2026/
   chapters:
-    - index.qmd
+    - part: "About"
+      chapters:
+        - index.qmd
+        - about/user-guide.qmd
     - part: "RSE role"
       chapters:
         - chapters/rse1_0.qmd

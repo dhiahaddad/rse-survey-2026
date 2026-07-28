@@ -202,10 +202,14 @@ question_label_lookup <- function(data_dir) {
 
 #' Reshape a question's `2026_tf.csv` columns into long response rows
 #'
-#' Pivots the selected question columns to long form, decodes multi-response
-#' check-box columns (`"True"` -> option label, `"False"` -> dropped), keeps
-#' free-text columns verbatim, flags "other/specify" responses, and drops empty
-#' values.
+#' Pivots the selected question columns to long form and decodes values:
+#' * Multi-response check-box columns (`question_code[...]_0`): `"True"` becomes
+#'   the option label from [question_label_lookup()], `"False"` is dropped.
+#' * Single-response Yes/No columns (`question_code` with no `[...]`): `"True"` /
+#'   `"False"` become `"Yes"` / `"No"`. Other stored answer strings are kept
+#'   verbatim (e.g. ORCID follow-up categories).
+#' * Free-text / other columns are kept verbatim and flagged via `is_other`.
+#' Empty values are dropped.
 #'
 #' @param df Respondent rows from `2026_tf.csv` (already country-filtered).
 #' @param col_name Output column name for the response values.
@@ -226,9 +230,12 @@ clean_cols <- function(df, question_code, question_cols, label_lookup) {
     ) |>
     dplyr::mutate(
       label = unname(label_lookup[.data$question]),
+      is_multi = stringr::str_detect(.data$question, "\\["),
       !!rlang::sym(question_code) := dplyr::case_when(
-        .data$value == "True" ~ .data$label,
-        .data$value == "False" ~ NA_character_,
+        .data$is_multi & .data$value == "True" ~ .data$label,
+        .data$is_multi & .data$value == "False" ~ NA_character_,
+        !.data$is_multi & .data$value == "True" ~ "Yes",
+        !.data$is_multi & .data$value == "False" ~ "No",
         TRUE ~ .data$value
       ),
       is_other = stringr::str_detect(.data$question, "other")
@@ -2414,10 +2421,38 @@ likert_allocation_n_respondents <- function(
   length(levels(plot_df$respondent))
 }
 
+#' Clean survey question text for display titles
+#'
+#' Folds Likert array completions (`... [my institution.]`) into the prompt,
+#' strips leftover bracket markers and appended association URL lists, then
+#' collapses whitespace.
+#'
+#' @param question Raw `Question` field from metadata.
+#' @return Character label suitable for headings and plot titles.
+#' @keywords internal
+clean_question_text <- function(question) {
+  question <- trimws(as.character(question))
+  # "recognised by... [my institution.]" -> "recognised by my institution."
+  question <- stringr::str_replace_all(
+    question,
+    "\\.\\.\\.\\s*\\[\\s*(.+?)\\s*\\]",
+    " \\1"
+  )
+  question <- stringr::str_remove_all(question, "\\[.*?\\]")
+  # Drop link lists appended after the prompt (association membership, etc.)
+  question <- dplyr::if_else(
+    stringr::str_detect(question, "\\?\\s+.*https?://"),
+    stringr::str_replace(question, "\\?\\s+.*$", "?"),
+    question
+  )
+  question <- stringr::str_remove_all(question, "https?://\\S+")
+  stringr::str_squish(question)
+}
+
 #' Look up the display label for one survey column from question metadata
 #'
 #' Uses the `Option` field when present (typical for Likert sub-items); otherwise
-#' strips bracketed sub-question text from `Question`.
+#' cleans `Question` via [clean_question_text()].
 #'
 #' @param column_name Column code as in `2026_tf.csv` (e.g. `"likert5b[1]_0"`).
 #' @param meta Question metadata tibble, typically `cols` from `_common.R`.
@@ -2435,8 +2470,73 @@ question_label <- function(column_name, meta = NULL) {
   if (nzchar(option)) {
     return(option)
   }
-  question <- trimws(as.character(row$Question[[1]]))
-  stringr::str_remove_all(question, "\\[.*?\\]") |> trimws()
+  clean_question_text(row$Question[[1]])
+}
+
+#' Normalise a country filter to a unique character vector
+#'
+#' @param filter Country name(s) or a list of country name(s).
+#' @return Character vector of unique country names.
+#' @keywords internal
+normalize_country_filter <- function(filter) {
+  unique(as.character(unlist(filter, use.names = FALSE)))
+}
+
+#' Short label for a country filter scope
+#'
+#' Returns `"Nordics"` when `filter` matches `NORDIC_COUNTRIES`, the single
+#' country name when there is one country, or a comma-separated list otherwise.
+#'
+#' @param filter Country name(s), typically `FILTER`.
+#' @return Character scalar label.
+#' @export
+filter_scope_label <- function(filter = FILTER) {
+  countries <- normalize_country_filter(filter)
+  if (length(countries) == 0L) {
+    return("Selected countries")
+  }
+  if (exists("NORDIC_COUNTRIES", inherits = TRUE) &&
+      setequal(countries, NORDIC_COUNTRIES)) {
+    return("Nordics")
+  }
+  if (length(countries) == 1L) {
+    return(countries[[1L]])
+  }
+  paste(countries, collapse = ", ")
+}
+
+#' Build between-country groups from primary and comparison filters
+#'
+#' The primary `filter` becomes the first named group. Each entry in `compare`
+#' is appended unless it matches the primary country set exactly.
+#'
+#' @param filter Primary country filter (typically `FILTER`).
+#' @param compare Named list of additional groups (typically `FILTER_COMPARE`).
+#' @return Named list suitable for `country_groups` plot/table helpers.
+#' @export
+build_between_country_groups <- function(
+    filter = FILTER,
+    compare = FILTER_COMPARE
+) {
+  primary <- normalize_country_filter(filter)
+  primary_name <- filter_scope_label(primary)
+  groups <- stats::setNames(list(primary), primary_name)
+
+  if (is.null(compare) || length(compare) == 0L) {
+    return(groups)
+  }
+  if (is.null(names(compare)) || any(!nzchar(names(compare)))) {
+    stop("`compare` / FILTER_COMPARE must be a named list of country group(s).")
+  }
+
+  for (nm in names(compare)) {
+    countries <- normalize_country_filter(compare[[nm]])
+    if (setequal(countries, primary)) {
+      next
+    }
+    groups[[nm]] <- countries
+  }
+  groups
 }
 
 #' Extract all country names referenced in a `country_groups` list

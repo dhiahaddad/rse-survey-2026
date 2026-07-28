@@ -1,0 +1,314 @@
+# User Guide {.unnumbered}
+
+This book analyses the International RSE Survey 2026, including single-select,
+multi-select, Likert-scale, time-allocation, and free-text questions. It presents
+descriptive tables and figures for submitted responses and groups free-text
+answers into auditable categories. The Nordic insights landing page summarises
+key findings for the Nordics; the question-by-question chapters follow the
+country filters in `R/.config`. This guide explains how to work with the book
+sources.
+
+Each chapter covers **one survey question or closely related question group**.
+Chapter analyses use a **primary** country scope (`FILTER`) and an optional
+**comparison** set (`FILTER_COMPARE`) for the Between Countries section.
+
+# The general idea
+
+The common workflow is:
+
+1. **Load and filter** the raw survey data for the configured country/countries.
+   Only **submitted** responses are kept (`submitdate_0` non-empty); partial
+   sessions without a submission timestamp are excluded.
+2. **Select and summarise** the columns for the chapter's question type.
+3. **Visualise** response counts or percentages using the appropriate
+   single-select, multi-select, Likert, or time-allocation display.
+4. For free text, **tokenize and recode** responses with an ordered
+   regular-expression map.
+5. **Audit free-text recoding** with a raw-to-category allocation table,
+   collected in the @sec-appendix-recoding appendix.
+
+Typical chapters have up to three country scopes:
+
+1. **Primary** (`FILTER`): overall descriptive statistics for the selected
+   country or set of countries.
+2. **Within** (`FILTER`, by country): only when `FILTER` has more than one
+   country.
+3. **Between Countries** (`FILTER` plus `FILTER_COMPARE`): side-by-side
+   comparison of named country groups.
+
+# Folder and file overview
+
+The book lives in `rse-book/` and is organized as follows:
+
++ `index.qmd`: Nordic insights landing page (summary findings and figures;
+  always uses `NORDIC_COUNTRIES`).
++ `about/user-guide.qmd`: This page (usage guide and repository layout).
++ `_quarto.yml`: Book configuration (chapter order, output format, execution
+  options).
++ `chapters/`: One `.qmd` file per survey question or question group.
++ `appendices/`:
+    + `methodology.qmd`: Data and methodology notes.
+    + `recoding.qmd`: The codebook, i.e. the raw-to-category allocation tables
+      collected from all chapters.
++ `R/`: The shared R code.
+    + `.config`: User configuration (`DATA_DIR`, `NORDIC_COUNTRIES`, `FILTER`,
+      `FILTER_COMPARE`).
+    + `postprocessing.R`: Shared data loading, filtering, analysis, table, and
+      plotting functions (including `filter_scope_label()` and
+      `build_between_country_groups()`).
+    + `_common.R`: Loads the configuration, derives chapter filter helpers
+      (`filter_label`, `show_within`, `country_groups`, `plot_countries`), and
+      loads question metadata.
+    + `_load_common.R`: Location-independent entry point sourced by each
+      chapter.
+    + `recodes/`: Reusable free-text recoding maps, kept separate from chapter
+      layout and plotting code.
++ `references.bib` / `references.qmd`: Bibliography (currently empty).
++ `_book/`: Rendered output (generated, not edited by hand).
++ `_freeze/` and `_allocation_cache/`: Generated caches (see
+  [Caching and rebuilds]).
+
+The **raw survey data** is *not* inside `rse-book/`. It lives in a separate
+directory at the repository root (default `RSE_survey_2026_data/`). The
+analysis reads just two files there: `2026_tf.csv` (the full respondent table,
+one row per respondent, used for both country filtering via `socio1_0` and for
+selecting each question's columns) and `2026_all_cols.csv` (question metadata,
+used to decode multi-response option labels).
+
+Nordic insights helpers live in `RSE_survey_insights_helper/` at the repository
+root. Survey-flow documentation and the generator for the Nordic question
+inventory live in `RSE_survey_outline/`; those documents are separate from the
+book chapters.
+
+::: {.callout-note title="Exclusion criteria"}
+Analyses include only respondents who **submitted** the survey, identified by
+a non-empty `submitdate_0`. Partial responses saved without a submission
+timestamp are excluded. Question-level **N** can still vary when a submitted
+respondent skipped a question or it did not apply to them.
+:::
+
+# Setup the config file
+
+All user configuration is in `rse-book/R/.config`. It is plain R that is
+`source()`d at the start of every chapter:
+
++ `DATA_DIR`: the directory name where the raw survey data lives
+  (default `RSE_survey_2026_data`).
++ `NORDIC_COUNTRIES`: the Nordic country set. The landing page always uses this,
+  independent of `FILTER`.
++ `FILTER`: primary country scope for **chapters**. This can be:
+    + a **single country**, e.g. `FILTER = "South Africa"`, or
+    + a **set of countries**, e.g. `FILTER = NORDIC_COUNTRIES`.
++ `FILTER_COMPARE`: named list of **extra** groups for the Between Countries
+  section. The primary `FILTER` group is always included first; any compare
+  group that matches `FILTER` exactly is skipped. Example when the primary
+  filter is the Nordics:
+
+```r
+FILTER = NORDIC_COUNTRIES
+FILTER_COMPARE = list(
+  Germany = "Germany",
+  Netherlands = "Netherlands"
+)
+```
+
+Example when the primary filter is a single country and you want the Nordics
+in the comparison:
+
+```r
+FILTER = "South Africa"
+FILTER_COMPARE = list(
+  Nordics = NORDIC_COUNTRIES,
+  Germany = "Germany",
+  Netherlands = "Netherlands"
+)
+```
+
+From these values, `_common.R` derives:
+
++ `filter_label`: short heading label (`"Nordics"`, a single country name, or a
+  comma-separated list).
++ `filter_countries`: unique countries in `FILTER`.
++ `show_within`: `TRUE` only when `FILTER` has more than one country.
++ `country_groups`: named list used by Between Countries plots/tables.
++ `plot_countries`: flattened country vector from `country_groups`.
++ `nordic_countries`: alias of `NORDIC_COUNTRIES` (kept for readability).
+
+::: {.callout-tip}
+You can still override the country for a single table or plot by passing
+`filter =` directly to the analysis helpers. Prefer changing `FILTER` /
+`FILTER_COMPARE` when you want all chapters to follow a new scope.
+:::
+
+# How to change the country and rebuild the book
+
+1. Edit `FILTER` and, if needed, `FILTER_COMPARE` in `rse-book/R/.config`
+   (see [Setup the config file]).
+2. From `rse-book/`, clear the freeze cache and re-render. `_quarto.yml` sets
+   `freeze: auto`, so a plain `quarto render` may reuse previous results when
+   only `.config` changed:
+
+```bash
+cd rse-book
+rm -rf _freeze
+quarto render
+```
+
+3. Open `_book/index.html` for Nordic insights, then browse the chapters for
+   the `FILTER` / `FILTER_COMPARE` views.
+
+Optional: after a full book render, refresh the recoding appendix:
+
+```bash
+quarto render appendices/recoding.qmd --no-cache
+```
+
+::: {.callout-note title="How chapter sections use the filters"}
++ **Primary section** (heading from `filter_label`): uses `FILTER`.
++ **Within section**: breakdown of `FILTER` by country. Emitted only when
+  `show_within` is `TRUE` (multi-country `FILTER`).
++ **Between Countries**: compares the `FILTER` group with the groups in
+  `FILTER_COMPARE`.
++ The **landing page** stays Nordic insights (`NORDIC_COUNTRIES`).
++ Some survey questions are **country-routed** (for example South African
+  respondents answer `currentEmp1qzaf_0`, not `currentEmp1_0`). In those
+  chapters the primary `FILTER` block may be empty until the chapter points at
+  the country-specific question code.
+:::
+
+# Anatomy of a chapter
+
+Each chapter in `chapters/` starts with the same setup and then uses the
+analysis appropriate to its question type:
+
+1. **Front matter** with the question title and `question_id`.
+2. A setup cell that loads the shared code (and therefore `.config` plus the
+   derived filter helpers):
+
+```{{r}}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+3. A primary section headed by the current filter label:
+
+```markdown
+## `r filter_label`
+```
+
+4. Multi-select questions can show a **heatmap** of who selected what:
+
+```{{r}}
+#| echo: false
+plot_heatmap(FILTER, "tool4can", title = filter_label)
+```
+
+5. Free-text questions load a **recode map**, normally from `R/recodes/`.
+   A map is a `tibble` of `raw` (regex) and `clean` (category) pairs. A row with
+   `NA` in `clean` excludes matching responses from the analysis.
+
+6. The **analysis call**, which produces the summary table and caches the
+   allocation (audit) table for the recoding appendix:
+
+```{{r}}
+#| echo: false
+source(file.path(book_root, "R/recodes/skill2_recode.R"))
+
+data_coded <- process_text_codes_with_allocation(
+  filter = FILTER,
+  question_code = "skill2",
+  recode_map = skill2_recode_map,
+  header = paste0("Skills to acquire (", filter_label, ")"),
+  other = FALSE,
+  cache_id = "skill2"
+)
+
+data_coded$summary_table
+```
+
+7. Optional **Within** and **Between Countries** sections. Within chunks use
+   `#| eval: !expr show_within`. Between Countries uses `country_groups` /
+   `plot_countries` built from `FILTER` + `FILTER_COMPARE`:
+
+```{{r}}
+#| echo: false
+plot_heatmap_category_stacked_bars(
+  plot_countries,
+  question_code,
+  country_groups = country_groups,
+  title = "Selections by country group"
+)
+```
+
+Useful arguments:
+
++ `question_code`: the question code, i.e. the column-name stem in
+  `2026_tf.csv` (e.g. `"conf2can_0"`, or `"org2can"` for the `org2can[...]_0`
+  multi-response sub-columns). The helpers select the matching columns and
+  decode option labels automatically.
++ `other`: `TRUE` for the "other, please specify" free-text responses, `FALSE`
+  for the main pre-defined options.
++ `cache_id`: an identifier under which the allocation table is saved so it
+  appears in the @sec-appendix-recoding appendix.
+
+All code cells use `#| echo: false`, so the rendered book shows tables and
+figures but not the underlying R code.
+
+# How to run
+
+You need [Quarto](https://quarto.org/docs/get-started/) and R (with the
+packages used by the analysis: `dplyr`, `tidyr`, `stringr`, `purrr`, `forcats`,
+`ggplot2`, `patchwork`, `gt`, `scales`, and `tibble`).
+
+Run the commands from inside the `rse-book/` directory:
+
+```bash
+cd rse-book
+```
+
+## Run a single chapter
+
+```bash
+quarto render chapters/conf2can_0.qmd
+```
+
+The result is written to `_book/chapters/conf2can_0.html`.
+
+## Run the entire book
+
+```bash
+quarto render
+```
+
+Then open `_book/index.html`.
+
+## Update the recoding appendix
+
+The codebook in `appendices/recoding.qmd` is built from allocation tables that
+the **chapters** produce while they render. So render the chapters first (e.g.
+render the whole book), then refresh the appendix:
+
+```bash
+quarto render appendices/recoding.qmd --no-cache
+```
+
+# Caching and rebuilds
+
++ **`_freeze/`**: `_quarto.yml` sets `freeze: auto`, so Quarto reuses frozen
+  computational output when chapter sources appear unchanged. Changing only
+  `R/.config` (`FILTER`, `FILTER_COMPARE`, or `DATA_DIR`) does not always
+  invalidate that cache—clear `_freeze/` before re-rendering after a filter
+  change (see [How to change the country and rebuild the book]).
++ **`_allocation_cache/`**: each chapter writes its allocation table here (keyed
+  by `cache_id`); the recoding appendix reads them back. If you rename or remove
+  questions, clear stale `.rds` files before rendering the full book so removed
+  questions cannot remain in the appendix.
+
+# Current content
+
+The chapter list in `_quarto.yml` is the authoritative inventory and determines
+the book navigation and render order. It currently covers RSE roles, education,
+software experience, open science, RSE organisations, employment, Likert
+scales, turnover, work and publication practices, conferences, project
+management, job stability, training, funding, tooling, generative AI, and
+demographics.

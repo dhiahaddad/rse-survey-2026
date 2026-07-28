@@ -8,7 +8,7 @@ question_id: currentEmp2q_0
 #| file: ../R/_load_common.R
 ```
 
-## Nordics
+## `r filter_label`
 
 ### Free-text responses
 
@@ -20,7 +20,7 @@ cleaned_data <- process_text_codes_with_allocation(
   filter = FILTER,
   question_code = "currentEmp2q_0",
   recode_map = currentEmp2q_0_recode_map,
-  header = "Which university do you work for? (Nordics)",
+  header = paste0("Which university do you work for? (", filter_label, ")"),
   other = TRUE,
   cache_id = "currentEmp2q_0"
 )
