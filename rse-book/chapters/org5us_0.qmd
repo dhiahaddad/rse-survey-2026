@@ -1,0 +1,29 @@
+---
+title: "How much would you be willing to pay as an annual membership fee to join a national association?"
+question_id: org5us_0
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+recode_map <- tibble::tribble(
+  ~raw, ~clean,
+)
+
+data_coded <- process_text_codes_with_allocation(
+  filter = "United States",
+  question_code = "org5us_0",
+  recode_map = recode_map,
+  header = "Membership fee willingness (United States)",
+  other = FALSE,
+  cache_id = "org5us_0"
+)
+
+data_coded$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.

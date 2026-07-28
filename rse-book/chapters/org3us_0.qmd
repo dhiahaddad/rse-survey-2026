@@ -1,0 +1,29 @@
+---
+title: "What specific activities or forums would you like to see your national association provide?"
+question_id: org3us_0
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+recode_map <- tibble::tribble(
+  ~raw, ~clean,
+)
+
+data_coded <- process_text_codes_with_allocation(
+  filter = "United States",
+  question_code = "org3us_0",
+  recode_map = recode_map,
+  header = "Association activities (United States)",
+  other = FALSE,
+  cache_id = "org3us_0"
+)
+
+data_coded$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.

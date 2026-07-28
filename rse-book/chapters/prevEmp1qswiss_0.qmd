@@ -1,0 +1,53 @@
+---
+title: "Where was your previous job based?"
+question_id: prevEmp1qswiss_0
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+question_code <- "prevEmp1qswiss_0"
+audience <- "Switzerland"
+```
+
+## Switzerland
+
+### Descriptive Statistics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  audience,
+  question_code,
+  header = "Previous job base (Switzerland)"
+)
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 8
+
+plot_heatmap_category_barplot(
+  audience,
+  question_code,
+  title = "Previous job base (Switzerland)"
+)
+```
+
+### Statistics by age group
+
+```{r}
+#| echo: false
+
+print_heatmap_category_age_wide_table(
+  audience,
+  question_code,
+  header = "Previous job base by age group (Switzerland)"
+)
+```

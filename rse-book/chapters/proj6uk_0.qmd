@@ -1,0 +1,35 @@
+---
+title: "Coding habits: RSE vs non-RSE self-identification (GitHub ID)"
+question_id: proj6uk_0
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+::: {.callout-note}
+Raw answers to this question include personal identifiers (e.g. GitHub usernames).
+This chapter reports only how many respondents provided an identifier, not the values themselves.
+:::
+
+```{r}
+#| echo: false
+question_code <- "proj6uk_0"
+audience <- "United Kingdom"
+
+df <- load_filtered_tf(audience)
+answered <- !is.na(df[[question_code]]) & nzchar(as.character(df[[question_code]]))
+n_answered <- sum(answered)
+n_total <- nrow(df)
+
+gt::gt(
+  tibble::tibble(
+    Country = audience,
+    `Respondents` = n_total,
+    `Provided identifier` = n_answered,
+    `Percent` = if (n_total > 0) round(100 * n_answered / n_total, 1) else NA_real_
+  )
+) |>
+  gt::tab_header(title = "GitHub identifier provided")
+```

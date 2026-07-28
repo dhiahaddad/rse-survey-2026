@@ -1,0 +1,15 @@
+{
+  "hash": "b109d878327433fa70df26033c48714a",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Would you be interested in joining a national Czech RSE association?\"\nquestion_id: org1cz_0\n---\n\n\n\n\n::: {.cell}\n\n:::\n\n\n## Czech Republic\n\nNo responses available for Czech Republic in the current filter. \n\n### Statistics by age group\n\nNo responses available for Czech Republic in the current filter. \n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

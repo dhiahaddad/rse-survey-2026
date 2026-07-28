@@ -72,3 +72,37 @@ quarto render chapters/conf2can_0.qmd
 
 The book is written to `rse-book/_book/`; the standalone Nordic report is
 written to `insights.html`, with supporting assets in `insights_files/`.
+
+## Publish the book
+
+The book is published to GitHub Pages at
+<https://nordic-rse.github.io/rse-survey-2026/>.
+
+Survey microdata are not available in CI, so computed results are frozen
+locally and committed under `rse-book/_freeze/`. GitHub Actions then renders
+HTML from those freezes and deploys to the `gh-pages` branch.
+
+1. With the survey data available, render the book so `_freeze/` stays in sync
+   with chapter sources and R code:
+
+   ```bash
+   cd rse-book
+   quarto render
+   ```
+
+2. Commit any updated files under `rse-book/_freeze/` together with analysis
+   changes.
+
+3. Push to `main`. The `Publish Quarto book` workflow deploys automatically
+   when `rse-book/` changes. You can also run it manually from the Actions tab.
+
+One-time repository setup (requires admin access): **Settings → Pages → Build
+and deployment**, set Source to **Deploy from a branch**, Branch `gh-pages` /
+`/ (root)`.
+
+Fallback from a machine with data and Quarto authenticated to GitHub:
+
+```bash
+cd rse-book
+quarto publish gh-pages
+```

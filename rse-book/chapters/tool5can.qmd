@@ -1,0 +1,58 @@
+---
+title: "On which platform(s) is your most recent research software project deployed? Please select all that apply."
+question_id: tool5can
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+question_code <- "tool5can"
+audience <- "Canada"
+```
+
+## Canada
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+plot_heatmap(audience, question_code, title = "Canada")
+```
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  audience,
+  question_code,
+  header = "Deployment platform (Canada)"
+)
+```
+
+### Free-text responses
+
+```{r}
+#| echo: false
+recode_map <- tibble::tribble(
+  ~raw, ~clean,
+)
+
+data_coded <- process_text_codes_with_allocation(
+  filter = audience,
+  question_code = "tool5can",
+  recode_map = recode_map,
+  header = "Deployment platform (Other)",
+  other = TRUE,
+  cache_id = "tool5can"
+)
+
+data_coded$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.
+

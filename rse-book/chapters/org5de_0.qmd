@@ -1,0 +1,53 @@
+---
+title: "What structure do you consider most suitable for a national research software institution?"
+question_id: org5de_0
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+question_code <- "org5de_0"
+audience <- "Germany"
+```
+
+## Germany
+
+### Descriptive Statistics
+
+```{r}
+#| echo: false
+
+print_heatmap_category_table(
+  audience,
+  question_code,
+  header = "Preferred institutional structure (Germany)"
+)
+```
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 8
+
+plot_heatmap_category_barplot(
+  audience,
+  question_code,
+  title = "Preferred institutional structure (Germany)"
+)
+```
+
+### Statistics by age group
+
+```{r}
+#| echo: false
+
+print_heatmap_category_age_wide_table(
+  audience,
+  question_code,
+  header = "Preferred institutional structure by age group (Germany)"
+)
+```

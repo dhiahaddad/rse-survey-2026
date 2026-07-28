@@ -1,0 +1,29 @@
+---
+title: "Do you have any further suggestions or wishes regarding the conception of a research software institution in Germany?"
+question_id: org7de_0
+---
+
+```{r}
+#| include: false
+#| file: ../R/_load_common.R
+```
+
+```{r}
+#| echo: false
+recode_map <- tibble::tribble(
+  ~raw, ~clean,
+)
+
+data_coded <- process_text_codes_with_allocation(
+  filter = "Germany",
+  question_code = "org7de_0",
+  recode_map = recode_map,
+  header = "Further suggestions (Germany)",
+  other = FALSE,
+  cache_id = "org7de_0"
+)
+
+data_coded$summary_table
+```
+
+The raw-to-category allocation table for this question is in @sec-appendix-recoding.
