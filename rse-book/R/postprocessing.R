@@ -2022,9 +2022,10 @@ plot_heatmap_category_barplot <- function(
     }
     mapping <- stats::setNames(y_labels(raw_levels), raw_levels)
     if (!is.null(category_colors)) {
+      # Keep color values aligned with mapping order (not category_colors name order).
       category_colors <- stats::setNames(
         unname(category_colors[names(mapping)]),
-        unname(mapping[names(category_colors)])
+        unname(mapping)
       )
     }
     plot_df <- plot_df |>

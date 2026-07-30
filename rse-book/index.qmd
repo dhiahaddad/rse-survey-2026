@@ -21,26 +21,28 @@ ns <- insights_question_ns(nordic_countries, meta, df_nordics)
 alloc_age_ns <- insights_allocation_age_ns(df_nordics, nordic_countries, meta)
 ```
 
-This post shows results from the 5th international RSE survey that ran in early 2026. Over 950 Research Software Engineers from 55 countries shared insights into their career and interests. The full dataset is available for download at <https://github.com/softwaresaved/RSE_survey_longitudinal/>. An interactive dashboard with all international RSE survey data is available at <https://rse-survey.soton.ac.uk/superset/dashboard/RSE_survey/>. This page presents and analyses the findings on the Nordic and Baltic countries. 
+This post shows results from the 5th international RSE survey that ran in early 2026. Over 950 Research Software Engineers from 55 countries shared insights into their career and interests. 
 
-Figures use a colorblind-safe palette (Okabe–Ito). **Affirmative** responses (Agree/Strongly Agree, True, Yes, Always) share green; **negative** responses (Disagree/Strongly disagree, False, No, Never) share orange-red; neutral options and aggregated **Other** categories are grey.
+The full dataset is available for download at <https://github.com/softwaresaved/RSE_survey_longitudinal/>. An interactive dashboard with all international RSE survey data is available at <https://rse-survey.soton.ac.uk/superset/dashboard/RSE_survey/>. 
 
-Percentages are computed from the number of respondents who answered each question. Analyses include only **submitted** Nordic responses (`submitdate_0` non-empty): **`r ns$total`** respondents in total, with **`r n_excluded`** partial responses excluded. Question-level **N** can still vary when respondents skipped a question or it did not apply to them.
+The analysis below is based on 62 submitted responses from the Nordic countries. Percentages are calculated from the respondents who answered each question, so the number of responses may vary slightly between questions.
 
-Submitted responses came primarily from Finland (**32.3%**), Sweden (**30.6%**), and Norway (**16.1%**), with smaller shares from Estonia (**12.9%**), Denmark (**6.5%**), and Iceland (**1.6%**).
+Most submitted responses came from Finland (**32.3%**), Sweden (**30.6%**), and Norway (**16.1%**), followed by Estonia (**12.9%**), Denmark (**6.5%**), and Iceland (**1.6%**).
 
-The sample spans early-career and mid-career respondents. The most common age groups were **35 to 44 years** (**44.3%**) and **25 to 34 years** (**32.8%**), followed by **45 to 54 years** (**18.0%**). In the following we analyse age groups as three classes: under 35, 35-45, and 45+.   
+The sample spans early-career and mid-career respondents. The most common age groups were **35 to 44 years** (**44.3%**) and **25 to 34 years** (**32.8%**), followed by **45 to 54 years** (**18.0%**). In the analysis below, we use three age groups: under 35, 35-45, and 45+.   
 
 ## Interdisciplinary RSE community: Broad but concentrated in STEM
 
-Respondents selected a wide range of disciplines in which they work, underlining the interdisciplinary nature of RSE roles. The most frequently selected area was Computer Science, chosen by **71.0%** of respondents. This was followed by Biological Sciences at **37.1%**, Physical Sciences at **32.3%**, and Medicine/Health Sciences at **27.4%**.
+Nordic RSEs work across many disciplines, but the survey responses are strongly concentrated in STEM fields.
 
-When respondents described their own disciplinary background, Computer Science was again the most frequently selected option, at **38.7%**. Physical Sciences followed at **22.6%**, Biological Sciences at **9.7%**, and Mathematical Sciences at **8.1%**. 
+Computer Science was the most common work area, selected by **71.0%** of respondents. This was followed by Biological Sciences (**37.1%**), Physical Sciences (**32.3%**), and Medicine/Health Sciences (**27.4%**).
 
-In terms of highest education attained, **54.8%** held a PhD and **40.3%** a Master's degree. 
+Computer Science was also the most common disciplinary background, selected by **38.7%**. Physical Sciences followed at **22.6%**, Biological Sciences at **9.7%**, and Mathematical Sciences at **8.1%**. 
+
+Most respondents had advanced academic qualifications: **54.8%** held a PhD and **40.3%** held a Master's degree. 
 
 ::: {.callout-note title="Key finding"}
-The Nordic RSE community is strongly rooted in computing, but its work spans many scientific domains. However, survey responses are strongly concentrated in STEM while social sciences appear underrepresented.
+The Nordic RSE community is strongly rooted in computing, but RSE work supports many scientific domains. However, survey responses are strongly concentrated in STEM while social sciences appear underrepresented.
 :::
 
 ```{r}
@@ -69,22 +71,28 @@ patchwork::wrap_plots(
 ```
 
 ## RSE role and software experience
-Of the respondents, **93.5%** write software for academic research as part of their job, and **67.2%** consider themselves professional software developers.
-The experience levels are high: **35.5%** reported **15+ years** of software development experience, followed by **10 years** (**17.7%**) and **5 years** (**11.3%**).
+Software development is central to the work of most respondents. **93.5%** write software for academic research as part of their job, and **67.2%** consider themselves professional software developers.
 
-Most respondents have no leadership role: only **8.2%** said that the majority of their role comprises leading a group of software developers or RSEs. 
-The majority or respondents write software for more than 2 users (accounting for 75.9%).
+Many also have substantial experience: **35.5%** reported **15+ years** of software development experience, followed by **10 years** (**17.7%**) and **5 years** (**11.3%**).
+
+Most respondents are not primarily in leadership roles. Only **8.2%** said that most of their role consists of leading a group of software developers or RSEs.
+
+The software they develop is often used beyond an individual researcher. **75.9%** reported writing software for more than two users.
 
 ## Employment and job titles
 
-Most respondents reported relatively stable employment conditions. **74.2%** indicated that they are in permanent employment, while **22.6%** reported fixed-term employment, and **95.2%** reported working full time. However, among respondents under 35, permanent and fixed-term positions are roughly balanced (**55.0%** permanent and **45.0%** fixed-term). This likely reflects the fact that many younger respondents are employed in PhD or postdoctoral positions, which are typically fixed-term by design.
+Most respondents reported relatively stable employment conditions. **74.2%** were in permanent employment, **22.6%** were on fixed-term contracts, and **95.2%** worked full time. 
 
-Official job titles may vary. Among retained coded job-title entries, the most frequent category was Software Engineer or Developer (**37.5%**), followed by Researcher (**17.5%**), Technical/Professional Support Role (**12.5%**), and Faculty/Professor (**7.5%**). In addition, **30.9%** of respondents are known in their group by a different job title than their official one; among retained coded alternative-title entries, the most common categories were Bioinformatician (**18.8%**), Research Software Engineer (**12.5%**), and Application Expert (**6.2%**).
+Among respondents under 35, permanent and fixed-term positions were more evenly balanced: **55.0%** permanent and **45.0%** fixed-term. This may reflect the fact that many younger respondents are in PhD or postdoctoral positions, which are usually fixed-term.
 
-Most respondents work in universities (**79.0%**), and this is also the most common background for their previous role (**51.6%**), followed by private companies (**22.6%**).
+Job titles varied widely. Respondents reported their job titles in free text, which we grouped into broader categories. The most common was Software Engineer or Developer (**37.5%**), followed by Researcher (**17.5%**), Technical/Professional Support Role (**12.5%**), and Faculty/Professor (**7.5%**).
+
+In addition, **30.9%** said they are known within their group by a different job title than their official one. This highlights that RSE work is often present even when the formal title does not say "Research Software Engineer".
+
+Most respondents work in universities (**79.0%**). Universities were also the most common background for respondents' previous role (**51.6%**), followed by private companies (**22.6%**).
 
 ::: {.callout-note title="Key finding"}
-Most respondents are in permanent, full-time employment, while the higher share of fixed-term contracts among younger respondents likely reflects PhD and postdoctoral career stages. RSE work also appears under different job titles.
+Most respondents are in permanent, full-time employment, but fixed-term contracts are more common among younger respondents. RSE work also appears under different job titles.
 :::
 
 ```{r}
@@ -113,16 +121,18 @@ patchwork::wrap_plots(
   insights_panel_annotation("Employment and job titles")
 ```
 
-## Time allocation: Protecting time for software and research from management overhead
+## Time allocation: protecting time for software and research
 
-Respondents indicate that software development sits at the heart of RSE work. Respondents reported spending the largest share of their time on software development, at **44.7%** on average. This was followed by research at **20.0%**, other activities at **15.6%**, and teaching at **14.9%**.
+Software development took the largest share of working time, at **44.7%** on average. This was followed by research (**19.9%**), other activities (**15.6%**), teaching (**14.9%**), and management (**14.4%**).
 
-When comparing actual and desired time allocation, respondents indicated that they would prefer to spend more time on software development and research, and less time on management and "other activities". The desired reduction in management time was **-6.6 percentage points**, while "other activities" showed a desired reduction of **-3.2 percentage points**. Respondents aged 35-45 and 45+ also indicated a wish to reduce teaching time slightly, by **-1.0 percentage point** and **-3.4 percentage points**, respectively, while respondents under 35 indicated a wish to increase teaching time by **+3.5 percentage points**. (This may reflect the fact that more experienced respondents are also more likely to hold roles with formal teaching or supervision responsibilities. In other words, the wish to reduce teaching time may say less about teaching itself and more about the broader workload attached to more senior or established positions.)
+When asked how they would prefer to spend their time, respondents wanted more time for software development and research, and less time for management and other activities. The largest desired reduction was in management time, at **-6.6** percentage points.
 
-This suggests that RSEs see their greatest value in the direct combination of technical development and research contribution, but that organisational responsibilities can draw time away from this core work.
+There were some differences by age group. Respondents aged 35-45 and 45+ wanted to reduce teaching time slightly, while respondents under 35 wanted to increase it. This may reflect differences in career stage and responsibilities.
+
+Overall, the results suggest that RSEs see software development and research contribution as the core of their work, while management and other organisational tasks can reduce time available for these activities.
 
 ::: {.callout-note title="Key finding"}
-RSEs spend most of their time developing software and would like even more time for software development and research, with less time spent on management. Older respondents’ wish to reduce teaching may reflect greater teaching responsibilities in more senior roles.
+RSEs spend most of their time developing software and would like even more time for software development and research, with less time spent on management.
 :::
 
 ```{r}
@@ -163,14 +173,18 @@ insights_allocation_summary_by_age(
 
 ## Technical toolbox: Python, GitHub, HPC and collaboration
 
-In the multi-select responses on programming languages, Python was selected by **95.1%** of respondents, making it by far the most commonly used language. Git was reported as a version control tool by all respondents, and GitHub was selected by **93.4%** as a collaboration platform for software development.
+Python is by far the most commonly used programming language among respondents, selected by **95.1%**.
 
-Other frequently selected collaboration tools included Git at **70.5%**, GitLab at **52.5%**, and Slack at **50.8%**. Regarding deployment environments, HPC was the most frequently selected platform, at **58.6%**, followed by laptops or desktops at **48.3%**, stand-alone servers at **39.7%**, and cloud platforms at **31.0%**. For day-to-day development, **73.3%** primarily use GNU/Linux, followed by macOS (**15.0%**) and Windows (**10.0%**).
+Git was reported as a version control tool by all respondents, and GitHub was selected by **93.4%** as a collaboration platform for software development. Other frequently selected collaboration tools included Git (**70.5%**), GitLab (**52.5%**), and Slack (**50.8%**).
+
+HPC was the most frequently selected deployment environment, at **58.6%**. This was followed by laptops or desktops (**48.3%**), stand-alone servers (**39.7%**), and cloud platforms and GPU (**31.0%**). 
+
+For day-to-day development, **73.3%** primarily use GNU/Linux, followed by macOS (**15.0%**) and Windows (**10.0%**).
 
 There are also some age-group differences in programming language selections. Among respondents aged 45+, the most frequently selected languages after Python were JavaScript at **42.9%**, C++ at **28.6%**, and SQL at **28.6%**. Among those aged 35-45, R was selected by **48.1%**, JavaScript by **44.4%**, and SQL by **37%**. Among respondents under 35, JavaScript was selected by **30%**, while C++ and Rust were each selected by **25%**. 
 
 ::: {.callout-note title="Key finding"}
-Python, Git, GitHub and HPC form a central part of the Nordic RSE technical toolbox.
+Python, Git, GitHub and HPC are central parts of the Nordic RSE technical toolbox.
 :::
 
 ```{r}
@@ -187,16 +201,20 @@ plot_toolbox_grid(nordic_countries)
 
 ## Generative AI in RSE work
 
-When asked how frequently respondents use generative AI tools in RSE-related tasks, **42.6%** reported daily use and **19.7%** weekly use. A further **9.8%** used generative AI monthly and **11.5%** rarely, while **16.4%** reported never using generative AI in their RSE work.
+Generative AI tools are already used regularly by many respondents. **42.6%** reported daily use in RSE-related tasks, and **19.7%** reported weekly use. **16.4%** reported never using generative AI in their RSE work.
 
-When asked for what purposes participants use generative AI tools, respondents most frequently selected writing and debugging code, at **82.0%**. By contrast, designing software architecture was the least frequently selected use case, at **20.0%**. Suggesting that respondents see currently the value in generative AI mainly for practical coding tasks rather than for higher-level software design.
+The most common use case was writing and debugging code, selected by **82.0%**. Designing software architecture was the least common use case, at **20.0%**. This suggests that generative AI is currently used more for practical coding tasks than for higher-level software design.
 
-In terms of tools used at work, ChatGPT was selected by **63.3%**, followed by Claude at **40.8%** and Gemini at **26.5%**. 
+Among tools used at work, ChatGPT was selected by **63.3%**, followed by Claude (**40.8%**) and Gemini (**26.5%**). 
 
-Looking ahead, **59.3%** expected generative AI not to significantly change demand for RSE roles over the next five years, while **22.2%** expected increased demand and **18.5%** expected reduced demand. Most respondents expected positive effects on their own productivity (**66.1%** increase), but effects on code quality and job satisfaction were more mixed: **44.6%** expected code quality to stay the same and **36.8%** expected job satisfaction to decrease. When asked what skills are needed to use generative AI effectively, most often answers could be subsummed under the following labels "Critical thinking, scepticism and output validation", "Foundational software engineering skills", "Prompt engineering and generative AI literacy", "Judgment on when and how to use AI", "Programming language and code comprehension", and "Testing, QA and verification".
+Looking ahead, **59.3%** expected generative AI not to significantly change demand for RSE roles over the next five years. **22.2%** expected demand to increase, while **18.5%** expected it to decrease.
+
+Most respondents expected generative AI to increase their own productivity (**66.1%**). Views on code quality and job satisfaction were more mixed. **44.6%** expected code quality to stay the same, while **36.8%** expected job satisfaction to decrease. 
+
+When asked what skills are needed to use generative AI effectively, common themes included critical thinking, scepticism and output validation; solid software engineering skills; prompt engineering and generative AI literacy; judgment about when and how to use AI; code comprehension; and testing and quality assurance.
 
 ::: {.callout-note title="Key finding"}
-Generative AI is widely used for writing and debugging code, but software architecture is the least common use case, suggesting that higher-level design decisions remain largely human-led.
+Generative AI is widely used for writing and debugging code, but software architecture is the least common use case.
 :::
 
 ```{r}
@@ -236,14 +254,16 @@ p_genai
 
 ## Software quality, testing and software citation
 
-When asked how respondents test the software they produce, respondents most often selected “developers do their own testing”, at **78.7%**. Automated testing with continuous integration was selected by **52.5%**, while **31.1%** selected “no formal testing but user feedback”.
+Developer testing was the most common testing approach: **78.7%** selected "developers do their own testing". Automated testing with continuous integration was selected by **52.5%**, while **31.1%** selected "no formal testing but user feedback".
 
-Among respondents who answered the citation questions, referencing software appears to be common practice. **82.1%** said they always reference software directly (N = 28) and **66.7%** always reference a published paper describing the software (N = 24). Generating persistent identifiers is less common: **80%** (N = 25) said they never generate a DOI or other persistent identifier for their software.
+Software citation appears to be common among those who answered the citation questions. **82.1%** said they always reference software directly and **66.7%** said they always reference a published paper describing the software. 
 
-Open-science practices appear widespread with **88.7%** of respondents reported having an ORCID ID, and among those who answered the licensing question (N = 39), **94.9%** said they always license their software with an open-source licence.
+Persistent identifiers are less common. **80%** of respondents who answered this question said they never generate a DOI or other persistent identifier for their software.
+
+Open-science practices appear widespread: **88.7%** reported having an ORCID ID, and **94.9%** of those who answered the licensing question said they always license their software with an open-source licence.
 
 ::: {.callout-note title="Key finding"}
-Testing is common and referencing software seems to be standard practice among those who answered the citation questions, but generating persistent identifiers such as DOIs is less common. ORCID use and open-source licensing are already widespread.
+Testing and software citation are common among respondents, but generating persistent identifiers such as DOIs is less common.
 :::
 
 ```{r}
@@ -294,14 +314,14 @@ p_citation
 
 ## Job satisfaction and labour market demand
 
-A positive result is the high level of satisfaction among respondents. **87.1%** reported being satisfied with their current job position, while only **4.8%** were unsatisfied. Career satisfaction was also high, with **80.3%** satisfied and **9.8%** unsatisfied.
+Respondents reported high levels of satisfaction. **87.1%** were satisfied with their current job position, while **4.8%** were unsatisfied. Career satisfaction was also high: **80.3%** were satisfied and **9.8%** were unsatisfied.
 
-Respondents also generally viewed their expertise as relevant beyond their current workplace: **69.0%** agreed that their experience is in demand on the labour market, compared with **15.5%** who disagreed. This confidence appears across age groups, and is especially strong among respondents aged 45+, where **83.3%** agreed that their experience is in demand. Among those under 35, **73.7%** agreed, and among those aged 35-45, **57.7%** agreed while **19.2%** disagreed.
+Many respondents also saw their expertise as relevant beyond their current workplace. **69.0%** agreed that their experience is in demand on the labour market, compared with **15.5%** who disagreed. This confidence appears across age groups, and is especially strong among respondents aged 45+, where **83.3%** agreed that their experience is in demand. Among those under 35, **73.7%** agreed, and among those aged 35-45, **57.7%** agreed while **19.2%** disagreed.
 
-Recognition of research contribution was stronger from supervisors than institutions. **81.4%** agreed that their contribution is recognised by their supervisor, compared with **61.0%** who agreed that it is recognised by their institution. Among respondents aged 45+, institutional recognition was lower (**53.8%** agree, **30.8%** disagree), while supervisor recognition remained high (**85.7%** agree).
+Recognition of research contribution was stronger from supervisors than from institutions. **81.4%** agreed that their contribution is recognised by their supervisor, compared with **61.0%** who agreed that it is recognised by their institution. 
 
 ::: {.callout-note title="Key finding"}
-Most respondents are satisfied with their jobs and careers, and feel their experience is in demand. Recognition from supervisors is felt stronger than recognition from institutions.
+Most respondents are satisfied with their jobs and careers, and many feel their experience is in demand. Recognition from supervisors is reported more strongly than recognition from institutions.
 :::
 
 ```{r}
@@ -317,29 +337,30 @@ plot_satisfaction_triple(df_nordics, meta)
 
 ## Career progression and promotion uncertainty
 
-While RSEs are satisfied and feel in demand, many do not see clear opportunities for progression within their current roles.
+Although many respondents are satisfied and feel that their skills are in demand, career progression within current roles appears less clear.
 
-When asked whether it would be difficult to get an equivalent job, **42.4%** agreed that it would not be very difficult, while **28.8%** disagreed. 
+Overall, **48.3%** disagreed that they are likely to gain a promotion within their current group, while **20.7%** agreed. The pattern was stronger among older respondents: among those aged 45+, **58.3%** disagreed and only **8.3%** agreed.
 
-Regarding promotion prospects, overall, **48.3%** disagreed that they are likely to gain a promotion within their current group, while only **20.7%** agreed. This becomes more pronounced with age and experience. Among respondents aged 45+, **58.3%** disagreed and only **8.3%** agreed. Among those aged 35-45, **53.8%** disagreed and **15.4%** agreed. Respondents under 35 were more optimistic, with **36.8%** disagreeing and **31.6%** agreeing. However, this age pattern might simply reflect the fact that more experienced respondents may already be in more senior positions, where further promotion is naturally less frequent or less clearly defined.
+Promotion processes also appear unclear. **51.8%** disagreed that the process for gaining a promotion is clear and understandable, compared with **28.6%** who agreed.
 
-The clarity of promotion processes appears more challenging. Overall, **51.8%** disagreed that the process to gain a promotion is clear and understandable, compared with **28.6%** who agreed. Uncertainty is stronger among older respondents: in the 45+ group, **58.3%** disagreed and **25%** agreed, while in the 35-45 group, **58.3%** disagreed and **20.8%** agreed. Respondents under 35 found the process somewhat clearer, with **42.1%** disagreeing and **36.8%** agreeing. This age difference may partly reflect how respondents at different career stages interpret “promotion”. For many younger respondents, especially those in PhD positions, the next step may be relatively well defined: completing the doctoral thesis and moving to the next career stage. For mid-career and senior RSEs, progression may be less standardised, particularly where institutions do not have formal RSE career ladders or clear technical advancement routes.
+Younger respondents were generally more positive about career opportunities. Among those under 35, **60.0%** agreed that there are many opportunities within their chosen career plan. Among respondents aged 45+, **72.7%** disagreed.
 
-The same pattern appears in perceptions of wider career opportunities. Overall, **40.4%** disagreed that there are many opportunities within their chosen career plan, while **33.3%** agreed. Younger respondents were much more optimistic: among those under 35, **60%** agreed and **20%** disagreed. Among those aged 35-45, only **15.4%** agreed, while **42.3%** disagreed and many were indifferent. Among respondents aged 45+, **72.7%** disagreed and **27.3%** agreed.
+This age pattern should be interpreted carefully. For younger respondents, especially those in PhD positions, the next career step may be more clearly defined. For mid-career and senior RSEs, progression may be less standardised, especially where institutions do not have formal RSE career paths.
 
-At the same time, **43.9%** agreed that their next position is likely to be a Research Software Engineer or Research Software Developer role, suggesting that many respondents still see themselves continuing on an RSE career path even when promotion routes feel unclear.
+At the same time, **43.9%** agreed that their next position is likely to be an RSE or Research Software Developer role. This suggests that many still see themselves continuing in the field, even when promotion routes are unclear.
 
 ::: {.callout-note title="Key finding"}
-Promotion routes are often unclear, especially beyond early-career stages where progression may no longer be tied to defined PhD milestones.
+Promotion routes are often unclear, especially beyond early-career stages.
 :::
 
 ```{r}
 #| fig-width: 10
-#| fig-cap: !expr 'insights_fig_cap_multi("Agreement and disagreement with three career progression statements, by age group.", c(sprintf("likely promotion: N = %d", ns$likert5a_promotion), sprintf("clear promotion process: N = %d", ns$likert5b_process), sprintf("career-plan opportunities: N = %d", ns$likert5a_opportunities)))'
+#| fig-height: 9
+#| fig-cap: !expr 'insights_fig_cap_multi("Agreement, neutral and disagreement with three career progression statements, by age group.", c(sprintf("likely promotion: N = %d", ns$likert5a_promotion), sprintf("clear promotion process: N = %d", ns$likert5b_process), sprintf("career-plan opportunities: N = %d", ns$likert5a_opportunities)))'
 #| fig-alt: >
 #|   Faceted grouped bar chart with three rows, one per career statement, and
-#|   three age groups along the x-axis. Green bars show agree share, orange-red
-#|   bars show disagree share (neutral excluded). Disagree exceeds agree for
+#|   three age groups along the x-axis. Green bars show agree share, grey bars
+#|   show neutral, and orange-red bars show disagree. Disagree exceeds agree for
 #|   promotion likelihood and process clarity, especially among older groups;
 #|   younger respondents are more optimistic about career-plan opportunities.
 plot_career_progression_by_age(df_nordics)
@@ -347,17 +368,16 @@ plot_career_progression_by_age(df_nordics)
 
 ## Skills development and training needs
 
-On the question how respondents did learn the skills they need to be come RSE, **83.6%** selected learning on the job, while **65.6%** selected self-taught learning. A university course or module was selected by **50.8%**, and online courses by **32.8%**. 
+Most respondents learned the skills they need for RSE work through practice. **83.6%** selected learning on the job, and **65.6%** selected self-taught learning. A university course or module was selected by **50.8%**, and online courses by **32.8%**. 
 
-Looking ahead, the most common categories among retained coded skill entries were "AI-assisted development and agents" (**22.5%**), "HPC, parallel and GPU computing" (**22.5%**), "communication, teaching and writing" (**20.0%**), "DevOps, CI/CD and pipelines" (**12.5%**), and "software testing, QA and verification" (**12.5%**).
+The most common future skill interests were AI-assisted development and agents" (**22.5%**), HPC, parallel and GPU computing (**22.5%**), communication, teaching and writing (**20.0%**), DevOps, CI/CD and pipelines (**12.5%**), and software testing, quality assirance and verification (**12.5%**).
 
-Training involvement is varied. **47.5%** of respondents reported taking part in providing training one to two times per year, while **29.5%** reported no training provision. When asked about training programmes, most responses referred to local/in-house trainings, CodeRefinery, HPC and research computing trainings, and workshops, tutorials, and hackathons.
+Many respondents are also involved in teaching or training. **47.5%** reported providing training one to two times per year, and **50.9%** teach or support credit-bearing modules or courses.
 
-Half of respondents (**50.9%**) teach or support credit-bearing modules or courses, including **61.1%** of those under 35 and **35.7%** of those aged 45+. When granted time for personal skills development, **38.3%** said they always have some time to dedicate to their own skills, while **28.3%** have time only in weeks with a low workload.
-Many respondents also reported teaching-related roles: lecturing or content delivery was selected by **65.5%**, teaching assistant by **44.8%**, and content creation by **37.9%**. 
+Time for personal skills development varies. **38.3%** said they always have some time for their own skills development, while **28.3%** said they have time only in weeks with a low workload.
 
 ::: {.callout-note title="Key finding"}
-Most RSEs learned their skills through practice and self-study, and want further development in AI development, HPC, DevOps, testing and communication.
+Most RSEs learned their skills through practice and self-study. Future skills interests include AI-assisted development, HPC, DevOps, testing and communication.
 :::
 
 ```{r}
@@ -376,7 +396,8 @@ p_skills <- patchwork::wrap_plots(
     skills_coded$coded,
     "skill2",
     title = insights_panel_title("Skills to acquire or improve", ns$skill2),
-    top_n = 10L
+    top_n = 10L,
+    show_pct = FALSE
   ),
   patchwork::wrap_plots(
     insights_heatmap(
@@ -400,18 +421,18 @@ p_skills
 
 ## Networks, community and local support structures
 
-**62.0%** of respondents reported having a peer network beyond their closest colleagues, including **37.9%** for whom it came naturally with the job and **24.1%** who had to build such a network from scratch. **17.2%** indicated that they do not need a peer network.
+Many respondents have peer networks beyond their closest colleagues. **62.0%** reported having such a network, including **24.1%** who had to build it from scratch.
 
-A majority of respondents, **55.9%**, reported being part of a dedicated research software group within their organisation. This suggests that Nordic RSEs are already finding ways to connect, but that stronger structures could make peer support, knowledge exchange and collaboration more accessible to everyone.
+A majority, **55.9%**, reported being part of a dedicated research software group within their organisation. This suggests that Nordic RSEs already have local structures for support and collaboration. 
 
-**54.8%** regularly change the researchers they work with, and the most common audiences for their code were researchers in their own group (**48.4%**), their whole organisation (**41.9%**), and researchers anywhere in their country (**38.7%**).
+**44.1%** are members of an RSE association. Among respondents who answered the follow-up question about interest in joining an RSE organisation, **78.6%** said they would be interested.
 
-**44.1%** are members of an RSE association, with membership highest among respondents aged 35-45 (**56.0%**) and lowest among those aged 45+ (**21.4%**). Among respondents who answered the follow-up on interest in joining an RSE organisation, **78.6%** said they would be interested. For those who answered what they would hope to get from such an organisation, networking was selected by **85.1%**, research software standards by **72.3%**, training by **57.4%**, and research collaborations by **53.2%**. Priorities varied by age: respondents under 35 emphasised job opportunities (**66.7%**), while those aged 45+ placed more weight on research collaborations (**63.6%**).
+The main things respondents hoped to get from such an organisation were networking (**85.1%**), research software standards (**72.3%**), training (**57.4%**), and research collaborations (**53.2%**). Priorities varied by age: respondents under 35 emphasised job opportunities (**66.7%**), while those aged 45+ placed more weight on research collaborations (**63.6%**).
 
-Funding sources show a combination of institutional and project-based support. Institutional support was selected by **72.9%** and grants by **67.8%**. However access to dedicated RSE funding appears limited: only **16.7%** said they have access to RSE-type grants in their institution or country, while **40.0%** said no and **43.3%** did not know. 
+Funding sources show a mix of institutional and project-based support. Institutional support was selected by **72.9%** and grants by **67.8%**. Access to dedicated RSE funding appears limited: only **16.7%** said they have access to RSE-type grants in their institution or country, while **40.0%** said no and **43.3%** did not know. 
 
 ::: {.callout-note title="Key finding"}
-Many RSEs have peer networks, but a significant share had to build them themselves. A majority also belong to dedicated research software groups, and many see value in joining broader RSE associations for networking, standards and training.
+Many RSEs have peer networks and local research software groups, but broader community structures could help with networking, standards, training, and collaboration.
 :::
 
 ```{r}
@@ -428,44 +449,50 @@ plot_network_community_row(nordic_countries, df_nordics, meta)
 
 ## Publications, dissemination and conferences
 
-**51.6%** of respondents have published a paper about their software, for example in journals such as JOSS or SoftwareX. When software contributes to a paper, acknowledgement practices vary: being named as co-author is common (**25.8%** always, **54.8%** sometimes), while being named as main author is rare (**2.9%** always, **64.7%** never). Younger respondents were more likely to be named as co-authors (**57.1%** always among those under 35).
+**51.6%** of respondents have published a paper about their software, for example in journals such as JOSS or SoftwareX. 
 
-**47.4%** of respondents have presented software work at a conference or workshop. Often named conference were related to labels "Digital Humanities and GLAM", "HPC and e-infrastructure", "Chemistry, materials and photon science", "Astronomy, space and physics", and "RSE community conferences".
+When software contributes to a paper, acknowledgement practices vary.
+Being named as a co-author is relatively common: **25.8%** said this always happens and **54.8%** said it happens sometimes. 
+Being named as main author is much less common: **2.9%** said this always happens, while **64.7%** said it never happens.
+
+**47.4%** have presented software work at a conference or workshop. Commonly mentioned areas included digital humanities, HPC and e-infrastructure, chemistry and materials science, astronomy and physics, and RSE community conferences.
 
 ::: {.callout-note title="Key finding"}
-Many Nordic RSEs publish and present their software, but authorship and acknowledgement practices remain varied, especially for main-author credit.
+Many Nordic RSEs publish and present their software, but authorship and acknowledgement practices vary.
 :::
 
 ## Project workload and resilience
 
-RSE workloads typically span multiple projects. **80.3%** of respondents are currently involved in one to four software projects, and **39.7%** work on projects that typically include a project manager.
+RSE workloads often include several projects. **80.3%** of respondents are currently involved in one to four software projects, and **39.7%** work on projects that typically include a project manager.
 
-Project resilience is a concern. **58.9%** said their current project would stall if just one knowledgeable developer left, and only **16.9%** work on projects that typically have a plan to cope with developers leaving.
+Project resilience appears to be a concern. **58.9%** said their current project would stall if just one knowledgeable developer left. Only, **16.9%** work on projects that typically have a plan for how to cope with developers leaving.
 
 ::: {.callout-note title="Key finding"}
-Many projects depend on very few knowledgeable developers and rarely have succession or departure plans in place.
+Many projects depend on a small number of knowledgeable developers, and relatively few have succession or departure plans in place.
 :::
 
 ## What respondents want from a Nordic-RSE institute
 
-When asked how Nordic-RSE could foster community engagement and knowledge transfer, respondents most often selected organisation of conferences, workshops and similar events, at **86.7%**. Other priorities differed by career stage. Respondents under 35 most often selected compilation and development of freely available training materials (**68.4%**). Those aged 35-45 most often selected organisation of online and/or in-person trainings (**59.3%**). Respondents aged 45+ most often selected fostering networking within the RSE community via a moderated chat (**61.5%**).
+Respondents were also asked how Nordic-RSE could support community engagement and knowledge transfer. The most common answer was organising conferences, workshops, and similar events, selected by **86.7%**. 
 
-When asked what tasks should be undertaken by a Nordic-RSE institute, respondents most often selected advocating for research software towards politicians and decision makers (**71.7%**), community engagement and training (**70.0%**), and promotion of career paths in the RSE field (**70.0%**). Among respondents under 35, all three ranked equally at **73.7%**. These priorities align closely with the broader survey findings: the community is skilled and satisfied, but wants clearer career structures, and more opportunities to learn and connect.
+When asked what tasks a Nordic-RSE institute should take on, respondents most often selected advocacy for research software towards politicians and decision makers (**71.7%**), community engagement and training (**70.0%**), and promotion of RSE career paths (**70.0%**).
+
+These priorities fit well with the broader survey findings. Respondents are skilled, often satisfied, and feel that their expertise is in demand. At the same time, they want clearer career structures and more opportunities to learn, connect, and be represented.
 
 ::: {.callout-note title="Key finding"}
-Respondents see a Nordic-RSE institute primarily as a platform for conferences and workshops, advocacy, career development, and community training.
+Respondents see a Nordic-RSE institute mainly as a platform for events, advocacy, career development, and community training.
 :::
 
 ```{r}
 #| fig-width: 14
 #| fig-height: !expr INSIGHTS_TWO_ROW_FIG_HEIGHT
-#| fig-cap: !expr 'insights_fig_cap_multi("Community engagement priorities and institute tasks by age group (multi-select; three columns show Below 35, 35–45, and 45+).", c(sprintf("community engagement: N = %d", ns$org3nord), sprintf("institute tasks: N = %d", ns$org4nord)))'
+#| fig-cap: !expr 'insights_fig_cap_multi("Community engagement priorities and institute tasks (multi-select).", c(sprintf("community engagement: N = %d", ns$org3nord), sprintf("institute tasks: N = %d", ns$org4nord)))'
 #| fig-alt: >
-#|   Two stacked horizontal bar charts, each faceted into three age-group columns.
-#|   Top chart: how Nordic-RSE could foster community engagement; conferences and
-#|   workshops rank highest across all ages. Bottom chart: tasks the institute
-#|   should undertake; advocacy, community training, and career-path promotion lead overall.
-plot_nordic_institute_by_age(nordic_countries)
+#|   Two stacked heatmaps of multi-select priorities. Top: how Nordic-RSE
+#|   could foster community engagement; conferences and workshops rank highest.
+#|   Bottom: tasks the institute should undertake; advocacy, community training,
+#|   and career-path promotion lead overall.
+plot_nordic_institute(nordic_countries)
 ```
 
 ## Please share your thoughts or comments!
