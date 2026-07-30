@@ -4,7 +4,9 @@ insights_heatmap <- function(
     filter,
     question_code,
     title = NULL,
-    title_size = NULL
+    title_size = NULL,
+    wrap_threshold = 20L,
+    wrap_width = 22L
 ) {
   pal <- insights_palette()
   plot_heatmap(
@@ -13,7 +15,10 @@ insights_heatmap <- function(
     title = title,
     accent_color = pal$primary,
     panel_theme = insights_theme(title_size = title_size),
-    y_labels = insights_y_labels(),
+    y_labels = insights_y_labels(
+      threshold = wrap_threshold,
+      wrap_width = wrap_width
+    ),
     wrap_y_in_data = TRUE
   )
 }
@@ -33,6 +38,8 @@ insights_category_barplot <- function(
     title = title,
     bar_color = pal$primary,
     category_colors = category_colors,
+    # Avoid doubling N when title already includes it via insights_panel_title().
+    show_n = is.null(title),
     wrap_y_in_data = TRUE,
     y_labels = insights_y_labels()
   ) +
@@ -63,6 +70,8 @@ insights_likert_barplot <- function(
     title = title,
     levels = wrapped_levels,
     xlim_max = xlim_max,
+    # Avoid doubling N when title already includes it via insights_panel_title().
+    show_n = is.null(title),
     response_colors = stats::setNames(
       unname(insights_likert_colors(levels)[levels]),
       wrapped_levels
@@ -281,7 +290,8 @@ plot_coded_category_bar <- function(
     coded_tbl,
     category_col,
     title = NULL,
-    top_n = 10L
+    top_n = 10L,
+    show_pct = TRUE
 ) {
   plot_df <- coded_tbl |>
     dplyr::mutate(
@@ -297,13 +307,19 @@ plot_coded_category_bar <- function(
       category = insights_wrap_factor(.data$category, levels = levels(.data$category))
     )
 
+  label_aes <- if (isTRUE(show_pct)) {
+    ggplot2::aes(label = sprintf("%s (N = %d)", .data$pct, .data$n))
+  } else {
+    ggplot2::aes(label = sprintf("(N = %d)", .data$n))
+  }
+
   ggplot2::ggplot(
     plot_df,
     ggplot2::aes(x = .data$pct_num, y = .data$category)
   ) +
     ggplot2::geom_col(fill = insights_palette()$primary, width = INSIGHTS_BAR_WIDTH) +
     ggplot2::geom_text(
-      ggplot2::aes(label = sprintf("%s (N = %d)", .data$pct, .data$n)),
+      label_aes,
       hjust = -0.05,
       size = INSIGHTS_GEOM_TEXT_SIZE
     ) +
@@ -424,6 +440,7 @@ plot_career_progression_by_age <- function(df) {
       dplyr::mutate(
         sentiment = dplyr::case_when(
           .data$response %in% c("Agree", "Strongly Agree") ~ "Agree",
+          .data$response == "Neither agree or disagree" ~ "Neutral",
           .data$response %in% c("Disagree", "Strongly disagree") ~ "Disagree",
           TRUE ~ NA_character_
         ),
@@ -451,7 +468,10 @@ plot_career_progression_by_age <- function(df) {
         levels = statements$statement,
         labels = statement_labels
       ),
-      sentiment = factor(.data$sentiment, levels = c("Agree", "Disagree"))
+      sentiment = factor(
+        .data$sentiment,
+        levels = c("Agree", "Neutral", "Disagree")
+      )
     )
 
   ggplot2::ggplot(
@@ -479,7 +499,7 @@ plot_career_progression_by_age <- function(df) {
     ) +
     ggplot2::labs(
       title = "Career progression and promotion uncertainty",
-      subtitle = "Agree vs disagree by age group (neutral responses not shown)",
+      subtitle = "Agree, neutral and disagree by age group",
       x = NULL,
       y = "Percentage within age group"
     ) +
@@ -665,25 +685,29 @@ plot_category_barplot_facet_age <- function(
     ggplot2::theme(panel.spacing.x = INSIGHTS_FACET_SPACING)
 }
 
-plot_nordic_institute_by_age <- function(filter) {
+plot_nordic_institute <- function(filter) {
   n_org3 <- question_n_respondents(filter, "org3nord")
   n_org4 <- question_n_respondents(filter, "org4nord")
 
-  p1 <- plot_category_barplot_facet_age(
+  p1 <- insights_heatmap(
     filter,
     "org3nord",
-    title = insights_panel_title("Community engagement and knowledge transfer", n_org3)
+    title = insights_panel_title("Community engagement and knowledge transfer", n_org3),
+    wrap_threshold = 40L,
+    wrap_width = 42L
   )
 
-  p2 <- plot_category_barplot_facet_age(
+  p2 <- insights_heatmap(
     filter,
     "org4nord",
-    title = insights_panel_title("Tasks for Nordic-RSE or a future institute", n_org4)
+    title = insights_panel_title("Tasks for Nordic-RSE or a future institute", n_org4),
+    wrap_threshold = 40L,
+    wrap_width = 42L
   )
 
-  patchwork::wrap_plots(p1, p2, ncol = 1, heights = c(1, 1.2)) +
+  patchwork::wrap_plots(p1, p2, ncol = 1) +
     insights_panel_annotation(
-      title = "Priorities for a Nordic-RSE institute by age group",
-      subtitle = "Multi-select responses; percentage of respondents in each age group"
+      title = "Priorities for a Nordic-RSE institute",
+      subtitle = "Multi-select responses; percentage of respondents"
     )
 }

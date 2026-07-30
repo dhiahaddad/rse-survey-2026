@@ -26,6 +26,7 @@ INSIGHTS_TWO_ROW_FIG_HEIGHT <- 10
     ),
     sentiment = c(
       "Agree" = response_positive,
+      "Neutral" = response_neutral,
       "Disagree" = response_negative
     ),
     binary = c(
