@@ -92,3 +92,5 @@ HTML from those freezes and deploys to the `gh-pages` branch.
 3. Push to `main`. The `Publish Quarto book` workflow deploys automatically
    when `rse-book/` changes. You can also run it manually from the Actions tab.
 
+## How to cite
+Bockting, F. & Wittke, S. (2026). Analysis Book for the International RSE Survey 2026 (Nordic Focus) (Version 0.1.0). Zenodo. https://doi.org/10.5281/zenodo.21716004

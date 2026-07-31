@@ -20,6 +20,10 @@ repository. If you run into problems setting up or rendering the book,
 or notice errors in the analysis or figures, please
 [open a GitHub issue](https://github.com/nordic-rse/rse-survey-2026/issues).
 
+# How to cite
+
+Bockting, F. & Wittke, S. (2026). Analysis Book for the International RSE Survey 2026 (Nordic Focus) (Version 0.1.0). Zenodo. https://doi.org/10.5281/zenodo.21716004
+
 # The general idea
 
 The common workflow is:
