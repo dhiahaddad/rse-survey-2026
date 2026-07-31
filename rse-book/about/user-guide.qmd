@@ -12,6 +12,14 @@ Each chapter covers **one survey question or closely related question group**.
 Chapter analyses use a **primary** country scope (`FILTER`) and an optional
 **comparison** set (`FILTER_COMPARE`) for the Between Countries section.
 
+# Feedback and issues
+This Quarto book is developed by [Florence Bockting](https://github.com/florence-bockting) and [Samantha Wittke](https://github.com/samumantha)
+as part of [Nordic-RSE](https://nordic-rse.org/), in the
+[nordic-rse/rse-survey-2026](https://github.com/nordic-rse/rse-survey-2026)
+repository. If you run into problems setting up or rendering the book,
+or notice errors in the analysis or figures, please
+[open a GitHub issue](https://github.com/nordic-rse/rse-survey-2026/issues).
+
 # The general idea
 
 The common workflow is:
