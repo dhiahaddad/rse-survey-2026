@@ -18,4 +18,6 @@ applied.
 All yearly books are generated dynamically from the corresponding response and
 question-metadata files. The separate 2026 Nordic analysis preserves the
 curated narrative and question-by-question analysis using its committed frozen
-results.
+results. Generic books include submitted and partial records, and each question
+reports how many of each provided an answer. The curated analysis remains
+submitted-only.

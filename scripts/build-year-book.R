@@ -3,9 +3,32 @@
 suppressPackageStartupMessages(library(ggplot2))
 
 args <- commandArgs(trailingOnly = TRUE)
+inclusion_mode <- "all"
+inclusion_equals <- grep("^--inclusion=", args)
+inclusion_flag <- which(args == "--inclusion")
+if (length(inclusion_equals) + length(inclusion_flag) > 1L) {
+  stop("Specify --inclusion only once.", call. = FALSE)
+}
+if (length(inclusion_equals) == 1L) {
+  inclusion_mode <- sub("^--inclusion=", "", args[[inclusion_equals]])
+  args <- args[-inclusion_equals]
+} else if (length(inclusion_flag) == 1L) {
+  if (inclusion_flag == length(args)) {
+    stop("--inclusion requires either all or submitted.", call. = FALSE)
+  }
+  inclusion_mode <- args[[inclusion_flag + 1L]]
+  args <- args[-c(inclusion_flag, inclusion_flag + 1L)]
+}
+if (!inclusion_mode %in% c("all", "submitted")) {
+  stop("--inclusion must be either all or submitted.", call. = FALSE)
+}
+
 if (length(args) < 2L) {
   stop(
-    "Usage: Rscript scripts/build-year-book.R YEAR DATA_ROOT [OUTPUT_ROOT]",
+    paste(
+      "Usage: Rscript scripts/build-year-book.R YEAR DATA_ROOT [OUTPUT_ROOT]",
+      "[--inclusion all|submitted]"
+    ),
     call. = FALSE
   )
 }
@@ -100,20 +123,50 @@ safe_filename <- function(x) {
   if (nzchar(value)) value else "question"
 }
 
-tf <- read_survey_csv(tf_path)
+tf_source <- read_survey_csv(tf_path)
 meta <- read_survey_csv(cols_path)
 if (!"Option" %in% names(meta)) {
   meta$Option <- ""
 }
 
-if ("submitdate_0" %in% names(tf)) {
-  submitted <- nonempty(tf$submitdate_0)
-  tf <- tf[submitted, , drop = FALSE]
-  submission_note <- "Rows with a non-empty `submitdate_0` are included."
+has_submission_status <- "submitdate_0" %in% names(tf_source)
+if (has_submission_status) {
+  source_submitted <- nonempty(tf_source$submitdate_0)
+  tf_source$.submission_status <- ifelse(source_submitted, "Submitted", "Partial")
+  if (inclusion_mode == "submitted") {
+    tf <- tf_source[source_submitted, , drop = FALSE]
+    submission_note <- "Only records with a non-empty `submitdate_0` are included."
+  } else {
+    tf <- tf_source
+    submission_note <- paste(
+      "Submitted and partial records are included. Each question uses only",
+      "records with a recorded answer to that question."
+    )
+  }
 } else {
+  tf <- tf_source
+  tf$.submission_status <- "Recorded"
   submission_note <- paste0(
     "This export has no `submitdate_0` field, so all ", nrow(tf),
     " rows are included."
+  )
+}
+
+answering_summary <- function(answered_rows) {
+  answered_rows[is.na(answered_rows)] <- FALSE
+  answered_n <- sum(answered_rows)
+  if (!has_submission_status || inclusion_mode == "submitted") {
+    return(paste0("**Respondents answering:** ", answered_n))
+  }
+  statuses <- factor(
+    tf$.submission_status[answered_rows],
+    levels = c("Submitted", "Partial")
+  )
+  counts <- table(statuses)
+  paste0(
+    "**Respondents answering:** ", answered_n,
+    " (", unname(counts[["Submitted"]]), " submitted; ",
+    unname(counts[["Partial"]]), " partial)"
   )
 }
 
@@ -136,9 +189,18 @@ ordered_stems <- ordered_stems[ordered_stems %in% metadata_stems]
 country_column <- if ("socio1_0" %in% names(tf)) "socio1_0" else NULL
 country_summary <- if (!is.null(country_column)) {
   countries <- trimws(as.character(tf[[country_column]]))
-  countries <- countries[nonempty(countries)]
-  counts <- sort(table(countries), decreasing = TRUE)
-  data.frame(Country = names(counts), Responses = as.integer(counts))
+  present <- nonempty(countries)
+  counts <- sort(table(countries[present]), decreasing = TRUE)
+  result <- data.frame(Country = names(counts), Responses = as.integer(counts))
+  if (has_submission_status && inclusion_mode == "all") {
+    submitted_counts <- table(countries[present & tf$.submission_status == "Submitted"])
+    partial_counts <- table(countries[present & tf$.submission_status == "Partial"])
+    result$Submitted <- as.integer(submitted_counts[result$Country])
+    result$Partial <- as.integer(partial_counts[result$Country])
+    result$Submitted[is.na(result$Submitted)] <- 0L
+    result$Partial[is.na(result$Partial)] <- 0L
+  }
+  result
 } else {
   data.frame()
 }
@@ -155,6 +217,8 @@ index_lines <- c(
     " survey independently**, using the questions and answer options stored in that year's export."
   ),
   "",
+  paste0("**Source records:** ", nrow(tf_source)),
+  "",
   paste0("**Respondents included:** ", nrow(tf)),
   "",
   paste0("**Question groups discovered:** ", length(ordered_stems)),
@@ -164,10 +228,23 @@ index_lines <- c(
   "No cross-year harmonisation is applied.",
   ""
 )
+if (has_submission_status) {
+  index_lines <- c(
+    index_lines,
+    paste0("**Submitted records:** ", sum(tf_source$.submission_status == "Submitted")),
+    "",
+    paste0("**Partial records:** ", sum(tf_source$.submission_status == "Partial")),
+    ""
+  )
+}
 if (nrow(country_summary)) {
   index_lines <- c(
     index_lines,
-    "## Responses by country",
+    if (has_submission_status && inclusion_mode == "submitted") {
+      "## Submitted responses by country"
+    } else {
+      "## Recorded responses by country"
+    },
     "",
     write_markdown_table(country_summary),
     ""
@@ -191,15 +268,16 @@ for (i in seq_along(ordered_stems)) {
 
   if (length(columns) == 1L) {
     type <- "Single response or free text"
-    raw <- trimws(as.character(tf[[columns[[1L]]]]))
-    raw <- raw[nonempty(raw)]
+    raw_all <- trimws(as.character(tf[[columns[[1L]]]]))
+    answered_rows <- nonempty(raw_all)
+    raw <- raw_all[answered_rows]
     counts <- sort(table(raw), decreasing = TRUE)
     result <- data.frame(
       Response = names(counts),
       Count = as.integer(counts),
       Percent = sprintf("%.1f%%", 100 * as.integer(counts) / sum(counts))
     )
-    answered_n <- length(raw)
+    answered_n <- sum(answered_rows)
     display <- head(result, 30L)
     truncated_note <- if (nrow(result) > nrow(display)) {
       paste0("Only the 30 most frequent of ", nrow(result), " distinct responses are shown.")
@@ -323,7 +401,7 @@ for (i in seq_along(ordered_stems)) {
     "",
     paste0("**Detected type:** ", type),
     "",
-    paste0("**Respondents answering:** ", answered_n),
+    answering_summary(answered_rows),
     ""
   )
   if (nrow(display)) {
