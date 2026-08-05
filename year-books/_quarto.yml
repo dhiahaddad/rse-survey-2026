@@ -7,4 +7,5 @@ website:
 format:
   html:
     theme: cosmo
+    css: home.css
     toc: false

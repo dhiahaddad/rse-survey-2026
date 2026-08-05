@@ -1,28 +1,26 @@
 ---
-title: "German RSE Survey Books"
+title: "Research Software Engineers in Germany"
+subtitle: "International RSE Survey results, 2017–2026"
+title-block-banner: true
+page-layout: full
 ---
 
-Each survey year focuses only on respondents working in Germany and is
-presented independently using the questions and answer options contained in
-that year's dataset. No cross-year harmonisation is applied.
+## Explore the German RSE community over time
 
-## Survey years in this publication
+Discover how people who develop software for research in Germany work, learn,
+collaborate, and build their careers. Choose a survey year to begin.
 
-- [2017 Germany survey](2017/)
-- [2018 Germany survey](2018/)
-- [2022 Germany survey](2022/)
-- [2026 Germany survey](2026/)
+::: {.year-grid}
+<a class="year-card" href="2017/"><span class="year-card__year">2017</span><span class="year-card__label">Germany survey</span><span class="year-card__action">Explore this year →</span></a>
+<a class="year-card" href="2018/"><span class="year-card__year">2018</span><span class="year-card__label">Germany survey</span><span class="year-card__action">Explore this year →</span></a>
+<a class="year-card" href="2022/"><span class="year-card__year">2022</span><span class="year-card__label">Germany survey</span><span class="year-card__action">Explore this year →</span></a>
+<a class="year-card" href="2026/"><span class="year-card__year">2026</span><span class="year-card__label">Germany survey</span><span class="year-card__action">Explore this year →</span></a>
+:::
 
-The four years are assembled into one publication. Choose a year from the page
-header; the left sidebar will then show only that year's thematic question
-sections and questions. The page-level table of contents on the right is
-disabled.
+## How to read this publication
 
-The 2016 export contains only United Kingdom respondents, so it is not included
-in this Germany-focused publication. All results are generated dynamically from
-the corresponding response and question-metadata files. The country is
-configurable, so the same process can produce a combined publication for other
-countries represented in the selected years.
+- **Germany only:** results are filtered by respondents' country of work.
+- **Each year stands alone:** questions are not automatically harmonised.
+- **Clear counts:** submitted and partial responses are reported separately.
 
-Generic books include submitted and partial records, and each question reports
-how many of each provided an answer.
+The 2016 export contains only United Kingdom respondents and is not included.

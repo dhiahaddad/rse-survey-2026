@@ -47,6 +47,7 @@ if (dir.exists(output_dir)) unlink(output_dir, recursive = TRUE)
 dir.create(output_dir, recursive = TRUE)
 
 navigation_by_year <- list()
+records_by_year <- integer()
 for (survey_year in survey_years) {
   source_dir <- file.path(year_root, survey_year)
   manifest_path <- file.path(source_dir, "navigation.csv")
@@ -62,6 +63,17 @@ for (survey_year in survey_years) {
     file.path(destination, "index.qmd"),
     overwrite = TRUE
   )
+  year_index <- readLines(file.path(source_dir, "index.qmd"), warn = FALSE)
+  record_line <- grep(
+    "^\\*\\*Records matching country scope:\\*\\* ",
+    year_index,
+    value = TRUE
+  )
+  records_by_year[[survey_year]] <- if (length(record_line)) {
+    as.integer(sub("^.*\\*\\* ", "", record_line[[1L]]))
+  } else {
+    NA_integer_
+  }
   navigation_by_year[[survey_year]] <- read.csv(
     manifest_path,
     stringsAsFactors = FALSE,
@@ -77,24 +89,78 @@ for (survey_year in survey_years) {
   ]
 }
 
+year_card <- function(survey_year) {
+  navigation <- navigation_by_year[[survey_year]]
+  response_label <- if (is.na(records_by_year[[survey_year]])) {
+    "Germany responses"
+  } else {
+    paste(format(records_by_year[[survey_year]], big.mark = ","), "recorded responses")
+  }
+  c(
+    paste0('<a class="year-card" href="', survey_year, '/index.qmd">'),
+    paste0('<span class="year-card__year">', survey_year, '</span>'),
+    '<span class="year-card__label">Germany survey</span>',
+    paste0(
+      '<span class="year-card__meta">', response_label, ' · ',
+      nrow(navigation), ' question groups</span>'
+    ),
+    '<span class="year-card__action">Explore this year <span aria-hidden="true">→</span></span>',
+    '</a>'
+  )
+}
+
 index_lines <- c(
   "---",
-  "title: 'German RSE Survey Books'",
+  "title: 'Research Software Engineers in Germany'",
+  "subtitle: 'International RSE Survey results, 2017–2026'",
+  "title-block-banner: true",
+  "page-layout: full",
   "---",
   "",
-  "This publication brings the Germany-focused survey results into one book.",
-  "Choose a **year in the page header**, then use that year's left sidebar to navigate by **question section** and question.",
+  "::: {.home-intro}",
+  "## Explore the German RSE community over time",
   "",
-  "Each year uses its own questions and answer options; no cross-year harmonisation is applied.",
+  paste(
+    "Discover how people who develop software for research in Germany work,",
+    "learn, collaborate, and build their careers. Choose a survey year to begin."
+  ),
+  ":::",
   "",
-  "## Survey years",
+  "::: {.year-grid}",
+  unlist(lapply(survey_years, year_card)),
+  ":::",
   "",
-  paste0("- [", survey_years, " Germany survey](", survey_years, "/index.qmd)"),
+  "::::: {.home-method}",
+  "## How to read this publication",
   "",
-  "The 2016 export contains only United Kingdom respondents, so it is not included.",
+  ":::: {.home-method__grid}",
+  "::: {.home-method__item}",
+  "### Germany only",
+  "Every result is filtered to respondents who selected Germany as their country of work.",
+  ":::",
+  "::: {.home-method__item}",
+  "### Each year stands alone",
+  "Questions and answer options can change between surveys, so results are not automatically harmonised across years.",
+  ":::",
+  "::: {.home-method__item}",
+  "### Clear response counts",
+  "Submitted and partial responses are included, with the relevant counts reported for each question.",
+  ":::",
+  "::::",
+  ":::::",
+  "",
+  "::: {.home-footnote}",
+  "The 2016 export contains only United Kingdom respondents and is therefore not included.",
+  ":::",
   ""
 )
 writeLines(index_lines, file.path(output_dir, "index.qmd"))
+
+home_css <- file.path("year-books", "home.css")
+if (!file.exists(home_css)) {
+  stop("Missing home-page stylesheet: ", home_css, call. = FALSE)
+}
+file.copy(home_css, file.path(output_dir, "home.css"), overwrite = TRUE)
 
 quarto_lines <- c(
   "project:",
@@ -155,6 +221,7 @@ quarto_lines <- c(
   "format:",
   "  html:",
   "    theme: cosmo",
+  "    css: home.css",
   "    toc: false"
 )
 writeLines(quarto_lines, file.path(output_dir, "_quarto.yml"))

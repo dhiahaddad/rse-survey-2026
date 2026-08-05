@@ -1,0 +1,226 @@
+:root {
+  --color-cream: #fffafa;
+  --color-dark: #142445;
+  --color-orange: #f7b552;
+  --color-purple: #9a3270;
+  --color-white: #ffffff;
+  --color-yellow: #fdda14;
+  --bs-primary: var(--color-purple);
+  --bs-link-color: var(--color-purple);
+  --bs-link-hover-color: var(--color-dark);
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-dark);
+}
+
+.navbar {
+  border-bottom: 1px solid color-mix(in srgb, var(--color-dark) 12%, transparent);
+  background: var(--color-cream) !important;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: var(--color-dark) !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active {
+  color: var(--color-purple) !important;
+}
+
+.quarto-title-banner {
+  background: var(--color-purple);
+  color: var(--color-white);
+  padding: 4.5rem 0 4rem;
+}
+
+.quarto-title-banner .title {
+  max-width: 900px;
+  color: var(--color-white);
+  font-size: clamp(2.5rem, 6vw, 4.8rem);
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+
+.quarto-title-banner .subtitle {
+  margin-top: 1rem;
+  color: color-mix(in srgb, var(--color-white) 82%, transparent);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+}
+
+.home-intro,
+.year-grid,
+.home-method,
+.home-footnote {
+  width: min(1180px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.home-intro {
+  max-width: 780px;
+  margin-top: 3.5rem;
+  margin-bottom: 2.25rem;
+  text-align: center;
+}
+
+.home-intro h2 {
+  border: 0;
+  margin-bottom: 0.8rem;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  letter-spacing: -0.025em;
+}
+
+.home-intro p {
+  color: color-mix(in srgb, var(--color-dark) 72%, var(--color-white));
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.year-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.year-grid > p {
+  display: contents;
+}
+
+.year-card {
+  position: relative;
+  display: flex;
+  min-height: 245px;
+  flex-direction: column;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--color-dark) 16%, var(--color-white));
+  border-radius: 18px;
+  background: var(--color-white);
+  color: var(--color-dark);
+  text-decoration: none;
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--color-dark) 8%, transparent);
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.year-card::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 5px;
+  background: linear-gradient(
+    90deg,
+    var(--color-purple) 0 62%,
+    var(--color-orange) 62% 86%,
+    var(--color-yellow) 86%
+  );
+  content: "";
+}
+
+.year-card:hover,
+.year-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--color-purple);
+  color: var(--color-dark);
+  box-shadow: 0 18px 40px color-mix(in srgb, var(--color-purple) 18%, transparent);
+}
+
+.year-card:focus-visible {
+  outline: 3px solid var(--color-orange);
+  outline-offset: 3px;
+}
+
+.year-card__year {
+  margin-top: 0.5rem;
+  font-size: 2.65rem;
+  font-weight: 760;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.year-card__label {
+  margin-top: 0.55rem;
+  font-weight: 650;
+}
+
+.year-card__meta {
+  margin-top: 0.55rem;
+  color: color-mix(in srgb, var(--color-dark) 65%, var(--color-white));
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.year-card__action {
+  margin-top: auto;
+  padding-top: 1.6rem;
+  color: var(--color-purple);
+  font-weight: 700;
+}
+
+.home-method {
+  padding: 2.5rem;
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--color-purple) 7%, var(--color-cream));
+}
+
+.home-method > h2 {
+  border: 0;
+  margin: 0 0 1.5rem;
+  font-size: 1.55rem;
+}
+
+.home-method__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.home-method__item h3 {
+  margin-top: 0;
+  font-size: 1.05rem;
+}
+
+.home-method__item p {
+  margin-bottom: 0;
+  color: color-mix(in srgb, var(--color-dark) 72%, var(--color-white));
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.home-footnote {
+  margin-top: 1.25rem;
+  margin-bottom: 4rem;
+  color: color-mix(in srgb, var(--color-dark) 60%, var(--color-white));
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+@media (max-width: 960px) {
+  .year-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .quarto-title-banner {
+    padding: 3rem 0 2.75rem;
+  }
+
+  .year-grid,
+  .home-method__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .year-card {
+    min-height: 210px;
+  }
+
+  .home-method {
+    padding: 1.5rem;
+  }
+}
