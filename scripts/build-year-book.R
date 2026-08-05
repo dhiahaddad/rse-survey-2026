@@ -191,7 +191,8 @@ question_text <- function(meta, stem) {
   hit <- meta[question_stem(meta$New_name) == stem, "Question", drop = TRUE]
   hit <- unique(trimws(as.character(hit[nonempty(hit)])))
   if (!length(hit)) return(stem)
-  trimws(sub("\\s*\\[[^]]+\\]\\s*$", "", hit[[1L]]))
+  result <- trimws(sub("\\s*\\[[^]]*\\]\\s*$", "", hit[[1L]]))
+  if (nonempty(result)) result else stem
 }
 
 safe_filename <- function(x) {
@@ -714,12 +715,26 @@ for (section in present_sections) {
     paste0("        - ", section_chapters)
   )
 }
+navigation <- data.frame(
+  Section = question_sections,
+  SectionOrder = match(question_sections, section_order),
+  QuestionOrder = seq_along(chapter_files),
+  Chapter = chapter_files,
+  Title = vapply(ordered_stems, function(stem) question_text(meta, stem), character(1)),
+  stringsAsFactors = FALSE
+)
+write.csv(
+  navigation,
+  file.path(project_dir, "navigation.csv"),
+  row.names = FALSE,
+  na = ""
+)
 quarto_lines <- c(
   quarto_lines,
   "format:",
   "  html:",
   "    theme: cosmo",
-  "    toc: true"
+  "    toc: false"
 )
 writeLines(quarto_lines, file.path(project_dir, "_quarto.yml"))
 

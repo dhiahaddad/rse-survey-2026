@@ -6,7 +6,7 @@ Each survey year focuses only on respondents working in Germany and is
 presented independently using the questions and answer options contained in
 that year's dataset. No cross-year harmonisation is applied.
 
-## Survey years
+## Survey years in this publication
 
 - [2017 Germany survey](2017/)
 - [2018 Germany survey](2018/)
@@ -14,11 +14,16 @@ that year's dataset. No cross-year harmonisation is applied.
 - [2026 Germany survey](2026/)
 - [2026 curated Nordic analysis](2026/insights/)
 
+The four years are assembled into one publication. Choose a year from the page
+header; the left sidebar will then show only that year's thematic question
+sections and questions. The page-level table of contents on the right is
+disabled.
+
 The 2016 export contains only United Kingdom respondents, so it is not included
-in this Germany-focused publication. All published yearly books are generated
-dynamically from the corresponding response and question-metadata files. The
-country is configurable when generating a book, so the same process can produce
-books for other countries represented in a given year.
+in this Germany-focused publication. All results are generated dynamically from
+the corresponding response and question-metadata files. The country is
+configurable, so the same process can produce a combined publication for other
+countries represented in the selected years.
 
 The separate 2026 Nordic analysis preserves the curated narrative and
 question-by-question analysis using its committed frozen results. Generic books
