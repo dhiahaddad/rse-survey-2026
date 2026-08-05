@@ -1,0 +1,836 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "International RSE Survey 2018",
+    "section": "",
+    "text": "Survey overview\nThis book presents the 2018 survey independently, using the questions and answer options stored in that year’s export.\nRespondents included: 997\nQuestion groups discovered: 74\nThis export has no submitdate_0 field, so all 997 rows are included.\nNo cross-year harmonisation is applied.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>International RSE Survey 2018</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#responses-by-country",
+    "href": "index.html#responses-by-country",
+    "title": "International RSE Survey 2018",
+    "section": "0.1 Responses by country",
+    "text": "0.1 Responses by country\n\n\n\nCountry\nResponses\n\n\n\n\nGermany\n333\n\n\nUnited Kingdom\n237\n\n\nUnited States\n147\n\n\nAustralia\n99\n\n\nNetherlands\n54\n\n\nNew Zealand\n37\n\n\nSouth Africa\n23\n\n\nCanada\n12\n\n\nCzech Republic\n6\n\n\nNorway\n6\n\n\nFrance\n5\n\n\nItaly\n4\n\n\nSpain\n4\n\n\nBelgium\n3\n\n\nBrazil\n3\n\n\nDenmark\n3\n\n\nBotswana\n2\n\n\nIreland\n2\n\n\nSweden\n2\n\n\nSwitzerland\n2\n\n\nBenin\n1\n\n\nEthiopia\n1\n\n\nGreece\n1\n\n\nIndia\n1\n\n\nJapan\n1\n\n\nMalawi\n1\n\n\nMauritius\n1\n\n\nNigeria\n1\n\n\nPoland\n1\n\n\nPortugal\n1\n\n\nRussia\n1\n\n\nSaudi Arabia\n1\n\n\nTurkey\n1",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>International RSE Survey 2018</span>"
+    ]
+  },
+  {
+    "objectID": "questions/001-socio1.html",
+    "href": "questions/001-socio1.html",
+    "title": "2  socio1",
+    "section": "",
+    "text": "3 In which country do you work?\nQuestion code: socio1\nDetected type: Single response or free text\nRespondents answering: 997\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nGermany\n333\n33.4%\n\n\nUnited Kingdom\n237\n23.8%\n\n\nUnited States\n147\n14.7%\n\n\nAustralia\n99\n9.9%\n\n\nNetherlands\n54\n5.4%\n\n\nNew Zealand\n37\n3.7%\n\n\nSouth Africa\n23\n2.3%\n\n\nCanada\n12\n1.2%\n\n\nCzech Republic\n6\n0.6%\n\n\nNorway\n6\n0.6%\n\n\nFrance\n5\n0.5%\n\n\nItaly\n4\n0.4%\n\n\nSpain\n4\n0.4%\n\n\nBelgium\n3\n0.3%\n\n\nBrazil\n3\n0.3%\n\n\nDenmark\n3\n0.3%\n\n\nBotswana\n2\n0.2%\n\n\nIreland\n2\n0.2%\n\n\nSweden\n2\n0.2%\n\n\nSwitzerland\n2\n0.2%\n\n\nBenin\n1\n0.1%\n\n\nEthiopia\n1\n0.1%\n\n\nGreece\n1\n0.1%\n\n\nIndia\n1\n0.1%\n\n\nJapan\n1\n0.1%\n\n\nMalawi\n1\n0.1%\n\n\nMauritius\n1\n0.1%\n\n\nNigeria\n1\n0.1%\n\n\nPoland\n1\n0.1%\n\n\nPortugal\n1\n0.1%\n\n\n\nOnly the 30 most frequent of 33 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>socio1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/002-rse1.html",
+    "href": "questions/002-rse1.html",
+    "title": "3  rse1",
+    "section": "",
+    "text": "4 Do you write software for academic research as part of your job\nQuestion code: rse1\nDetected type: Single response or free text\nRespondents answering: 997\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n956\n95.9%\n\n\nFalse\n41\n4.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>rse1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/003-edu1.html",
+    "href": "questions/003-edu1.html",
+    "title": "4  edu1",
+    "section": "",
+    "text": "5 What is the highest level of education you have attained?\nQuestion code: edu1\nDetected type: Single response or free text\nRespondents answering: 993\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nPhD\n457\n46.0%\n\n\nMasters Degree\n294\n29.6%\n\n\nUndergraduate degree\n94\n9.5%\n\n\nAQF 10 - Doctoral Degree\n63\n6.3%\n\n\nWO (Wetenschappelijk onderwijs) Masters Degree\n20\n2.0%\n\n\nAQF 8 - Undergraduate degree\n13\n1.3%\n\n\nAQF 7 - Undergraduate degree\n11\n1.1%\n\n\nAQF 9 - Masters Degree\n11\n1.1%\n\n\nOther\n8\n0.8%\n\n\nFinal secondary-school examinations, general qualification for university entrance\n7\n0.7%\n\n\nFurther Education (NVQ A-Level, …)\n4\n0.4%\n\n\nHBO (Hoger beroepsonderwijs) Masters Degree\n3\n0.3%\n\n\nWO (Wetenschappelijk onderwijs) Undergraduate degree\n3\n0.3%\n\n\nGSCEs\n1\n0.1%\n\n\nHBO (Hoger beroepsonderwijs) Undergraduate degree\n1\n0.1%\n\n\nMPhil to PhD Transfer\n1\n0.1%\n\n\nPhD in progress\n1\n0.1%\n\n\nPostgraduate degree\n1\n0.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>edu1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/004-edu2.html",
+    "href": "questions/004-edu2.html",
+    "title": "5  edu2",
+    "section": "",
+    "text": "6 In which discipline is your highest academic qualification?\nQuestion code: edu2\nDetected type: Single response or free text\nRespondents answering: 985\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nPhysics and Astronomy\n234\n23.8%\n\n\nComputer Science\n220\n22.3%\n\n\nBiological Sciences\n95\n9.6%\n\n\nMathematics\n69\n7.0%\n\n\nGeography & Environmental Sciences\n46\n4.7%\n\n\nElectrical & Electronic Engineering\n36\n3.7%\n\n\n02 Physical Sciences\n27\n2.7%\n\n\nChemistry\n22\n2.2%\n\n\n08 Information and Computing Sciences\n21\n2.1%\n\n\nMechanical Engineering\n17\n1.7%\n\n\nGeology\n16\n1.6%\n\n\n06 Biological Sciences\n15\n1.5%\n\n\nGeneral Engineering\n11\n1.1%\n\n\n09 Engineering\n10\n1.0%\n\n\nChemical Engineering\n10\n1.0%\n\n\nCivil Engineering\n9\n0.9%\n\n\nMaterials Technology\n9\n0.9%\n\n\n01 Mathematical Sciences\n8\n0.8%\n\n\n04 Earth Sciences\n8\n0.8%\n\n\nHistory\n8\n0.8%\n\n\nPsychology\n7\n0.7%\n\n\nBusiness & Management Studies\n6\n0.6%\n\n\nEconomics\n6\n0.6%\n\n\nPhilosophy\n5\n0.5%\n\n\nAeronautical & Manufacturing Engineering\n4\n0.4%\n\n\nEducation\n4\n0.4%\n\n\nLibrarianship & Information Management\n4\n0.4%\n\n\nMedicine\n4\n0.4%\n\n\nCommunication & Media Studies\n3\n0.3%\n\n\nEnglish\n3\n0.3%\n\n\n\nOnly the 30 most frequent of 63 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>edu2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/005-edu4.html",
+    "href": "questions/005-edu4.html",
+    "title": "6  edu4",
+    "section": "",
+    "text": "7 List any professional qualifications you hold (eg. P. Eng, PMP, …)?\nQuestion code: edu4\nDetected type: Single response or free text\nRespondents answering: 165\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nPhD\n10\n6.1%\n\n\nMSc\n6\n3.6%\n\n\nPh.D.\n3\n1.8%\n\n\nPMP\n3\n1.8%\n\n\n-\n2\n1.2%\n\n\nB.A. (Skandinavistik)\n2\n1.2%\n\n\nBachelor of Science\n2\n1.2%\n\n\nEng\n2\n1.2%\n\n\nEngineer\n2\n1.2%\n\n\nFHEA\n2\n1.2%\n\n\nM.Sc.\n2\n1.2%\n\n\nMInstP\n2\n1.2%\n\n\nMIOP\n2\n1.2%\n\n\nMPhys\n2\n1.2%\n\n\n?\n1\n0.6%\n\n\nAccredited SCRUM master\n1\n0.6%\n\n\nAFHEA\n1\n0.6%\n\n\nAgile Project Management\n1\n0.6%\n\n\nAMBA\n1\n0.6%\n\n\nAssociated Professor, Senior Researcher\n1\n0.6%\n\n\nAusbildung Fachinformatiker Anwendungsenwicklung\n1\n0.6%\n\n\nAusbildung zum Energieelektroniker Fachrichtung Anlagentechnik\n1\n0.6%\n\n\nB. Sc.\n1\n0.6%\n\n\nB.Sc. Computer Science\n1\n0.6%\n\n\nBachelor of Enginering\n1\n0.6%\n\n\nBachelor of Science Honours Degree in Computing\n1\n0.6%\n\n\nBachelor, Biowissenschaften\n1\n0.6%\n\n\nBPhys/InfTech, MSci\n1\n0.6%\n\n\nBS Biochemistry\n1\n0.6%\n\n\nBSc (Ecology), Grad Dip Sci (comp sci)\n1\n0.6%\n\n\n\nOnly the 30 most frequent of 137 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>edu4</span>"
+    ]
+  },
+  {
+    "objectID": "questions/006-rse4de.html",
+    "href": "questions/006-rse4de.html",
+    "title": "7  rse4de",
+    "section": "",
+    "text": "8 Does the majority of your role comprise leading a group of software developers or RSEs?\nQuestion code: rse4de\nDetected type: Single response or free text\nRespondents answering: 953\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n787\n82.6%\n\n\nTrue\n166\n17.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>rse4de</span>"
+    ]
+  },
+  {
+    "objectID": "questions/007-rse3.html",
+    "href": "questions/007-rse3.html",
+    "title": "8  rse3",
+    "section": "",
+    "text": "9 Who uses the code that you write?\nQuestion code: rse3\nDetected type: Single response or free text\nRespondents answering: 997\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n5 - Mostly other people\n258\n25.9%\n\n\n3\n182\n18.3%\n\n\n4\n179\n18.0%\n\n\n2\n176\n17.7%\n\n\n1\n134\n13.4%\n\n\n0 - Mostly me\n68\n6.8%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>rse3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/008-soft2can.html",
+    "href": "questions/008-soft2can.html",
+    "title": "9  soft2can",
+    "section": "",
+    "text": "10 Do you consider yourself a professional software developer?\nQuestion code: soft2can\nDetected type: Single response or free text\nRespondents answering: 951\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n507\n53.3%\n\n\nFalse\n444\n46.7%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>soft2can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/009-soft1can.html",
+    "href": "questions/009-soft1can.html",
+    "title": "10  soft1can",
+    "section": "",
+    "text": "11 How many years of software development experience do you have?\nQuestion code: soft1can\nDetected type: Single response or free text\nRespondents answering: 997\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n10\n124\n12.4%\n\n\n20\n85\n8.5%\n\n\n5\n78\n7.8%\n\n\n15\n68\n6.8%\n\n\n3\n59\n5.9%\n\n\n6\n57\n5.7%\n\n\n4\n54\n5.4%\n\n\n2\n51\n5.1%\n\n\n30\n45\n4.5%\n\n\n8\n40\n4.0%\n\n\n7\n33\n3.3%\n\n\n12\n29\n2.9%\n\n\n25\n29\n2.9%\n\n\n18\n28\n2.8%\n\n\n1\n26\n2.6%\n\n\n9\n22\n2.2%\n\n\n14\n17\n1.7%\n\n\n13\n15\n1.5%\n\n\n17\n14\n1.4%\n\n\n35\n14\n1.4%\n\n\n22\n11\n1.1%\n\n\n0\n10\n1.0%\n\n\n16\n10\n1.0%\n\n\n11\n9\n0.9%\n\n\n28\n9\n0.9%\n\n\n19\n7\n0.7%\n\n\n24\n7\n0.7%\n\n\n40\n7\n0.7%\n\n\n23\n5\n0.5%\n\n\n29\n3\n0.3%\n\n\n\nOnly the 30 most frequent of 50 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>soft1can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/010-time1can.html",
+    "href": "questions/010-time1can.html",
+    "title": "11  time1can",
+    "section": "",
+    "text": "12 On average, how much of your time is spent developing software?\nQuestion code: time1can\nDetected type: Single response or free text\nRespondents answering: 997\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n7\n171\n17.2%\n\n\n8\n151\n15.1%\n\n\n3\n144\n14.4%\n\n\n4\n133\n13.3%\n\n\n5\n133\n13.3%\n\n\n6\n128\n12.8%\n\n\n2\n59\n5.9%\n\n\n9\n49\n4.9%\n\n\n1 (None at all)\n15\n1.5%\n\n\n10 (All my time)\n14\n1.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>time1can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/011-time2can.html",
+    "href": "questions/011-time2can.html",
+    "title": "12  time2can",
+    "section": "",
+    "text": "13 On average, how much of your time is spent on research\nQuestion code: time2can\nDetected type: Single response or free text\nRespondents answering: 997\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n2\n201\n20.2%\n\n\n3\n195\n19.6%\n\n\n4\n148\n14.8%\n\n\n1 (None at all)\n116\n11.6%\n\n\n5\n104\n10.4%\n\n\n7\n77\n7.7%\n\n\n6\n53\n5.3%\n\n\n8\n51\n5.1%\n\n\n9\n30\n3.0%\n\n\n10 (All my time)\n22\n2.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>time2can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/012-time3can.html",
+    "href": "questions/012-time3can.html",
+    "title": "13  time3can",
+    "section": "",
+    "text": "14 On average, how much of your time is spent on management\nQuestion code: time3can\nDetected type: Single response or free text\nRespondents answering: 997\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n2\n317\n31.8%\n\n\n1 (None at all)\n227\n22.8%\n\n\n3\n190\n19.1%\n\n\n4\n100\n10.0%\n\n\n5\n59\n5.9%\n\n\n6\n36\n3.6%\n\n\n8\n28\n2.8%\n\n\n7\n27\n2.7%\n\n\n9\n11\n1.1%\n\n\n10 (All my time)\n2\n0.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>time3can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/013-time4can.html",
+    "href": "questions/013-time4can.html",
+    "title": "14  time4can",
+    "section": "",
+    "text": "15 On average, how much of your time is spent on teaching\nQuestion code: time4can\nDetected type: Single response or free text\nRespondents answering: 997\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n1 (None at all)\n456\n45.7%\n\n\n2\n269\n27.0%\n\n\n3\n144\n14.4%\n\n\n4\n64\n6.4%\n\n\n5\n35\n3.5%\n\n\n6\n12\n1.2%\n\n\n7\n11\n1.1%\n\n\n8\n3\n0.3%\n\n\n9\n2\n0.2%\n\n\n10 (All my time)\n1\n0.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>time4can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/014-time5can.html",
+    "href": "questions/014-time5can.html",
+    "title": "15  time5can",
+    "section": "",
+    "text": "16 On average, how much of your time is spent on other activities\nQuestion code: time5can\nDetected type: Single response or free text\nRespondents answering: 997\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n2\n334\n33.5%\n\n\n3\n234\n23.5%\n\n\n4\n136\n13.6%\n\n\n1 (None at all)\n125\n12.5%\n\n\n5\n92\n9.2%\n\n\n6\n30\n3.0%\n\n\n7\n26\n2.6%\n\n\n9\n10\n1.0%\n\n\n8\n8\n0.8%\n\n\n10 (All my time)\n2\n0.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>time5can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/015-timeLike6zaf.html",
+    "href": "questions/015-timeLike6zaf.html",
+    "title": "16  timeLike6zaf",
+    "section": "",
+    "text": "17 In an average month, how much time would you like to spend on software development?\nQuestion code: timeLike6zaf\nDetected type: Single response or free text\nRespondents answering: 904\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n8\n176\n19.5%\n\n\n7\n170\n18.8%\n\n\n5\n143\n15.8%\n\n\n6\n123\n13.6%\n\n\n4\n98\n10.8%\n\n\n3\n66\n7.3%\n\n\n9\n59\n6.5%\n\n\n10 (All my time)\n36\n4.0%\n\n\n2\n25\n2.8%\n\n\n1 (None at all)\n8\n0.9%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>timeLike6zaf</span>"
+    ]
+  },
+  {
+    "objectID": "questions/016-timeLike7zaf.html",
+    "href": "questions/016-timeLike7zaf.html",
+    "title": "17  timeLike7zaf",
+    "section": "",
+    "text": "18 In an average month, how much time would you like to spend on research\nQuestion code: timeLike7zaf\nDetected type: Single response or free text\nRespondents answering: 904\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n5\n142\n15.7%\n\n\n3\n117\n12.9%\n\n\n4\n112\n12.4%\n\n\n7\n105\n11.6%\n\n\n2\n95\n10.5%\n\n\n6\n87\n9.6%\n\n\n8\n81\n9.0%\n\n\n1 (None at all)\n64\n7.1%\n\n\n9\n56\n6.2%\n\n\n10 (All my time)\n45\n5.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>timeLike7zaf</span>"
+    ]
+  },
+  {
+    "objectID": "questions/017-timeLike8zaf.html",
+    "href": "questions/017-timeLike8zaf.html",
+    "title": "18  timeLike8zaf",
+    "section": "",
+    "text": "19 In an average month, how much time would you like to spend on management\nQuestion code: timeLike8zaf\nDetected type: Single response or free text\nRespondents answering: 896\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n1 (None at all)\n339\n37.8%\n\n\n2\n254\n28.3%\n\n\n3\n157\n17.5%\n\n\n4\n54\n6.0%\n\n\n5\n47\n5.2%\n\n\n6\n18\n2.0%\n\n\n7\n13\n1.5%\n\n\n8\n12\n1.3%\n\n\n10 (All my time)\n1\n0.1%\n\n\n9\n1\n0.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>timeLike8zaf</span>"
+    ]
+  },
+  {
+    "objectID": "questions/018-timeLike9zaf.html",
+    "href": "questions/018-timeLike9zaf.html",
+    "title": "19  timeLike9zaf",
+    "section": "",
+    "text": "20 In an average month, how much time would you like to spend on teaching\nQuestion code: timeLike9zaf\nDetected type: Single response or free text\nRespondents answering: 897\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n1 (None at all)\n261\n29.1%\n\n\n2\n219\n24.4%\n\n\n3\n187\n20.8%\n\n\n4\n112\n12.5%\n\n\n5\n74\n8.2%\n\n\n6\n24\n2.7%\n\n\n7\n9\n1.0%\n\n\n8\n7\n0.8%\n\n\n9\n4\n0.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>timeLike9zaf</span>"
+    ]
+  },
+  {
+    "objectID": "questions/019-timeLike10zaf.html",
+    "href": "questions/019-timeLike10zaf.html",
+    "title": "20  timeLike10zaf",
+    "section": "",
+    "text": "21 In an average month, how much time would you like to spend on other activities\nQuestion code: timeLike10zaf\nDetected type: Single response or free text\nRespondents answering: 867\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n2\n284\n32.8%\n\n\n1 (None at all)\n197\n22.7%\n\n\n3\n194\n22.4%\n\n\n4\n70\n8.1%\n\n\n5\n67\n7.7%\n\n\n6\n29\n3.3%\n\n\n7\n8\n0.9%\n\n\n8\n8\n0.9%\n\n\n10 (All my time)\n7\n0.8%\n\n\n9\n3\n0.3%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>timeLike10zaf</span>"
+    ]
+  },
+  {
+    "objectID": "questions/020-currentEmp1.html",
+    "href": "questions/020-currentEmp1.html",
+    "title": "21  currentEmp1",
+    "section": "",
+    "text": "22 Please select your organization type\nQuestion code: currentEmp1\nDetected type: Single response or free text\nRespondents answering: 997\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nUniversity\n478\n47.9%\n\n\nNational laboratory\n100\n10.0%\n\n\nHelmholtz Association of German Research Centres\n83\n8.3%\n\n\nFraunhofer Society\n64\n6.4%\n\n\nGovernment\n54\n5.4%\n\n\nOther\n54\n5.4%\n\n\nNon-profit organization\n44\n4.4%\n\n\nPrivate company\n40\n4.0%\n\n\nMax Planck Society\n38\n3.8%\n\n\nLeibniz Association\n28\n2.8%\n\n\nPrivate Company\n6\n0.6%\n\n\nNGO\n5\n0.5%\n\n\nUniversity of Applied Sciences\n3\n0.3%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>currentEmp1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/021-currentEmp12.html",
+    "href": "questions/021-currentEmp12.html",
+    "title": "22  currentEmp12",
+    "section": "",
+    "text": "23 Do you work full time or part time\nQuestion code: currentEmp12\nDetected type: Single response or free text\nRespondents answering: 985\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFull Time\n870\n88.3%\n\n\nPart-time\n107\n10.9%\n\n\nPrefer not to say\n8\n0.8%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>currentEmp12</span>"
+    ]
+  },
+  {
+    "objectID": "questions/022-currentEmp10.html",
+    "href": "questions/022-currentEmp10.html",
+    "title": "23  currentEmp10",
+    "section": "",
+    "text": "24 What is the nature of your current employment?\nQuestion code: currentEmp10\nDetected type: Single response or free text\nRespondents answering: 997\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFixed term – funded by project funds\n322\n32.3%\n\n\nPermanent – funded by Institution core funding\n296\n29.7%\n\n\nPermanent – funded by project funds\n150\n15.0%\n\n\nFixed term – funded by Institution core funding\n133\n13.3%\n\n\nResearch/Student Assistant\n51\n5.1%\n\n\nFreelancer, consultant, contractor\n27\n2.7%\n\n\nPrefer not to say\n13\n1.3%\n\n\nAgency staff\n4\n0.4%\n\n\nZero hours contract\n1\n0.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>currentEmp10</span>"
+    ]
+  },
+  {
+    "objectID": "questions/023-currentEmp11.html",
+    "href": "questions/023-currentEmp11.html",
+    "title": "24  currentEmp11",
+    "section": "",
+    "text": "25 What is the expected duration (in years) of your current position (in total)?\nQuestion code: currentEmp11\nDetected type: Single response or free text\nRespondents answering: 770\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n3\n155\n20.1%\n\n\n2\n136\n17.7%\n\n\n5\n76\n9.9%\n\n\n4\n71\n9.2%\n\n\n1\n54\n7.0%\n\n\n10\n48\n6.2%\n\n\n20\n22\n2.9%\n\n\n30\n20\n2.6%\n\n\n6\n18\n2.3%\n\n\n25\n16\n2.1%\n\n\n8\n11\n1.4%\n\n\n2.5\n10\n1.3%\n\n\n7\n10\n1.3%\n\n\n99\n10\n1.3%\n\n\n0.5\n9\n1.2%\n\n\n35\n9\n1.2%\n\n\n40\n8\n1.0%\n\n\n15\n7\n0.9%\n\n\n50\n7\n0.9%\n\n\n0\n5\n0.6%\n\n\n9\n5\n0.6%\n\n\n1.5\n4\n0.5%\n\n\n12\n4\n0.5%\n\n\n18\n4\n0.5%\n\n\n3.5\n4\n0.5%\n\n\n100\n3\n0.4%\n\n\n23\n3\n0.4%\n\n\n45\n3\n0.4%\n\n\n0.8\n2\n0.3%\n\n\n1.7\n2\n0.3%\n\n\n\nOnly the 30 most frequent of 58 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>currentEmp11</span>"
+    ]
+  },
+  {
+    "objectID": "questions/024-currentEmp13.html",
+    "href": "questions/024-currentEmp13.html",
+    "title": "25  currentEmp13",
+    "section": "",
+    "text": "26 Please select the discipline in which you work. Please select all that apply.\nQuestion code: currentEmp13\nDetected type: Multiple response\nRespondents answering: 886\n\n\n\nResponse distribution\n\n\n\n\n\nOption\nCount\nPercent\n\n\n\n\nComputer Science\n355\n40.1%\n\n\nPhysics and Astronomy\n270\n30.5%\n\n\nBiological Sciences\n215\n24.3%\n\n\nGeography & Environmental Sciences\n153\n17.3%\n\n\nMathematics\n100\n11.3%\n\n\nMedicine\n83\n9.4%\n\n\nElectrical & Electronic Engineering\n69\n7.8%\n\n\nChemistry\n67\n7.6%\n\n\nMechanical Engineering\n58\n6.5%\n\n\nEducation\n51\n5.8%\n\n\nGeneral Engineering\n51\n5.8%\n\n\nMaterials Technology\n49\n5.5%\n\n\nGeology\n46\n5.2%\n\n\nRobotics\n41\n4.6%\n\n\nAeronautical & Manufacturing Engineering\n37\n4.2%\n\n\nCivil Engineering\n34\n3.8%\n\n\nAgriculture & Forestry\n32\n3.6%\n\n\nHistory\n31\n3.5%\n\n\nChemical Engineering\n30\n3.4%\n\n\nEconomics\n30\n3.4%\n\n\nLinguistics\n29\n3.3%\n\n\nLibrarianship & Information Management\n27\n3.0%\n\n\nCommunication & Media Studies\n25\n2.8%\n\n\nPsychology\n24\n2.7%\n\n\nSociology\n23\n2.6%\n\n\nClassics & Ancient History\n21\n2.4%\n\n\nPharmacology & Pharmacy\n19\n2.1%\n\n\nArt & Design\n15\n1.7%\n\n\nGerman\n15\n1.7%\n\n\nSocial Policy\n14\n1.6%\n\n\nAnatomy & Physiology\n13\n1.5%\n\n\nPolitics\n12\n1.4%\n\n\nTheology & Religious Studies\n12\n1.4%\n\n\nAccounting & Finance\n11\n1.2%\n\n\nBusiness & Management Studies\n11\n1.2%\n\n\nHistory of Art, Architecture & Design\n11\n1.2%\n\n\nEnglish\n10\n1.1%\n\n\nPhilosophy\n10\n1.1%\n\n\nAnthropology\n9\n1.0%\n\n\nLaw\n9\n1.0%\n\n\nCriminology\n8\n0.9%\n\n\nMarketing\n8\n0.9%\n\n\nArchitecture\n7\n0.8%\n\n\nFood Science\n7\n0.8%\n\n\nMiddle Eastern and African Studies\n7\n0.8%\n\n\nMusic\n7\n0.8%\n\n\nAmerican Studies\n6\n0.7%\n\n\nDentistry\n6\n0.7%\n\n\nFrench\n6\n0.7%\n\n\nLand & Property Management\n6\n0.7%\n\n\nOphthalmics\n6\n0.7%\n\n\nSocial Work\n6\n0.7%\n\n\nTown & Country Planning and Landscape Design\n6\n0.7%\n\n\nVeterinary Medicine\n6\n0.7%\n\n\nComplementary Medicine\n5\n0.6%\n\n\nIberian Languages/Hispanic Studies\n5\n0.6%\n\n\nNursing\n4\n0.5%\n\n\nSports Science\n4\n0.5%\n\n\nYouth Work\n4\n0.5%\n\n\nEast & South Asian Studies\n3\n0.3%\n\n\nCounselling\n2\n0.2%\n\n\nFashion\n2\n0.2%\n\n\nHospitality, Leisure, Recreation & Tourism\n2\n0.2%\n\n\nPhysiotherapy\n2\n0.2%\n\n\nRussian & East European Languages\n2\n0.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>currentEmp13</span>"
+    ]
+  },
+  {
+    "objectID": "questions/025-currentEmp13can.html",
+    "href": "questions/025-currentEmp13can.html",
+    "title": "26  currentEmp13can",
+    "section": "",
+    "text": "27 Please select the discipline in which you work. Please select all that apply.\nQuestion code: currentEmp13can\nDetected type: Multiple response\nRespondents answering: 12\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nOption\nCount\nPercent\n\n\n\n\nSTATISTICS AND PROBABILITY\n5\n41.7%\n\n\nINFORMATION TECHNOLOGY\n3\n25.0%\n\n\nARTIFICIAL INTELLIGENCE\n3\n25.0%\n\n\nASTRONOMY AND ASTROPHYSICS\n3\n25.0%\n\n\nEVOLUTION AND ECOLOGY\n2\n16.7%\n\n\nPSYCHOLOGY\n2\n16.7%\n\n\nLIFE SCIENCES RESEARCH RELATED TO HUMAN HEALTH AND DISEASE\n2\n16.7%\n\n\nOTHER STUDIES IN NATURAL SCIENCES AND ENGINEERING\n2\n16.7%\n\n\nENVIRONMENTAL ENGINEERING\n1\n8.3%\n\n\nINDUSTRIAL ENGINEERING\n1\n8.3%\n\n\nDESIGN AND MANUFACTURING\n1\n8.3%\n\n\nBIOMEDICAL ENGINEERING\n1\n8.3%\n\n\nFLUID MECHANICS\n1\n8.3%\n\n\nAPPLIED MATHEMATICS\n1\n8.3%\n\n\nPHYSICS\n1\n8.3%\n\n\nTHEORETICAL PHYSICS AND CHEMISTRY\n1\n8.3%\n\n\nCONDENSED MATTERPHYSICS\n1\n8.3%\n\n\nEARTH SCIENCE\n1\n8.3%\n\n\nPHYSICAL GEOGRAPHY\n1\n8.3%\n\n\nHYDROLOGY\n1\n8.3%\n\n\nMICROBIOLOGY\n1\n8.3%\n\n\nSOCIAL SCIENCES AND HUMANITIES\n1\n8.3%\n\n\nHEALTH SCIENCES\n1\n8.3%\n\n\nCIVIL ENGINEERING\n0\n0.0%\n\n\nSTRUCTURAL ENGINEERING\n0\n0.0%\n\n\nAGRICULTURAL ENGINEERING\n0\n0.0%\n\n\nFOREST ENGINEERING\n0\n0.0%\n\n\nMINING AND MINERAL PROCESSING\n0\n0.0%\n\n\nCHEMICAL ENGINEERING\n0\n0.0%\n\n\nMATERIALS SCIENCE AND TECHNOLOGY\n0\n0.0%\n\n\nMECHANICAL ENGINEERING\n0\n0.0%\n\n\nFUEL AND ENERGY TECHNOLOGY\n0\n0.0%\n\n\nNUCLEAR ENGINEERING\n0\n0.0%\n\n\nELECTRICAL AND ELECTRONIC ENGINEERING\n0\n0.0%\n\n\nROBOTICS\n0\n0.0%\n\n\nPURE MATHEMATICS\n0\n0.0%\n\n\nSPACE SCIENCE\n0\n0.0%\n\n\nPHYSICAL CHEMISTRY\n0\n0.0%\n\n\nNALYTICAL CHEMISTRY\n0\n0.0%\n\n\nINORGANIC CHEMISTRY\n0\n0.0%\n\n\nORGANIC CHEMISTRY\n0\n0.0%\n\n\nPOLYMER CHEMISTRY\n0\n0.0%\n\n\nGEOGRAPHICAL INFORMATION\n0\n0.0%\n\n\nGEOCHEMISTRY AND GEOCHRONOLOGY\n0\n0.0%\n\n\nGEOPHYSICS\n0\n0.0%\n\n\nATMOSPHERIC SCIENCE\n0\n0.0%\n\n\nOCEANOGRAPHY\n0\n0.0%\n\n\nSOIL SCIENCE\n0\n0.0%\n\n\nPLANT AND TREE BIOLOGY\n0\n0.0%\n\n\nGENETICS\n0\n0.0%\n\n\nCELL BIOLOGY\n0\n0.0%\n\n\nMOLECULAR BIOLOGY\n0\n0.0%\n\n\nBIOCHEMISTRY\n0\n0.0%\n\n\nANIMAL BIOLOGY\n0\n0.0%\n\n\nFOOD SCIENCE AND TECHNOLOGY\n0\n0.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>currentEmp13can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/026-currentEmp13aus.html",
+    "href": "questions/026-currentEmp13aus.html",
+    "title": "27  currentEmp13aus",
+    "section": "",
+    "text": "28 Please select the discipline in which you work. Please select all that apply.\nQuestion code: currentEmp13aus\nDetected type: Multiple response\nRespondents answering: 99\n\n\n\nResponse distribution\n\n\n\n\n\nOption\nCount\nPercent\n\n\n\n\n08 Information and Computing Sciences\n45\n45.5%\n\n\n02 Physical Sciences\n36\n36.4%\n\n\n06 Biological Sciences\n34\n34.3%\n\n\n10 Technology\n26\n26.3%\n\n\n01 Mathematical Sciences\n24\n24.2%\n\n\n11 Medical and Health Sciences\n24\n24.2%\n\n\n09 Engineering\n23\n23.2%\n\n\n04 Earth Sciences\n22\n22.2%\n\n\n05 Environmental Sciences\n21\n21.2%\n\n\n03 Chemical Sciences\n10\n10.1%\n\n\n07 Agricultural and Veterinary Sciences\n10\n10.1%\n\n\n13 Education\n9\n9.1%\n\n\n20 Language, Communication and Culture\n5\n5.1%\n\n\n16 Studies in Human Society\n4\n4.0%\n\n\n17 Psychology and Cognitive Sciences\n3\n3.0%\n\n\n19 Studies in Creative Arts and Writing\n3\n3.0%\n\n\n21 History and Archaeology\n3\n3.0%\n\n\n22 Philosophy and Religious Studies\n3\n3.0%\n\n\n12 Built Environment and Design\n2\n2.0%\n\n\n14 Economics\n2\n2.0%\n\n\n15 Commerce, Management, Tourism and Services\n2\n2.0%\n\n\n18 Law and Legal Studies\n1\n1.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>currentEmp13aus</span>"
+    ]
+  },
+  {
+    "objectID": "questions/027-prevEmp1.html",
+    "href": "questions/027-prevEmp1.html",
+    "title": "28  prevEmp1",
+    "section": "",
+    "text": "29 Where was your previous job based?\nQuestion code: prevEmp1\nDetected type: Single response or free text\nRespondents answering: 867\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nUniversity\n465\n53.6%\n\n\nPrivate company\n124\n14.3%\n\n\nOther\n67\n7.7%\n\n\nPrivate Company\n58\n6.7%\n\n\nGovernment\n33\n3.8%\n\n\nNational laboratory\n33\n3.8%\n\n\nHelmholtz Association of German Research Centres\n31\n3.6%\n\n\nNon-profit organization\n20\n2.3%\n\n\nLeibniz Association\n11\n1.3%\n\n\nFraunhofer Society\n10\n1.2%\n\n\nMax Planck Society\n9\n1.0%\n\n\nUniversity of Applied Sciences\n5\n0.6%\n\n\nNGO\n1\n0.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>prevEmp1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/028-prevEmp2.html",
+    "href": "questions/028-prevEmp2.html",
+    "title": "29  prevEmp2",
+    "section": "",
+    "text": "30 Rank the following factors dependent on how strongly they influenced your decision to accept your current position.\nQuestion code: prevEmp2\nDetected type: Question grid\nRespondents answering: 901\n\n\n\nResponse distribution\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nRank 1\nDesire to work in a research environment\n227\n25.2%\n\n\nRank 1\nDesire to advance research\n172\n19.1%\n\n\nRank 1\nFreedom to choose own working practices\n152\n16.9%\n\n\nRank 1\nOpportunity to develop software\n103\n11.4%\n\n\nRank 1\nI want to learn new skills\n86\n9.5%\n\n\nRank 1\nOpportunity for career advancement\n59\n6.5%\n\n\nRank 1\nFlexible working hours\n39\n4.3%\n\n\nRank 1\nThe salary\n35\n3.9%\n\n\nRank 1\nAbility to work across disciplines\n28\n3.1%\n\n\nRank 2\nDesire to work in a research environment\n152\n16.9%\n\n\nRank 2\nDesire to advance research\n127\n14.1%\n\n\nRank 2\nOpportunity to develop software\n123\n13.7%\n\n\nRank 2\nFreedom to choose own working practices\n112\n12.4%\n\n\nRank 2\nI want to learn new skills\n101\n11.2%\n\n\nRank 2\nAbility to work across disciplines\n90\n10.0%\n\n\nRank 2\nFlexible working hours\n86\n9.6%\n\n\nRank 2\nOpportunity for career advancement\n68\n7.6%\n\n\nRank 2\nThe salary\n41\n4.6%\n\n\nRank 3\nDesire to work in a research environment\n131\n14.6%\n\n\nRank 3\nOpportunity to develop software\n124\n13.8%\n\n\nRank 3\nI want to learn new skills\n112\n12.5%\n\n\nRank 3\nFreedom to choose own working practices\n110\n12.2%\n\n\nRank 3\nDesire to advance research\n104\n11.6%\n\n\nRank 3\nFlexible working hours\n99\n11.0%\n\n\nRank 3\nAbility to work across disciplines\n90\n10.0%\n\n\nRank 3\nOpportunity for career advancement\n72\n8.0%\n\n\nRank 3\nThe salary\n56\n6.2%\n\n\nRank 4\nFlexible working hours\n128\n14.3%\n\n\nRank 4\nI want to learn new skills\n127\n14.2%\n\n\nRank 4\nAbility to work across disciplines\n123\n13.7%\n\n\nRank 4\nOpportunity to develop software\n109\n12.2%\n\n\nRank 4\nFreedom to choose own working practices\n99\n11.0%\n\n\nRank 4\nDesire to advance research\n89\n9.9%\n\n\nRank 4\nDesire to work in a research environment\n85\n9.5%\n\n\nRank 4\nThe salary\n71\n7.9%\n\n\nRank 4\nOpportunity for career advancement\n66\n7.4%\n\n\nRank 5\nFlexible working hours\n147\n16.4%\n\n\nRank 5\nI want to learn new skills\n140\n15.6%\n\n\nRank 5\nFreedom to choose own working practices\n110\n12.3%\n\n\nRank 5\nAbility to work across disciplines\n107\n11.9%\n\n\nRank 5\nOpportunity to develop software\n88\n9.8%\n\n\nRank 5\nOpportunity for career advancement\n81\n9.0%\n\n\nRank 5\nThe salary\n80\n8.9%\n\n\nRank 5\nDesire to work in a research environment\n78\n8.7%\n\n\nRank 5\nDesire to advance research\n65\n7.3%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>prevEmp2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/029-currentWork1.html",
+    "href": "questions/029-currentWork1.html",
+    "title": "30  currentWork1",
+    "section": "",
+    "text": "31 Do you always work with the same researchers, or do you regularly change the researchers you work with?\nQuestion code: currentWork1\nDetected type: Single response or free text\nRespondents answering: 895\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nSame researcher(s)\n398\n44.5%\n\n\nRegularly change researcher(s)\n344\n38.4%\n\n\nDifferent researchers, same research group\n153\n17.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>currentWork1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/030-currentWork2.html",
+    "href": "questions/030-currentWork2.html",
+    "title": "31  currentWork2",
+    "section": "",
+    "text": "32 Are you part of a dedicated research software group within your institution?\nQuestion code: currentWork2\nDetected type: Single response or free text\nRespondents answering: 896\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n449\n50.1%\n\n\nFalse\n447\n49.9%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>currentWork2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/031-paper2mod.html",
+    "href": "questions/031-paper2mod.html",
+    "title": "32  paper2mod",
+    "section": "",
+    "text": "33 In general, when your software contributes to a paper, are you acknowledged in that paper?\nQuestion code: paper2mod\nDetected type: Single response or free text\nRespondents answering: 894\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nNamed as co-author\n420\n47.0%\n\n\nNot mentioned at all\n186\n20.8%\n\n\nAcknowledged in acknowledgements section\n164\n18.3%\n\n\nAcknowledged in the main text\n73\n8.2%\n\n\nNamed as main author\n51\n5.7%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>paper2mod</span>"
+    ]
+  },
+  {
+    "objectID": "questions/032-conf1can.html",
+    "href": "questions/032-conf1can.html",
+    "title": "33  conf1can",
+    "section": "",
+    "text": "34 Have you presented your software work at a conference or workshop?\nQuestion code: conf1can\nDetected type: Single response or free text\nRespondents answering: 850\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n476\n56.0%\n\n\nFalse\n374\n44.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>conf1can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/033-conf2can.html",
+    "href": "questions/033-conf2can.html",
+    "title": "34  conf2can",
+    "section": "",
+    "text": "35 At which conference(s)/workshop(s) have you presented your software work?\nQuestion code: conf2can\nDetected type: Single response or free text\nRespondents answering: 384\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nEGU\n4\n1.0%\n\n\neResearch Australasia\n4\n1.0%\n\n\nSPIE\n3\n0.8%\n\n\nADASS\n2\n0.5%\n\n\nAGU\n2\n0.5%\n\n\nAmerican Geophysical Union\n2\n0.5%\n\n\nAMS\n2\n0.5%\n\n\nDH2016, DHd2018\n2\n0.5%\n\n\nFOSS4G\n2\n0.5%\n\n\nGPU Technology Conference\n2\n0.5%\n\n\nRSE2017\n2\n0.5%\n\n\nseveral\n2\n0.5%\n\n\nSpaceOps\n2\n0.5%\n\n\nvarious\n2\n0.5%\n\n\n1\n1\n0.3%\n\n\n10\n1\n0.3%\n\n\n14th EVN Symposium & Users Meeting\n1\n0.3%\n\n\n2016 AGU Fall Meeting\n1\n0.3%\n\n\n3\n1\n0.3%\n\n\n5\n1\n0.3%\n\n\n5+\n1\n0.3%\n\n\nAACR, EACR, Bioconductor meeting\n1\n0.3%\n\n\nAARC2, HTCondor\n1\n0.3%\n\n\nAAS, IAC, others\n1\n0.3%\n\n\nABACBS\n1\n0.3%\n\n\nACM Symposium on Applied Perception\n1\n0.3%\n\n\nADASS, American Astronomical Society, IVOA\n1\n0.3%\n\n\nADASS, ESO Calibration Workshop\n1\n0.3%\n\n\nADASS, ESO/ESA\n1\n0.3%\n\n\nADASS, IEEE, IAU, AAS\n1\n0.3%\n\n\n\nOnly the 30 most frequent of 365 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>conf2can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/034-proj1can.html",
+    "href": "questions/034-proj1can.html",
+    "title": "35  proj1can",
+    "section": "",
+    "text": "36 How many software projects are you currently involved in?\nQuestion code: proj1can\nDetected type: Single response or free text\nRespondents answering: 850\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n2\n219\n25.8%\n\n\n3\n212\n24.9%\n\n\n1\n139\n16.4%\n\n\n4\n92\n10.8%\n\n\n5\n89\n10.5%\n\n\n6\n30\n3.5%\n\n\n10\n18\n2.1%\n\n\n0\n13\n1.5%\n\n\n8\n10\n1.2%\n\n\n7\n8\n0.9%\n\n\n20\n6\n0.7%\n\n\n30\n3\n0.4%\n\n\n12\n2\n0.2%\n\n\n14\n2\n0.2%\n\n\n25\n2\n0.2%\n\n\n11\n1\n0.1%\n\n\n15\n1\n0.1%\n\n\n18\n1\n0.1%\n\n\n35\n1\n0.1%\n\n\n9\n1\n0.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>proj1can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/035-proj2can.html",
+    "href": "questions/035-proj2can.html",
+    "title": "36  proj2can",
+    "section": "",
+    "text": "37 How many software developers typically work on your projects?\nQuestion code: proj2can\nDetected type: Single response or free text\nRespondents answering: 849\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n1\n265\n31.2%\n\n\n2\n252\n29.7%\n\n\n3\n136\n16.0%\n\n\n4\n51\n6.0%\n\n\n5\n51\n6.0%\n\n\n6\n21\n2.5%\n\n\n0\n17\n2.0%\n\n\n10\n17\n2.0%\n\n\n8\n7\n0.8%\n\n\n7\n6\n0.7%\n\n\n15\n4\n0.5%\n\n\n20\n4\n0.5%\n\n\n30\n4\n0.5%\n\n\n1.5\n2\n0.2%\n\n\n12\n2\n0.2%\n\n\n9\n2\n0.2%\n\n\n1.1\n1\n0.1%\n\n\n100\n1\n0.1%\n\n\n2.5\n1\n0.1%\n\n\n300\n1\n0.1%\n\n\n35\n1\n0.1%\n\n\n40\n1\n0.1%\n\n\n50\n1\n0.1%\n\n\n60\n1\n0.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>36</span>  <span class='chapter-title'>proj2can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/036-proj7can.html",
+    "href": "questions/036-proj7can.html",
+    "title": "37  proj7can",
+    "section": "",
+    "text": "38 What percentage of these developers are dedicated to the project full time?\nQuestion code: proj7can\nDetected type: Single response or free text\nRespondents answering: 45\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n0\n17\n37.8%\n\n\n1\n8\n17.8%\n\n\n100\n6\n13.3%\n\n\n2\n3\n6.7%\n\n\n3\n2\n4.4%\n\n\n90\n2\n4.4%\n\n\n10\n1\n2.2%\n\n\n25\n1\n2.2%\n\n\n30\n1\n2.2%\n\n\n32\n1\n2.2%\n\n\n4\n1\n2.2%\n\n\n60\n1\n2.2%\n\n\n70\n1\n2.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>proj7can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/037-proj8can.html",
+    "href": "questions/037-proj8can.html",
+    "title": "38  proj8can",
+    "section": "",
+    "text": "39 Do your research software projects typically include a project manager?\nQuestion code: proj8can\nDetected type: Single response or free text\nRespondents answering: 52\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n39\n75.0%\n\n\nTrue\n13\n25.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>proj8can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/038-stability1.html",
+    "href": "questions/038-stability1.html",
+    "title": "39  stability1",
+    "section": "",
+    "text": "40 What is the bus factor of your most important software project? (The bus factor designates the minimal number of developers that have to be hit by a bus (or quit) before a project is incapacitated)\nQuestion code: stability1\nDetected type: Single response or free text\nRespondents answering: 883\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n1\n467\n52.9%\n\n\n2\n248\n28.1%\n\n\n3\n71\n8.0%\n\n\n0\n31\n3.5%\n\n\n4\n29\n3.3%\n\n\n5\n13\n1.5%\n\n\n6\n6\n0.7%\n\n\n7\n4\n0.5%\n\n\n10\n3\n0.3%\n\n\n1.5\n2\n0.2%\n\n\n0.5\n1\n0.1%\n\n\n1.2\n1\n0.1%\n\n\n11\n1\n0.1%\n\n\n20\n1\n0.1%\n\n\n200\n1\n0.1%\n\n\n50\n1\n0.1%\n\n\n700\n1\n0.1%\n\n\n8\n1\n0.1%\n\n\n9\n1\n0.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>39</span>  <span class='chapter-title'>stability1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/039-stability2.html",
+    "href": "questions/039-stability2.html",
+    "title": "40  stability2",
+    "section": "",
+    "text": "41 Do the projects you work on typically have a plan to cope with developers leaving the group?\nQuestion code: stability2\nDetected type: Single response or free text\nRespondents answering: 895\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n731\n81.7%\n\n\nTrue\n164\n18.3%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>40</span>  <span class='chapter-title'>stability2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/040-proj4can.html",
+    "href": "questions/040-proj4can.html",
+    "title": "41  proj4can",
+    "section": "",
+    "text": "42 How are your projects typically tested? Please check all that apply.\nQuestion code: proj4can\nDetected type: Multiple response\nRespondents answering: 868\n\n\n\nResponse distribution\n\n\n\n\n\nOption\nCount\nPercent\n\n\n\n\nThe developers do their own testing\n777\n89.5%\n\n\nNo formal testing but users provide feedback\n309\n35.6%\n\n\nNo formal testing\n108\n12.4%\n\n\nTest engineers conduct testing\n48\n5.5%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>41</span>  <span class='chapter-title'>proj4can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/041-proj5can.html",
+    "href": "questions/041-proj5can.html",
+    "title": "42  proj5can",
+    "section": "",
+    "text": "43 What development methodology does your current project use?\nQuestion code: proj5can\nDetected type: Single response or free text\nRespondents answering: 52\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nNo formal methodology\n43\n82.7%\n\n\nScrum\n4\n7.7%\n\n\nKanban\n2\n3.8%\n\n\nOther\n2\n3.8%\n\n\nWaterfall\n1\n1.9%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>42</span>  <span class='chapter-title'>proj5can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/042-open1can.html",
+    "href": "questions/042-open1can.html",
+    "title": "43  open1can",
+    "section": "",
+    "text": "44 How often do you use an open-source licence for your software?\nQuestion code: open1can\nDetected type: Single response or free text\nRespondents answering: 895\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n10 (All the time)\n389\n43.5%\n\n\n1 (None at all)\n107\n12.0%\n\n\n9\n106\n11.8%\n\n\n8\n79\n8.8%\n\n\n7\n49\n5.5%\n\n\n5\n45\n5.0%\n\n\n3\n37\n4.1%\n\n\n2\n35\n3.9%\n\n\n6\n28\n3.1%\n\n\n4\n20\n2.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>43</span>  <span class='chapter-title'>open1can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/043-open2de.html",
+    "href": "questions/043-open2de.html",
+    "title": "44  open2de",
+    "section": "",
+    "text": "45 How often do you reference software directly or the papers describing the software?\nQuestion code: open2de\nDetected type: Single response or free text\nRespondents answering: 884\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n10 (All the time)\n244\n27.6%\n\n\n1 (None at all)\n168\n19.0%\n\n\n8\n86\n9.7%\n\n\n5\n85\n9.6%\n\n\n2\n58\n6.6%\n\n\n7\n56\n6.3%\n\n\n3\n53\n6.0%\n\n\n9\n51\n5.8%\n\n\n6\n45\n5.1%\n\n\n4\n38\n4.3%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>44</span>  <span class='chapter-title'>open2de</span>"
+    ]
+  },
+  {
+    "objectID": "questions/044-open3can.html",
+    "href": "questions/044-open3can.html",
+    "title": "45  open3can",
+    "section": "",
+    "text": "46 How often do you associate your software with a Digital Object Identifier (DOI)?\nQuestion code: open3can\nDetected type: Single response or free text\nRespondents answering: 884\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n1 (None at all)\n507\n57.4%\n\n\n5\n65\n7.4%\n\n\n10 (All the time)\n59\n6.7%\n\n\n2\n59\n6.7%\n\n\n3\n49\n5.5%\n\n\n6\n32\n3.6%\n\n\n7\n32\n3.6%\n\n\n4\n30\n3.4%\n\n\n8\n27\n3.1%\n\n\n9\n24\n2.7%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>45</span>  <span class='chapter-title'>open3can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/045-open3de.html",
+    "href": "questions/045-open3de.html",
+    "title": "46  open3de",
+    "section": "",
+    "text": "47 Which tools do you use to mint a DOI (e.g. local library, Zenodo)?\nQuestion code: open3de\nDetected type: Single response or free text\nRespondents answering: 290\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nZenodo\n125\n43.1%\n\n\nzenodo\n22\n7.6%\n\n\nlocal library\n15\n5.2%\n\n\nnone\n5\n1.7%\n\n\n-\n4\n1.4%\n\n\nLocal library\n3\n1.0%\n\n\nASCL\n2\n0.7%\n\n\nBibliothek\n2\n0.7%\n\n\nDataCite\n2\n0.7%\n\n\nfigshare\n2\n0.7%\n\n\nGitHub\n2\n0.7%\n\n\nJournal\n2\n0.7%\n\n\nLibrary\n2\n0.7%\n\n\nUniversity\n2\n0.7%\n\n\nZenodo, ASCL\n2\n0.7%\n\n\nZenodo, local library\n2\n0.7%\n\n\n4TU Centre for Research Data, Zenodo\n1\n0.3%\n\n\nAnother group handles that for us.\n1\n0.3%\n\n\nascl.net (not a DOI, but an ID that is generally recognised as valid)\n1\n0.3%\n\n\nascl.net, JOSS, Zenodo\n1\n0.3%\n\n\nAssociated journal article\n1\n0.3%\n\n\nastrophysics source code library\n1\n0.3%\n\n\nAstrophysics Source Code Library\n1\n0.3%\n\n\nAustralian National Data Service\n1\n0.3%\n\n\nBibliothek vor Ort\n1\n0.3%\n\n\nBibliothek vor Ort, Deutsches Klimarechenzentrum\n1\n0.3%\n\n\nBibliothek vor Ort, Journaltools\n1\n0.3%\n\n\nBibliothek vor Ort, Zenodo\n1\n0.3%\n\n\nBoth\n1\n0.3%\n\n\nCooperation with Datacite/TIB\n1\n0.3%\n\n\n\nOnly the 30 most frequent of 112 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>46</span>  <span class='chapter-title'>open3de</span>"
+    ]
+  },
+  {
+    "objectID": "questions/046-open1de.html",
+    "href": "questions/046-open1de.html",
+    "title": "47  open1de",
+    "section": "",
+    "text": "48 Do you have an ORCID ID?\nQuestion code: open1de\nDetected type: Single response or free text\nRespondents answering: 878\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n556\n63.3%\n\n\nWhat is ORCID?\n177\n20.2%\n\n\nFalse\n130\n14.8%\n\n\nORCID is not relevant for me\n15\n1.7%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>47</span>  <span class='chapter-title'>open1de</span>"
+    ]
+  },
+  {
+    "objectID": "questions/047-proj5zaf.html",
+    "href": "questions/047-proj5zaf.html",
+    "title": "48  proj5zaf",
+    "section": "",
+    "text": "49 Which version control tools do you use for software development?.\nQuestion code: proj5zaf\nDetected type: Multiple response\nRespondents answering: 886\n\n\n\nResponse distribution\n\n\n\n\n\nOption\nCount\nPercent\n\n\n\n\nGit\n825\n93.1%\n\n\nSVN\n223\n25.2%\n\n\nMercurial\n55\n6.2%\n\n\nCVS\n41\n4.6%\n\n\nNone\n38\n4.3%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>48</span>  <span class='chapter-title'>proj5zaf</span>"
+    ]
+  },
+  {
+    "objectID": "questions/048-proj6zaf.html",
+    "href": "questions/048-proj6zaf.html",
+    "title": "49  proj6zaf",
+    "section": "",
+    "text": "50 Which online collaboration tools and open repositories do you use for software development?\nQuestion code: proj6zaf\nDetected type: Single response or free text\nRespondents answering: 649\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nGitHub\n66\n10.2%\n\n\nGithub\n49\n7.6%\n\n\ngithub\n38\n5.9%\n\n\ngitlab\n16\n2.5%\n\n\nGitHub, GitLab\n13\n2.0%\n\n\nGitLab\n13\n2.0%\n\n\nGitlab\n10\n1.5%\n\n\ngithub, gitlab\n9\n1.4%\n\n\nGithub, Gitlab\n9\n1.4%\n\n\ngithub, bitbucket\n8\n1.2%\n\n\ngitlab, github\n8\n1.2%\n\n\nGit\n7\n1.1%\n\n\nGithub, Bitbucket\n7\n1.1%\n\n\nGitLab, GitHub\n7\n1.1%\n\n\ngithub, gitlab, bitbucket\n6\n0.9%\n\n\nbitbucket\n5\n0.8%\n\n\nGitlab, Github\n5\n0.8%\n\n\nBitbucket\n4\n0.6%\n\n\nnone\n4\n0.6%\n\n\nTrello\n4\n0.6%\n\n\nBitbucket, Github\n3\n0.5%\n\n\ngit\n3\n0.5%\n\n\nGitHub, BitBucket\n3\n0.5%\n\n\ngithub.com\n3\n0.5%\n\n\nkeine\n3\n0.5%\n\n\nPhabricator\n3\n0.5%\n\n\nSlack\n3\n0.5%\n\n\nBitBucket, GitHub\n2\n0.3%\n\n\nBitbucket, Github, Gitlab\n2\n0.3%\n\n\nGithub, bitbucket\n2\n0.3%\n\n\n\nOnly the 30 most frequent of 351 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>49</span>  <span class='chapter-title'>proj6zaf</span>"
+    ]
+  },
+  {
+    "objectID": "questions/049-train2.html",
+    "href": "questions/049-train2.html",
+    "title": "50  train2",
+    "section": "",
+    "text": "51 On average, how many times a year do you take part in providing training?\nQuestion code: train2\nDetected type: Single response or free text\nRespondents answering: 884\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n0\n337\n38.1%\n\n\n1\n158\n17.9%\n\n\n2\n148\n16.7%\n\n\n3\n69\n7.8%\n\n\n4\n52\n5.9%\n\n\n5\n36\n4.1%\n\n\n6\n16\n1.8%\n\n\n10\n15\n1.7%\n\n\n12\n9\n1.0%\n\n\n8\n9\n1.0%\n\n\n20\n7\n0.8%\n\n\n0.5\n5\n0.6%\n\n\n30\n4\n0.5%\n\n\n15\n3\n0.3%\n\n\n100\n2\n0.2%\n\n\n25\n2\n0.2%\n\n\n35\n2\n0.2%\n\n\n40\n2\n0.2%\n\n\n0.3\n1\n0.1%\n\n\n1000\n1\n0.1%\n\n\n14\n1\n0.1%\n\n\n24\n1\n0.1%\n\n\n300\n1\n0.1%\n\n\n52\n1\n0.1%\n\n\n7\n1\n0.1%\n\n\n9\n1\n0.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>50</span>  <span class='chapter-title'>train2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/050-train3.html",
+    "href": "questions/050-train3.html",
+    "title": "51  train3",
+    "section": "",
+    "text": "52 What training programs are you involved with (comma separated list, e.g., Software Carpentry, local university training, etc.)\nQuestion code: train3\nDetected type: Single response or free text\nRespondents answering: 451\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nlocal university training\n25\n5.5%\n\n\n0\n21\n4.7%\n\n\nSoftware Carpentry\n21\n4.7%\n\n\nlocal training\n8\n1.8%\n\n\nSoftware Carpentry, local university training\n7\n1.6%\n\n\nLocal training\n6\n1.3%\n\n\nLocal university training\n6\n1.3%\n\n\n-\n5\n1.1%\n\n\nlocal\n4\n0.9%\n\n\n1\n3\n0.7%\n\n\nLehrgang an Universitäten\n3\n0.7%\n\n\nnone\n3\n0.7%\n\n\nuniversity training\n3\n0.7%\n\n\nCarpentries\n2\n0.4%\n\n\nInternal training\n2\n0.4%\n\n\nLocal\n2\n0.4%\n\n\nLocal university\n2\n0.4%\n\n\nLocal University Training\n2\n0.4%\n\n\nSoftware carpentry\n2\n0.4%\n\n\nSoftware Carpentry, Research Bazaar\n2\n0.4%\n\n\nThe Carpentries, local university training\n2\n0.4%\n\n\nWorkshops an Universitäten\n2\n0.4%\n\n\n2 - but not related to software development\n1\n0.2%\n\n\n2-3 days training workshops\n1\n0.2%\n\n\n3 half day courses at a DH Summer School and occasional internal workshops for staff and postgrads, and recently a guest lecture.\n1\n0.2%\n\n\n5\n1\n0.2%\n\n\nAd hoc workshops, by invitation\n1\n0.2%\n\n\nAg&F Data School (internal CSIRO internship), Software Carpentry\n1\n0.2%\n\n\nAgile development, Realtime technologies\n1\n0.2%\n\n\nAI Residency training at company\n1\n0.2%\n\n\n\nOnly the 30 most frequent of 340 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>51</span>  <span class='chapter-title'>train3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/051-fund2.html",
+    "href": "questions/051-fund2.html",
+    "title": "52  fund2",
+    "section": "",
+    "text": "53 Which of the following sources are used to pay for your effort as an RSE?.\nQuestion code: fund2\nDetected type: Multiple response\nRespondents answering: 757\n\n\n\nResponse distribution\n\n\n\n\n\nOption\nCount\nPercent\n\n\n\n\nInstitutional support\n415\n54.8%\n\n\nGrants\n414\n54.7%\n\n\nI volunteer my time\n221\n29.2%\n\n\nIndustry support\n83\n11.0%\n\n\nConsulting & services\n81\n10.7%\n\n\nFoundations & consortiums\n27\n3.6%\n\n\nVenture capital\n7\n0.9%\n\n\nMembership\n6\n0.8%\n\n\nAdvertising & sponsorships\n2\n0.3%\n\n\nOpen core\n2\n0.3%\n\n\nDonation button\n1\n0.1%\n\n\nCrowdfunding (one-time)\n1\n0.1%\n\n\nBooks & merchandise\n1\n0.1%\n\n\nSaaS\n1\n0.1%\n\n\nDual license\n1\n0.1%\n\n\nTrademark licensing & franchising\n1\n0.1%\n\n\nCrowdfunding (recurring)\n0\n0.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>52</span>  <span class='chapter-title'>fund2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/052-fund1can.html",
+    "href": "questions/052-fund1can.html",
+    "title": "53  fund1can",
+    "section": "",
+    "text": "54 How is your current research software work funded?\nQuestion code: fund1can\nDetected type: Single response or free text\nRespondents answering: 11\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nEmployer\n5\n45.5%\n\n\nOther\n3\n27.3%\n\n\nCIHR\n1\n9.1%\n\n\nDon’t know\n1\n9.1%\n\n\nNSERC\n1\n9.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>53</span>  <span class='chapter-title'>fund1can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/053-satisGen1.html",
+    "href": "questions/053-satisGen1.html",
+    "title": "54  satisGen1",
+    "section": "",
+    "text": "55 In general, how satisfied are you with your current position\nQuestion code: satisGen1\nDetected type: Single response or free text\nRespondents answering: 851\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n8\n241\n28.3%\n\n\n7\n183\n21.5%\n\n\n9\n104\n12.2%\n\n\n6\n93\n10.9%\n\n\n5\n67\n7.9%\n\n\n10 - Completely satisfied\n53\n6.2%\n\n\n3\n33\n3.9%\n\n\n2\n30\n3.5%\n\n\n4\n27\n3.2%\n\n\n0 - Not at all satisfied\n11\n1.3%\n\n\n1\n9\n1.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>54</span>  <span class='chapter-title'>satisGen1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/054-satisGen2.html",
+    "href": "questions/054-satisGen2.html",
+    "title": "55  satisGen2",
+    "section": "",
+    "text": "56 In general, how satisfied are you with your career\nQuestion code: satisGen2\nDetected type: Single response or free text\nRespondents answering: 840\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n8\n194\n23.1%\n\n\n7\n169\n20.1%\n\n\n6\n114\n13.6%\n\n\n9\n95\n11.3%\n\n\n5\n88\n10.5%\n\n\n10 - Completely satisfied\n45\n5.4%\n\n\n3\n42\n5.0%\n\n\n4\n41\n4.9%\n\n\n2\n27\n3.2%\n\n\n1\n13\n1.5%\n\n\n0 - Not at all satisfied\n12\n1.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>55</span>  <span class='chapter-title'>satisGen2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/055-recog1.html",
+    "href": "questions/055-recog1.html",
+    "title": "56  recog1",
+    "section": "",
+    "text": "57 Do you feel that your contribution to research is recognised by your supervisor/line manager\nQuestion code: recog1\nDetected type: Single response or free text\nRespondents answering: 787\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nStrongly Agree\n310\n39.4%\n\n\nAgree\n288\n36.6%\n\n\nNeither agree or disagree\n105\n13.3%\n\n\nDisagree\n67\n8.5%\n\n\nStrongly disagree\n17\n2.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>56</span>  <span class='chapter-title'>recog1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/056-recog2.html",
+    "href": "questions/056-recog2.html",
+    "title": "57  recog2",
+    "section": "",
+    "text": "58 Do you feel that your contribution to research is recognised by the researchers you work with\nQuestion code: recog2\nDetected type: Single response or free text\nRespondents answering: 784\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n392\n50.0%\n\n\nStrongly Agree\n238\n30.4%\n\n\nNeither agree or disagree\n93\n11.9%\n\n\nDisagree\n50\n6.4%\n\n\nStrongly disagree\n11\n1.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>57</span>  <span class='chapter-title'>recog2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/057-recog3.html",
+    "href": "questions/057-recog3.html",
+    "title": "58  recog3",
+    "section": "",
+    "text": "59 Do you feel that your contribution to research is recognised by your institution?\nQuestion code: recog3\nDetected type: Single response or free text\nRespondents answering: 774\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n253\n32.7%\n\n\nNeither agree or disagree\n208\n26.9%\n\n\nDisagree\n159\n20.5%\n\n\nStrongly disagree\n78\n10.1%\n\n\nStrongly Agree\n76\n9.8%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>recog3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/058-turnOver3.html",
+    "href": "questions/058-turnOver3.html",
+    "title": "59  turnOver3",
+    "section": "",
+    "text": "60 How often do you consider leaving your job?\nQuestion code: turnOver3\nDetected type: Single response or free text\nRespondents answering: 778\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n2\n132\n17.0%\n\n\n3\n128\n16.5%\n\n\n1 (None at all)\n108\n13.9%\n\n\n4\n81\n10.4%\n\n\n6\n71\n9.1%\n\n\n7\n69\n8.9%\n\n\n5\n67\n8.6%\n\n\n8\n66\n8.5%\n\n\n10 (All the time)\n37\n4.8%\n\n\n9\n19\n2.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>59</span>  <span class='chapter-title'>turnOver3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/059-turnOver6.html",
+    "href": "questions/059-turnOver6.html",
+    "title": "60  turnOver6",
+    "section": "",
+    "text": "61 I would accept another job at the same compensation level if I was offered it\nQuestion code: turnOver6\nDetected type: Single response or free text\nRespondents answering: 767\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nNeither agree or disagree\n255\n33.2%\n\n\nDisagree\n203\n26.5%\n\n\nStrongly disagree\n152\n19.8%\n\n\nAgree\n103\n13.4%\n\n\nStrongly Agree\n54\n7.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>60</span>  <span class='chapter-title'>turnOver6</span>"
+    ]
+  },
+  {
+    "objectID": "questions/060-percEmp1.html",
+    "href": "questions/060-percEmp1.html",
+    "title": "61  percEmp1",
+    "section": "",
+    "text": "62 It would not be very difficult for me to get an equivalent job in a different institution\nQuestion code: percEmp1\nDetected type: Single response or free text\nRespondents answering: 823\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n262\n31.8%\n\n\nNeither agree or disagree\n196\n23.8%\n\n\nDisagree\n163\n19.8%\n\n\nStrongly Agree\n136\n16.5%\n\n\nStrongly disagree\n66\n8.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>61</span>  <span class='chapter-title'>percEmp1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/061-percEmp3.html",
+    "href": "questions/061-percEmp3.html",
+    "title": "62  percEmp3",
+    "section": "",
+    "text": "63 My experience is in demand on the labour market\nQuestion code: percEmp3\nDetected type: Single response or free text\nRespondents answering: 823\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n350\n42.5%\n\n\nStrongly Agree\n265\n32.2%\n\n\nNeither agree or disagree\n132\n16.0%\n\n\nDisagree\n67\n8.1%\n\n\nStrongly disagree\n9\n1.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>62</span>  <span class='chapter-title'>percEmp3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/062-progRSE1.html",
+    "href": "questions/062-progRSE1.html",
+    "title": "63  progRSE1",
+    "section": "",
+    "text": "64 It is likely that I will gain a promotion within my current group\nQuestion code: progRSE1\nDetected type: Single response or free text\nRespondents answering: 814\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nDisagree\n237\n29.1%\n\n\nStrongly disagree\n205\n25.2%\n\n\nNeither agree or disagree\n184\n22.6%\n\n\nAgree\n136\n16.7%\n\n\nStrongly Agree\n52\n6.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>63</span>  <span class='chapter-title'>progRSE1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/063-progRSE2.html",
+    "href": "questions/063-progRSE2.html",
+    "title": "64  progRSE2",
+    "section": "",
+    "text": "65 The process I have to complete to gain a promotion is clear and understandable\nQuestion code: progRSE2\nDetected type: Single response or free text\nRespondents answering: 775\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nDisagree\n217\n28.0%\n\n\nStrongly disagree\n193\n24.9%\n\n\nNeither agree or disagree\n168\n21.7%\n\n\nAgree\n140\n18.1%\n\n\nStrongly Agree\n57\n7.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>64</span>  <span class='chapter-title'>progRSE2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/064-progRSE3.html",
+    "href": "questions/064-progRSE3.html",
+    "title": "65  progRSE3",
+    "section": "",
+    "text": "66 There are many opportunities within my chosen career plan\nQuestion code: progRSE3\nDetected type: Single response or free text\nRespondents answering: 804\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n212\n26.4%\n\n\nDisagree\n205\n25.5%\n\n\nNeither agree or disagree\n191\n23.8%\n\n\nStrongly disagree\n121\n15.0%\n\n\nStrongly Agree\n75\n9.3%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>65</span>  <span class='chapter-title'>progRSE3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/065-progRSE5.html",
+    "href": "questions/065-progRSE5.html",
+    "title": "66  progRSE5",
+    "section": "",
+    "text": "67 It is likely that my next position will be an Research Software Engineer / Research Software Developer role\nQuestion code: progRSE5\nDetected type: Single response or free text\nRespondents answering: 782\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nNeither agree or disagree\n251\n32.1%\n\n\nAgree\n239\n30.6%\n\n\nDisagree\n113\n14.5%\n\n\nStrongly Agree\n109\n13.9%\n\n\nStrongly disagree\n70\n9.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>66</span>  <span class='chapter-title'>progRSE5</span>"
+    ]
+  },
+  {
+    "objectID": "questions/066-ukrse1.html",
+    "href": "questions/066-ukrse1.html",
+    "title": "67  ukrse1",
+    "section": "",
+    "text": "68 Are you a member of an association of Research Software Developers (e.g. AUS-RSE, CANARIE, DE-RSE, NZ_RSE, UK RSE, …)?\nQuestion code: ukrse1\nDetected type: Single response or free text\nRespondents answering: 735\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n580\n78.9%\n\n\nTrue\n155\n21.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>67</span>  <span class='chapter-title'>ukrse1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/067-org1can.html",
+    "href": "questions/067-org1can.html",
+    "title": "68  org1can",
+    "section": "",
+    "text": "69 Would you be interested in joining such an organisation?\nQuestion code: org1can\nDetected type: Single response or free text\nRespondents answering: 468\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n331\n70.7%\n\n\nFalse\n137\n29.3%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>68</span>  <span class='chapter-title'>org1can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/068-org2can.html",
+    "href": "questions/068-org2can.html",
+    "title": "69  org2can",
+    "section": "",
+    "text": "70 What would you hope to get out of such an organisation (check all that apply)?.\nQuestion code: org2can\nDetected type: Multiple response\nRespondents answering: 328\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nOption\nCount\nPercent\n\n\n\n\nNetworking\n274\n83.5%\n\n\nResearch software standards and interoperability definition\n239\n72.9%\n\n\nTraining\n220\n67.1%\n\n\nResearch collaborations\n217\n66.2%\n\n\nJob opportunities\n203\n61.9%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>69</span>  <span class='chapter-title'>org2can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/069-tool2.html",
+    "href": "questions/069-tool2.html",
+    "title": "70  tool2",
+    "section": "",
+    "text": "71 Which operating system do you primarily use for development?\nQuestion code: tool2\nDetected type: Single response or free text\nRespondents answering: 855\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nGNU/Linux\n526\n61.5%\n\n\nWindows\n176\n20.6%\n\n\nOS X\n142\n16.6%\n\n\nOther\n9\n1.1%\n\n\nAndroid\n1\n0.1%\n\n\niOS\n1\n0.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>70</span>  <span class='chapter-title'>tool2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/070-tool4can.html",
+    "href": "questions/070-tool4can.html",
+    "title": "71  tool4can",
+    "section": "",
+    "text": "72 What programming languages do you use at work? Please select all that apply.\nQuestion code: tool4can\nDetected type: Multiple response\nRespondents answering: 853\n\n\n\nResponse distribution\n\n\n\n\n\nOption\nCount\nPercent\n\n\n\n\nPython\n704\n82.5%\n\n\nC++\n349\n40.9%\n\n\nC\n285\n33.4%\n\n\nR\n268\n31.4%\n\n\nJavaScript\n266\n31.2%\n\n\nSQL\n266\n31.2%\n\n\nJava\n201\n23.6%\n\n\nFortran\n195\n22.9%\n\n\nMatlab\n169\n19.8%\n\n\nPerl\n90\n10.6%\n\n\nPHP\n85\n10.0%\n\n\nC#\n73\n8.6%\n\n\nJulia\n35\n4.1%\n\n\nTypeScript\n32\n3.8%\n\n\nRuby\n29\n3.4%\n\n\nVBA\n27\n3.2%\n\n\nGo\n21\n2.5%\n\n\nAssembly\n20\n2.3%\n\n\nRust\n18\n2.1%\n\n\nGroovy\n17\n2.0%\n\n\nScala\n16\n1.9%\n\n\nVisual Basic\n13\n1.5%\n\n\nLua\n12\n1.4%\n\n\ntool4can_33\n9\n1.1%\n\n\nCoffeeScript\n7\n0.8%\n\n\nCommon Lisp\n6\n0.7%\n\n\nHaskell\n5\n0.6%\n\n\nSwift\n5\n0.6%\n\n\nClojure\n4\n0.5%\n\n\nObjective-C\n4\n0.5%\n\n\nErlang\n3\n0.4%\n\n\nElixir\n2\n0.2%\n\n\nF#\n1\n0.1%\n\n\nDart\n0\n0.0%\n\n\nHack\n0\n0.0%\n\n\nSmalltalk\n0\n0.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>71</span>  <span class='chapter-title'>tool4can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/071-tool5can.html",
+    "href": "questions/071-tool5can.html",
+    "title": "72  tool5can",
+    "section": "",
+    "text": "73 On which platform(s) is your most recent research software project deployed? Please select all that apply.\nQuestion code: tool5can\nDetected type: Multiple response\nRespondents answering: 10\n\n\n\nResponse distribution\n\n\n\n\n\nOption\nCount\nPercent\n\n\n\n\nLaptop/desktop\n8\n80.0%\n\n\nStand-alone server(s)\n7\n70.0%\n\n\nCompute Canada HPC\n4\n40.0%\n\n\nUniversity compute centre\n3\n30.0%\n\n\nOther HPC\n1\n10.0%\n\n\nCloud\n1\n10.0%\n\n\nMobile\n0\n0.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>72</span>  <span class='chapter-title'>tool5can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/072-ukrse3.html",
+    "href": "questions/072-ukrse3.html",
+    "title": "73  ukrse3",
+    "section": "",
+    "text": "74 How did you learn the skills you need to become an Research Software Engineer / Research Software Developer?\nQuestion code: ukrse3\nDetected type: Single response or free text\nRespondents answering: 718\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nSelf taught\n32\n4.5%\n\n\nSelf-taught\n17\n2.4%\n\n\nOn the job\n15\n2.1%\n\n\nself-taught\n13\n1.8%\n\n\nself taught\n12\n1.7%\n\n\nautodidaktisch\n7\n1.0%\n\n\nSelbststudium\n7\n1.0%\n\n\non the job\n6\n0.8%\n\n\nlearning by doing\n5\n0.7%\n\n\nSelf Taught\n4\n0.6%\n\n\nMostly self-taught\n3\n0.4%\n\n\nSelf study\n3\n0.4%\n\n\nSelf training\n3\n0.4%\n\n\nSelf-study\n3\n0.4%\n\n\nUniversity\n3\n0.4%\n\n\nby doing\n2\n0.3%\n\n\nby myself\n2\n0.3%\n\n\nBy myself\n2\n0.3%\n\n\nEigenstudium\n2\n0.3%\n\n\nLearning-by-doing\n2\n0.3%\n\n\nOn the job.\n2\n0.3%\n\n\nSelf\n2\n0.3%\n\n\nStudium\n2\n0.3%\n\n\nStudium, Selbststudium\n2\n0.3%\n\n\n34 years of practice\n1\n0.1%\n\n\na bit at university otherwise self taught\n1\n0.1%\n\n\nA natural side effect of my university training (engineering + computer science) plus doctoral and post doctoral work in an area that was software oriented (image analysis)\n1\n0.1%\n\n\nall by interest/on my own, learning from and participating at hackspaces\n1\n0.1%\n\n\nAnfängerkurse Informatik an der Uni, aber größtenteils selber bei gebracht\n1\n0.1%\n\n\nAs a PhD student and postdoc I took the opportunities to learn as much as I could about software\n1\n0.1%\n\n\n\nOnly the 30 most frequent of 591 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>73</span>  <span class='chapter-title'>ukrse3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/073-ukrse12de.html",
+    "href": "questions/073-ukrse12de.html",
+    "title": "74  ukrse12de",
+    "section": "",
+    "text": "75 Would you like to attend a conference about software development in academia?\nQuestion code: ukrse12de\nDetected type: Single response or free text\nRespondents answering: 776\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n632\n81.4%\n\n\nFalse\n144\n18.6%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>74</span>  <span class='chapter-title'>ukrse12de</span>"
+    ]
+  },
+  {
+    "objectID": "questions/074-skill2.html",
+    "href": "questions/074-skill2.html",
+    "title": "75  skill2",
+    "section": "",
+    "text": "76 What three skills would you like to acquire or improve to help your work as a Research Software Engineer/ Research Software Developer? The skills can be technical and non-technical.\nQuestion code: skill2\nDetected type: Single response or free text\nRespondents answering: 534\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nMachine Learning\n2\n0.4%\n\n\nproject management\n2\n0.4%\n\n\n???\n1\n0.2%\n\n\n(1) I would like to more fully learn Julia. (2) I would like to learn project management skills for open source projects. (3) I would like to learn about computer science topics such as designing software architectures.\n1\n0.2%\n\n\n(too many to list!)\n1\n0.2%\n\n\n1) better theoretical grounding in Decision Support Systems, 2) broader understanding of various forms of optimisation techniques and when to apply them, 3) Development of softer skills around successful stakeholder engagement.\n1\n0.2%\n\n\nA functional programming language e.g. Clojure; Negotiation skills; Distributed data processing and storage\n1\n0.2%\n\n\nA higher level of coding ability, task affinity, ability to say no\n1\n0.2%\n\n\nAbility to create highly efficient code; Understanding of theoretical concepts behind atmospherical models; Using software solutions from other fields to solve “my” research problems\n1\n0.2%\n\n\nAbility to get our organisation to recognise our contribution to research and to core fund the team rather than leave us living “hand to mouth” with grant funding.\n1\n0.2%\n\n\nAcademic writing, high performance computing, time management\n1\n0.2%\n\n\naction research, creating surveys, process quantification\n1\n0.2%\n\n\nAgile development methodologies. User Experience Design. Python development for geo-spatial applications\n1\n0.2%\n\n\nAgile Entwicklung, Machine Learning, mit C programmieren\n1\n0.2%\n\n\nAgile Entwicklungsmethoden (z.B. Scrum), Machine Learning, Personalführung\n1\n0.2%\n\n\nAgiles Programmieren, Machine Learning Algorithmen\n1\n0.2%\n\n\nAktuellere Softwaretechnik/Entwicklungswerkzeuge; Projektmethodik; Gesprächsführung\n1\n0.2%\n\n\nAlgorithms, Discrete Math, Software Engineering\n1\n0.2%\n\n\nArbeiten in größeren Teams (&gt;3 Personen), Webentwicklung, Javascript\n1\n0.2%\n\n\nArchitecture; Formal Systems for Testing; Scientific Graphics\n1\n0.2%\n\n\nartificial neural networks, GPU acceleration\n1\n0.2%\n\n\nAufwandsabschätzung, Rapid Prototyping\n1\n0.2%\n\n\nAutomated testing, code architecture (how to design overall structure of a program)\n1\n0.2%\n\n\nautomatisierte Tests via Jenkins\n1\n0.2%\n\n\nAutomatisierungstechnik, Analyse großer Datenmengen, DeBugging\n1\n0.2%\n\n\nbayesian statistics, machine learning, interactive graphics\n1\n0.2%\n\n\nBDD, observability, Natural Language Processing\n1\n0.2%\n\n\nBenutzerrechte, Cloud, Sicherheit\n1\n0.2%\n\n\nBesser strukturiertes Herangehen an komplexe Aufgabenstellungen, Softwareplanung, andere Programmiersprachen\n1\n0.2%\n\n\nbessere Codekommentierung (vereinfachung der Kommunikation mit anderen)\n1\n0.2%\n\n\n\nOnly the 30 most frequent of 532 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>75</span>  <span class='chapter-title'>skill2</span>"
+    ]
+  }
+]

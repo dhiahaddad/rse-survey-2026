@@ -1,0 +1,726 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "International RSE Survey 2016",
+    "section": "",
+    "text": "Survey overview\nThis book presents the 2016 survey independently, using the questions and answer options stored in that year’s export.\nRespondents included: 273\nQuestion groups discovered: 64\nThis export has no submitdate_0 field, so all 273 rows are included.\nNo cross-year harmonisation is applied.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>International RSE Survey 2016</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#responses-by-country",
+    "href": "index.html#responses-by-country",
+    "title": "International RSE Survey 2016",
+    "section": "0.1 Responses by country",
+    "text": "0.1 Responses by country\n\n\n\nCountry\nResponses\n\n\n\n\nUnited Kingdom\n273",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>International RSE Survey 2016</span>"
+    ]
+  },
+  {
+    "objectID": "questions/001-socio1.html",
+    "href": "questions/001-socio1.html",
+    "title": "2  socio1",
+    "section": "",
+    "text": "3 In which country do you work?\nQuestion code: socio1\nDetected type: Single response or free text\nRespondents answering: 273\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nUnited Kingdom\n273\n100.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>socio1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/002-edu1.html",
+    "href": "questions/002-edu1.html",
+    "title": "3  edu1",
+    "section": "",
+    "text": "4 What is the highest qualification you have obtained?\nQuestion code: edu1\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nDoctorate\n183\n67.3%\n\n\nMasters degree\n53\n19.5%\n\n\nUndergraduate degree\n33\n12.1%\n\n\nFurther Education (NVQ A-Level …)\n3\n1.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>edu1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/003-edu2.html",
+    "href": "questions/003-edu2.html",
+    "title": "4  edu2",
+    "section": "",
+    "text": "5 What was your academic subject?\nQuestion code: edu2\nDetected type: Single response or free text\nRespondents answering: 269\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nPhysical Sciences\n110\n40.9%\n\n\nComputer Sciences\n61\n22.7%\n\n\nMathematical and Computer Sciences\n28\n10.4%\n\n\nEngineering\n23\n8.6%\n\n\nBiological Sciences\n19\n7.1%\n\n\nCombined studies\n7\n2.6%\n\n\nOther\n7\n2.6%\n\n\nSocial studies\n7\n2.6%\n\n\nSubjects allied to Medicine\n3\n1.1%\n\n\nHistorical and Philosophical studies\n2\n0.7%\n\n\nLinguistics Classics and related subjects\n2\n0.7%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>edu2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/004-edu3.html",
+    "href": "questions/004-edu3.html",
+    "title": "5  edu3",
+    "section": "",
+    "text": "6 Enter your academic subject\nQuestion code: edu3\nDetected type: Single response or free text\nRespondents answering: 13\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nSocial studies\n3\n23.1%\n\n\nSubjects allied to Medicine\n2\n15.4%\n\n\nBioinformatics\n1\n7.7%\n\n\nComputer Sciences\n1\n7.7%\n\n\nenvrionmental science\n1\n7.7%\n\n\nGeographical Information Systems\n1\n7.7%\n\n\nI am cross disciplinary in biology, physics, engineering, computer science, medicine and any other subject that uses computers for research\n1\n7.7%\n\n\nInformation Technology\n1\n7.7%\n\n\nMusic Technology\n1\n7.7%\n\n\nPhysics + Engineering\n1\n7.7%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>edu3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/005-rse16a.html",
+    "href": "questions/005-rse16a.html",
+    "title": "6  rse16a",
+    "section": "",
+    "text": "7 Are you employed primarily to develop software for research?\nQuestion code: rse16a\nDetected type: Single response or free text\nRespondents answering: 270\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n166\n61.5%\n\n\nFalse\n104\n38.5%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>rse16a</span>"
+    ]
+  },
+  {
+    "objectID": "questions/006-rse16b.html",
+    "href": "questions/006-rse16b.html",
+    "title": "7  rse16b",
+    "section": "",
+    "text": "8 Do you spend more time developing software than conducting research?\nQuestion code: rse16b\nDetected type: Single response or free text\nRespondents answering: 265\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n225\n84.9%\n\n\nFalse\n40\n15.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>rse16b</span>"
+    ]
+  },
+  {
+    "objectID": "questions/007-rse16c.html",
+    "href": "questions/007-rse16c.html",
+    "title": "8  rse16c",
+    "section": "",
+    "text": "9 Are you employed as a postdoctoral researcher?\nQuestion code: rse16c\nDetected type: Single response or free text\nRespondents answering: 263\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n181\n68.8%\n\n\nTrue\n82\n31.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>rse16c</span>"
+    ]
+  },
+  {
+    "objectID": "questions/008-rse16d.html",
+    "href": "questions/008-rse16d.html",
+    "title": "9  rse16d",
+    "section": "",
+    "text": "10 Are you the person who “does computers” in your research group?\nQuestion code: rse16d\nDetected type: Single response or free text\nRespondents answering: 217\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n132\n60.8%\n\n\nFalse\n85\n39.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>rse16d</span>"
+    ]
+  },
+  {
+    "objectID": "questions/009-currentEmp1.html",
+    "href": "questions/009-currentEmp1.html",
+    "title": "10  currentEmp1",
+    "section": "",
+    "text": "11 Do you work for a university?\nQuestion code: currentEmp1\nDetected type: Single response or free text\nRespondents answering: 271\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n203\n74.9%\n\n\nFalse\n68\n25.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>currentEmp1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/010-currentEmp16a.html",
+    "href": "questions/010-currentEmp16a.html",
+    "title": "11  currentEmp16a",
+    "section": "",
+    "text": "12 In what year did you start your current position?\nQuestion code: currentEmp16a\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n2015\n53\n19.5%\n\n\n2014\n43\n15.8%\n\n\n2013\n40\n14.7%\n\n\n2012\n28\n10.3%\n\n\n2011\n16\n5.9%\n\n\n2016\n12\n4.4%\n\n\n2008\n10\n3.7%\n\n\n2009\n9\n3.3%\n\n\n2005\n8\n2.9%\n\n\n2007\n8\n2.9%\n\n\n2010\n8\n2.9%\n\n\n2001\n6\n2.2%\n\n\n2006\n6\n2.2%\n\n\n2004\n5\n1.8%\n\n\n1999\n4\n1.5%\n\n\n2002\n4\n1.5%\n\n\n1990\n2\n0.7%\n\n\n1996\n2\n0.7%\n\n\n2000\n2\n0.7%\n\n\n1987\n1\n0.4%\n\n\n1989\n1\n0.4%\n\n\n1993\n1\n0.4%\n\n\n1994\n1\n0.4%\n\n\n1995\n1\n0.4%\n\n\n1998\n1\n0.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>currentEmp16a</span>"
+    ]
+  },
+  {
+    "objectID": "questions/011-currentEmp10.html",
+    "href": "questions/011-currentEmp10.html",
+    "title": "12  currentEmp10",
+    "section": "",
+    "text": "13 What type of contract are you employed on?\nQuestion code: currentEmp10\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nPermanent\n142\n52.2%\n\n\nFixed term\n126\n46.3%\n\n\nFreelancer consultant contractors\n3\n1.1%\n\n\nAgency staff\n1\n0.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>currentEmp10</span>"
+    ]
+  },
+  {
+    "objectID": "questions/012-currentEmp11.html",
+    "href": "questions/012-currentEmp11.html",
+    "title": "13  currentEmp11",
+    "section": "",
+    "text": "14 What is the duration of your current contract?\nQuestion code: currentEmp11\nDetected type: Single response or free text\nRespondents answering: 123\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n36\n30\n24.4%\n\n\n24\n25\n20.3%\n\n\n12\n21\n17.1%\n\n\n48\n7\n5.7%\n\n\n60\n7\n5.7%\n\n\n6\n6\n4.9%\n\n\n27\n4\n3.3%\n\n\n18\n3\n2.4%\n\n\n30\n3\n2.4%\n\n\n16\n2\n1.6%\n\n\n8\n2\n1.6%\n\n\n14\n1\n0.8%\n\n\n17\n1\n0.8%\n\n\n2\n1\n0.8%\n\n\n25\n1\n0.8%\n\n\n26\n1\n0.8%\n\n\n28\n1\n0.8%\n\n\n33\n1\n0.8%\n\n\n4\n1\n0.8%\n\n\n42\n1\n0.8%\n\n\n45\n1\n0.8%\n\n\n54\n1\n0.8%\n\n\n56\n1\n0.8%\n\n\n96\n1\n0.8%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>currentEmp11</span>"
+    ]
+  },
+  {
+    "objectID": "questions/013-currentEmp12.html",
+    "href": "questions/013-currentEmp12.html",
+    "title": "14  currentEmp12",
+    "section": "",
+    "text": "15 Do you work full time or part time?\nQuestion code: currentEmp12\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFull time\n258\n94.9%\n\n\nPart time\n14\n5.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>currentEmp12</span>"
+    ]
+  },
+  {
+    "objectID": "questions/014-currentEmp16b.html",
+    "href": "questions/014-currentEmp16b.html",
+    "title": "15  currentEmp16b",
+    "section": "",
+    "text": "16 Is this your first job?\nQuestion code: currentEmp16b\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n225\n82.7%\n\n\nTrue\n47\n17.3%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>currentEmp16b</span>"
+    ]
+  },
+  {
+    "objectID": "questions/015-prevEmp16a.html",
+    "href": "questions/015-prevEmp16a.html",
+    "title": "16  prevEmp16a",
+    "section": "",
+    "text": "17 Have you previously worked in the private sector?\nQuestion code: prevEmp16a\nDetected type: Single response or free text\nRespondents answering: 223\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n113\n50.7%\n\n\nFalse\n110\n49.3%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>prevEmp16a</span>"
+    ]
+  },
+  {
+    "objectID": "questions/016-prevEmp16b.html",
+    "href": "questions/016-prevEmp16b.html",
+    "title": "17  prevEmp16b",
+    "section": "",
+    "text": "18 Why did you leave the private sector?\nQuestion code: prevEmp16b\nDetected type: Single response or free text\nRespondents answering: 111\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nOthers\n76\n68.5%\n\n\nMismatch between description and promise during the interview and actual job\n12\n10.8%\n\n\nLack of opportunity to advance\n9\n8.1%\n\n\nLoss of faith and confidence in corporate leaders\n8\n7.2%\n\n\nExcessive overtime hours\n5\n4.5%\n\n\nA work environment that does not encourage teamwork\n1\n0.9%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>prevEmp16b</span>"
+    ]
+  },
+  {
+    "objectID": "questions/017-prevEmp16d.html",
+    "href": "questions/017-prevEmp16d.html",
+    "title": "18  prevEmp16d",
+    "section": "",
+    "text": "19 What was the type of your contract?\nQuestion code: prevEmp16d\nDetected type: Single response or free text\nRespondents answering: 223\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nPermanent\n116\n52.0%\n\n\nFixed-term\n92\n41.3%\n\n\nFreelancer consultant contractors\n13\n5.8%\n\n\nZero hour contract\n2\n0.9%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>prevEmp16d</span>"
+    ]
+  },
+  {
+    "objectID": "questions/018-currentEmp5.html",
+    "href": "questions/018-currentEmp5.html",
+    "title": "19  currentEmp5",
+    "section": "",
+    "text": "20 What is this job title?\nQuestion code: currentEmp5\nDetected type: Single response or free text\nRespondents answering: 36\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nResearch Software Engineer\n2\n5.6%\n\n\nResearcher\n2\n5.6%\n\n\nSoftware Engineer\n2\n5.6%\n\n\nbioinformatician\n1\n2.8%\n\n\nClimate Information for International Development managear\n1\n2.8%\n\n\nComputational Scientist\n1\n2.8%\n\n\nCOSMOS and IPCC Manager\n1\n2.8%\n\n\nData Analyst, Life Sciences\n1\n2.8%\n\n\ne-Resources Developer\n1\n2.8%\n\n\nEPSRC Fellow\n1\n2.8%\n\n\nI cannot remember what the official title is\n1\n2.8%\n\n\nIT\n1\n2.8%\n\n\nIT Support\n1\n2.8%\n\n\nLab Manager\n1\n2.8%\n\n\nLecturer\n1\n2.8%\n\n\nOpen Science Advocate\n1\n2.8%\n\n\nPost Doctoral Research fellow\n1\n2.8%\n\n\nPostdoctoral Research Associate\n1\n2.8%\n\n\nProgrammer\n1\n2.8%\n\n\nResearch Fellow\n1\n2.8%\n\n\nRsearch Software engineer\n1\n2.8%\n\n\nScience team member\n1\n2.8%\n\n\nSenior Data Scientist\n1\n2.8%\n\n\nSenior Research Software Engineer\n1\n2.8%\n\n\nSenior Web Developer\n1\n2.8%\n\n\nShelf seas ecosystem modeller\n1\n2.8%\n\n\nSoftware Developer\n1\n2.8%\n\n\nSystem Development Team Manager\n1\n2.8%\n\n\nSystem Manager\n1\n2.8%\n\n\nUndefined\n1\n2.8%\n\n\n\nOnly the 30 most frequent of 33 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>currentEmp5</span>"
+    ]
+  },
+  {
+    "objectID": "questions/019-currentWork2.html",
+    "href": "questions/019-currentWork2.html",
+    "title": "20  currentWork2",
+    "section": "",
+    "text": "21 Do you work within a group that provides software development help or expertise to researchers from other groups within your organisation?\nQuestion code: currentWork2\nDetected type: Single response or free text\nRespondents answering: 273\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n164\n60.1%\n\n\nFalse\n109\n39.9%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>currentWork2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/020-currentWork16a.html",
+    "href": "questions/020-currentWork16a.html",
+    "title": "21  currentWork16a",
+    "section": "",
+    "text": "22 What percentage of your time do you spend developing software each week?\nQuestion code: currentWork16a\nDetected type: Single response or free text\nRespondents answering: 273\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n50\n26\n9.5%\n\n\n80\n26\n9.5%\n\n\n60\n19\n7.0%\n\n\n100\n16\n5.9%\n\n\n20\n15\n5.5%\n\n\n90\n11\n4.0%\n\n\n70\n10\n3.7%\n\n\n80%\n10\n3.7%\n\n\n10\n8\n2.9%\n\n\n60%\n8\n2.9%\n\n\n70%\n8\n2.9%\n\n\n20%\n7\n2.6%\n\n\n40%\n7\n2.6%\n\n\n50%\n7\n2.6%\n\n\n10%\n6\n2.2%\n\n\n100%\n6\n2.2%\n\n\n25\n6\n2.2%\n\n\n30\n6\n2.2%\n\n\n30%\n6\n2.2%\n\n\n40\n6\n2.2%\n\n\n90%\n6\n2.2%\n\n\n5\n5\n1.8%\n\n\n75%\n5\n1.8%\n\n\n75\n4\n1.5%\n\n\n95\n4\n1.5%\n\n\n33\n3\n1.1%\n\n\n25%\n2\n0.7%\n\n\n35\n2\n0.7%\n\n\n35%\n2\n0.7%\n\n\n85%\n2\n0.7%\n\n\n\nOnly the 30 most frequent of 53 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>currentWork16a</span>"
+    ]
+  },
+  {
+    "objectID": "questions/021-paper1.html",
+    "href": "questions/021-paper1.html",
+    "title": "22  paper1",
+    "section": "",
+    "text": "23 Has your software ever contributed to research that has been published in a journal or at a conference?\nQuestion code: paper1\nDetected type: Single response or free text\nRespondents answering: 273\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n239\n87.5%\n\n\nFalse\n34\n12.5%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>paper1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/022-paper2.html",
+    "href": "questions/022-paper2.html",
+    "title": "23  paper2",
+    "section": "",
+    "text": "24 Were you acknowledged in the paper?\nQuestion code: paper2\nDetected type: Single response or free text\nRespondents answering: 237\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n182\n76.8%\n\n\nFalse\n55\n23.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>paper2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/023-paper4.html",
+    "href": "questions/023-paper4.html",
+    "title": "24  paper4",
+    "section": "",
+    "text": "25 Were you named as a co-author of the paper?\nQuestion code: paper4\nDetected type: Single response or free text\nRespondents answering: 239\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n170\n71.1%\n\n\nFalse\n69\n28.9%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>paper4</span>"
+    ]
+  },
+  {
+    "objectID": "questions/024-paper5.html",
+    "href": "questions/024-paper5.html",
+    "title": "25  paper5",
+    "section": "",
+    "text": "26 Were you named as the lead author of the paper?\nQuestion code: paper5\nDetected type: Single response or free text\nRespondents answering: 238\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n135\n56.7%\n\n\nTrue\n103\n43.3%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>paper5</span>"
+    ]
+  },
+  {
+    "objectID": "questions/025-stability1.html",
+    "href": "questions/025-stability1.html",
+    "title": "26  stability1",
+    "section": "",
+    "text": "27 What is the bus factor of your most important software project?\nQuestion code: stability1\nDetected type: Single response or free text\nRespondents answering: 271\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n1\n124\n45.8%\n\n\n2\n82\n30.3%\n\n\n3\n32\n11.8%\n\n\n5\n21\n7.7%\n\n\n4\n12\n4.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>stability1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/026-stability2.html",
+    "href": "questions/026-stability2.html",
+    "title": "27  stability2",
+    "section": "",
+    "text": "28 Is there a technical hand-over plan for your most important software project?\nQuestion code: stability2\nDetected type: Single response or free text\nRespondents answering: 273\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n214\n78.4%\n\n\nTrue\n59\n21.6%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>stability2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/027-perfCheck1.html",
+    "href": "questions/027-perfCheck1.html",
+    "title": "28  perfCheck1",
+    "section": "",
+    "text": "29 Do you receive sufficient information on the results of your work?\nQuestion code: perfCheck1\nDetected type: Single response or free text\nRespondents answering: 271\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nSometimes\n99\n36.5%\n\n\nOften\n82\n30.3%\n\n\nVery Often\n54\n19.9%\n\n\nAlways\n29\n10.7%\n\n\nNever\n7\n2.6%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>perfCheck1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/028-perfCheck2.html",
+    "href": "questions/028-perfCheck2.html",
+    "title": "29  perfCheck2",
+    "section": "",
+    "text": "30 Does your work give you the opportunity to check on how well you are doing your work?\nQuestion code: perfCheck2\nDetected type: Single response or free text\nRespondents answering: 271\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nSometimes\n107\n39.5%\n\n\nOften\n67\n24.7%\n\n\nVery Often\n60\n22.1%\n\n\nAlways\n23\n8.5%\n\n\nNever\n14\n5.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>perfCheck2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/029-perfCheck4.html",
+    "href": "questions/029-perfCheck4.html",
+    "title": "30  perfCheck4",
+    "section": "",
+    "text": "31 Do you receive sufficient information on the purpose of your work?\nQuestion code: perfCheck4\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nVery Often\n92\n33.8%\n\n\nOften\n65\n23.9%\n\n\nSometimes\n56\n20.6%\n\n\nAlways\n53\n19.5%\n\n\nNever\n6\n2.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>perfCheck4</span>"
+    ]
+  },
+  {
+    "objectID": "questions/030-perfCheck5.html",
+    "href": "questions/030-perfCheck5.html",
+    "title": "31  perfCheck5",
+    "section": "",
+    "text": "32 Does your work provide you with direct feedback on how well you are doing your work?\nQuestion code: perfCheck5\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nSometimes\n93\n34.2%\n\n\nOften\n81\n29.8%\n\n\nVery Often\n61\n22.4%\n\n\nAlways\n25\n9.2%\n\n\nNever\n12\n4.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>perfCheck5</span>"
+    ]
+  },
+  {
+    "objectID": "questions/031-perfCheck6.html",
+    "href": "questions/031-perfCheck6.html",
+    "title": "32  perfCheck6",
+    "section": "",
+    "text": "33 Does your supervisor/line manager inform you about how well you are doing your work?\nQuestion code: perfCheck6\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nSometimes\n100\n36.8%\n\n\nOften\n69\n25.4%\n\n\nVery Often\n61\n22.4%\n\n\nAlways\n21\n7.7%\n\n\nNever\n21\n7.7%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>perfCheck6</span>"
+    ]
+  },
+  {
+    "objectID": "questions/032-perfCheck7.html",
+    "href": "questions/032-perfCheck7.html",
+    "title": "33  perfCheck7",
+    "section": "",
+    "text": "34 Do your colleagues inform you about how well you are doing your work?\nQuestion code: perfCheck7\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nSometimes\n94\n34.6%\n\n\nOften\n74\n27.2%\n\n\nVery Often\n50\n18.4%\n\n\nNever\n43\n15.8%\n\n\nAlways\n11\n4.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>perfCheck7</span>"
+    ]
+  },
+  {
+    "objectID": "questions/033-turnOver1.html",
+    "href": "questions/033-turnOver1.html",
+    "title": "34  turnOver1",
+    "section": "",
+    "text": "35 How often do you feel frustrated when not given the opportunity to achieve your personal work-related goals?\nQuestion code: turnOver1\nDetected type: Single response or free text\nRespondents answering: 271\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nSometimes\n129\n47.6%\n\n\nOften\n54\n19.9%\n\n\nVery Often\n50\n18.5%\n\n\nAlways\n23\n8.5%\n\n\nNever\n15\n5.5%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>turnOver1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/034-turnOver2.html",
+    "href": "questions/034-turnOver2.html",
+    "title": "35  turnOver2",
+    "section": "",
+    "text": "36 How often do you look forward to another day at work?\nQuestion code: turnOver2\nDetected type: Single response or free text\nRespondents answering: 271\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nSometimes\n145\n53.5%\n\n\nOften\n83\n30.6%\n\n\nNever\n43\n15.9%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>turnOver2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/035-turnOver3.html",
+    "href": "questions/035-turnOver3.html",
+    "title": "36  turnOver3",
+    "section": "",
+    "text": "37 How often do you consider leaving your job?\nQuestion code: turnOver3\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nSometimes\n162\n59.6%\n\n\nNever\n73\n26.8%\n\n\nOften\n37\n13.6%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>36</span>  <span class='chapter-title'>turnOver3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/036-turnOver4.html",
+    "href": "questions/036-turnOver4.html",
+    "title": "37  turnOver4",
+    "section": "",
+    "text": "38 How often do dream about getting another job that will better suit your needs?\nQuestion code: turnOver4\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nSometimes\n114\n41.9%\n\n\nVery Often\n54\n19.9%\n\n\nOften\n42\n15.4%\n\n\nNever\n38\n14.0%\n\n\nAlways\n24\n8.8%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>turnOver4</span>"
+    ]
+  },
+  {
+    "objectID": "questions/037-turnOver5.html",
+    "href": "questions/037-turnOver5.html",
+    "title": "38  turnOver5",
+    "section": "",
+    "text": "39 My current job satisfies my personal needs\nQuestion code: turnOver5\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n97\n35.7%\n\n\nNeither agree or disagree\n60\n22.1%\n\n\nDisagree\n50\n18.4%\n\n\nStrongly Agree\n44\n16.2%\n\n\nStrongly disagree\n21\n7.7%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>turnOver5</span>"
+    ]
+  },
+  {
+    "objectID": "questions/038-turnOver6.html",
+    "href": "questions/038-turnOver6.html",
+    "title": "39  turnOver6",
+    "section": "",
+    "text": "40 I would accept another job at the same compensation level if I was offered it\nQuestion code: turnOver6\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nNeither agree or disagree\n79\n29.0%\n\n\nDisagree\n71\n26.1%\n\n\nStrongly disagree\n56\n20.6%\n\n\nAgree\n47\n17.3%\n\n\nStrongly Agree\n19\n7.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>39</span>  <span class='chapter-title'>turnOver6</span>"
+    ]
+  },
+  {
+    "objectID": "questions/039-affRec1.html",
+    "href": "questions/039-affRec1.html",
+    "title": "40  affRec1",
+    "section": "",
+    "text": "41 I am satisfied with my supervisor/line manager’s confidence in me\nQuestion code: affRec1\nDetected type: Single response or free text\nRespondents answering: 271\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nStrongly Agree\n103\n38.0%\n\n\nAgree\n86\n31.7%\n\n\nNeither agree or disagree\n37\n13.7%\n\n\nDisagree\n30\n11.1%\n\n\nStrongly disagree\n15\n5.5%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>40</span>  <span class='chapter-title'>affRec1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/040-affRec2.html",
+    "href": "questions/040-affRec2.html",
+    "title": "41  affRec2",
+    "section": "",
+    "text": "42 I am satisfied with a word of thanks from my supervisor/line manager\nQuestion code: affRec2\nDetected type: Single response or free text\nRespondents answering: 271\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n95\n35.1%\n\n\nNeither agree or disagree\n72\n26.6%\n\n\nStrongly Agree\n50\n18.5%\n\n\nDisagree\n35\n12.9%\n\n\nStrongly disagree\n19\n7.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>41</span>  <span class='chapter-title'>affRec2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/041-affRec3.html",
+    "href": "questions/041-affRec3.html",
+    "title": "42  affRec3",
+    "section": "",
+    "text": "43 I am satisfied with the recognition I receive from my supervisor/line manager for doing my job\nQuestion code: affRec3\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n111\n40.8%\n\n\nNeither agree or disagree\n65\n23.9%\n\n\nStrongly Agree\n43\n15.8%\n\n\nDisagree\n33\n12.1%\n\n\nStrongly disagree\n20\n7.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>42</span>  <span class='chapter-title'>affRec3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/042-affRec4.html",
+    "href": "questions/042-affRec4.html",
+    "title": "43  affRec4",
+    "section": "",
+    "text": "44 I am satisfied with the compliments from my supervisor/line manager concerning my work\nQuestion code: affRec4\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n101\n37.1%\n\n\nNeither agree or disagree\n72\n26.5%\n\n\nStrongly Agree\n50\n18.4%\n\n\nDisagree\n29\n10.7%\n\n\nStrongly disagree\n20\n7.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>43</span>  <span class='chapter-title'>affRec4</span>"
+    ]
+  },
+  {
+    "objectID": "questions/043-affRec5.html",
+    "href": "questions/043-affRec5.html",
+    "title": "44  affRec5",
+    "section": "",
+    "text": "45 I am satisfied with the encouragement from my supervisor/line manager while doing my job\nQuestion code: affRec5\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n108\n39.7%\n\n\nNeither agree or disagree\n65\n23.9%\n\n\nStrongly Agree\n42\n15.4%\n\n\nDisagree\n41\n15.1%\n\n\nStrongly disagree\n16\n5.9%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>44</span>  <span class='chapter-title'>affRec5</span>"
+    ]
+  },
+  {
+    "objectID": "questions/044-percEmp1.html",
+    "href": "questions/044-percEmp1.html",
+    "title": "45  percEmp1",
+    "section": "",
+    "text": "46 It would not be very difficult for me to get an equivalent job in a different organisation\nQuestion code: percEmp1\nDetected type: Single response or free text\nRespondents answering: 271\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n75\n27.7%\n\n\nNeither agree or disagree\n70\n25.8%\n\n\nStrongly Agree\n56\n20.7%\n\n\nDisagree\n48\n17.7%\n\n\nStrongly disagree\n22\n8.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>45</span>  <span class='chapter-title'>percEmp1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/045-percEmp2.html",
+    "href": "questions/045-percEmp2.html",
+    "title": "46  percEmp2",
+    "section": "",
+    "text": "47 I can think of a number of organisations that would probably offer me a job\nQuestion code: percEmp2\nDetected type: Single response or free text\nRespondents answering: 271\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n102\n37.6%\n\n\nNeither agree or disagree\n67\n24.7%\n\n\nStrongly Agree\n55\n20.3%\n\n\nDisagree\n32\n11.8%\n\n\nStrongly disagree\n15\n5.5%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>46</span>  <span class='chapter-title'>percEmp2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/046-percEmp3.html",
+    "href": "questions/046-percEmp3.html",
+    "title": "47  percEmp3",
+    "section": "",
+    "text": "48 My experience is in demand on the labour market\nQuestion code: percEmp3\nDetected type: Single response or free text\nRespondents answering: 271\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n108\n39.9%\n\n\nNeither agree or disagree\n76\n28.0%\n\n\nStrongly Agree\n61\n22.5%\n\n\nDisagree\n13\n4.8%\n\n\nStrongly disagree\n13\n4.8%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>47</span>  <span class='chapter-title'>percEmp3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/047-affSat1.html",
+    "href": "questions/047-affSat1.html",
+    "title": "48  affSat1",
+    "section": "",
+    "text": "49 I find real enjoyment in my job\nQuestion code: affSat1\nDetected type: Single response or free text\nRespondents answering: 271\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n103\n38.0%\n\n\nStrongly Agree\n72\n26.6%\n\n\nNeither agree or disagree\n58\n21.4%\n\n\nDisagree\n30\n11.1%\n\n\nStrongly disagree\n8\n3.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>48</span>  <span class='chapter-title'>affSat1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/048-affSat2.html",
+    "href": "questions/048-affSat2.html",
+    "title": "49  affSat2",
+    "section": "",
+    "text": "50 Most days I am enthusiastic about my job\nQuestion code: affSat2\nDetected type: Single response or free text\nRespondents answering: 271\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n115\n42.4%\n\n\nStrongly Agree\n55\n20.3%\n\n\nNeither agree or disagree\n54\n19.9%\n\n\nDisagree\n30\n11.1%\n\n\nStrongly disagree\n17\n6.3%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>49</span>  <span class='chapter-title'>affSat2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/049-affSat3.html",
+    "href": "questions/049-affSat3.html",
+    "title": "50  affSat3",
+    "section": "",
+    "text": "51 I feel fairly well satisfied with my job\nQuestion code: affSat3\nDetected type: Single response or free text\nRespondents answering: 271\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n104\n38.4%\n\n\nNeither agree or disagree\n61\n22.5%\n\n\nStrongly Agree\n56\n20.7%\n\n\nDisagree\n40\n14.8%\n\n\nStrongly disagree\n10\n3.7%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>50</span>  <span class='chapter-title'>affSat3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/050-affSat4.html",
+    "href": "questions/050-affSat4.html",
+    "title": "51  affSat4",
+    "section": "",
+    "text": "52 I like my job better than the average person\nQuestion code: affSat4\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n101\n37.1%\n\n\nNeither agree or disagree\n79\n29.0%\n\n\nStrongly Agree\n61\n22.4%\n\n\nDisagree\n20\n7.4%\n\n\nStrongly disagree\n11\n4.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>51</span>  <span class='chapter-title'>affSat4</span>"
+    ]
+  },
+  {
+    "objectID": "questions/051-progRSE1.html",
+    "href": "questions/051-progRSE1.html",
+    "title": "52  progRSE1",
+    "section": "",
+    "text": "53 It is likely that I will gain a promotion within my current group\nQuestion code: progRSE1\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nStrongly disagree\n94\n34.6%\n\n\nDisagree\n67\n24.6%\n\n\nNeither agree or disagree\n61\n22.4%\n\n\nAgree\n38\n14.0%\n\n\nStrongly Agree\n12\n4.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>52</span>  <span class='chapter-title'>progRSE1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/052-progRSE2.html",
+    "href": "questions/052-progRSE2.html",
+    "title": "53  progRSE2",
+    "section": "",
+    "text": "54 The process I have to complete to gain a promotion is clear and understandable\nQuestion code: progRSE2\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nStrongly disagree\n85\n31.2%\n\n\nDisagree\n78\n28.7%\n\n\nNeither agree or disagree\n53\n19.5%\n\n\nAgree\n38\n14.0%\n\n\nStrongly Agree\n18\n6.6%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>53</span>  <span class='chapter-title'>progRSE2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/053-progRSE3.html",
+    "href": "questions/053-progRSE3.html",
+    "title": "54  progRSE3",
+    "section": "",
+    "text": "55 There are many opportunities within my chosen career plan\nQuestion code: progRSE3\nDetected type: Single response or free text\nRespondents answering: 272\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nNeither agree or disagree\n85\n31.2%\n\n\nDisagree\n80\n29.4%\n\n\nAgree\n44\n16.2%\n\n\nStrongly disagree\n40\n14.7%\n\n\nStrongly Agree\n23\n8.5%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>54</span>  <span class='chapter-title'>progRSE3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/054-progRSE4.html",
+    "href": "questions/054-progRSE4.html",
+    "title": "55  progRSE4",
+    "section": "",
+    "text": "56 My current position is an integral part of my career plan\nQuestion code: progRSE4\nDetected type: Single response or free text\nRespondents answering: 271\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n80\n29.5%\n\n\nNeither agree or disagree\n74\n27.3%\n\n\nStrongly Agree\n61\n22.5%\n\n\nDisagree\n35\n12.9%\n\n\nStrongly disagree\n21\n7.7%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>55</span>  <span class='chapter-title'>progRSE4</span>"
+    ]
+  },
+  {
+    "objectID": "questions/055-progRSE5.html",
+    "href": "questions/055-progRSE5.html",
+    "title": "56  progRSE5",
+    "section": "",
+    "text": "57 It is likely that my next position will be an RSE role\nQuestion code: progRSE5\nDetected type: Single response or free text\nRespondents answering: 271\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nNeither agree or disagree\n85\n31.4%\n\n\nAgree\n80\n29.5%\n\n\nDisagree\n44\n16.2%\n\n\nStrongly Agree\n41\n15.1%\n\n\nStrongly disagree\n21\n7.7%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>56</span>  <span class='chapter-title'>progRSE5</span>"
+    ]
+  },
+  {
+    "objectID": "questions/056-skill2.html",
+    "href": "questions/056-skill2.html",
+    "title": "57  skill2",
+    "section": "",
+    "text": "58 In your opinion, what are the three most important skills that a Research Software Engineer must possess?\nQuestion code: skill2\nDetected type: Repeated free text\nRespondents answering: 254\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nCommunication\n44\n5.9%\n\n\nProgramming\n15\n2.0%\n\n\nPatience\n14\n1.9%\n\n\ncommunication\n10\n1.3%\n\n\nFlexibility\n8\n1.1%\n\n\nProblem solving\n8\n1.1%\n\n\nSoftware engineering\n8\n1.1%\n\n\nCoding\n7\n0.9%\n\n\nProgramming skills\n7\n0.9%\n\n\ncoding\n6\n0.8%\n\n\npatience\n6\n0.8%\n\n\nProblem Solving\n6\n0.8%\n\n\nProject management\n6\n0.8%\n\n\nAttention to detail\n5\n0.7%\n\n\nprogramming\n5\n0.7%\n\n\nProject Management\n5\n0.7%\n\n\nTenacity\n5\n0.7%\n\n\nCommunication Skills\n4\n0.5%\n\n\nenthusiasm\n4\n0.5%\n\n\nSoftware Engineering\n4\n0.5%\n\n\ndetermination\n3\n0.4%\n\n\nendurance\n3\n0.4%\n\n\nflexibility\n3\n0.4%\n\n\nOrganisation\n3\n0.4%\n\n\npeople skills\n3\n0.4%\n\n\nPeople skills\n3\n0.4%\n\n\nproblem solving\n3\n0.4%\n\n\nprogramming skills\n3\n0.4%\n\n\nScientific background\n3\n0.4%\n\n\nSoftware Design\n3\n0.4%\n\n\n\nOnly the 30 most frequent of 543 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>57</span>  <span class='chapter-title'>skill2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/057-ukrse1.html",
+    "href": "questions/057-ukrse1.html",
+    "title": "58  ukrse1",
+    "section": "",
+    "text": "59 Are you a member of the UK RSE Association? (Members are people who have signed up to the UK RSE mailing list)\nQuestion code: ukrse1\nDetected type: Single response or free text\nRespondents answering: 269\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n138\n51.3%\n\n\nTrue\n131\n48.7%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>ukrse1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/058-tool1.html",
+    "href": "questions/058-tool1.html",
+    "title": "59  tool1",
+    "section": "",
+    "text": "60 What are the three tools or services you use most often to achieve your work?\nQuestion code: tool1\nDetected type: Single response or free text\nRespondents answering: 248\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nPython\n18\n7.3%\n\n\nGithub\n10\n4.0%\n\n\npython\n8\n3.2%\n\n\nR\n7\n2.8%\n\n\nGit\n6\n2.4%\n\n\nEmacs\n5\n2.0%\n\n\ngit\n5\n2.0%\n\n\nLinux\n5\n2.0%\n\n\nVisual Studio\n5\n2.0%\n\n\nEclipse\n4\n1.6%\n\n\nemacs\n4\n1.6%\n\n\nFortran\n4\n1.6%\n\n\nGitHub\n4\n1.6%\n\n\neclipse\n3\n1.2%\n\n\nGoogle\n3\n1.2%\n\n\nIDE\n3\n1.2%\n\n\nJava\n3\n1.2%\n\n\nMATLAB\n3\n1.2%\n\n\ncompilers\n2\n0.8%\n\n\nemail\n2\n0.8%\n\n\nIntelliJ\n2\n0.8%\n\n\nMatlab\n2\n0.8%\n\n\nSQL server\n2\n0.8%\n\n\nsublime text\n2\n0.8%\n\n\nText editor\n2\n0.8%\n\n\nVersion control\n2\n0.8%\n\n\nvim\n2\n0.8%\n\n\nVIM\n2\n0.8%\n\n\nA computer\n1\n0.4%\n\n\nA good IDE\n1\n0.4%\n\n\n\nOnly the 30 most frequent of 156 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>59</span>  <span class='chapter-title'>tool1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/059-tool16a.html",
+    "href": "questions/059-tool16a.html",
+    "title": "60  tool16a",
+    "section": "",
+    "text": "61 What are the three tools or services you use most often to achieve your work?\nQuestion code: tool16a\nDetected type: Single response or free text\nRespondents answering: 243\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\ngit\n8\n3.3%\n\n\nGit\n7\n2.9%\n\n\nPython\n7\n2.9%\n\n\nEclipse\n5\n2.1%\n\n\nvim\n5\n2.1%\n\n\nGitHub\n4\n1.6%\n\n\npython\n4\n1.6%\n\n\nVisual Studio\n4\n1.6%\n\n\nAtom\n3\n1.2%\n\n\nGoogle\n3\n1.2%\n\n\nJenkins\n3\n1.2%\n\n\nDjango\n2\n0.8%\n\n\nDocker\n2\n0.8%\n\n\nfortran\n2\n0.8%\n\n\ngcc\n2\n0.8%\n\n\ngithub\n2\n0.8%\n\n\nGithub\n2\n0.8%\n\n\nKate\n2\n0.8%\n\n\nlinux\n2\n0.8%\n\n\nLinux\n2\n0.8%\n\n\nNotepad++\n2\n0.8%\n\n\nSQL\n2\n0.8%\n\n\nText editor\n2\n0.8%\n\n\nA programming language\n1\n0.4%\n\n\nanaconda\n1\n0.4%\n\n\nAnsible\n1\n0.4%\n\n\nBADC\n1\n0.4%\n\n\nbash\n1\n0.4%\n\n\nBash shell & emacs\n1\n0.4%\n\n\nBio-Ontologies\n1\n0.4%\n\n\n\nOnly the 30 most frequent of 189 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>60</span>  <span class='chapter-title'>tool16a</span>"
+    ]
+  },
+  {
+    "objectID": "questions/060-tool16b.html",
+    "href": "questions/060-tool16b.html",
+    "title": "61  tool16b",
+    "section": "",
+    "text": "62 What are the three tools or services you use most often to achieve your work?\nQuestion code: tool16b\nDetected type: Single response or free text\nRespondents answering: 227\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nPython\n11\n4.8%\n\n\npython\n5\n2.2%\n\n\nBash\n4\n1.8%\n\n\nbitbucket\n4\n1.8%\n\n\nGit\n4\n1.8%\n\n\nGoogle\n4\n1.8%\n\n\nEmail\n3\n1.3%\n\n\nGitHub\n3\n1.3%\n\n\nlatex\n3\n1.3%\n\n\nStackoverflow\n3\n1.3%\n\n\nvim\n3\n1.3%\n\n\nAWS\n2\n0.9%\n\n\nConfluence\n2\n0.9%\n\n\nDropbox\n2\n0.9%\n\n\nemacs\n2\n0.9%\n\n\nemail\n2\n0.9%\n\n\ngit\n2\n0.9%\n\n\nGithub\n2\n0.9%\n\n\ngoogle\n2\n0.9%\n\n\nLinux\n2\n0.9%\n\n\nMaven\n2\n0.9%\n\n\nMySQL\n2\n0.9%\n\n\nshell scripting\n2\n0.9%\n\n\nskype\n2\n0.9%\n\n\nSkype\n2\n0.9%\n\n\nweb browser\n2\n0.9%\n\n\n—\n1\n0.4%\n\n\n3D Rendering - Lux Render/DAZ\n1\n0.4%\n\n\nA good editor\n1\n0.4%\n\n\nAllinea ddt parallel debugger\n1\n0.4%\n\n\n\nOnly the 30 most frequent of 176 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>61</span>  <span class='chapter-title'>tool16b</span>"
+    ]
+  },
+  {
+    "objectID": "questions/061-socio2.html",
+    "href": "questions/061-socio2.html",
+    "title": "62  socio2",
+    "section": "",
+    "text": "63 Please select your gender\nQuestion code: socio2\nDetected type: Single response or free text\nRespondents answering: 263\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nMale\n232\n88.2%\n\n\nFemale\n30\n11.4%\n\n\nOther\n1\n0.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>62</span>  <span class='chapter-title'>socio2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/062-socio3.html",
+    "href": "questions/062-socio3.html",
+    "title": "63  socio3",
+    "section": "",
+    "text": "64 Please select your age\nQuestion code: socio3\nDetected type: Single response or free text\nRespondents answering: 270\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n35 to 44 years\n107\n39.6%\n\n\n25 to 34 years\n97\n35.9%\n\n\n45 to 54 years\n51\n18.9%\n\n\n55 to 64 years\n11\n4.1%\n\n\n18 to 24 years\n4\n1.5%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>63</span>  <span class='chapter-title'>socio3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/063-socio4.html",
+    "href": "questions/063-socio4.html",
+    "title": "64  socio4",
+    "section": "",
+    "text": "65 Please select the range of your salary\nQuestion code: socio4\nDetected type: Single response or free text\nRespondents answering: 270\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n£30 000 to £34 999\n81\n30.0%\n\n\n£35 000 to £39 999\n68\n25.2%\n\n\n£40 000 to £44 999\n38\n14.1%\n\n\n£45 000 to £50 000\n31\n11.5%\n\n\n£25 000 to £29 999\n21\n7.8%\n\n\nLess than £25 000\n10\n3.7%\n\n\n£50 000 to £59 999\n9\n3.3%\n\n\nPrefer not to say\n8\n3.0%\n\n\n£60 000 to £69 999\n3\n1.1%\n\n\n£70 000 to £99 000\n1\n0.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>64</span>  <span class='chapter-title'>socio4</span>"
+    ]
+  },
+  {
+    "objectID": "questions/064-tool2.html",
+    "href": "questions/064-tool2.html",
+    "title": "65  tool2",
+    "section": "",
+    "text": "66 What is your Operating System of choice for use at work?\nQuestion code: tool2\nDetected type: Single response or free text\nRespondents answering: 271\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nGNU/Linux\n161\n59.4%\n\n\nWindows\n55\n20.3%\n\n\nOS X\n53\n19.6%\n\n\nOther\n2\n0.7%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>65</span>  <span class='chapter-title'>tool2</span>"
+    ]
+  }
+]

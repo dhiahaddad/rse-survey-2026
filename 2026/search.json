@@ -1,0 +1,1199 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "International RSE Survey 2026",
+    "section": "",
+    "text": "Survey overview\nThis book presents the 2026 survey independently, using the questions and answer options stored in that year’s export.\nRespondents included: 759\nQuestion groups discovered: 107\nRows with a non-empty submitdate_0 are included.\nNo cross-year harmonisation is applied.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>International RSE Survey 2026</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#responses-by-country",
+    "href": "index.html#responses-by-country",
+    "title": "International RSE Survey 2026",
+    "section": "0.1 Responses by country",
+    "text": "0.1 Responses by country\n\n\n\nCountry\nResponses\n\n\n\n\nGermany\n206\n\n\nUnited Kingdom\n127\n\n\nUnited States\n93\n\n\nSwitzerland\n66\n\n\nNetherlands\n50\n\n\nSouth Africa\n42\n\n\nFinland\n20\n\n\nSweden\n19\n\n\nCanada\n12\n\n\nPoland\n12\n\n\nAustralia\n10\n\n\nBelgium\n10\n\n\nNorway\n10\n\n\nBrazil\n8\n\n\nEstonia\n8\n\n\nSpain\n8\n\n\nChile\n7\n\n\nAustria\n6\n\n\nArgentina\n4\n\n\nDenmark\n4\n\n\nEthiopia\n3\n\n\nIreland\n3\n\n\nKenya\n3\n\n\nNigeria\n3\n\n\nBolivia\n2\n\n\nFrance\n2\n\n\nIndia\n2\n\n\nItaly\n2\n\n\nAlbania\n1\n\n\nAnguilla\n1\n\n\nCameroon\n1\n\n\nDemocratic Republic of the Congo\n1\n\n\nEgypt\n1\n\n\nGreece\n1\n\n\nIceland\n1\n\n\nLesotho\n1\n\n\nMexico\n1\n\n\nNew Zealand\n1\n\n\nPeru\n1\n\n\nPuerto Rico\n1\n\n\nRomania\n1\n\n\nSingapore\n1\n\n\nSomalia\n1\n\n\nTunisia\n1\n\n\nVenezuela\n1",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>International RSE Survey 2026</span>"
+    ]
+  },
+  {
+    "objectID": "questions/001-socio1.html",
+    "href": "questions/001-socio1.html",
+    "title": "2  socio1",
+    "section": "",
+    "text": "3 In which country do you work?\nQuestion code: socio1\nDetected type: Single response or free text\nRespondents answering: 759\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nGermany\n206\n27.1%\n\n\nUnited Kingdom\n127\n16.7%\n\n\nUnited States\n93\n12.3%\n\n\nSwitzerland\n66\n8.7%\n\n\nNetherlands\n50\n6.6%\n\n\nSouth Africa\n42\n5.5%\n\n\nFinland\n20\n2.6%\n\n\nSweden\n19\n2.5%\n\n\nCanada\n12\n1.6%\n\n\nPoland\n12\n1.6%\n\n\nAustralia\n10\n1.3%\n\n\nBelgium\n10\n1.3%\n\n\nNorway\n10\n1.3%\n\n\nBrazil\n8\n1.1%\n\n\nEstonia\n8\n1.1%\n\n\nSpain\n8\n1.1%\n\n\nChile\n7\n0.9%\n\n\nAustria\n6\n0.8%\n\n\nArgentina\n4\n0.5%\n\n\nDenmark\n4\n0.5%\n\n\nEthiopia\n3\n0.4%\n\n\nIreland\n3\n0.4%\n\n\nKenya\n3\n0.4%\n\n\nNigeria\n3\n0.4%\n\n\nBolivia\n2\n0.3%\n\n\nFrance\n2\n0.3%\n\n\nIndia\n2\n0.3%\n\n\nItaly\n2\n0.3%\n\n\nAlbania\n1\n0.1%\n\n\nAnguilla\n1\n0.1%\n\n\n\nOnly the 30 most frequent of 45 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>socio1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/002-rse1.html",
+    "href": "questions/002-rse1.html",
+    "title": "3  rse1",
+    "section": "",
+    "text": "4 Do you write software for academic research as part of your job?\nQuestion code: rse1\nDetected type: Single response or free text\nRespondents answering: 759\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n709\n93.4%\n\n\nFalse\n50\n6.6%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>rse1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/003-edu2.html",
+    "href": "questions/003-edu2.html",
+    "title": "4  edu2",
+    "section": "",
+    "text": "5 In which discipline is your highest academic qualification?\nQuestion code: edu2\nDetected type: Single response or free text\nRespondents answering: 751\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nPhysical sciences\n226\n30.1%\n\n\nComputer science\n194\n25.8%\n\n\nEngineering and technology\n85\n11.3%\n\n\nBiological sciences\n79\n10.5%\n\n\nMathematical sciences\n46\n6.1%\n\n\nSocial sciences\n18\n2.4%\n\n\nHistorical and philosophical studies\n16\n2.1%\n\n\nMedicine and health sciences\n16\n2.1%\n\n\nLanguages and linguistics\n10\n1.3%\n\n\nAgriculture and related subjects\n7\n0.9%\n\n\nBioinformatics\n4\n0.5%\n\n\nCreative arts and design\n4\n0.5%\n\n\nChemie\n3\n0.4%\n\n\nChemistry\n3\n0.4%\n\n\nCommunications\n3\n0.4%\n\n\nDigital Humanities\n2\n0.3%\n\n\nInformation Science\n2\n0.3%\n\n\nLaw\n2\n0.3%\n\n\nArchitecture, building and planning\n1\n0.1%\n\n\nBusiness\n1\n0.1%\n\n\ncognitive artificial intelligence (in between computer science, linguistics, psychology, philosophy and logic)\n1\n0.1%\n\n\nComputational Linguistics / Digital Humanities\n1\n0.1%\n\n\nComputational Science\n1\n0.1%\n\n\nComputational+Physical Science\n1\n0.1%\n\n\nData Science\n1\n0.1%\n\n\nEarth Sciences\n1\n0.1%\n\n\nEarth Systems Science\n1\n0.1%\n\n\neconomía\n1\n0.1%\n\n\nEdTech\n1\n0.1%\n\n\nEnglish Literature\n1\n0.1%\n\n\n\nOnly the 30 most frequent of 49 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>edu2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/004-rse3.html",
+    "href": "questions/004-rse3.html",
+    "title": "5  rse3",
+    "section": "",
+    "text": "6 Who uses the code that you write?\nQuestion code: rse3\nDetected type: Single response or free text\nRespondents answering: 709\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n5 - Mostly other people\n185\n26.1%\n\n\n4\n163\n23.0%\n\n\n3\n147\n20.7%\n\n\n2\n92\n13.0%\n\n\n1\n74\n10.4%\n\n\n0 - Mostly me\n48\n6.8%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>rse3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/005-soft2can.html",
+    "href": "questions/005-soft2can.html",
+    "title": "6  soft2can",
+    "section": "",
+    "text": "7 Do you consider yourself a professional software developer?\nQuestion code: soft2can\nDetected type: Single response or free text\nRespondents answering: 730\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n435\n59.6%\n\n\nFalse\n295\n40.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>soft2can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/006-soft1can.html",
+    "href": "questions/006-soft1can.html",
+    "title": "7  soft1can",
+    "section": "",
+    "text": "8 How many years of software development experience do you have?\nQuestion code: soft1can\nDetected type: Single response or free text\nRespondents answering: 757\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n15+\n304\n40.2%\n\n\n10\n88\n11.6%\n\n\n5\n69\n9.1%\n\n\n4\n41\n5.4%\n\n\n8\n40\n5.3%\n\n\n7\n30\n4.0%\n\n\n3\n29\n3.8%\n\n\n6\n28\n3.7%\n\n\n2\n23\n3.0%\n\n\n12\n22\n2.9%\n\n\n0\n18\n2.4%\n\n\n1\n17\n2.2%\n\n\n11\n15\n2.0%\n\n\n9\n14\n1.8%\n\n\n13\n11\n1.5%\n\n\n14\n8\n1.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>soft1can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/007-open1de.html",
+    "href": "questions/007-open1de.html",
+    "title": "8  open1de",
+    "section": "",
+    "text": "9 Do you have an ORCID ID?\nQuestion code: open1de\nDetected type: Single response or free text\nRespondents answering: 750\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n659\n87.9%\n\n\nFalse\n55\n7.3%\n\n\nI do not know what ORCID is\n20\n2.7%\n\n\nORCID is not relevant for me\n16\n2.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>open1de</span>"
+    ]
+  },
+  {
+    "objectID": "questions/008-rse4de.html",
+    "href": "questions/008-rse4de.html",
+    "title": "9  rse4de",
+    "section": "",
+    "text": "10 Does the majority of your role comprise leading a group of software developers or RSEs?\nQuestion code: rse4de\nDetected type: Single response or free text\nRespondents answering: 733\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n617\n84.2%\n\n\nTrue\n116\n15.8%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>rse4de</span>"
+    ]
+  },
+  {
+    "objectID": "questions/009-ukrse1.html",
+    "href": "questions/009-ukrse1.html",
+    "title": "10  ukrse1",
+    "section": "",
+    "text": "11 Are you a member of any of the following associations of Research Software Engineers (called “Research Software Developers” in Canada)? Belgium https://be-rse.org/ French https://www.devlog.cnrs.fr/, https://www.devlog.cnrs.fr/, https://ri3.in2p3.fr/ or https://resinfo.org/ Germany http://de-rse.org/ Netherlands http://nl-rse.org/ Nordic http://nordic-rse.org/ Canada https://github.com/alliancecan/RSCAN RSE Asia https://rse-asia.github.io/RSE_Asia/ Australia and New Zealand https://rse-aunz.github.io/ Chile https://rse-chile.github.io/ RSSE Africa https://rsse.africa/ United Kingdom https://society-rse.org/ Switzerland https://rse.swiss// United States http://us-rse.org/\nQuestion code: ukrse1\nDetected type: Single response or free text\nRespondents answering: 480\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n244\n50.8%\n\n\nTrue\n236\n49.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>ukrse1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/010-org1can.html",
+    "href": "questions/010-org1can.html",
+    "title": "11  org1can",
+    "section": "",
+    "text": "12 Would you be interested in joining such an organisation?\nQuestion code: org1can\nDetected type: Single response or free text\nRespondents answering: 206\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n150\n72.8%\n\n\nFalse\n56\n27.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>org1can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/011-org1cz.html",
+    "href": "questions/011-org1cz.html",
+    "title": "12  org1cz",
+    "section": "",
+    "text": "13 Would you be interested in joining a national Czech RSE association?\nQuestion code: org1cz\nDetected type: Single response or free text\nRespondents answering: 0\nNo responses were recorded for this question.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>org1cz</span>"
+    ]
+  },
+  {
+    "objectID": "questions/012-org1swiss.html",
+    "href": "questions/012-org1swiss.html",
+    "title": "13  org1swiss",
+    "section": "",
+    "text": "14 Would you be interested in joining a national Swiss RSE association?\nQuestion code: org1swiss\nDetected type: Single response or free text\nRespondents answering: 59\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n55\n93.2%\n\n\nFalse\n4\n6.8%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>org1swiss</span>"
+    ]
+  },
+  {
+    "objectID": "questions/013-org2can.html",
+    "href": "questions/013-org2can.html",
+    "title": "14  org2can",
+    "section": "",
+    "text": "15 What would you hope to get out of such an organisation (check all that apply)?\nQuestion code: org2can\nDetected type: Repeated free text\nRespondents answering: 386\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n1256\n63.4%\n\n\nFalse\n674\n34.0%\n\n\nCommunity\n2\n0.1%\n\n\nA sense of community\n1\n0.1%\n\n\nAbility to promulgate best practices and influence policy through joint action\n1\n0.1%\n\n\nAdvocacy\n1\n0.1%\n\n\nAdvocacy, opportunities to share work\n1\n0.1%\n\n\naiding others\n1\n0.1%\n\n\nbest practices / staying up to date on the field\n1\n0.1%\n\n\nBetter software\n1\n0.1%\n\n\ncandidates for appointment / contracting\n1\n0.1%\n\n\ncollective efforts to influence policy and funders\n1\n0.1%\n\n\nCommunity and collaboration on promoting the RSE and closely related professions\n1\n0.1%\n\n\nCommunity that comes from chatting with the group on slack\n1\n0.1%\n\n\nComradery\n1\n0.1%\n\n\nContribution to the work of the RSE society\n1\n0.1%\n\n\nCoordination of community activities (e.g. conferences or other events)\n1\n0.1%\n\n\nDevelopment and exchange of good practices in organising and running research software teams and projects.\n1\n0.1%\n\n\nDiscounted access to annual conference\n1\n0.1%\n\n\nEncouragement, motivation, and support from other RSEs\n1\n0.1%\n\n\nfunding opportunities\n1\n0.1%\n\n\nImportantly, such an organisation should also have a vision and strategy to strengthen the profession of RSEs in the national academic context.\n1\n0.1%\n\n\nInfluence and guidance for quality standards\n1\n0.1%\n\n\nInfluence policies\n1\n0.1%\n\n\nInformation sur le financement du logiciel de recherche\n1\n0.1%\n\n\nintercambio formativo\n1\n0.1%\n\n\nKnowledge and experience sharing\n1\n0.1%\n\n\nmaking scientific software better\n1\n0.1%\n\n\nMarketing\n1\n0.1%\n\n\nMentoring\n1\n0.1%\n\n\n\nOnly the 30 most frequent of 53 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>org2can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/014-ukrse12sa.html",
+    "href": "questions/014-ukrse12sa.html",
+    "title": "15  ukrse12sa",
+    "section": "",
+    "text": "16 Would you like to attend a multidisciplinary conference on research software development in South Africa?\nQuestion code: ukrse12sa\nDetected type: Single response or free text\nRespondents answering: 38\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n33\n86.8%\n\n\nFalse\n5\n13.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>ukrse12sa</span>"
+    ]
+  },
+  {
+    "objectID": "questions/015-org3us.html",
+    "href": "questions/015-org3us.html",
+    "title": "16  org3us",
+    "section": "",
+    "text": "17 What specific activities or forums would you like to see your national association provide?\nQuestion code: org3us\nDetected type: Single response or free text\nRespondents answering: 45\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n- Best-practice guidelines for research software development (reproducibility, testing guidelines, CI/CD recommendations) - Monthly seminars or technical talks focused on tools and workflows - Hands-on trainings/workshops (e.g., containerization, cloud workflow, testing frameworks, workflow automation)\n1\n2.2%\n\n\n- Community events (virtual or in person) for discussing best practices or approaches for RSEs - Workshops in specific problems in the field\n1\n2.2%\n\n\n* Detailed guidance on developing and maintaining open-source repositories (e.g., on licensing, governance, and outreach). * Active discussion about how to seek and apply for RSE jobs – especially when coming from a non-RSE position – including updated lists of available opportunities.\n1\n2.2%\n\n\nAdvocacy on behalf of RSE with funding agencies and campus administrations.\n1\n2.2%\n\n\nannual virtual gathering\n1\n2.2%\n\n\nConferences and in person activities\n1\n2.2%\n\n\nConferences and social/networking events for RSEs. I really only care about in person ones\n1\n2.2%\n\n\nconferences, book clubs, discussion forums, advocate/lead in the professionalization of the field, community meetings, etc.\n1\n2.2%\n\n\nConferences, workshops, community channels (like Slack), and community events (these are all provided already by US-RSE). Opportunities to talk with students about RSE careers.\n1\n2.2%\n\n\nCurate good enough / best practices. Understand how various centers and software groups manage to sustain RSEs. Federal and state recognition of the job title and description to be able to hire qualified people and justify their salary.\n1\n2.2%\n\n\nDiscussions about how to increase funding and opportunities for and recognition of the importance of high-quality research software. In general, I want to work with other to solve the problem: how do we, as a society, raise the baseline for research software quality and accuracy?\n1\n2.2%\n\n\nEstablish standards for software engineering skills\n1\n2.2%\n\n\nFind a way to provide academic credit for research which can only be achieved by writing software\n1\n2.2%\n\n\nHelping define subtypes of RSE jobs. I’ve started to notice clusters of jobs, and I wonder if this job title will go through something like what “Data Scientist” did in the 2010s where more people having the job led to a clearer definition and new, related roles (like Data Engineer, ML Engineer, etc)\n1\n2.2%\n\n\nHigh quality technical content. Short courses. Case studies. Certifications.\n1\n2.2%\n\n\nI guess support for unionization? Also advocacy for funding for research software development in general.\n1\n2.2%\n\n\nI think some sort of catalog of tools that have been developed by RSE Association members that they might be interested in having collaborators for , or that they have found useful, that one could review for candidates for needs that my users might have, Were I younger, I would be interested in attending conferences run by such a group.\n1\n2.2%\n\n\nI would like to see regular technical workshops and hands-on training sessions focused on modern research software practices such as scalable data pipelines, cloud/HPC integration, and reproducible workflows. In addition, community forums or discussion groups for knowledge sharing, collaboration opportunities across institutions, and mentorship programs for early-career RSEs would be highly valuable. Career development resources, including job boards and guidance on transitioning between academia and industry, would also be beneficial.\n1\n2.2%\n\n\nI’d like to see more professional training in the discipline of software engineering. We often have folks offering to tell others how they wound up doing something slightly better, but these folks aren’t professional software engineers and often don’t realize how little they know about software engineering professionalism.\n1\n2.2%\n\n\nIntermediate and advanced professional development opportunities\n1\n2.2%\n\n\nIt would be great to meet more folks. I would appreciate like online coffees or similar. RSE as a position can be lonely.\n1\n2.2%\n\n\nJob board\n1\n2.2%\n\n\nJob boards are the most useful output from national associations\n1\n2.2%\n\n\nLabor Unions, community projects, and completely unhinged revenge plots\n1\n2.2%\n\n\nLatest tech stacks being used by RSEs\n1\n2.2%\n\n\nLocal networking, more support of small systems instead of big-data and institutional orientation, outreach to research institutions and departments, connecting existing local SRE related departments\n1\n2.2%\n\n\nMeetings, seminars, and workshops\n1\n2.2%\n\n\nMore focused resources specific to academic disciplines.\n1\n2.2%\n\n\nMore information sharing, more open collaborations, more talks and events, create more space for people to share ideas. Once a year large event is good but it would also be beneficial to have smaller and more frequent meetups. I think we could benefit of of the work done by others and not re-invent the wheel if we share more ideas/work.\n1\n2.2%\n\n\nMore modular yet diverse engagement activities.\n1\n2.2%\n\n\n\nOnly the 30 most frequent of 45 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>org3us</span>"
+    ]
+  },
+  {
+    "objectID": "questions/016-org4us.html",
+    "href": "questions/016-org4us.html",
+    "title": "17  org4us",
+    "section": "",
+    "text": "18 What would a national organization need to provide in order for you to pay membership dues?\nQuestion code: org4us\nDetected type: Single response or free text\nRespondents answering: 52\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n- Meaningful networking opportunities that help advance my career\n1\n1.9%\n\n\n* Regular conferences (at least annually) * A newsletter * Other opt-in publications tailored to specific topics, including announcements of employment, experience, and service opportunities * The ability to run for and vote on official positions (e.g., president, steering committee, etc.) * Opportunities to communicate with experienced RSEs (not sure if this would be an elected or volunteer position)\n1\n1.9%\n\n\nA forum/Slack for communication, a mechanism for organizing local meetings/coordinating efforts at conferences etc., and a willingness to talk to universities/governments/unions on our behalf and for our interests.\n1\n1.9%\n\n\na high quality annual conference, an active Slack Workspace\n1\n1.9%\n\n\nA journal with publishing opportunities\n1\n1.9%\n\n\nA national organization would need to provide clear value through high-quality training programs, access to exclusive workshops or conferences, and opportunities for meaningful collaboration with other research software engineers. Additionally, tangible career benefits such as job boards, mentorship programs, and industry/academic networking opportunities would be important. Access to best practices, standards, and resources for building scalable, reproducible research software would also justify membership dues.\n1\n1.9%\n\n\nA regular and well-supported index for finding RSE jobs.\n1\n1.9%\n\n\nA thriving and vibrant community of folks that work will with each other and help prop each other up.\n1\n1.9%\n\n\nAccess to conference proceedings, papers, etc.\n1\n1.9%\n\n\nAnnual conferences and more frequent regional meetings\n1\n1.9%\n\n\nConference, recognition, certification opportunities, mentorship\n1\n1.9%\n\n\nconferences and professional leadership / advocacy\n1\n1.9%\n\n\nConferences, access to community.\n1\n1.9%\n\n\nCredentialing that could be used for job purposes.\n1\n1.9%\n\n\nCross organizational relationship strengthening and perhaps more cross institutional collaboration opportunity.\n1\n1.9%\n\n\nDemonstrated advocacy on behalf of RSEs with funding agencies and campus administrations.\n1\n1.9%\n\n\ndepends on the dues. Connecting local research institutions.\n1\n1.9%\n\n\nFor a membership fee, I would like to see a newsletter/some online blog post/discussion forum that is active and have articles on topics that are relevant to the RSE community. More initiatives on DEI and internationalization - to make sure all are included and go the extra mile to make sure that no one is left behind. Initiatives to grow the community. The members should see a career growth from this org.\n1\n1.9%\n\n\nGood question! I’m close to retirement, so it’s hard to imagine what might prompt me (personally) to pay membership dues. Maybe a members-only journal or conference?\n1\n1.9%\n\n\nHigh quality technical content. Short courses. Case studies. Certifications.\n1\n1.9%\n\n\nI don’t they they could provide anything valuable enough for me to pay for it.\n1\n1.9%\n\n\nI probably would never pay dues.\n1\n1.9%\n\n\nI really like that it is “free” other than the time I donate to help with various parts of the organization.\n1\n1.9%\n\n\nI would consider paying dues now, for what US-RSE offers. I would pay higher dues for access to training and/or professional development resources (or potentially discounts for third-party services).\n1\n1.9%\n\n\nI would only see this as a resource for networking, collaboration opps, and RSE standards for academic SSE, not interested in p2p organization\n1\n1.9%\n\n\nI would probably pay dues regardless to support the community.\n1\n1.9%\n\n\nLow dues (&lt;$50/yr)\n1\n1.9%\n\n\nMember only resource or events, discounts to conference, member-only directory, regular communications\n1\n1.9%\n\n\nMore direct connections with job opportunities\n1\n1.9%\n\n\nNetworking opportunities, job search support, reduced costs for attending conferences and symposia.\n1\n1.9%\n\n\n\nOnly the 30 most frequent of 52 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>org4us</span>"
+    ]
+  },
+  {
+    "objectID": "questions/017-org5us.html",
+    "href": "questions/017-org5us.html",
+    "title": "18  org5us",
+    "section": "",
+    "text": "19 How much would you be willing to pay as an annual membership fee to join a national association?\nQuestion code: org5us\nDetected type: Single response or free text\nRespondents answering: 58\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n$50\n5\n8.6%\n\n\n$100\n4\n6.9%\n\n\n0\n3\n5.2%\n\n\n$0\n2\n3.4%\n\n\n100\n2\n3.4%\n\n\n&lt;$30, mostly because I’m an academic and RSE is a secondary community for me after my disciplinary community\n1\n1.7%\n\n\n~$100\n1\n1.7%\n\n\n$10\n1\n1.7%\n\n\n$100 (USD)\n1\n1.7%\n\n\n$120\n1\n1.7%\n\n\n$120?\n1\n1.7%\n\n\n$150 US\n1\n1.7%\n\n\n$20\n1\n1.7%\n\n\n$200\n1\n1.7%\n\n\n$200/year.\n1\n1.7%\n\n\n$25 USD\n1\n1.7%\n\n\n$40\n1\n1.7%\n\n\n$5–$20, depending on benefits\n1\n1.7%\n\n\n$50 if paid by myself; maybe $100 if paid by my institution.\n1\n1.7%\n\n\n$50-$100\n1\n1.7%\n\n\n\\(500 (USD) | 1 | 1.7% |\n| 0.00 | 1 | 1.7% |\n| 100\\)\n1\n1.7%\n\n\n50 EUR\n1\n1.7%\n\n\n50 USD\n1\n1.7%\n\n\n50USD\n1\n1.7%\n\n\nAround 100-200 a year.\n1\n1.7%\n\n\nAt the current offering, I would pay $75-100/year.\n1\n1.7%\n\n\nAt this time, I would prefer not to pay an annual membership fee. Instead, I would be more interested in a pay-per-workshop or pay-per-training model, where I can choose to participate in specific events that are directly relevant to my work.\n1\n1.7%\n\n\ndepends on the benefits.\n1\n1.7%\n\n\n\nOnly the 30 most frequent of 47 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>org5us</span>"
+    ]
+  },
+  {
+    "objectID": "questions/018-org3nord.html",
+    "href": "questions/018-org3nord.html",
+    "title": "19  org3nord",
+    "section": "",
+    "text": "20 How could Nordic-RSE or a potential Nordic research software institute foster community engagement and knowledge transfer?\nQuestion code: org3nord\nDetected type: Question grid\nRespondents answering: 62\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nCompilation and development of freely available training materials (for teaching and self-studying)\nFalse\n33\n53.2%\n\n\nCompilation and development of freely available training materials (for teaching and self-studying)\nTrue\n29\n46.8%\n\n\nFostering networking within the RSE community via a moderated chat (or similar)\nFalse\n37\n59.7%\n\n\nFostering networking within the RSE community via a moderated chat (or similar)\nTrue\n25\n40.3%\n\n\nHosting an easily searchable database of trainings available through other institutions\nFalse\n39\n62.9%\n\n\nHosting an easily searchable database of trainings available through other institutions\nTrue\n23\n37.1%\n\n\norg3nord[6]_0\nFalse\n43\n69.4%\n\n\norg3nord[6]_0\nTrue\n19\n30.6%\n\n\nOrganisation of conferences, workshops and similar events\nTrue\n52\n83.9%\n\n\nOrganisation of conferences, workshops and similar events\nFalse\n10\n16.1%\n\n\nOrganisation of online and/or in-person trainings\nFalse\n32\n51.6%\n\n\nOrganisation of online and/or in-person trainings\nTrue\n30\n48.4%\n\n\nOther\nGuest in other academic conferences and workshop which are not strictly about RSE\n1\n25.0%\n\n\nOther\nIndentify a person involved in the politics and administration of each university to affect budget and planning decisions about RSE development\n1\n25.0%\n\n\nOther\nPolitical work at the level of institutions; policy work\n1\n25.0%\n\n\nOther\nProvide model/agent friendly (availability/format) better practices materials, example AGENTS.md file (including must-have, good-to-have, avoid sections)\n1\n25.0%\n\n\nRunning regular online talk-series\nFalse\n41\n66.1%\n\n\nRunning regular online talk-series\nTrue\n21\n33.9%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>org3nord</span>"
+    ]
+  },
+  {
+    "objectID": "questions/019-org4nord.html",
+    "href": "questions/019-org4nord.html",
+    "title": "20  org4nord",
+    "section": "",
+    "text": "21 With Nordic-RSE we have an association dedicated to the community of Research Software Engineers in the Nordics. What tasks do you think should be undertaken by Nordic-RSE or a future Nordic institute for research software?\nQuestion code: org4nord\nDetected type: Question grid\nRespondents answering: 62\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nAdvocating for research software towards politicians and decision makers\nTrue\n43\n69.4%\n\n\nAdvocating for research software towards politicians and decision makers\nFalse\n19\n30.6%\n\n\nCommunity engagement and trainings\nTrue\n42\n67.7%\n\n\nCommunity engagement and trainings\nFalse\n20\n32.3%\n\n\nConsulting on research software development\nFalse\n33\n53.2%\n\n\nConsulting on research software development\nTrue\n29\n46.8%\n\n\nIn-house development of research software\nFalse\n50\n80.6%\n\n\nIn-house development of research software\nTrue\n12\n19.4%\n\n\nMaintenance of internationally relevant research software\nFalse\n35\n56.5%\n\n\nMaintenance of internationally relevant research software\nTrue\n27\n43.5%\n\n\nOffer funding for research software projects\nFalse\n38\n61.3%\n\n\nOffer funding for research software projects\nTrue\n24\n38.7%\n\n\norg4nord[5]_0\nTrue\n34\n54.8%\n\n\norg4nord[5]_0\nFalse\n28\n45.2%\n\n\nOther\nClarify difference between scripts and software (many don’t seem to know the difference, anyone generating scripts to analyze data does not constitute software)\n1\n33.3%\n\n\nOther\nLobby for funding from funding agencies to invest in research software projects and maintenance of existing software projects\n1\n33.3%\n\n\nOther\nPersonal grants for RSE (fellowships, travel grants)\n1\n33.3%\n\n\nPromotion of career paths in the RSE field\nTrue\n42\n67.7%\n\n\nPromotion of career paths in the RSE field\nFalse\n20\n32.3%\n\n\nResearch on RSE topics\nFalse\n35\n56.5%\n\n\nResearch on RSE topics\nTrue\n27\n43.5%\n\n\nTemporary support of research software projects with manpower\nFalse\n42\n67.7%\n\n\nTemporary support of research software projects with manpower\nTrue\n20\n32.3%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>org4nord</span>"
+    ]
+  },
+  {
+    "objectID": "questions/020-currentEmp1.html",
+    "href": "questions/020-currentEmp1.html",
+    "title": "21  currentEmp1",
+    "section": "",
+    "text": "22 Please select your organization type\nQuestion code: currentEmp1\nDetected type: Question grid\nRespondents answering: 388\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\ncurrentEmp1_0\nUniversity\n269\n69.3%\n\n\ncurrentEmp1_0\nNon-profit organization\n33\n8.5%\n\n\ncurrentEmp1_0\nNational laboratory\n30\n7.7%\n\n\ncurrentEmp1_0\nGovernment\n23\n5.9%\n\n\ncurrentEmp1_0\nPrivate company\n17\n4.4%\n\n\ncurrentEmp1_0\nOther\n12\n3.1%\n\n\ncurrentEmp1_0\nNGO\n4\n1.0%\n\n\nOther\nCentre de Recherche\n1\n9.1%\n\n\nOther\nCurrently unemployed, previously a University\n1\n9.1%\n\n\nOther\nFramework for Open and Reproducible Research Training (FORRT))\n1\n9.1%\n\n\nOther\nFreelance\n1\n9.1%\n\n\nOther\nMedical Research Institute\n1\n9.1%\n\n\nOther\nNational Library\n1\n9.1%\n\n\nOther\nnational research computing nonprofit (DRAC)\n1\n9.1%\n\n\nOther\nPrivate Research Platform funded by Government\n1\n9.1%\n\n\nOther\nResearch library\n1\n9.1%\n\n\nOther\nSole Trader\n1\n9.1%\n\n\nOther\nuniv and sme\n1\n9.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>currentEmp1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/021-currentEmp1qde.html",
+    "href": "questions/021-currentEmp1qde.html",
+    "title": "22  currentEmp1qde",
+    "section": "",
+    "text": "23 Please select your organization type\nQuestion code: currentEmp1qde\nDetected type: Question grid\nRespondents answering: 206\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\ncurrentEmp1qde_0\nHelmholtz Association of German Research Centres\n77\n37.4%\n\n\ncurrentEmp1qde_0\nUniversity\n66\n32.0%\n\n\ncurrentEmp1qde_0\nMax Planck Society\n25\n12.1%\n\n\ncurrentEmp1qde_0\nOther\n19\n9.2%\n\n\ncurrentEmp1qde_0\nLeibniz Association\n8\n3.9%\n\n\ncurrentEmp1qde_0\nGovernment\n6\n2.9%\n\n\ncurrentEmp1qde_0\nPrivate Company\n4\n1.9%\n\n\ncurrentEmp1qde_0\nFraunhofer Society\n1\n0.5%\n\n\nOther\nAkademien\n1\n5.9%\n\n\nOther\naußeruniversitäre Forschungseinrichtung\n1\n5.9%\n\n\nOther\nAußeruniversitäre Forschungseinrichtung\n1\n5.9%\n\n\nOther\ndlr\n1\n5.9%\n\n\nOther\nDLR\n1\n5.9%\n\n\nOther\nDLR Deutsches Zentrum für Luft- und Raumfahrt\n1\n5.9%\n\n\nOther\ne.V.\n1\n5.9%\n\n\nOther\nEMBL\n1\n5.9%\n\n\nOther\nEMBL Heidelberg\n1\n5.9%\n\n\nOther\nEuropean XFEL GmbH\n1\n5.9%\n\n\nOther\nGerman Aerospace Center\n1\n5.9%\n\n\nOther\nIndustrie + Uni + Freiberuflich\n1\n5.9%\n\n\nOther\nNetwork of RDM professionals from several universities and universities of applied sciences\n1\n5.9%\n\n\nOther\nnon-profit\n1\n5.9%\n\n\nOther\nnon-profit scientific society\n1\n5.9%\n\n\nOther\noa\n1\n5.9%\n\n\nOther\nUniversity Hospital\n1\n5.9%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>currentEmp1qde</span>"
+    ]
+  },
+  {
+    "objectID": "questions/022-currentEmp1qswiss.html",
+    "href": "questions/022-currentEmp1qswiss.html",
+    "title": "23  currentEmp1qswiss",
+    "section": "",
+    "text": "24 Please select your organization type\nQuestion code: currentEmp1qswiss\nDetected type: Question grid\nRespondents answering: 66\n\n\n\nResponse distribution\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\ncurrentEmp1qswiss_0\nUniversity\n44\n66.7%\n\n\ncurrentEmp1qswiss_0\nResearch Institute\n18\n27.3%\n\n\ncurrentEmp1qswiss_0\nUniversity of Applied Sciences\n2\n3.0%\n\n\ncurrentEmp1qswiss_0\nOther\n1\n1.5%\n\n\ncurrentEmp1qswiss_0\nPrivate Company\n1\n1.5%\n\n\nOther\nHigh Performance Computing Center\n1\n100.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>currentEmp1qswiss</span>"
+    ]
+  },
+  {
+    "objectID": "questions/023-currentEmp1nl.html",
+    "href": "questions/023-currentEmp1nl.html",
+    "title": "24  currentEmp1nl",
+    "section": "",
+    "text": "25 Please select your organization type\nQuestion code: currentEmp1nl\nDetected type: Question grid\nRespondents answering: 50\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\ncurrentEmp1nl_0\nUniversity\n29\n58.0%\n\n\ncurrentEmp1nl_0\nNon-profit organization (eScience center, SURF, and others)\n9\n18.0%\n\n\ncurrentEmp1nl_0\nResearch Institutes (NWO-I, KNAW, and others)\n6\n12.0%\n\n\ncurrentEmp1nl_0\nIndustry or commercial organization\n2\n4.0%\n\n\ncurrentEmp1nl_0\nUniversity Medical Center\n2\n4.0%\n\n\ncurrentEmp1nl_0\nGovernmental (KNMI, RIVM, Ministries, and others)\n1\n2.0%\n\n\ncurrentEmp1nl_0\nUniversity of Applied Sciences\n1\n2.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>currentEmp1nl</span>"
+    ]
+  },
+  {
+    "objectID": "questions/024-currentEmp11qcl.html",
+    "href": "questions/024-currentEmp11qcl.html",
+    "title": "25  currentEmp11qcl",
+    "section": "",
+    "text": "26 Please select your organization type. If you work in more than one institution, select the one where you work more hours per week.\nQuestion code: currentEmp11qcl\nDetected type: Question grid\nRespondents answering: 7\n\n\n\nResponse distribution\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\ncurrentEmp11qcl_0\nUniversity\n4\n57.1%\n\n\ncurrentEmp11qcl_0\nGovernment\n1\n14.3%\n\n\ncurrentEmp11qcl_0\nI’m a freelancer\n1\n14.3%\n\n\ncurrentEmp11qcl_0\nIndustry\n1\n14.3%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>currentEmp11qcl</span>"
+    ]
+  },
+  {
+    "objectID": "questions/025-currentEmp1qzaf.html",
+    "href": "questions/025-currentEmp1qzaf.html",
+    "title": "26  currentEmp1qzaf",
+    "section": "",
+    "text": "27 Please select your organization type\nQuestion code: currentEmp1qzaf\nDetected type: Single response or free text\nRespondents answering: 42\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nPublic University\n26\n61.9%\n\n\nOther research-based organisation\n5\n11.9%\n\n\nGovernment\n4\n9.5%\n\n\nOther\n3\n7.1%\n\n\nResearch Council\n2\n4.8%\n\n\nIndustry\n1\n2.4%\n\n\nNon-profit organisation\n1\n2.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>currentEmp1qzaf</span>"
+    ]
+  },
+  {
+    "objectID": "questions/026-currentEmp11qzaf.html",
+    "href": "questions/026-currentEmp11qzaf.html",
+    "title": "27  currentEmp11qzaf",
+    "section": "",
+    "text": "28 What organization do you work for?\nQuestion code: currentEmp11qzaf\nDetected type: Single response or free text\nRespondents answering: 0\nNo responses were recorded for this question.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>currentEmp11qzaf</span>"
+    ]
+  },
+  {
+    "objectID": "questions/027-currentEmp20deqde.html",
+    "href": "questions/027-currentEmp20deqde.html",
+    "title": "28  currentEmp20deqde",
+    "section": "",
+    "text": "29 Which Fraunhofer institute do you work for?\nQuestion code: currentEmp20deqde\nDetected type: Question grid\nRespondents answering: 1\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\ncurrentEmp20deqde_0\nFraunhofer Institute for Cell Therapy and Immunology\n1\n100.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>currentEmp20deqde</span>"
+    ]
+  },
+  {
+    "objectID": "questions/028-currentEmp20qus.html",
+    "href": "questions/028-currentEmp20qus.html",
+    "title": "29  currentEmp20qus",
+    "section": "",
+    "text": "30 Which national laboratory do you work for?\nQuestion code: currentEmp20qus\nDetected type: Question grid\nRespondents answering: 8\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\ncurrentEmp20qus_0\nOak Ridge National Laboratory\n4\n50.0%\n\n\ncurrentEmp20qus_0\nFermi National Accelerator Laboratory\n1\n12.5%\n\n\ncurrentEmp20qus_0\nLawrence Berkeley National Laboratory\n1\n12.5%\n\n\ncurrentEmp20qus_0\nNational Center for Atmospheric Research\n1\n12.5%\n\n\ncurrentEmp20qus_0\nSandia National Laboratories\n1\n12.5%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>currentEmp20qus</span>"
+    ]
+  },
+  {
+    "objectID": "questions/029-currentEmp21deqde.html",
+    "href": "questions/029-currentEmp21deqde.html",
+    "title": "30  currentEmp21deqde",
+    "section": "",
+    "text": "31 Which Helmholtz centre do you work for?\nQuestion code: currentEmp21deqde\nDetected type: Single response or free text\nRespondents answering: 77\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nGerman Aerospace Center\n25\n32.5%\n\n\nForschungszentrum Jülich\n16\n20.8%\n\n\nHelmholtz-Zentrum Hereon\n11\n14.3%\n\n\nHelmholtz-Zentrum Berlin\n5\n6.5%\n\n\nAlfred Wegener Institute for Polar and Marine Research\n3\n3.9%\n\n\nGEOMAR Helmholtz Centre for Ocean Research Kiel\n3\n3.9%\n\n\nGerman Cancer Research Center\n3\n3.9%\n\n\nHelmholtz Centre Potsdam, GFZ German Research Centre for Geosciences\n3\n3.9%\n\n\nDESY\n2\n2.6%\n\n\nGerman Center for Neurodegenerative Diseases\n2\n2.6%\n\n\nHelmholtz-Zentrum Dresden-Rossendorf\n2\n2.6%\n\n\nHelmholtz Centre for Infection Research\n1\n1.3%\n\n\nKarlsruhe Institute of Technology\n1\n1.3%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>currentEmp21deqde</span>"
+    ]
+  },
+  {
+    "objectID": "questions/030-currentEmp22deqde.html",
+    "href": "questions/030-currentEmp22deqde.html",
+    "title": "31  currentEmp22deqde",
+    "section": "",
+    "text": "32 Which Leibniz institute do you work for?\nQuestion code: currentEmp22deqde\nDetected type: Question grid\nRespondents answering: 7\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\ncurrentEmp22deqde_0\nPotsdam Institute for Climate Impact Research\n2\n28.6%\n\n\ncurrentEmp22deqde_0\nGESIS – Leibniz Institute for the Social Sciences\n1\n14.3%\n\n\ncurrentEmp22deqde_0\nLeibniz Institute for Astrophysics Potsdam\n1\n14.3%\n\n\ncurrentEmp22deqde_0\nLeibniz Institute of Agricultural Development in Central and Eastern Europe\n1\n14.3%\n\n\ncurrentEmp22deqde_0\nOther\n1\n14.3%\n\n\ncurrentEmp22deqde_0\nWeierstrass Institute\n1\n14.3%\n\n\nOther\nLeibniz-Zentrum für Archäologie (LEIZA)\n1\n100.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>currentEmp22deqde</span>"
+    ]
+  },
+  {
+    "objectID": "questions/031-currentEmp23deqde.html",
+    "href": "questions/031-currentEmp23deqde.html",
+    "title": "32  currentEmp23deqde",
+    "section": "",
+    "text": "33 Which Max-Planck institute do you work for?\nQuestion code: currentEmp23deqde\nDetected type: Question grid\nRespondents answering: 23\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\ncurrentEmp23deqde_0\nMax Planck Institute for Evolutionary Anthropology\n5\n21.7%\n\n\ncurrentEmp23deqde_0\nMax Planck Institute of Molecular Cell Biology and Genetics\n3\n13.0%\n\n\ncurrentEmp23deqde_0\nOther\n3\n13.0%\n\n\ncurrentEmp23deqde_0\nMax Planck Institute for Dynamics of Complex Technical Systems\n2\n8.7%\n\n\ncurrentEmp23deqde_0\nMax Planck Institute for Astrophysics\n1\n4.3%\n\n\ncurrentEmp23deqde_0\nMax Planck Institute for Biological Cybernetics\n1\n4.3%\n\n\ncurrentEmp23deqde_0\nMax Planck Institute for Cell Biology\n1\n4.3%\n\n\ncurrentEmp23deqde_0\nMax Planck Institute for Extraterrestrial Physics\n1\n4.3%\n\n\ncurrentEmp23deqde_0\nMax Planck Institute for Human Cognitive and Brain Sciences\n1\n4.3%\n\n\ncurrentEmp23deqde_0\nMax Planck Institute for Meteorology\n1\n4.3%\n\n\ncurrentEmp23deqde_0\nMax Planck Institute for Molecular Plant Physiology\n1\n4.3%\n\n\ncurrentEmp23deqde_0\nMax Planck Institute for Polymer Research\n1\n4.3%\n\n\ncurrentEmp23deqde_0\nMax Planck Institute for the Structure and Dynamics of Matter\n1\n4.3%\n\n\ncurrentEmp23deqde_0\nMax Planck Institute of Psychiatry\n1\n4.3%\n\n\nOther\nAnimal Behavior\n1\n33.3%\n\n\nOther\nCell Biology and Genetics\n1\n33.3%\n\n\nOther\nGeoanthropology\n1\n33.3%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>32</span>  <span class='chapter-title'>currentEmp23deqde</span>"
+    ]
+  },
+  {
+    "objectID": "questions/032-currentEmp24deqde.html",
+    "href": "questions/032-currentEmp24deqde.html",
+    "title": "33  currentEmp24deqde",
+    "section": "",
+    "text": "34 Which University of Applied Sciences do you work for?\nQuestion code: currentEmp24deqde\nDetected type: Question grid\nRespondents answering: 0\nNo responses were recorded for this question.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>33</span>  <span class='chapter-title'>currentEmp24deqde</span>"
+    ]
+  },
+  {
+    "objectID": "questions/033-prevEmp1.html",
+    "href": "questions/033-prevEmp1.html",
+    "title": "34  prevEmp1",
+    "section": "",
+    "text": "35 Where was your previous job based?\nQuestion code: prevEmp1\nDetected type: Question grid\nRespondents answering: 434\n\n\n\nResponse distribution\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nOther\nBibliothek\n1\n8.3%\n\n\nOther\nEuropean Southern Observatory\n1\n8.3%\n\n\nOther\nFreelance\n1\n8.3%\n\n\nOther\nGovernment R&D Institute\n1\n8.3%\n\n\nOther\nindependent\n1\n8.3%\n\n\nOther\nNot a coding job\n1\n8.3%\n\n\nOther\nPrivate Sector\n1\n8.3%\n\n\nOther\nRemote verbatim transcription\n1\n8.3%\n\n\nOther\nResearch Museum\n1\n8.3%\n\n\nOther\nSelf-employed\n1\n8.3%\n\n\nOther\nStudent\n1\n8.3%\n\n\nOther\nuniv and sme\n1\n8.3%\n\n\nprevEmp1_0\nUniversity\n223\n51.4%\n\n\nprevEmp1_0\nPrivate company\n94\n21.7%\n\n\nprevEmp1_0\nThis is my first job\n47\n10.8%\n\n\nprevEmp1_0\nNon-profit organization\n20\n4.6%\n\n\nprevEmp1_0\nGovernment\n18\n4.1%\n\n\nprevEmp1_0\nNational laboratory\n18\n4.1%\n\n\nprevEmp1_0\nOther\n12\n2.8%\n\n\nprevEmp1_0\nNGO\n2\n0.5%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>34</span>  <span class='chapter-title'>prevEmp1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/034-prevEmp1qde.html",
+    "href": "questions/034-prevEmp1qde.html",
+    "title": "35  prevEmp1qde",
+    "section": "",
+    "text": "36 Where was your previous job based?\nQuestion code: prevEmp1qde\nDetected type: Question grid\nRespondents answering: 194\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nOther\nNGO\n2\n12.5%\n\n\nOther\nabroad (NASA)\n1\n6.2%\n\n\nOther\nCERN\n1\n6.2%\n\n\nOther\nDWD\n1\n6.2%\n\n\nOther\nerster Job\n1\n6.2%\n\n\nOther\nEurofins\n1\n6.2%\n\n\nOther\nHealthcare\n1\n6.2%\n\n\nOther\ninter-governmental research institute\n1\n6.2%\n\n\nOther\nItalian Research Center\n1\n6.2%\n\n\nOther\nKDAB Deutschland\n1\n6.2%\n\n\nOther\nLibrary\n1\n6.2%\n\n\nOther\nnirgends\n1\n6.2%\n\n\nOther\nno previous job\n1\n6.2%\n\n\nOther\noa\n1\n6.2%\n\n\nOther\nRessortforschungseinrichtung: Thünen-Institut\n1\n6.2%\n\n\nprevEmp1qde_0\nUniversity\n108\n55.7%\n\n\nprevEmp1qde_0\nPrivate company\n34\n17.5%\n\n\nprevEmp1qde_0\nOther\n19\n9.8%\n\n\nprevEmp1qde_0\nHelmholtz Association of German Research Centres\n13\n6.7%\n\n\nprevEmp1qde_0\nGovernment\n7\n3.6%\n\n\nprevEmp1qde_0\nUniversity of Applied Sciences\n5\n2.6%\n\n\nprevEmp1qde_0\nMax Planck Society\n4\n2.1%\n\n\nprevEmp1qde_0\nLeibniz Association\n3\n1.5%\n\n\nprevEmp1qde_0\nFraunhofer Society\n1\n0.5%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>35</span>  <span class='chapter-title'>prevEmp1qde</span>"
+    ]
+  },
+  {
+    "objectID": "questions/035-prevEmp1nl.html",
+    "href": "questions/035-prevEmp1nl.html",
+    "title": "36  prevEmp1nl",
+    "section": "",
+    "text": "37 Where was your previous job based?\nQuestion code: prevEmp1nl\nDetected type: Question grid\nRespondents answering: 50\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nOther\nMuseum\n1\n50.0%\n\n\nOther\nPrivate research company\n1\n50.0%\n\n\nprevEmp1nl_0\nUniversity\n20\n40.0%\n\n\nprevEmp1nl_0\nIndustry or commercial organization\n12\n24.0%\n\n\nprevEmp1nl_0\nThis is my first job\n6\n12.0%\n\n\nprevEmp1nl_0\nResearch Institutes (NWO-I, KNAW, and others)\n5\n10.0%\n\n\nprevEmp1nl_0\nNon-profit organization (eScience center, SURF, and others)\n3\n6.0%\n\n\nprevEmp1nl_0\nOther\n2\n4.0%\n\n\nprevEmp1nl_0\nUniversity Medical Center\n2\n4.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>36</span>  <span class='chapter-title'>prevEmp1nl</span>"
+    ]
+  },
+  {
+    "objectID": "questions/036-prevEmp1qswiss.html",
+    "href": "questions/036-prevEmp1qswiss.html",
+    "title": "37  prevEmp1qswiss",
+    "section": "",
+    "text": "38 Where was your previous job based?\nQuestion code: prevEmp1qswiss\nDetected type: Question grid\nRespondents answering: 66\n\n\n\nResponse distribution\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nprevEmp1qswiss_0\nUniversity\n31\n47.0%\n\n\nprevEmp1qswiss_0\nPrivate Company\n18\n27.3%\n\n\nprevEmp1qswiss_0\nThis is my first job\n7\n10.6%\n\n\nprevEmp1qswiss_0\nResearch Institute\n5\n7.6%\n\n\nprevEmp1qswiss_0\nUniversity of Applied Sciences\n3\n4.5%\n\n\nprevEmp1qswiss_0\nGovernment\n2\n3.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>37</span>  <span class='chapter-title'>prevEmp1qswiss</span>"
+    ]
+  },
+  {
+    "objectID": "questions/037-currentEmp5.html",
+    "href": "questions/037-currentEmp5.html",
+    "title": "38  currentEmp5",
+    "section": "",
+    "text": "39 What is your official job title?\nQuestion code: currentEmp5\nDetected type: Single response or free text\nRespondents answering: 701\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nResearch Software Engineer\n52\n7.4%\n\n\nSenior Research Software Engineer\n26\n3.7%\n\n\nWissenschaftlicher Mitarbeiter\n25\n3.6%\n\n\nResearch Fellow\n10\n1.4%\n\n\nPhD student\n9\n1.3%\n\n\nProfessor\n9\n1.3%\n\n\nResearch Associate\n9\n1.3%\n\n\nResearch Engineer\n9\n1.3%\n\n\nResearcher\n9\n1.3%\n\n\nRSE\n9\n1.3%\n\n\nAssociate Professor\n8\n1.1%\n\n\nSoftware Engineer\n8\n1.1%\n\n\nAssistant Professor\n7\n1.0%\n\n\nPostdoctoral researcher\n7\n1.0%\n\n\nResearch engineer\n7\n1.0%\n\n\nLecturer\n6\n0.9%\n\n\nBioinformatician\n5\n0.7%\n\n\nPhD candidate\n5\n0.7%\n\n\nPhD Student\n5\n0.7%\n\n\nSoftware Developer\n5\n0.7%\n\n\nwissenschaftlicher Mitarbeiter\n5\n0.7%\n\n\nLead Research Software Engineer\n4\n0.6%\n\n\nPostdoc\n4\n0.6%\n\n\nResearch Assistant\n4\n0.6%\n\n\nResearch Data Engineer\n4\n0.6%\n\n\nScientific Software Engineer\n4\n0.6%\n\n\nWissenschaftliche Mitarbeiterin\n4\n0.6%\n\n\nassistant professor\n3\n0.4%\n\n\nConsultant\n3\n0.4%\n\n\nHead of Research Software Engineering\n3\n0.4%\n\n\n\nOnly the 30 most frequent of 407 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>38</span>  <span class='chapter-title'>currentEmp5</span>"
+    ]
+  },
+  {
+    "objectID": "questions/038-currentEmp6.html",
+    "href": "questions/038-currentEmp6.html",
+    "title": "39  currentEmp6",
+    "section": "",
+    "text": "40 Are you known in your group by a different job title?\nQuestion code: currentEmp6\nDetected type: Single response or free text\nRespondents answering: 675\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n528\n78.2%\n\n\nTrue\n147\n21.8%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>39</span>  <span class='chapter-title'>currentEmp6</span>"
+    ]
+  },
+  {
+    "objectID": "questions/039-currentEmp60.html",
+    "href": "questions/039-currentEmp60.html",
+    "title": "40  currentEmp60",
+    "section": "",
+    "text": "41 Please enter the job title you use.\nQuestion code: currentEmp60\nDetected type: Single response or free text\nRespondents answering: 142\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nResearch Software Engineer\n17\n12.0%\n\n\nBioinformatician\n6\n4.2%\n\n\nResearch software engineer\n4\n2.8%\n\n\nbioinformatician\n3\n2.1%\n\n\nData scientist\n2\n1.4%\n\n\nData Steward\n2\n1.4%\n\n\nHPC Specialist\n2\n1.4%\n\n\nIT Manager\n2\n1.4%\n\n\nPostdoc\n2\n1.4%\n\n\nRSE\n2\n1.4%\n\n\nadmin\n1\n0.7%\n\n\nAI Consultant\n1\n0.7%\n\n\nApplication expert\n1\n0.7%\n\n\nApplication Expert\n1\n0.7%\n\n\nAssociate Data Scientist\n1\n0.7%\n\n\nBioinformatian\n1\n0.7%\n\n\nClimate Expert and Modelling Expert\n1\n0.7%\n\n\nCo-Director of the Global Governance Centre\n1\n0.7%\n\n\nCoordinador\n1\n0.7%\n\n\nCoordinator\n1\n0.7%\n\n\nData Manager (or general dogsbody)\n1\n0.7%\n\n\nData Manager / Data Engineer\n1\n0.7%\n\n\nData manager, Project leader, R-guru\n1\n0.7%\n\n\nData scientist / programmer\n1\n0.7%\n\n\nData scientist, Research software developer\n1\n0.7%\n\n\nData shepard\n1\n0.7%\n\n\nData steward & Research support\n1\n0.7%\n\n\nDatabase developer and data manager\n1\n0.7%\n\n\ndesarrollo\n1\n0.7%\n\n\nDeveloper\n1\n0.7%\n\n\n\nOnly the 30 most frequent of 110 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>40</span>  <span class='chapter-title'>currentEmp60</span>"
+    ]
+  },
+  {
+    "objectID": "questions/040-currentEmp12.html",
+    "href": "questions/040-currentEmp12.html",
+    "title": "41  currentEmp12",
+    "section": "",
+    "text": "42 Do you work full time or part time?\nQuestion code: currentEmp12\nDetected type: Single response or free text\nRespondents answering: 759\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFull Time\n638\n84.1%\n\n\nPart-time\n110\n14.5%\n\n\nPrefer not to say\n11\n1.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>41</span>  <span class='chapter-title'>currentEmp12</span>"
+    ]
+  },
+  {
+    "objectID": "questions/041-currentEmp10.html",
+    "href": "questions/041-currentEmp10.html",
+    "title": "42  currentEmp10",
+    "section": "",
+    "text": "43 What is the nature of your current employment?\nQuestion code: currentEmp10\nDetected type: Question grid\nRespondents answering: 759\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\ncurrentEmp10_0\nPermanent\n432\n56.9%\n\n\ncurrentEmp10_0\nFixed-term\n278\n36.6%\n\n\ncurrentEmp10_0\nOther\n18\n2.4%\n\n\ncurrentEmp10_0\nPrefer not to say\n17\n2.2%\n\n\ncurrentEmp10_0\nZero-hours/hourly/casual\n14\n1.8%\n\n\nOther\n3 year grant\n1\n5.6%\n\n\nOther\nAnnual Disposal\n1\n5.6%\n\n\nOther\nat will\n1\n5.6%\n\n\nOther\nContract\n1\n5.6%\n\n\nOther\nContractor (long-term / possibly permanent)\n1\n5.6%\n\n\nOther\ncontratos por proyecto u horas\n1\n5.6%\n\n\nOther\nExpectation of continuing employment without guarantees\n1\n5.6%\n\n\nOther\nFixed term that gets renewed annually pending satisfactory performance\n1\n5.6%\n\n\nOther\nfulltime via outsourcing\n1\n5.6%\n\n\nOther\nPermanent & Fixed-term (I have two contracts for the same position)\n1\n5.6%\n\n\nOther\nPhD Student\n1\n5.6%\n\n\nOther\nprogressing from postdoc to fix-term\n1\n5.6%\n\n\nOther\nrenewed yearly\n1\n5.6%\n\n\nOther\nRetired\n1\n5.6%\n\n\nOther\nStudent\n1\n5.6%\n\n\nOther\ntenure track\n1\n5.6%\n\n\nOther\nUnemployed\n1\n5.6%\n\n\nOther\nUnterschiedlich nach Beschäftigung\n1\n5.6%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>42</span>  <span class='chapter-title'>currentEmp10</span>"
+    ]
+  },
+  {
+    "objectID": "questions/042-currentEmp11.html",
+    "href": "questions/042-currentEmp11.html",
+    "title": "43  currentEmp11",
+    "section": "",
+    "text": "44 What is the expected duration (in years) of your current position (in total)?\nQuestion code: currentEmp11\nDetected type: Single response or free text\nRespondents answering: 275\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n3\n66\n24.0%\n\n\n2\n59\n21.5%\n\n\n1\n37\n13.5%\n\n\n4\n37\n13.5%\n\n\n5\n31\n11.3%\n\n\n6\n11\n4.0%\n\n\n1.5\n6\n2.2%\n\n\n0.5\n4\n1.5%\n\n\n2.5\n4\n1.5%\n\n\n9\n3\n1.1%\n\n\n0.83\n2\n0.7%\n\n\n3.5\n2\n0.7%\n\n\n8\n2\n0.7%\n\n\n0\n1\n0.4%\n\n\n0.4\n1\n0.4%\n\n\n1.2\n1\n0.4%\n\n\n10\n1\n0.4%\n\n\n12\n1\n0.4%\n\n\n2.083\n1\n0.4%\n\n\n2.3\n1\n0.4%\n\n\n20\n1\n0.4%\n\n\n3.8\n1\n0.4%\n\n\n30\n1\n0.4%\n\n\n7\n1\n0.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>43</span>  <span class='chapter-title'>currentEmp11</span>"
+    ]
+  },
+  {
+    "objectID": "questions/043-currentEmp13.html",
+    "href": "questions/043-currentEmp13.html",
+    "title": "44  currentEmp13",
+    "section": "",
+    "text": "45 Please select the discipline(s) in which you work. Please select all that apply.\nQuestion code: currentEmp13\nDetected type: Repeated free text\nRespondents answering: 759\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n10994\n84.6%\n\n\nTrue\n1909\n14.7%\n\n\nChemistry\n2\n0.0%\n\n\nDigital Humanities\n2\n0.0%\n\n\nEnvironmental sciences\n2\n0.0%\n\n\nEnvironmental Sciences\n2\n0.0%\n\n\nNeuroscience\n2\n0.0%\n\n\nAerospace\n1\n0.0%\n\n\nAll\n1\n0.0%\n\n\nAnalytische Chemie\n1\n0.0%\n\n\nAnwender sind aus allen möglichen Gebieten\n1\n0.0%\n\n\nAny really, depends on who asks for help\n1\n0.0%\n\n\nArchaeology\n1\n0.0%\n\n\nArchäologie\n1\n0.0%\n\n\nAstronomy\n1\n0.0%\n\n\nAstronomy and astrophysics\n1\n0.0%\n\n\nAtmospheric Science\n1\n0.0%\n\n\nBilbiotecas y apoyo a la investigación\n1\n0.0%\n\n\nbioinformatics\n1\n0.0%\n\n\nChemical sciences\n1\n0.0%\n\n\nChemie\n1\n0.0%\n\n\nClimate Science, Earth System Science, Atmospheric Sciences\n1\n0.0%\n\n\nComputational material science\n1\n0.0%\n\n\nData visualization\n1\n0.0%\n\n\nDH\n1\n0.0%\n\n\nDigital humanities\n1\n0.0%\n\n\nDigital Humanities, Digital Heritage and Web Archives\n1\n0.0%\n\n\nDigital Humanities; Library and Information Science\n1\n0.0%\n\n\nDiscipline agonstic support job\n1\n0.0%\n\n\nEarth & Space Sciences\n1\n0.0%\n\n\n\nOnly the 30 most frequent of 84 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>44</span>  <span class='chapter-title'>currentEmp13</span>"
+    ]
+  },
+  {
+    "objectID": "questions/044-likert0.html",
+    "href": "questions/044-likert0.html",
+    "title": "45  likert0",
+    "section": "",
+    "text": "46 On average, how much of your time is spent on\nQuestion code: likert0\nDetected type: Question grid\nRespondents answering: 753\n\n\n\nResponse distribution\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\ndeveloping software?\n20%\n230\n30.7%\n\n\ndeveloping software?\n40%\n206\n27.5%\n\n\ndeveloping software?\n60%\n137\n18.3%\n\n\ndeveloping software?\n80%\n111\n14.8%\n\n\ndeveloping software?\n0% (None at all)\n37\n4.9%\n\n\ndeveloping software?\n100% (All my time)\n28\n3.7%\n\n\nmanagement?\n20%\n280\n41.1%\n\n\nmanagement?\n0% (None at all)\n259\n38.0%\n\n\nmanagement?\n40%\n74\n10.9%\n\n\nmanagement?\n60%\n47\n6.9%\n\n\nmanagement?\n80%\n16\n2.3%\n\n\nmanagement?\n100% (All my time)\n5\n0.7%\n\n\nother activities?\n20%\n352\n58.6%\n\n\nother activities?\n0% (None at all)\n153\n25.5%\n\n\nother activities?\n40%\n70\n11.6%\n\n\nother activities?\n60%\n18\n3.0%\n\n\nother activities?\n80%\n5\n0.8%\n\n\nother activities?\n100% (All my time)\n3\n0.5%\n\n\nresearch?\n20%\n312\n43.5%\n\n\nresearch?\n0% (None at all)\n189\n26.4%\n\n\nresearch?\n40%\n127\n17.7%\n\n\nresearch?\n60%\n54\n7.5%\n\n\nresearch?\n80%\n24\n3.3%\n\n\nresearch?\n100% (All my time)\n11\n1.5%\n\n\nteaching?\n0% (None at all)\n333\n48.8%\n\n\nteaching?\n20%\n269\n39.4%\n\n\nteaching?\n40%\n49\n7.2%\n\n\nteaching?\n60%\n20\n2.9%\n\n\nteaching?\n80%\n7\n1.0%\n\n\nteaching?\n100% (All my time)\n4\n0.6%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>45</span>  <span class='chapter-title'>likert0</span>"
+    ]
+  },
+  {
+    "objectID": "questions/045-likert1.html",
+    "href": "questions/045-likert1.html",
+    "title": "46  likert1",
+    "section": "",
+    "text": "47 On average, how much time would you like to spend on\nQuestion code: likert1\nDetected type: Question grid\nRespondents answering: 728\n\n\n\nResponse distribution\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\ndeveloping software?\n40%\n260\n36.0%\n\n\ndeveloping software?\n60%\n175\n24.2%\n\n\ndeveloping software?\n20%\n125\n17.3%\n\n\ndeveloping software?\n80%\n112\n15.5%\n\n\ndeveloping software?\n100% (All my time)\n36\n5.0%\n\n\ndeveloping software?\n0% (None at all)\n15\n2.1%\n\n\nmanagement?\n0% (None at all)\n329\n53.7%\n\n\nmanagement?\n20%\n203\n33.1%\n\n\nmanagement?\n40%\n38\n6.2%\n\n\nmanagement?\n60%\n28\n4.6%\n\n\nmanagement?\n80%\n10\n1.6%\n\n\nmanagement?\n100% (All my time)\n5\n0.8%\n\n\nother activities?\n0% (None at all)\n288\n51.7%\n\n\nother activities?\n20%\n211\n37.9%\n\n\nother activities?\n40%\n37\n6.6%\n\n\nother activities?\n60%\n11\n2.0%\n\n\nother activities?\n100% (All my time)\n6\n1.1%\n\n\nother activities?\n80%\n4\n0.7%\n\n\nresearch?\n20%\n236\n34.2%\n\n\nresearch?\n40%\n216\n31.3%\n\n\nresearch?\n60%\n95\n13.8%\n\n\nresearch?\n0% (None at all)\n93\n13.5%\n\n\nresearch?\n80%\n28\n4.1%\n\n\nresearch?\n100% (All my time)\n22\n3.2%\n\n\nteaching?\n20%\n318\n50.0%\n\n\nteaching?\n0% (None at all)\n231\n36.3%\n\n\nteaching?\n40%\n65\n10.2%\n\n\nteaching?\n60%\n11\n1.7%\n\n\nteaching?\n100% (All my time)\n7\n1.1%\n\n\nteaching?\n80%\n4\n0.6%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>46</span>  <span class='chapter-title'>likert1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/046-likert3a.html",
+    "href": "questions/046-likert3a.html",
+    "title": "47  likert3a",
+    "section": "",
+    "text": "48 In general, I am satisfied with my current position. []\nQuestion code: likert3a\nDetected type: Single response or free text\nRespondents answering: 689\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n324\n47.0%\n\n\nStrongly Agree\n214\n31.1%\n\n\nNeither agree or disagree\n79\n11.5%\n\n\nDisagree\n59\n8.6%\n\n\nStrongly disagree\n13\n1.9%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>47</span>  <span class='chapter-title'>likert3a</span>"
+    ]
+  },
+  {
+    "objectID": "questions/047-likert3b.html",
+    "href": "questions/047-likert3b.html",
+    "title": "48  likert3b",
+    "section": "",
+    "text": "49 In general, I am satisfied with my career. []\nQuestion code: likert3b\nDetected type: Single response or free text\nRespondents answering: 686\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n315\n45.9%\n\n\nStrongly Agree\n169\n24.6%\n\n\nNeither agree or disagree\n127\n18.5%\n\n\nDisagree\n69\n10.1%\n\n\nStrongly disagree\n6\n0.9%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>48</span>  <span class='chapter-title'>likert3b</span>"
+    ]
+  },
+  {
+    "objectID": "questions/048-likert4a.html",
+    "href": "questions/048-likert4a.html",
+    "title": "49  likert4a",
+    "section": "",
+    "text": "50 I feel that my contribution to research is recognised by my institution. []\nQuestion code: likert4a\nDetected type: Single response or free text\nRespondents answering: 465\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nAgree\n177\n38.1%\n\n\nNeither agree or disagree\n135\n29.0%\n\n\nStrongly Agree\n67\n14.4%\n\n\nDisagree\n58\n12.5%\n\n\nStrongly disagree\n28\n6.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>49</span>  <span class='chapter-title'>likert4a</span>"
+    ]
+  },
+  {
+    "objectID": "questions/049-likert4b.html",
+    "href": "questions/049-likert4b.html",
+    "title": "50  likert4b",
+    "section": "",
+    "text": "51 I feel that my contribution to research is recognised by…\nQuestion code: likert4b\nDetected type: Question grid\nRespondents answering: 60\n\n\n\nResponse distribution\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nlikert4b[1]_0\nAgree\n36\n61.0%\n\n\nlikert4b[1]_0\nNeither agree or disagree\n14\n23.7%\n\n\nlikert4b[1]_0\nDisagree\n7\n11.9%\n\n\nlikert4b[1]_0\nStrongly disagree\n2\n3.4%\n\n\nlikert4b[2]_0\nAgree\n48\n81.4%\n\n\nlikert4b[2]_0\nNeither agree or disagree\n7\n11.9%\n\n\nlikert4b[2]_0\nDisagree\n3\n5.1%\n\n\nlikert4b[2]_0\nStrongly disagree\n1\n1.7%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>50</span>  <span class='chapter-title'>likert4b</span>"
+    ]
+  },
+  {
+    "objectID": "questions/050-likert4c.html",
+    "href": "questions/050-likert4c.html",
+    "title": "51  likert4c",
+    "section": "",
+    "text": "52 I feel that my contribution to research is recognised by…\nQuestion code: likert4c\nDetected type: Question grid\nRespondents answering: 200\n\n\n\nResponse distribution\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nlikert4c[1]_0\nAgree\n79\n40.7%\n\n\nlikert4c[1]_0\nNeither agree or disagree\n48\n24.7%\n\n\nlikert4c[1]_0\nDisagree\n29\n14.9%\n\n\nlikert4c[1]_0\nStrongly Agree\n22\n11.3%\n\n\nlikert4c[1]_0\nStrongly disagree\n16\n8.2%\n\n\nlikert4c[2]_0\nAgree\n87\n44.6%\n\n\nlikert4c[2]_0\nStrongly Agree\n69\n35.4%\n\n\nlikert4c[2]_0\nNeither agree or disagree\n19\n9.7%\n\n\nlikert4c[2]_0\nDisagree\n12\n6.2%\n\n\nlikert4c[2]_0\nStrongly disagree\n8\n4.1%\n\n\nlikert4c[3]_0\nAgree\n88\n44.4%\n\n\nlikert4c[3]_0\nStrongly Agree\n70\n35.4%\n\n\nlikert4c[3]_0\nNeither agree or disagree\n33\n16.7%\n\n\nlikert4c[3]_0\nDisagree\n4\n2.0%\n\n\nlikert4c[3]_0\nStrongly disagree\n3\n1.5%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>51</span>  <span class='chapter-title'>likert4c</span>"
+    ]
+  },
+  {
+    "objectID": "questions/051-likert5b.html",
+    "href": "questions/051-likert5b.html",
+    "title": "52  likert5b",
+    "section": "",
+    "text": "53 \nQuestion code: likert5b\nDetected type: Question grid\nRespondents answering: 734\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nIt is likely that my next position will be a Research Software Engineer / Research Software Developer role\nAgree\n201\n29.3%\n\n\nIt is likely that my next position will be a Research Software Engineer / Research Software Developer role\nNeither agree or disagree\n200\n29.2%\n\n\nIt is likely that my next position will be a Research Software Engineer / Research Software Developer role\nDisagree\n112\n16.4%\n\n\nIt is likely that my next position will be a Research Software Engineer / Research Software Developer role\nStrongly Agree\n96\n14.0%\n\n\nIt is likely that my next position will be a Research Software Engineer / Research Software Developer role\nStrongly disagree\n76\n11.1%\n\n\nMy experience is in demand on the labour market\nAgree\n294\n42.2%\n\n\nMy experience is in demand on the labour market\nNeither agree or disagree\n168\n24.1%\n\n\nMy experience is in demand on the labour market\nStrongly Agree\n144\n20.7%\n\n\nMy experience is in demand on the labour market\nDisagree\n76\n10.9%\n\n\nMy experience is in demand on the labour market\nStrongly disagree\n15\n2.2%\n\n\nThe process I have to complete to gain a promotion is clear and understandable\nDisagree\n193\n28.2%\n\n\nThe process I have to complete to gain a promotion is clear and understandable\nAgree\n156\n22.8%\n\n\nThe process I have to complete to gain a promotion is clear and understandable\nStrongly disagree\n145\n21.2%\n\n\nThe process I have to complete to gain a promotion is clear and understandable\nNeither agree or disagree\n136\n19.9%\n\n\nThe process I have to complete to gain a promotion is clear and understandable\nStrongly Agree\n54\n7.9%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>52</span>  <span class='chapter-title'>likert5b</span>"
+    ]
+  },
+  {
+    "objectID": "questions/052-likert5a.html",
+    "href": "questions/052-likert5a.html",
+    "title": "53  likert5a",
+    "section": "",
+    "text": "54 \nQuestion code: likert5a\nDetected type: Question grid\nRespondents answering: 60\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nIt is likely that I will gain a promotion within my current group\nNeither agree or disagree\n18\n31.0%\n\n\nIt is likely that I will gain a promotion within my current group\nDisagree\n17\n29.3%\n\n\nIt is likely that I will gain a promotion within my current group\nAgree\n11\n19.0%\n\n\nIt is likely that I will gain a promotion within my current group\nStrongly disagree\n11\n19.0%\n\n\nIt is likely that I will gain a promotion within my current group\nStrongly Agree\n1\n1.7%\n\n\nIt would not be very difficult for me to get an equivalent job in a different institution\nAgree\n20\n33.9%\n\n\nIt would not be very difficult for me to get an equivalent job in a different institution\nNeither agree or disagree\n17\n28.8%\n\n\nIt would not be very difficult for me to get an equivalent job in a different institution\nDisagree\n9\n15.3%\n\n\nIt would not be very difficult for me to get an equivalent job in a different institution\nStrongly disagree\n8\n13.6%\n\n\nIt would not be very difficult for me to get an equivalent job in a different institution\nStrongly Agree\n5\n8.5%\n\n\nThere are many opportunities within my chosen career plan\nNeither agree or disagree\n15\n26.3%\n\n\nThere are many opportunities within my chosen career plan\nDisagree\n14\n24.6%\n\n\nThere are many opportunities within my chosen career plan\nAgree\n12\n21.1%\n\n\nThere are many opportunities within my chosen career plan\nStrongly disagree\n9\n15.8%\n\n\nThere are many opportunities within my chosen career plan\nStrongly Agree\n7\n12.3%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>53</span>  <span class='chapter-title'>likert5a</span>"
+    ]
+  },
+  {
+    "objectID": "questions/053-turnOver3.html",
+    "href": "questions/053-turnOver3.html",
+    "title": "54  turnOver3",
+    "section": "",
+    "text": "55 How likely are you to choose to leave your job in the next 12 months? []\nQuestion code: turnOver3\nDetected type: Single response or free text\nRespondents answering: 123\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nVery unlikely\n49\n39.8%\n\n\nUnlikely\n29\n23.6%\n\n\nNeither likely or unlikely\n22\n17.9%\n\n\nVery likely\n12\n9.8%\n\n\nLikely\n11\n8.9%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>54</span>  <span class='chapter-title'>turnOver3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/054-turnOver3zaf.html",
+    "href": "questions/054-turnOver3zaf.html",
+    "title": "55  turnOver3zaf",
+    "section": "",
+    "text": "56 What are the main challenges you face in developing research software?\nQuestion code: turnOver3zaf\nDetected type: Multiple response\nRespondents answering: 41\n\n\n\nResponse distribution\n\n\n\n\n\nOption\nCount\nPercent\n\n\n\n\nTime for coding\n26\n63.4%\n\n\nCareer progression\n19\n46.3%\n\n\nAccess to peers for knowledge exchange\n17\n41.5%\n\n\nCode maintainability\n17\n41.5%\n\n\nLack of credit\n16\n39.0%\n\n\nToo many varied requests\n14\n34.1%\n\n\nTime to attend training\n12\n29.3%\n\n\nAccess to training\n12\n29.3%\n\n\nJob security\n11\n26.8%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>55</span>  <span class='chapter-title'>turnOver3zaf</span>"
+    ]
+  },
+  {
+    "objectID": "questions/055-org3de.html",
+    "href": "questions/055-org3de.html",
+    "title": "56  org3de",
+    "section": "",
+    "text": "57 Would you support the establishment of a German research software institution?\nQuestion code: org3de\nDetected type: Single response or free text\nRespondents answering: 203\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nYes, I see urgent/high demand\n71\n35.0%\n\n\nYes, I see some demand\n65\n32.0%\n\n\nYes, I don’t see a specific demand but believe it to be beneficial\n38\n18.7%\n\n\nI am undecided\n18\n8.9%\n\n\nNo, I don’t see any demand/benefit\n8\n3.9%\n\n\nNo, I think such an institution would be harmful\n3\n1.5%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>56</span>  <span class='chapter-title'>org3de</span>"
+    ]
+  },
+  {
+    "objectID": "questions/056-org4de.html",
+    "href": "questions/056-org4de.html",
+    "title": "57  org4de",
+    "section": "",
+    "text": "58 What tasks should a national research software institution primarily undertake in your opinion?\nQuestion code: org4de\nDetected type: Question grid\nRespondents answering: 206\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nAdvocating for research software towards politicians and decision makers\nTrue\n151\n73.3%\n\n\nAdvocating for research software towards politicians and decision makers\nFalse\n55\n26.7%\n\n\nCommunity engagement and trainings\nTrue\n148\n71.8%\n\n\nCommunity engagement and trainings\nFalse\n58\n28.2%\n\n\nConsulting on research software development\nTrue\n152\n73.8%\n\n\nConsulting on research software development\nFalse\n54\n26.2%\n\n\nIn-house development of research software\nFalse\n150\n72.8%\n\n\nIn-house development of research software\nTrue\n56\n27.2%\n\n\nMaintenance of internationally relevant research software\nTrue\n127\n61.7%\n\n\nMaintenance of internationally relevant research software\nFalse\n79\n38.3%\n\n\nOffer funding for research software projects\nFalse\n120\n58.3%\n\n\nOffer funding for research software projects\nTrue\n86\n41.7%\n\n\norg4de[5]_0\nTrue\n146\n70.9%\n\n\norg4de[5]_0\nFalse\n60\n29.1%\n\n\nOther\nadvocate for more open source research software\n1\n9.1%\n\n\nOther\nAligning the promotion studies with industry relevant trends which provides transferable skills so that researcher don’t end up with no/unpleasant jobs after academia.\n1\n9.1%\n\n\nOther\nAll of the listed tasks are good, but achieving all of them seems unrealistic. I would prefer an (initial) focus on the selected tasks.\n1\n9.1%\n\n\nOther\nBeratung und Unterstützung dabei Forschungssoftware auf unabhängige Beine zu stellen (z.B. Ausgründung) und diese dann aber wieder in Anträge und Projekte als Ressourcen aufzunehmen\n1\n9.1%\n\n\nOther\nCareer development programs for RSEs (incl. helping international people navigate how to have a career as an RSE in the German system)\n1\n9.1%\n\n\nOther\nPromotion of Open Science, Open Data, and software tools that support both\n1\n9.1%\n\n\nOther\nSupport/material/networking for multiplicators (e. g., university teachers) for education/skill development as a “soft skill” along broader education\n1\n9.1%\n\n\nOther\nTrainings with Certification (similar to LPIC, CompTIA, etc.)\n1\n9.1%\n\n\nOther\nVermittlung bereits existierender aber unbekannter Forschungssoftware an potentielle Anwender, kuration aktiver Forschungssoftware\n1\n9.1%\n\n\nOther\nVermittlung von Kompetenzträgern, z.B. bei nischigen Kombinationen von Fächern, Methoden und digitalen Tools.\n1\n9.1%\n\n\nOther\nWhatever de-RSE doesn’t do, unless the two orgs merge at some point.\n1\n9.1%\n\n\nPromotion of career paths in the RSE field\nTrue\n124\n60.2%\n\n\nPromotion of career paths in the RSE field\nFalse\n82\n39.8%\n\n\nResearch on RSE topics\nFalse\n134\n65.0%\n\n\nResearch on RSE topics\nTrue\n72\n35.0%\n\n\nTemporary support of research software projects with manpower\nFalse\n115\n55.8%\n\n\nTemporary support of research software projects with manpower\nTrue\n91\n44.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>57</span>  <span class='chapter-title'>org4de</span>"
+    ]
+  },
+  {
+    "objectID": "questions/057-org5de.html",
+    "href": "questions/057-org5de.html",
+    "title": "58  org5de",
+    "section": "",
+    "text": "59 What structure do you consider most suitable for a national research software institution?\nQuestion code: org5de\nDetected type: Question grid\nRespondents answering: 199\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\norg5de_0\nA combination of a central institution and decentralized partners\n68\n34.2%\n\n\norg5de_0\nA decentralized network of regional hubs without a central institution\n49\n24.6%\n\n\norg5de_0\nA central institute with several fixed locations\n40\n20.1%\n\n\norg5de_0\nNot sure\n34\n17.1%\n\n\norg5de_0\nA central institute with a single location\n7\n3.5%\n\n\norg5de_0\nOther\n1\n0.5%\n\n\nOther\nThe physical representation is likely less important than the decision making. I think it is important that it is an entity and not subsumed into other institutions, cf. eScience in the Netherlands.\n1\n100.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>58</span>  <span class='chapter-title'>org5de</span>"
+    ]
+  },
+  {
+    "objectID": "questions/058-org6de.html",
+    "href": "questions/058-org6de.html",
+    "title": "59  org6de",
+    "section": "",
+    "text": "60 How should a national research software institution foster community engagement and knowledge transfer?\nQuestion code: org6de\nDetected type: Question grid\nRespondents answering: 206\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nCompilation and development of freely available training materials (for teaching and self-studying)\nTrue\n129\n62.6%\n\n\nCompilation and development of freely available training materials (for teaching and self-studying)\nFalse\n77\n37.4%\n\n\nFostering networking within the RSE community via a moderated matrix space (or similar)\nFalse\n117\n56.8%\n\n\nFostering networking within the RSE community via a moderated matrix space (or similar)\nTrue\n89\n43.2%\n\n\nHosting an easily searchable database of trainings available through other institutions\nTrue\n129\n62.6%\n\n\nHosting an easily searchable database of trainings available through other institutions\nFalse\n77\n37.4%\n\n\norg6de[6]_0\nFalse\n121\n58.7%\n\n\norg6de[6]_0\nTrue\n85\n41.3%\n\n\nOrganisation of conferences, workshops and similar events\nTrue\n168\n81.6%\n\n\nOrganisation of conferences, workshops and similar events\nFalse\n38\n18.4%\n\n\nOrganisation of online and/or in-person trainings\nTrue\n139\n67.5%\n\n\nOrganisation of online and/or in-person trainings\nFalse\n67\n32.5%\n\n\nOther\nAgain, whatever de-RSE doesn’t do.\n1\n16.7%\n\n\nOther\nEncourage developers to share their software under a free and open-source license\n1\n16.7%\n\n\nOther\nFrom my experience in my previous job, i learned that creating training material and giving trainings is of great value, but the time investment is so high, that when they would be sold commercially, basically no revenue can be generated. Also it probably takes a few years until a training is well-polished, requiring repeated testing of the training material. I think allocating a budged per employee per year, to attend to external trainings or buy access to training material is a better effort to satisfly the broad range of possible skills and give everyone the opportunity to excell their knowledge specifically in the area where its needed, individually. I think an RSE community benefits from a broad range of skills, distributed across many people, that have an easy path to exchange information and feel comfortable doing so. In the end, a tight connection between juniors and seniors is a very good way to educate\n1\n16.7%\n\n\nOther\nResearch Software Directory for Germany, Research Software Engineer directory for Germany (skills and expertise in what, to get connected/find contributors)\n1\n16.7%\n\n\nOther\nScholarships and grants specifically for RSE retention and career advancement, prioritizing underrepresented groups\n1\n16.7%\n\n\nOther\nSichtbarkeit für Community-Engagement bzw. wichtige Beiträge erhöhen\n1\n16.7%\n\n\nRunning regular online talk-series\nFalse\n110\n53.4%\n\n\nRunning regular online talk-series\nTrue\n96\n46.6%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>59</span>  <span class='chapter-title'>org6de</span>"
+    ]
+  },
+  {
+    "objectID": "questions/059-org7de.html",
+    "href": "questions/059-org7de.html",
+    "title": "60  org7de",
+    "section": "",
+    "text": "61 Do you have any further suggestions or wishes regarding the conception of a research software institution in Germany?\nQuestion code: org7de\nDetected type: Single response or free text\nRespondents answering: 33\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n- Zur Verfügungstellung von Repositories zur Ablage der Software und Dokumentation - Unterstützung bei Lizenrechtlichen Fragestellungen\n1\n3.0%\n\n\nA decentralized network with a central organizer is the key. We are also organizing something similar at BAM, Berlin. I will probably be the leader of this, so I am interested and will probably reach out to FutuRSI.\n1\n3.0%\n\n\nAufsuchend arbeiten statt unbekannte und dann selten genutzte Beratungsangebote schaffen. Also jeden Monat ein anderes Forschungsinstitut/-einrichtung besuchen. Es gibt schon viel zu viele Mailverteiler oder online Seminare, wo man immer wieder die gleichen drei Gestalten trifft.\n1\n3.0%\n\n\nCentral aspects of SE are modelling practices, project management, and agile SE. I feel like these skills are incredibly neglected in the RSE context and there is an unhealthy focus on code and coding practice. This leads to the constant question of how to create sustainable code, which is not the same as sustainable software, as well as the inane question of how to publish software code as scientific output instead of classic software pubiishing through traditional SE modelling and documentation practices, as the latter is NOT tied to code infrastructure. Including concrete software engineering (especially modelling) skills would provide RSEs a way to actually publish their work in relevant journals. This alone could create a way to stabilize carreer paths. Before institutionalizing beaurocratic infrastructure, it makes sense to at least attempt to implement correct software engineering practice on a low level with sensible engineering modelling and thus documentation practice and see if this leads to sustainable research software, RSE publications, and sustainable carreer paths.\n1\n3.0%\n\n\nConcrete and hands-on support for specific problems and not only development of high-level concepts and standards. Offer help to update institutions and the routine daily workflows for moving from closed, proprietary, un-FAIR to an open source software and public data infrastrure. Develop and offer concrete workflows and solutions (incl. software) to meet the demand of funding agencies that actually can be adopted and re-used. (In contrast to the nebulous and unhelpful “you have to introduce a data repository and a metadata scheme / ontology for your field”.)\n1\n3.0%\n\n\nConsider what you want to achieve. Ideally, we write more open source, well structured and stable software codes that get distributed and enhanced. That depends on individual contributors (ICs), not a central organization. However, people need to realize that this effort is worth their time, that it pays off in the long term. Make sure that is clear and provide them with tools to get started.\n1\n3.0%\n\n\nCoordination and collaboration with the carpentries etc; Please consider the wide variety of research software needs, different levels of expertise. A German research software institution should not be a software developing institution, but an institution to help RSEs do the software development Please don’t overfocus on AI\n1\n3.0%\n\n\nDon’t federalize it to death\n1\n3.0%\n\n\nEntwicklung von Forschungssoftware ist häufig weniger ein Problem als die langfristige Pflege. Geld/Stellen nur für nötige Sicherheitsupdates nicht mal sinnolle Weiterentwicklungen, sind schwer zu verstetigen oder neu einzuwerben. Beratung und Support in der Richtung sehe ich als sinnvoll an.\n1\n3.0%\n\n\nEs sollte ein gut durchsuchbares Archiv existierender Forschungssoftware und ihrer Dokumentation geben.\n1\n3.0%\n\n\nFörderung niedrigschwelliger, informeller Vernetzungsmöglichkeiten (etwa Online-Stammtische und Präsenzworkshops wie Hackathons), die verhindern, dass ich mich in meiner vor Ort sehr spezialisierten Position bei Problemen alleingelassen fühle\n1\n3.0%\n\n\nHauptsächlich Vernetzung und Koordination. Es braucht an vielen Stellen das Rad nicht neu erfunden werden, aber es ist zu wenig bekannt, wo Entwicklungen bereits gemacht wurden. Daher ist Koordination/Matchmaking wichtig. Bevorzugt ein Hub&Spoke-Model, sodass sowohl der Überblick und (Politische) Advocacy möglich ist, als auch der Kontakt zu den einzelnen RSE-Gruppen behalten wird. Ansonsten sehe ich die Gefahr, dass man sich entweder im täglichen Klein-Klein verliert (nur lokale Gruppen), oder den Kontakt und die Bedürfnisse von RSEs aus den Augen verliert.\n1\n3.0%\n\n\nHighlight the importance of the entire software development process (including: project management, requirements management, documentation, UI/UX) and find ways to support RSEs or RSE teams in implementing it.\n1\n3.0%\n\n\nI believe that the concept of a research software institution in Germany is fundamentally flawed. Research software engineers need to be deeply embedded in the disciplines that they serve to focus on meeting the needs of researchers in those disciplines. An institution focused on research software will tend to see software as the outcome and encourage the development of overengineered and complex solutions to researchers’ needs. I have encountered many scientists struggling to work with software that follows so-called best practices, and I have likewise seen fellow research software engineers proposing solutions simply because they sound cool or use the currently hyped technology. We need to find better ways to support small research software that evolves organically within a community of practice, and a federal research software institution is not that.\n1\n3.0%\n\n\nI have encountered cases (jobs or fellowships) where female candidates are strongly encouraged to apply or prioritized, but I have never seen this extend to transgender and nonbinary people, and it should. Nonbinary is a legally recognized gender in Germany, and nonbinary people should be included alongside women in diversity and inclusion efforts. Transgender people (men, women, and nonbinary) also face challenges as a result of others’ perception of their gender and should also be included. Finally, it seems like a small thing, but wherever documents are trying to use inclusive language, the English version should not indicate “he or she” and so on, but rather singular they and them, which is applicable to all genders. I’ve noticed it is difficult to change wording once it is established in official documents, which is why I am bringing this to your attention so early.\n1\n3.0%\n\n\nI think freedom of workflow is important. Nobody should be forced/limited by things like operating system, coding environment, laptop hardware. These things are individual decisions made by the employee. They will take decisions that depend on the projects that they are planning to work on. I think freedom of project specific decisions are also important. Things like coding guidelines should not be established globally, across all projects. A team needs the freedom to pick the technology that fits the projects needs. From here the need/improvement of in-house technologies can be deduced. In general in-house technologies should be favored, in order to test and improve them. An example of collaboration: Helmholtz Zentrum Dresden is developing the alpaka library, which is a great library when dealing with high performance computing situations, like software for physics simulation.\n1\n3.0%\n\n\nI think funding and recognition for research software development is key, as well as permanent positions for these tasks at individual research facilities.\n1\n3.0%\n\n\nI’m afraid government involvement will jeopardize any relevant effort.\n1\n3.0%\n\n\nIf such an institution were to be set up, it needs to be well publicised not only to the other RSEs but all faculties across the various research insitutes in Germany, which will be a tough job to achieve.\n1\n3.0%\n\n\nIMHO academic career teaches researchers to work towards short to midterm goals, making the best of what they find. Thus many researchers need to learn system engineering or long term strategic oriented project planning. Thus I see that Research software engineering institution will face the challenge to learn from the researchers what they really need and to get them to embrace solutions already out there (e.g. many research software embeds job management into their package instead of blending into existing job execution or analysis facilities solutions). So founding an institution can be helpful, but it needs to act somehow like a emperor traveling through his country. An other option could be to place them close to attraction research centers were perspective interaction researcher pass by anyway.\n1\n3.0%\n\n\nIt should give awards to researchers developing software and improve their visibility by other means, since at the moment this large part of their work does not get deserved attention.\n1\n3.0%\n\n\nMany computing centers and research institutions actually already offer trainings and support and workshops. So any new institution should coordinate with them.\n1\n3.0%\n\n\nMultiple Aspects: 1. Offer Trainings for the People developing Software 2. Offer Trainings to become the Research Software Expert in my company/institute/location to teach others to teach others\n1\n3.0%\n\n\nNever really thought about it, but now that you bring it to my attention, it is something I personally wouldn’t mind being involved in.\n1\n3.0%\n\n\nOne of the issues I see is the regular appearance of new methods, conventions and technologies. Think advances in CMake, GPUs, code packaging, build systems, etc. If there is a convention for how these tools should be used then it is relatively easy to use this stuff (think GNUs configure; make; make install). Often alternative approaches are developed within specific groups and then you can spend days, sometimes even weeks, trying to figure out how that approach is supposed to work. This is one of the most frustrating things because these tools/approaches have nothing to do with the core functionality of the codes, but can take up a lot of time to navigate. The more widely shared and better established the conventions are, the less time people have to waste on figuring this stuff out.\n1\n3.0%\n\n\nPlease do not use “moderated matrix space” without defining it. Thank you. For many fields, we need to improve the undergraduate education.\n1\n3.0%\n\n\nPlease don’t screw it up :-)\n1\n3.0%\n\n\nRE: primary tasks IMO funding ambitious RSE projects would be the most important role of such an org! There are a lot of opportunities that would have significant impacts on many research projects, but not enough on any individual project to justify being part of that project’s research grant. Also, insuring longevity of popular open source projects is always much needed. Also, as far as setting standards, setting standards particularly for security would be helpful (in addition to quality, metadata, etc. mentioned in this option.) RE: community engagement and knowledge transfer It would be helpful for a central organization to organize/facilitate advanced RSE courses/workshops. For RSEs who interact primarily with researchers to improve their own skills. Similarly for trainer-training, would be more helpful to offer something aimed at folks who are actively teaching technical skills to improve their skills rather than Carpentries-style instructor training which seems more aimed at first-time instructors. As far as training materials, good quality references are increasingly hard to find as everything is overrun with AI slop. Probably would not need to generate new material, but curating high quality, actively maintained, human written reference materials on various topics would be helpful.\n1\n3.0%\n\n\nSecure long-term funding, model itself STRONGLY after the SSI (taking into account German peculiarities, e.g., federalism), offer long(er)-term jobs for its officers.\n1\n3.0%\n\n\nSee point above (Research Software Directory for Germany, Research Software Engineer directory for Germany (skills and expertise in what, to get connected/find contributors), also support recognition of RSE work and RSE career paths (RSE advocacy), and also especially legal support for working across multiple institutions concerning IP and licensing\n1\n3.0%\n\n\n\nOnly the 30 most frequent of 33 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>60</span>  <span class='chapter-title'>org7de</span>"
+    ]
+  },
+  {
+    "objectID": "questions/060-turnOver4zaf.html",
+    "href": "questions/060-turnOver4zaf.html",
+    "title": "61  turnOver4zaf",
+    "section": "",
+    "text": "62 What kind of research software do you develop as part of your job?\nQuestion code: turnOver4zaf\nDetected type: Question grid\nRespondents answering: 42\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nAnalysis code\nTrue\n31\n73.8%\n\n\nAnalysis code\nFalse\n11\n26.2%\n\n\nNot applicable\nFalse\n41\n97.6%\n\n\nNot applicable\nTrue\n1\n2.4%\n\n\nOther\nComprehensive offline Whisper-based transcription editor with dataset capabilities and subs file system to correct underrepresented languages.\n1\n16.7%\n\n\nOther\nDatabases, interfaces, novel software\n1\n16.7%\n\n\nOther\nInstrument control software\n1\n16.7%\n\n\nOther\nMathematical and statistical models\n1\n16.7%\n\n\nOther\nspecialized workflows and pipelines\n1\n16.7%\n\n\nOther\nweb based data resources\n1\n16.7%\n\n\nPrototype tools\nFalse\n27\n64.3%\n\n\nPrototype tools\nTrue\n15\n35.7%\n\n\nResearch software infrastructure\nTrue\n23\n54.8%\n\n\nResearch software infrastructure\nFalse\n19\n45.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>61</span>  <span class='chapter-title'>turnOver4zaf</span>"
+    ]
+  },
+  {
+    "objectID": "questions/061-currentWork2.html",
+    "href": "questions/061-currentWork2.html",
+    "title": "62  currentWork2",
+    "section": "",
+    "text": "63 Are you part of a dedicated research software group within your institution?\nQuestion code: currentWork2\nDetected type: Single response or free text\nRespondents answering: 738\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n395\n53.5%\n\n\nTrue\n343\n46.5%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>62</span>  <span class='chapter-title'>currentWork2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/062-currentWork1.html",
+    "href": "questions/062-currentWork1.html",
+    "title": "63  currentWork1",
+    "section": "",
+    "text": "64 Do you always work with the same researchers, or do you regularly change the researchers you work with?\nQuestion code: currentWork1\nDetected type: Single response or free text\nRespondents answering: 264\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nSame researcher(s)\n118\n44.7%\n\n\nRegularly change researcher(s)\n105\n39.8%\n\n\nDifferent researchers, same research group\n41\n15.5%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>63</span>  <span class='chapter-title'>currentWork1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/063-currentWork2qcl.html",
+    "href": "questions/063-currentWork2qcl.html",
+    "title": "64  currentWork2qcl",
+    "section": "",
+    "text": "65 Who are you writing code for, supporting with your code or providing services to?\nQuestion code: currentWork2qcl\nDetected type: Question grid\nRespondents answering: 69\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nOther\nResearchers worldwide\n2\n11.1%\n\n\nOther\nanyone\n1\n5.6%\n\n\nOther\nAnyone who wants to use my software (typically researches in my field, globally)\n1\n5.6%\n\n\nOther\nClients with research heavy projects\n1\n5.6%\n\n\nOther\nCollaborators of researchers in my department, regardless of affiliation\n1\n5.6%\n\n\nOther\ndesarrollo bibliotecas para calculo estadistico especifico en el software libre R\n1\n5.6%\n\n\nOther\nEn breve también podré ofrecer soporte a grupos específicos dentro de otras instituciones de Finlandia\n1\n5.6%\n\n\nOther\nFor business automation workflows\n1\n5.6%\n\n\nOther\nForschende international\n1\n5.6%\n\n\nOther\nGlobal research area\n1\n5.6%\n\n\nOther\nIn principle anyone\n1\n5.6%\n\n\nOther\nInternationally\n1\n5.6%\n\n\nOther\nProject based collaborations, mostly within the University\n1\n5.6%\n\n\nOther\nresearchers anywhere via maintained public services\n1\n5.6%\n\n\nOther\nResearchers around the world\n1\n5.6%\n\n\nOther\nResearchers in international projects\n1\n5.6%\n\n\nOther\nResearchers in our field of research, no matter which country\n1\n5.6%\n\n\nResearchers anywhere in my country\nFalse\n43\n62.3%\n\n\nResearchers anywhere in my country\nTrue\n26\n37.7%\n\n\nResearchers in own department\nFalse\n48\n69.6%\n\n\nResearchers in own department\nTrue\n21\n30.4%\n\n\nResearchers in own group\nFalse\n36\n52.2%\n\n\nResearchers in own group\nTrue\n33\n47.8%\n\n\nWhole organization\nFalse\n42\n60.9%\n\n\nWhole organization\nTrue\n27\n39.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>64</span>  <span class='chapter-title'>currentWork2qcl</span>"
+    ]
+  },
+  {
+    "objectID": "questions/064-paper3mod.html",
+    "href": "questions/064-paper3mod.html",
+    "title": "65  paper3mod",
+    "section": "",
+    "text": "66 Have you published a paper about your software? (For example in journals such as JOSS or Software-x)\nQuestion code: paper3mod\nDetected type: Single response or free text\nRespondents answering: 734\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n406\n55.3%\n\n\nTrue\n328\n44.7%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>65</span>  <span class='chapter-title'>paper3mod</span>"
+    ]
+  },
+  {
+    "objectID": "questions/065-conf1can.html",
+    "href": "questions/065-conf1can.html",
+    "title": "66  conf1can",
+    "section": "",
+    "text": "67 Have you presented your software work at a conference or workshop?\nQuestion code: conf1can\nDetected type: Single response or free text\nRespondents answering: 705\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n408\n57.9%\n\n\nFalse\n297\n42.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>66</span>  <span class='chapter-title'>conf1can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/066-conf2can.html",
+    "href": "questions/066-conf2can.html",
+    "title": "67  conf2can",
+    "section": "",
+    "text": "68 At which conference(s)/workshop(s) have you presented your software work?\nQuestion code: conf2can\nDetected type: Single response or free text\nRespondents answering: 327\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\ndeRSE\n5\n1.5%\n\n\nADASS\n4\n1.2%\n\n\nRSECon\n4\n1.2%\n\n\nSPIE\n3\n0.9%\n\n\nLatinR\n2\n0.6%\n\n\nRSECon25\n2\n0.6%\n\n\n1KSA Genome Assembly Workshop\n1\n0.3%\n\n\n2024\n1\n0.3%\n\n\n22nd European Carbohydrate Symposium, 6-10 July 2025, Gdansk, Poland; 7th IEEE International Conference on e-Science , 5-8 December 2011, Stockholm, Sweden\n1\n0.3%\n\n\n4th DS-I Africa Consortium Meeting in Mauritius 2024\n1\n0.3%\n\n\n50 ?\n1\n0.3%\n\n\na few, but a while back\n1\n0.3%\n\n\nAAS and APS\n1\n0.3%\n\n\nACM PEARC, ACM Document Engineering, EDUCAUSE, CNI,\n1\n0.3%\n\n\nACM PEPM, project workshops, internal events\n1\n0.3%\n\n\nACS Fall Meeting\n1\n0.3%\n\n\nACTS developer workshop, ATLAS Tracking workshop, ATLAS TDAQ workshop\n1\n0.3%\n\n\nad-hoc workshops\n1\n0.3%\n\n\nADASS and numerous other conferences\n1\n0.3%\n\n\nADASS, AAS, IAU, DASH, AGU\n1\n0.3%\n\n\nADASS, IVOA, some other astronomy conferences\n1\n0.3%\n\n\nADASS; internal project meetings; collaboration meetings\n1\n0.3%\n\n\nAdvanced Technologies and Treatments for Diabetes (ATTD)\n1\n0.3%\n\n\nAfrican Society of Human Genetics conference at Uganda in 2025\n1\n0.3%\n\n\nAfriLex\n1\n0.3%\n\n\nAGU\n1\n0.3%\n\n\nAGU and SSA\n1\n0.3%\n\n\nAGU Fall Meeting\n1\n0.3%\n\n\nAGU, AMS, NOAA Space Weather Workshop, European Space Weather Week\n1\n0.3%\n\n\nAGU, DASH, COSPAR, SHINE\n1\n0.3%\n\n\n\nOnly the 30 most frequent of 313 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>67</span>  <span class='chapter-title'>conf2can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/067-ref1uk.html",
+    "href": "questions/067-ref1uk.html",
+    "title": "68  ref1uk",
+    "section": "",
+    "text": "69 Are you intending to submit a software output for REF 2029?\nQuestion code: ref1uk\nDetected type: Single response or free text\nRespondents answering: 126\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n59\n46.8%\n\n\nI didn’t know I was eligible/this was possible\n29\n23.0%\n\n\nI don’t know what this means\n19\n15.1%\n\n\nTrue\n19\n15.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>68</span>  <span class='chapter-title'>ref1uk</span>"
+    ]
+  },
+  {
+    "objectID": "questions/068-currentWork3nord.html",
+    "href": "questions/068-currentWork3nord.html",
+    "title": "69  currentWork3nord",
+    "section": "",
+    "text": "70 Do you feel like you have a network of peers that extends beyond your close colleagues? (By “peers”, we mean other people in a similar position to yours; please do not count networks that you may have built before, e.g. during a PhD)\nQuestion code: currentWork3nord\nDetected type: Single response or free text\nRespondents answering: 58\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nYes, it came naturally with the job\n22\n37.9%\n\n\nYes, but I had to build it from scratch\n14\n24.1%\n\n\nNo, because I don’t have the time\n12\n20.7%\n\n\nNo, but mostly because I don’t think I need it\n10\n17.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>69</span>  <span class='chapter-title'>currentWork3nord</span>"
+    ]
+  },
+  {
+    "objectID": "questions/069-proj1can.html",
+    "href": "questions/069-proj1can.html",
+    "title": "70  proj1can",
+    "section": "",
+    "text": "71 How many software projects are you currently involved in?\nQuestion code: proj1can\nDetected type: Single response or free text\nRespondents answering: 750\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n1-4\n560\n74.7%\n\n\n5-9\n118\n15.7%\n\n\n10-14\n32\n4.3%\n\n\n0\n26\n3.5%\n\n\n15+\n14\n1.9%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>70</span>  <span class='chapter-title'>proj1can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/070-stability1.html",
+    "href": "questions/070-stability1.html",
+    "title": "71  stability1",
+    "section": "",
+    "text": "72 What is the minimum number of software developers that would have to suddenly disappear from your current project before it stalls due to a lack of knowledgeable people?\nQuestion code: stability1\nDetected type: Single response or free text\nRespondents answering: 669\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n1\n365\n54.6%\n\n\n2-3\n269\n40.2%\n\n\n4-5\n25\n3.7%\n\n\n6 or more\n10\n1.5%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>71</span>  <span class='chapter-title'>stability1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/071-stability2.html",
+    "href": "questions/071-stability2.html",
+    "title": "72  stability2",
+    "section": "",
+    "text": "73 Do the projects you work on typically have a plan to cope with developers leaving the group?\nQuestion code: stability2\nDetected type: Single response or free text\nRespondents answering: 688\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n549\n79.8%\n\n\nTrue\n139\n20.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>72</span>  <span class='chapter-title'>stability2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/072-proj8can.html",
+    "href": "questions/072-proj8can.html",
+    "title": "73  proj8can",
+    "section": "",
+    "text": "74 Do your research software projects typically include a project manager?\nQuestion code: proj8can\nDetected type: Single response or free text\nRespondents answering: 415\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n284\n68.4%\n\n\nTrue\n131\n31.6%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>73</span>  <span class='chapter-title'>proj8can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/073-proj7can.html",
+    "href": "questions/073-proj7can.html",
+    "title": "74  proj7can",
+    "section": "",
+    "text": "75 On average, what percentage of developers are dedicated to your projects full time?\nQuestion code: proj7can\nDetected type: Single response or free text\nRespondents answering: 156\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n0\n64\n41.0%\n\n\n1\n21\n13.5%\n\n\n50\n13\n8.3%\n\n\n100\n11\n7.1%\n\n\n2\n9\n5.8%\n\n\n10\n6\n3.8%\n\n\n20\n6\n3.8%\n\n\n5\n5\n3.2%\n\n\n80\n5\n3.2%\n\n\n1.5\n2\n1.3%\n\n\n25\n2\n1.3%\n\n\n30\n2\n1.3%\n\n\n0.15\n1\n0.6%\n\n\n0.5\n1\n0.6%\n\n\n2.6\n1\n0.6%\n\n\n23\n1\n0.6%\n\n\n3\n1\n0.6%\n\n\n4\n1\n0.6%\n\n\n500\n1\n0.6%\n\n\n6\n1\n0.6%\n\n\n7\n1\n0.6%\n\n\n90\n1\n0.6%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>74</span>  <span class='chapter-title'>proj7can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/074-proj4can.html",
+    "href": "questions/074-proj4can.html",
+    "title": "75  proj4can",
+    "section": "",
+    "text": "76 How do you test the software that you produce? Please check all that apply.\nQuestion code: proj4can\nDetected type: Repeated free text\nRespondents answering: 759\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n3158\n68.5%\n\n\nTrue\n1396\n30.3%\n\n\nacceptance testing from researchers\n1\n0.0%\n\n\nApproach and level of rigour depends on the size and complexity of the project. I also wish people wouldn’t say “test” - there are other ways to Verify and Validate software.\n1\n0.0%\n\n\nAutomated testing (unit tests) but no continuous integration\n1\n0.0%\n\n\nAutomated Testing Daily / on Changes, but not continuous integration\n1\n0.0%\n\n\nAutomated testing without continuous integration\n1\n0.0%\n\n\nCanary deployments/staggered rollouts\n1\n0.0%\n\n\nCode is reviewed by a scientist or RSE, and then reviewed and tested by a second RSE prior to committing to main branch of a repository\n1\n0.0%\n\n\nCoding agents have improved our software testing know-how and practices\n1\n0.0%\n\n\nDepende del proyecto, en los que estoy trabajando ahora aún no hemos puesto tests (pero la idea es que los tengan, y automatizados)\n1\n0.0%\n\n\nEarly adopters provide feedback\n1\n0.0%\n\n\nEinfache Tests auf mathematische Korrektheit via Ctest, manuelles Auslösen\n1\n0.0%\n\n\nExternal tools for integration testing\n1\n0.0%\n\n\nFeedback de usuarios y expertos\n1\n0.0%\n\n\nFormal testing and users provide feedback\n1\n0.0%\n\n\nfromalized beta tests with users of RCs\n1\n0.0%\n\n\nFuzz-based testing\n1\n0.0%\n\n\nGrab some other team members and get feedback from them on new features.\n1\n0.0%\n\n\nI also test, and we do phased deployments\n1\n0.0%\n\n\nI am a proponent of TDD/BDD but it is not widely used within the projects I am working on.\n1\n0.0%\n\n\nI am the sole developer and user. I use very basic tests (e.g. Python asserts) to test validity of logic, because that is all I know how to do.\n1\n0.0%\n\n\nI try to explain unit testing to my boss. They say “yeah sounds like it could be beneficial”. I ask the group to use unit testing. They ignore the request. My boss has already forgotten what unit testing is.\n1\n0.0%\n\n\nI write code just for myself so I test it myself. No formal testing\n1\n0.0%\n\n\nI’m unsure of the intent of “formal” in the options, but we often ask colleagues/users to test. Sometimes they even do it.\n1\n0.0%\n\n\nIntegration tests und Hardware-Teststände\n1\n0.0%\n\n\nIt’s all on me, and I’m learning on the fly.\n1\n0.0%\n\n\nje nach Teilprojekt verschieden, arbeite derzeit an CI-Pipelines\n1\n0.0%\n\n\nMostly connected to student research projects which provide framing and validation throughout the literature.\n1\n0.0%\n\n\nMy own testing/unit testing. We do not have dedicated test engineers\n1\n0.0%\n\n\n\nOnly the 30 most frequent of 57 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>75</span>  <span class='chapter-title'>proj4can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/075-proj5zaf.html",
+    "href": "questions/075-proj5zaf.html",
+    "title": "76  proj5zaf",
+    "section": "",
+    "text": "77 Which version control tools do you use for software development?\nQuestion code: proj5zaf\nDetected type: Question grid\nRespondents answering: 759\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nCVS\nFalse\n742\n97.8%\n\n\nCVS\nTrue\n17\n2.2%\n\n\nGit\nTrue\n721\n95.0%\n\n\nGit\nFalse\n38\n5.0%\n\n\nMercurial\nFalse\n755\n99.5%\n\n\nMercurial\nTrue\n4\n0.5%\n\n\nNone\nFalse\n735\n96.8%\n\n\nNone\nTrue\n24\n3.2%\n\n\nOther\nFossil\n2\n14.3%\n\n\nOther\nJujutsu\n2\n14.3%\n\n\nOther\ndarcs\n1\n7.1%\n\n\nOther\nfossil\n1\n7.1%\n\n\nOther\nIn house archive, and mirrored repository across two institutions.\n1\n7.1%\n\n\nOther\njj\n1\n7.1%\n\n\nOther\nJj\n1\n7.1%\n\n\nOther\nlocal distributed backups daily\n1\n7.1%\n\n\nOther\nPlasticSCM\n1\n7.1%\n\n\nOther\nRCS\n1\n7.1%\n\n\nOther\nspecific Zenodo records; CRAN\n1\n7.1%\n\n\nOther\nVisual Studio Code\n1\n7.1%\n\n\nSVN\nFalse\n722\n95.1%\n\n\nSVN\nTrue\n37\n4.9%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>76</span>  <span class='chapter-title'>proj5zaf</span>"
+    ]
+  },
+  {
+    "objectID": "questions/076-proj6zaf.html",
+    "href": "questions/076-proj6zaf.html",
+    "title": "77  proj6zaf",
+    "section": "",
+    "text": "78 Which collaboration tools do you use for software development?\nQuestion code: proj6zaf\nDetected type: Repeated free text\nRespondents answering: 759\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n6120\n72.1%\n\n\nTrue\n2229\n26.3%\n\n\nMattermost\n21\n0.2%\n\n\nMatrix\n7\n0.1%\n\n\nZulip\n6\n0.1%\n\n\nCodeberg\n5\n0.1%\n\n\nTeams\n4\n0.0%\n\n\nForgejo\n3\n0.0%\n\n\nGitea\n3\n0.0%\n\n\nmattermost\n3\n0.0%\n\n\nMiro\n3\n0.0%\n\n\nAsana\n2\n0.0%\n\n\nDiscord\n2\n0.0%\n\n\nMS Teams\n2\n0.0%\n\n\nRedmine\n2\n0.0%\n\n\nzulip\n2\n0.0%\n\n\nAsana, Discord\n1\n0.0%\n\n\nAzure Devops\n1\n0.0%\n\n\nAzure DevOps\n1\n0.0%\n\n\nAzure DevOps, Linear\n1\n0.0%\n\n\nclick up; sharepoint; teams\n1\n0.0%\n\n\nCodeBerg\n1\n0.0%\n\n\nCodeberg, Forgejo\n1\n0.0%\n\n\ncodeforge\n1\n0.0%\n\n\nCustom internal tools\n1\n0.0%\n\n\nDiscord , matrix\n1\n0.0%\n\n\nDiscourse Forum\n1\n0.0%\n\n\nDropbox\n1\n0.0%\n\n\nEclipse project\n1\n0.0%\n\n\nElement\n1\n0.0%\n\n\n\nOnly the 30 most frequent of 86 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>77</span>  <span class='chapter-title'>proj6zaf</span>"
+    ]
+  },
+  {
+    "objectID": "questions/077-proj5can.html",
+    "href": "questions/077-proj5can.html",
+    "title": "78  proj5can",
+    "section": "",
+    "text": "79 What development methodology does your current project use?\nQuestion code: proj5can\nDetected type: Question grid\nRespondents answering: 200\n\n\n\nResponse distribution\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nOther\nadapted agile\n1\n50.0%\n\n\nOther\ninformal agile-ish scrumm\n1\n50.0%\n\n\nproj5can_0\nNo formal methodology\n144\n72.0%\n\n\nproj5can_0\nAgile\n24\n12.0%\n\n\nproj5can_0\nKanban\n19\n9.5%\n\n\nproj5can_0\nScrum\n9\n4.5%\n\n\nproj5can_0\nOther\n2\n1.0%\n\n\nproj5can_0\nWaterfall\n2\n1.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>78</span>  <span class='chapter-title'>proj5can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/078-train2.html",
+    "href": "questions/078-train2.html",
+    "title": "79  train2",
+    "section": "",
+    "text": "80 On average, how many times a year do you take part in providing training?\nQuestion code: train2\nDetected type: Single response or free text\nRespondents answering: 743\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n0\n289\n38.9%\n\n\n1-2\n284\n38.2%\n\n\n3-5\n111\n14.9%\n\n\n5-10\n38\n5.1%\n\n\n11 or more\n21\n2.8%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>79</span>  <span class='chapter-title'>train2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/079-train4qzaf.html",
+    "href": "questions/079-train4qzaf.html",
+    "title": "80  train4qzaf",
+    "section": "",
+    "text": "81 On average, how many times a year do you attend software development-related training (not as an instructor)?\nQuestion code: train4qzaf\nDetected type: Single response or free text\nRespondents answering: 41\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n0\n27\n65.9%\n\n\n1\n9\n22.0%\n\n\n2\n4\n9.8%\n\n\n3\n1\n2.4%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>80</span>  <span class='chapter-title'>train4qzaf</span>"
+    ]
+  },
+  {
+    "objectID": "questions/080-train3.html",
+    "href": "questions/080-train3.html",
+    "title": "81  train3",
+    "section": "",
+    "text": "82 What training programs are you involved with?\nQuestion code: train3\nDetected type: Single response or free text\nRespondents answering: 323\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nlocal university training\n17\n5.3%\n\n\nLocal university training\n12\n3.7%\n\n\nSoftware Carpentry, local university training\n9\n2.8%\n\n\nSoftware Carpentry\n7\n2.2%\n\n\n0\n6\n1.9%\n\n\nnone\n5\n1.5%\n\n\nCodeRefinery\n3\n0.9%\n\n\n-\n2\n0.6%\n\n\nCarpentries, local university training\n2\n0.6%\n\n\nCodeRefinery, local university training\n2\n0.6%\n\n\nkeine\n2\n0.6%\n\n\nLocal training\n2\n0.6%\n\n\nLocal University training\n2\n0.6%\n\n\nlocal university trainings\n2\n0.6%\n\n\nSoftware carpentry\n2\n0.6%\n\n\nSoftware Carpentry, Data Carpentry\n2\n0.6%\n\n\nThe Carpentries\n2\n0.6%\n\n\n1\n1\n0.3%\n\n\n2\n1\n0.3%\n\n\nadministering workshops at conferences and similar\n1\n0.3%\n\n\nAdvanced Python course, HPC introduction, Python for HPC\n1\n0.3%\n\n\nAny dedicated user training workshop for my code\n1\n0.3%\n\n\nArduino workshops, IOT workshops, CNC workshops\n1\n0.3%\n\n\nautodidaktisch online\n1\n0.3%\n\n\nbespoke for field only\n1\n0.3%\n\n\nBring your own code workshops, online training\n1\n0.3%\n\n\nBrSeqTB Training at University of São Paulo\n1\n0.3%\n\n\nBSA REU\n1\n0.3%\n\n\nBSc Applied Mathematics, MSc Applied Mathematics, diverse applied courses in my university at BSc, MSc, PhD levels for applied researchers\n1\n0.3%\n\n\nCarpentries\n1\n0.3%\n\n\n\nOnly the 30 most frequent of 261 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>81</span>  <span class='chapter-title'>train3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/081-train4.html",
+    "href": "questions/081-train4.html",
+    "title": "82  train4",
+    "section": "",
+    "text": "83 Do you teach or support the teaching of credit bearing modules or courses?\nQuestion code: train4\nDetected type: Single response or free text\nRespondents answering: 702\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n469\n66.8%\n\n\nTrue\n233\n33.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>82</span>  <span class='chapter-title'>train4</span>"
+    ]
+  },
+  {
+    "objectID": "questions/082-train5.html",
+    "href": "questions/082-train5.html",
+    "title": "83  train5",
+    "section": "",
+    "text": "84 In what capacity do you contribute?\nQuestion code: train5\nDetected type: Question grid\nRespondents answering: 233\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nAssessment design\nFalse\n166\n71.2%\n\n\nAssessment design\nTrue\n67\n28.8%\n\n\nContent creation\nFalse\n122\n52.4%\n\n\nContent creation\nTrue\n111\n47.6%\n\n\nLecturing or content delivery\nTrue\n152\n65.2%\n\n\nLecturing or content delivery\nFalse\n81\n34.8%\n\n\nMarking or grading\nFalse\n142\n60.9%\n\n\nMarking or grading\nTrue\n91\n39.1%\n\n\nModule or course leader\nFalse\n126\n54.1%\n\n\nModule or course leader\nTrue\n107\n45.9%\n\n\nOther\nAd hoc replacement\n1\n8.3%\n\n\nOther\nBehind the scenes HPC work\n1\n8.3%\n\n\nOther\nDevelopped or managed the developement of three web applications/packages used as part of the courses\n1\n8.3%\n\n\nOther\nEinzelne Vorträge, erstellte Klausuren im Voraus testen\n1\n8.3%\n\n\nOther\nGuest lecturer\n1\n8.3%\n\n\nOther\nI am not sure, I do occasional coding for fun\n1\n8.3%\n\n\nOther\nOn the scale of teaching 1 course section per semester (50-90 minutes total) on software I helped develop and they are using in the course\n1\n8.3%\n\n\nOther\nPractical sessions\n1\n8.3%\n\n\nOther\nSoftware and tools to carry on the lecture (containers, documentation and setup for student access etc)\n1\n8.3%\n\n\nOther\nSupervision\n1\n8.3%\n\n\nOther\nTech support and training the lecturer\n1\n8.3%\n\n\nOther\nTutor\n1\n8.3%\n\n\nTeaching assistant\nFalse\n162\n69.5%\n\n\nTeaching assistant\nTrue\n71\n30.5%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>83</span>  <span class='chapter-title'>train5</span>"
+    ]
+  },
+  {
+    "objectID": "questions/083-fund3.html",
+    "href": "questions/083-fund3.html",
+    "title": "84  fund3",
+    "section": "",
+    "text": "85 Which of the following sources are used to pay for your effort as a Research Software Engineer?\nQuestion code: fund3\nDetected type: Question grid\nRespondents answering: 681\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nConsulting & services\nFalse\n627\n92.1%\n\n\nConsulting & services\nTrue\n54\n7.9%\n\n\nFoundations & consortiums\nFalse\n643\n94.4%\n\n\nFoundations & consortiums\nTrue\n38\n5.6%\n\n\nGrants\nTrue\n384\n56.4%\n\n\nGrants\nFalse\n297\n43.6%\n\n\nI volunteer my time\nFalse\n555\n81.5%\n\n\nI volunteer my time\nTrue\n126\n18.5%\n\n\nIndustry support\nFalse\n647\n95.0%\n\n\nIndustry support\nTrue\n34\n5.0%\n\n\nInstitutional support (centrally funded)\nTrue\n429\n63.0%\n\n\nInstitutional support (centrally funded)\nFalse\n252\n37.0%\n\n\nOther\nGovernment funded\n2\n7.7%\n\n\nOther\nContracts for Soft Funded Research Staff\n1\n3.8%\n\n\nOther\neuropean projects\n1\n3.8%\n\n\nOther\nFederal Funding\n1\n3.8%\n\n\nOther\nGovernment (as I’m a civil servant)\n1\n3.8%\n\n\nOther\nGovernment funding for Research Infrastructure\n1\n3.8%\n\n\nOther\nGovernment-funded infrastructure\n1\n3.8%\n\n\nOther\nI am no RSE, I work with them\n1\n3.8%\n\n\nOther\nI’m hired at a private company. I have a regular contract/wage arrangement.\n1\n3.8%\n\n\nOther\nIt’s a part of my postdoc work\n1\n3.8%\n\n\nOther\nIt’s part of my job\n1\n3.8%\n\n\nOther\nKooperation\n1\n3.8%\n\n\nOther\nnational funding, supposed to become institutional over the next years\n1\n3.8%\n\n\nOther\noperations funding from DOE\n1\n3.8%\n\n\nOther\nPart of PhD\n1\n3.8%\n\n\nOther\nPhD grant (institutional + industrial)\n1\n3.8%\n\n\nOther\nPhD Vertrag\n1\n3.8%\n\n\nOther\nPrivate philanthropy\n1\n3.8%\n\n\nOther\nProject Specific Funds\n1\n3.8%\n\n\nOther\nProjektgelder\n1\n3.8%\n\n\nOther\nSAAS subscription\n1\n3.8%\n\n\nOther\nService contracts\n1\n3.8%\n\n\nOther\nSome additional work is paid for through self-employment\n1\n3.8%\n\n\nOther\nSubscriptions\n1\n3.8%\n\n\nOther\nThird party funding\n1\n3.8%\n\n\nVenture Capital\nFalse\n676\n99.3%\n\n\nVenture Capital\nTrue\n5\n0.7%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>84</span>  <span class='chapter-title'>fund3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/084-fund1can.html",
+    "href": "questions/084-fund1can.html",
+    "title": "85  fund1can",
+    "section": "",
+    "text": "86 How is your current research software work funded?\nQuestion code: fund1can\nDetected type: Question grid\nRespondents answering: 12\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nfund1can_0\nEmployer/Institution\n4\n33.3%\n\n\nfund1can_0\nNot funded\n3\n25.0%\n\n\nfund1can_0\nNSERC\n3\n25.0%\n\n\nfund1can_0\nCFI\n1\n8.3%\n\n\nfund1can_0\nOther\n1\n8.3%\n\n\nOther\njoint funding between a national organization and a university\n1\n100.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>85</span>  <span class='chapter-title'>fund1can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/085-fund3qnl.html",
+    "href": "questions/085-fund3qnl.html",
+    "title": "86  fund3qnl",
+    "section": "",
+    "text": "87 If you are funded via grants, what type of grants are they? (e.g. NWO/Open Science Council, ZonMw, Horizon Europe, Open Science NL, Thematic DCC [TDCC-NES, TDCC-LSH, TDCC-SSH], etc)\nQuestion code: fund3qnl\nDetected type: Single response or free text\nRespondents answering: 23\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nNWO\n3\n13.0%\n\n\nall of the above\n1\n4.3%\n\n\nERC, Horizon Europe\n1\n4.3%\n\n\nEU\n1\n4.3%\n\n\nHorizon Europe\n1\n4.3%\n\n\nHorizon Europe, PDI-SSH\n1\n4.3%\n\n\nInternal university grant\n1\n4.3%\n\n\nMany. Mostly NWO, ERC and Horizon.\n1\n4.3%\n\n\nMost often NWO\n1\n4.3%\n\n\nno idea\n1\n4.3%\n\n\nNWO + groeifonds\n1\n4.3%\n\n\nNWO VIDI\n1\n4.3%\n\n\nNWO, ERC, Horizon Europe\n1\n4.3%\n\n\nNWO, Horizon Europe\n1\n4.3%\n\n\nNWO, Horizon Europe, Open Science NL,\n1\n4.3%\n\n\nNWO, Horizon Europen, Open Science Council\n1\n4.3%\n\n\nNWO, Thematic DCC, LSRI\n1\n4.3%\n\n\nNWO, ZonMw, Horizon Europe\n1\n4.3%\n\n\nNWO/Open Science Council, ZonMw, Horizon Europe\n1\n4.3%\n\n\nThematic, NWO\n1\n4.3%\n\n\nUKRI, BioImaging, TDCC-LSH\n1\n4.3%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>86</span>  <span class='chapter-title'>fund3qnl</span>"
+    ]
+  },
+  {
+    "objectID": "questions/086-fund1uk.html",
+    "href": "questions/086-fund1uk.html",
+    "title": "87  fund1uk",
+    "section": "",
+    "text": "88 In the last two years, have you applied for external grant funding as a project lead (principal investigator) or co-lead (co-investigator)?\nQuestion code: fund1uk\nDetected type: Single response or free text\nRespondents answering: 125\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nTrue\n64\n51.2%\n\n\nFalse\n61\n48.8%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>87</span>  <span class='chapter-title'>fund1uk</span>"
+    ]
+  },
+  {
+    "objectID": "questions/087-fund1nord.html",
+    "href": "questions/087-fund1nord.html",
+    "title": "88  fund1nord",
+    "section": "",
+    "text": "89 Do you have access to grants in your institutions/country for RSE type of work (ie not research grants)?\nQuestion code: fund1nord\nDetected type: Single response or free text\nRespondents answering: 60\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nI don’t know\n26\n43.3%\n\n\nFalse\n24\n40.0%\n\n\nTrue\n10\n16.7%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>88</span>  <span class='chapter-title'>fund1nord</span>"
+    ]
+  },
+  {
+    "objectID": "questions/088-tool5.html",
+    "href": "questions/088-tool5.html",
+    "title": "89  tool5",
+    "section": "",
+    "text": "90 On which platform(s) is your most recent research software project deployed? Please select all that apply.\nQuestion code: tool5\nDetected type: Repeated free text\nRespondents answering: 747\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n2988\n66.2%\n\n\nTrue\n1494\n33.1%\n\n\nall\n1\n0.0%\n\n\nAvionics\n1\n0.0%\n\n\nbinderhub\n1\n0.0%\n\n\nCluster\n1\n0.0%\n\n\nContainerization / Docker / Kubernetes\n1\n0.0%\n\n\nembedded\n1\n0.0%\n\n\nEmbedded computer in accelerator controls\n1\n0.0%\n\n\nEmbedded system\n1\n0.0%\n\n\nGitHub Actions (does this count as Cloud?)\n1\n0.0%\n\n\nGrid, server farms\n1\n0.0%\n\n\nIndustrial PCs / IoT Edge Devices\n1\n0.0%\n\n\nIOT\n1\n0.0%\n\n\nIt runs offline for privacy.\n1\n0.0%\n\n\nk8 Cluster\n1\n0.0%\n\n\nk8/OpenShift\n1\n0.0%\n\n\nLocal “cloud” (= VMs, though one project has capacity to spin up Kubernetes pods)\n1\n0.0%\n\n\nLocal virtual machines (which may or may not count as cloud depending on the definition)\n1\n0.0%\n\n\nLocal, self-maintained cluster\n1\n0.0%\n\n\nmost are not deployed, but downloaded and used by users.\n1\n0.0%\n\n\nNot yet deployed\n1\n0.0%\n\n\nPrivate Cloud\n1\n0.0%\n\n\nPython PyPI\n1\n0.0%\n\n\nSDKs\n1\n0.0%\n\n\nTeilchenbeschleuniger\n1\n0.0%\n\n\nUniversity hosted Docker/Kubernetes platforms\n1\n0.0%\n\n\nUniversity hosted virtual servers\n1\n0.0%\n\n\nVirtual Machine in zentraler Serverinfrastruktur\n1\n0.0%\n\n\nWe have our own cloud infrastructure\n1\n0.0%\n\n\n\nOnly the 30 most frequent of 31 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>89</span>  <span class='chapter-title'>tool5</span>"
+    ]
+  },
+  {
+    "objectID": "questions/089-tool5can.html",
+    "href": "questions/089-tool5can.html",
+    "title": "90  tool5can",
+    "section": "",
+    "text": "91 On which platform(s) is your most recent research software project deployed? Please select all that apply.\nQuestion code: tool5can\nDetected type: Question grid\nRespondents answering: 12\n\n\n\nResponse distribution\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nAlliance Canada HPC\nTrue\n9\n75.0%\n\n\nAlliance Canada HPC\nFalse\n3\n25.0%\n\n\nAlliance Cloud\nFalse\n8\n66.7%\n\n\nAlliance Cloud\nTrue\n4\n33.3%\n\n\nCommercial Cloud\nFalse\n12\n100.0%\n\n\nInstitutional Cloud\nFalse\n12\n100.0%\n\n\nLaptop/desktop\nFalse\n8\n66.7%\n\n\nLaptop/desktop\nTrue\n4\n33.3%\n\n\nMobile\nFalse\n12\n100.0%\n\n\nOther\nAWS\n1\n50.0%\n\n\nOther\nCRAN\n1\n50.0%\n\n\nOther HPC\nFalse\n12\n100.0%\n\n\nStand-alone server(s)\nFalse\n10\n83.3%\n\n\nStand-alone server(s)\nTrue\n2\n16.7%\n\n\nUniversity compute centre\nFalse\n12\n100.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>90</span>  <span class='chapter-title'>tool5can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/090-tool2.html",
+    "href": "questions/090-tool2.html",
+    "title": "91  tool2",
+    "section": "",
+    "text": "92 Which operating system do you primarily use for development?\nQuestion code: tool2\nDetected type: Question grid\nRespondents answering: 736\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nOther\nFreeBSD\n2\n25.0%\n\n\nOther\nall - got to be portable\n1\n12.5%\n\n\nOther\nDocker - devcontainers\n1\n12.5%\n\n\nOther\nübergreifend\n1\n12.5%\n\n\nOther\nWindows\n1\n12.5%\n\n\nOther\nWindows with WSL\n1\n12.5%\n\n\nOther\nWSL, specifically only develop in Linux, but on a Windows machine\n1\n12.5%\n\n\ntool2_0\nGNU/Linux\n439\n59.6%\n\n\ntool2_0\nmacOS\n172\n23.4%\n\n\ntool2_0\nWindows\n114\n15.5%\n\n\ntool2_0\nOther\n8\n1.1%\n\n\ntool2_0\nAndroid\n2\n0.3%\n\n\ntool2_0\niOS\n1\n0.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>91</span>  <span class='chapter-title'>tool2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/091-tool4can.html",
+    "href": "questions/091-tool4can.html",
+    "title": "92  tool4can",
+    "section": "",
+    "text": "93 What programming languages do you use at work? Please select all that apply.\nQuestion code: tool4can\nDetected type: Repeated free text\nRespondents answering: 759\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n24877\n90.7%\n\n\nTrue\n2447\n8.9%\n\n\nBash\n10\n0.0%\n\n\nbash\n8\n0.0%\n\n\nKotlin\n4\n0.0%\n\n\nMathematica\n4\n0.0%\n\n\nLabVIEW\n3\n0.0%\n\n\nShell\n3\n0.0%\n\n\nAnsible\n2\n0.0%\n\n\nCUDA\n2\n0.0%\n\n\nIDL\n2\n0.0%\n\n\nNextflow\n2\n0.0%\n\n\nScheme\n2\n0.0%\n\n\nshell script\n2\n0.0%\n\n\nXSLT\n2\n0.0%\n\n\n(not really a programming language) bash\n1\n0.0%\n\n\nAngular\n1\n0.0%\n\n\nansible,bash\n1\n0.0%\n\n\nAWK, Shell, COBOL\n1\n0.0%\n\n\nBASH\n1\n0.0%\n\n\nBash shell\n1\n0.0%\n\n\nBash shell scripting\n1\n0.0%\n\n\nbash, ansible,\n1\n0.0%\n\n\nBash, NextFlow\n1\n0.0%\n\n\nbash, nextflow, makefiles\n1\n0.0%\n\n\nBash/shell languages\n1\n0.0%\n\n\nbash/shell scripts\n1\n0.0%\n\n\nCss\n1\n0.0%\n\n\nCUDA, HIP\n1\n0.0%\n\n\nDSLs\n1\n0.0%\n\n\n\nOnly the 30 most frequent of 71 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>92</span>  <span class='chapter-title'>tool4can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/092-ukrse3.html",
+    "href": "questions/092-ukrse3.html",
+    "title": "93  ukrse3",
+    "section": "",
+    "text": "94 How did you learn the skills you need to become a Research Software Engineer / Research Software Developer?\nQuestion code: ukrse3\nDetected type: Repeated free text\nRespondents answering: 759\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n2523\n55.0%\n\n\nTrue\n2031\n44.3%\n\n\nDuring my PhD\n2\n0.0%\n\n\nApprenticeship\n1\n0.0%\n\n\nAs I come from the private sector, I’m answering here in reference only to the skills specific to RSE work, rather than software development generally. Otherwise everything applies.\n1\n0.0%\n\n\nAttending training courses while previously employed in private industry\n1\n0.0%\n\n\nAusbildung zum Softwareentwickler + Mehrjährige arbeit in der Industrie bevor wechsel in die Wissenschaft\n1\n0.0%\n\n\nB.Sc. Degree in Computer Science\n1\n0.0%\n\n\nBooks, youtube\n1\n0.0%\n\n\nCarpentries workshop\n1\n0.0%\n\n\nCo working with a Software Engineer who has a PhD in Software Patterns\n1\n0.0%\n\n\nCourses offered by CSC in Finland\n1\n0.0%\n\n\nCourses organised by my employer\n1\n0.0%\n\n\nDuring my own PhD research and postdocs\n1\n0.0%\n\n\nGalvanize, web development boot camp\n1\n0.0%\n\n\nHabe Informatik studiert\n1\n0.0%\n\n\nIndustrial placement with software development team\n1\n0.0%\n\n\nIndustry\n1\n0.0%\n\n\nLearned on-the-job as a SWE in industry, not in my current role in academia.\n1\n0.0%\n\n\nOnline articles, Free talks on YouTube\n1\n0.0%\n\n\nother school\n1\n0.0%\n\n\nPeers\n1\n0.0%\n\n\nPrevious employment\n1\n0.0%\n\n\nPrevious industry experience\n1\n0.0%\n\n\nprevious work as consultant to artists\n1\n0.0%\n\n\nQualifikationsmaßnahme der Bundesagentur für Arbeit\n1\n0.0%\n\n\nStudium\n1\n0.0%\n\n\nUniversity high-performance computing center staff\n1\n0.0%\n\n\nWhile working on my PhD that required modifying computational physics codes\n1\n0.0%\n\n\nWith AI help - I prompt for code in natural language.\n1\n0.0%\n\n\n\nOnly the 30 most frequent of 32 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>93</span>  <span class='chapter-title'>ukrse3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/093-skillNord.html",
+    "href": "questions/093-skillNord.html",
+    "title": "94  skillNord",
+    "section": "",
+    "text": "95 Are you granted time for personal skills acquisition or professional development? (For example, learning a new technique that is not specifically needed for a current project)\nQuestion code: skillNord\nDetected type: Single response or free text\nRespondents answering: 60\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nYes, I always have some time to dedicate to my own skills\n23\n38.3%\n\n\nYes, but only in weeks with a low workload\n17\n28.3%\n\n\nYes, as long as there is a high chance I will use it as part of my work\n9\n15.0%\n\n\nYes, but my workload makes it impossible to use the time\n8\n13.3%\n\n\nFalse\n3\n5.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>94</span>  <span class='chapter-title'>skillNord</span>"
+    ]
+  },
+  {
+    "objectID": "questions/094-skill2.html",
+    "href": "questions/094-skill2.html",
+    "title": "95  skill2",
+    "section": "",
+    "text": "96 What three skills would you like to acquire or improve to help your work as a Research Software Engineer / Research Software Developer? The skills can be technical and non-technical. []\nQuestion code: skill2\nDetected type: Repeated free text\nRespondents answering: 464\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nProject management\n30\n2.6%\n\n\nRust\n21\n1.8%\n\n\nProject Management\n15\n1.3%\n\n\nproject management\n12\n1.0%\n\n\nMachine Learning\n10\n0.9%\n\n\nDevOps\n8\n0.7%\n\n\nGPU programming\n7\n0.6%\n\n\nSoftware Architecture\n7\n0.6%\n\n\nTesting\n7\n0.6%\n\n\nTime management\n7\n0.6%\n\n\nC++\n6\n0.5%\n\n\nKubernetes\n6\n0.5%\n\n\nManagement\n6\n0.5%\n\n\nCI/CD\n5\n0.4%\n\n\nSoftware architecture\n5\n0.4%\n\n\nCommunication\n4\n0.3%\n\n\nGrant writing\n4\n0.3%\n\n\nHPC\n4\n0.3%\n\n\nNetworking\n4\n0.3%\n\n\ntesting\n4\n0.3%\n\n\nUnit testing\n4\n0.3%\n\n\nAI\n3\n0.3%\n\n\nAI/ML\n3\n0.3%\n\n\nCoding\n3\n0.3%\n\n\nJulia\n3\n0.3%\n\n\nLeadership\n3\n0.3%\n\n\nMachine learning\n3\n0.3%\n\n\nMarketing\n3\n0.3%\n\n\nnone\n3\n0.3%\n\n\nProjektmanagement\n3\n0.3%\n\n\n\nOnly the 30 most frequent of 972 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>95</span>  <span class='chapter-title'>skill2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/095-genAI1.html",
+    "href": "questions/095-genAI1.html",
+    "title": "96  genAI1",
+    "section": "",
+    "text": "97 How frequently do you use generative AI tools in your RSE-related tasks (e.g., coding, documentation, testing, or design)?\nQuestion code: genAI1\nDetected type: Single response or free text\nRespondents answering: 747\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nDaily\n241\n32.3%\n\n\nWeekly\n211\n28.2%\n\n\nNever\n124\n16.6%\n\n\nRarely (a few times a year)\n104\n13.9%\n\n\nMonthly\n67\n9.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>96</span>  <span class='chapter-title'>genAI1</span>"
+    ]
+  },
+  {
+    "objectID": "questions/096-genAI2.html",
+    "href": "questions/096-genAI2.html",
+    "title": "97  genAI2",
+    "section": "",
+    "text": "98 For what purposes do you use generative AI tools?\nQuestion code: genAI2\nDetected type: Repeated free text\nRespondents answering: 635\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n2250\n57.9%\n\n\nTrue\n1560\n40.1%\n\n\nAI is rarely good enough to get the job done, but it’s a good launching pad.\n1\n0.0%\n\n\nAsking questions mostly\n1\n0.0%\n\n\nAsking questions of RAG-based LLMs to better understand new material\n1\n0.0%\n\n\nAufbereitung von 3rd-party-dokumentation, “Wie mache ich X mit Library Y”\n1\n0.0%\n\n\nAutomated code review\n1\n0.0%\n\n\nbrainstorming\n1\n0.0%\n\n\nchecking syntax\n1\n0.0%\n\n\nCode reviews\n1\n0.0%\n\n\ncomplementing PR reviews\n1\n0.0%\n\n\nConceptualising project ideas\n1\n0.0%\n\n\nconvincing IT to provide access to tools\n1\n0.0%\n\n\nCreate a POC to start from, specially when it’s a technology I’m not very familiar with.\n1\n0.0%\n\n\nCreating dockerfiles.\n1\n0.0%\n\n\nCreating scaffolding or generating ideas on how to solve a problem (code outlines rather than finished code)\n1\n0.0%\n\n\nCreating templates and getting started\n1\n0.0%\n\n\nCustomised technical infrastructure setup guidance\n1\n0.0%\n\n\nDatenanreicherung\n1\n0.0%\n\n\nDebugging external tooling, interpreting logs, finding the obscure flag to use to fix my issue.\n1\n0.0%\n\n\nDocumenting existing codebases by other authors\n1\n0.0%\n\n\nDouble check techniques I’m not as familiar with. Trying to find resources when needing to learn new software techniques or tools\n1\n0.0%\n\n\nEdit technical documentation I have written\n1\n0.0%\n\n\nFancy autocomplete\n1\n0.0%\n\n\nFinding good entry points to documentation, where I can learn the details error free\n1\n0.0%\n\n\nfinding specific places in large foreign code\n1\n0.0%\n\n\nFor web search or finding infos in documentation\n1\n0.0%\n\n\nFormatieren von LaTeX-Tabellen, erklären von unordentlichen python-Skripten\n1\n0.0%\n\n\nformatting\n1\n0.0%\n\n\nGeneral non-technical communication\n1\n0.0%\n\n\n\nOnly the 30 most frequent of 80 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>97</span>  <span class='chapter-title'>genAI2</span>"
+    ]
+  },
+  {
+    "objectID": "questions/097-genAI3.html",
+    "href": "questions/097-genAI3.html",
+    "title": "98  genAI3",
+    "section": "",
+    "text": "99 Which generative AI tools do you currently use in your RSE work?\nQuestion code: genAI3\nDetected type: Repeated free text\nRespondents answering: 635\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nFalse\n3408\n74.4%\n\n\nTrue\n1037\n22.6%\n\n\nDeepSeek\n7\n0.2%\n\n\nMistral\n7\n0.2%\n\n\nPerplexity\n6\n0.1%\n\n\ncopilot\n4\n0.1%\n\n\nCopilot\n3\n0.1%\n\n\nLumo\n3\n0.1%\n\n\nAntigravity\n2\n0.0%\n\n\nduck.ai\n2\n0.0%\n\n\nMS Copilot\n2\n0.0%\n\n\nOllama\n2\n0.0%\n\n\nperplexity\n2\n0.0%\n\n\nAntigravity, Codex\n1\n0.0%\n\n\nApertus\n1\n0.0%\n\n\nApertus, llama-Basiere LLMs\n1\n0.0%\n\n\nBlablador, chat-ai.academiccloud.de\n1\n0.0%\n\n\nChat ai\n1\n0.0%\n\n\nChat-AI GWDG\n1\n0.0%\n\n\nChatAI\n1\n0.0%\n\n\nclaude code\n1\n0.0%\n\n\nCline\n1\n0.0%\n\n\nCodeCompanion\n1\n0.0%\n\n\nCodeRabbit AI\n1\n0.0%\n\n\nCodex\n1\n0.0%\n\n\nContinue, OLlama\n1\n0.0%\n\n\nCopilot (in general)\n1\n0.0%\n\n\ncopilot and various from azure ai foundry\n1\n0.0%\n\n\nCopilot Chat\n1\n0.0%\n\n\nCopilot, Perplexity\n1\n0.0%\n\n\n\nOnly the 30 most frequent of 107 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>98</span>  <span class='chapter-title'>genAI3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/098-genAI4.html",
+    "href": "questions/098-genAI4.html",
+    "title": "99  genAI4",
+    "section": "",
+    "text": "100 Over the next five years, how do you think generative AI tools will affect demand for RSEs roles? []\nQuestion code: genAI4\nDetected type: Single response or free text\nRespondents answering: 686\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nIt will not significantly change demand for RSEs roles\n390\n56.9%\n\n\nIt will reduce demand for RSE roles\n175\n25.5%\n\n\nIt will increase demand for RSE roles\n121\n17.6%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>99</span>  <span class='chapter-title'>genAI4</span>"
+    ]
+  },
+  {
+    "objectID": "questions/099-genAI5.html",
+    "href": "questions/099-genAI5.html",
+    "title": "100  genAI5",
+    "section": "",
+    "text": "101 Over the next five years, how do you think generative AI tools will affect\nQuestion code: genAI5\nDetected type: Question grid\nRespondents answering: 719\n\n\n\nResponse distribution\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nyour code quality?\nSame\n336\n47.9%\n\n\nyour code quality?\nIncrease\n274\n39.1%\n\n\nyour code quality?\nDecrease\n91\n13.0%\n\n\nyour job satisfaction?\nSame\n319\n46.1%\n\n\nyour job satisfaction?\nDecrease\n220\n31.8%\n\n\nyour job satisfaction?\nIncrease\n153\n22.1%\n\n\nyour productivity?\nIncrease\n451\n63.9%\n\n\nyour productivity?\nSame\n201\n28.5%\n\n\nyour productivity?\nDecrease\n54\n7.6%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>100</span>  <span class='chapter-title'>genAI5</span>"
+    ]
+  },
+  {
+    "objectID": "questions/100-genAI6.html",
+    "href": "questions/100-genAI6.html",
+    "title": "101  genAI6",
+    "section": "",
+    "text": "102 What skills do you think are necessary to effectively use generative AI for research software development tasks?\nQuestion code: genAI6\nDetected type: Single response or free text\nRespondents answering: 511\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\ncritical thinking\n5\n1.0%\n\n\nprompt engineering\n5\n1.0%\n\n\nCritical thinking\n3\n0.6%\n\n\ncode review\n2\n0.4%\n\n\nCode review\n2\n0.4%\n\n\ncritical thinking and reasoning\n2\n0.4%\n\n\nnone\n2\n0.4%\n\n\nPrompt engineering\n2\n0.4%\n\n\n“actual skills”, “fundamental knowledge”\n1\n0.2%\n\n\nA broad spectrum of skills including requirements gathering and analysis.\n1\n0.2%\n\n\nA cirtical mind; good books or teachers in software architecture and software patterns; good books on robust software\n1\n0.2%\n\n\nA critical mind set and patience.\n1\n0.2%\n\n\nA fundamental understanding of what the code generated from these generative AI tools is still required to ensure that it is running accurately\n1\n0.2%\n\n\na general understanding of the programming and not blind copy + execution of the code\n1\n0.2%\n\n\nA good background understanding, An ability to critic answers\n1\n0.2%\n\n\nA good foundation in software development is needed before using gAI tools\n1\n0.2%\n\n\nA good understanding of the languages and tools being used\n1\n0.2%\n\n\nA strong vocabulary and understanding of computer science in the domain in which you work.\n1\n0.2%\n\n\nAbility to ask AI the right questions\n1\n0.2%\n\n\nability to break a problem down into smaller problems, solid algorithmic idea of what one wants to do, reasonable grasp of the programming language (to use it safely)\n1\n0.2%\n\n\nAbility to check and modify proposed solutions, avoid code bloat and repetition\n1\n0.2%\n\n\nability to detect bullshit\n1\n0.2%\n\n\nAbility to effectively communicate requirements in writting English\n1\n0.2%\n\n\nAbility to effectively evaluate correctness and quality of generative AI outputs. Effective interaction models for most effectively steering / specifying what you want the model to do.\n1\n0.2%\n\n\nAbility to evaluate output of LLMs, which, ironically, reduces to being basically equivalent to my entire skillset\n1\n0.2%\n\n\nability to set up integrative workflow, knowledge of software engineering\n1\n0.2%\n\n\nAbility to tell plausible output from correct output, formal proof assistant languages\n1\n0.2%\n\n\nability to understand problems in a wider context,product vision\n1\n0.2%\n\n\nAbility to withstand and enjoy a lot more code review!\n1\n0.2%\n\n\nabstract thinking, ability to formalize a problem/task\n1\n0.2%\n\n\n\nOnly the 30 most frequent of 496 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>101</span>  <span class='chapter-title'>genAI6</span>"
+    ]
+  },
+  {
+    "objectID": "questions/101-socio3.html",
+    "href": "questions/101-socio3.html",
+    "title": "102  socio3",
+    "section": "",
+    "text": "103 Please select your age\nQuestion code: socio3\nDetected type: Single response or free text\nRespondents answering: 747\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n35 to 44 years\n284\n38.0%\n\n\n25 to 34 years\n226\n30.3%\n\n\n45 to 54 years\n135\n18.1%\n\n\n55 to 64 years\n63\n8.4%\n\n\n18 to 24 years\n16\n2.1%\n\n\nPrefer not to say\n12\n1.6%\n\n\nAge 65 or older\n11\n1.5%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>102</span>  <span class='chapter-title'>socio3</span>"
+    ]
+  },
+  {
+    "objectID": "questions/102-likert2a.html",
+    "href": "questions/102-likert2a.html",
+    "title": "103  likert2a",
+    "section": "",
+    "text": "104 When you are writing about your software, do you reference the software directly or do you reference a paper describing your software?\nQuestion code: likert2a\nDetected type: Question grid\nRespondents answering: 632\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nI reference a published paper describing the software\n5\n171\n28.5%\n\n\nI reference a published paper describing the software\n4\n128\n21.3%\n\n\nI reference a published paper describing the software\n1\n107\n17.8%\n\n\nI reference a published paper describing the software\n3\n105\n17.5%\n\n\nI reference a published paper describing the software\n2\n90\n15.0%\n\n\nlikert2a[1]_0\n5\n257\n41.5%\n\n\nlikert2a[1]_0\n4\n165\n26.6%\n\n\nlikert2a[1]_0\n3\n99\n16.0%\n\n\nlikert2a[1]_0\n1\n51\n8.2%\n\n\nlikert2a[1]_0\n2\n48\n7.7%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>103</span>  <span class='chapter-title'>likert2a</span>"
+    ]
+  },
+  {
+    "objectID": "questions/103-open1can.html",
+    "href": "questions/103-open1can.html",
+    "title": "104  open1can",
+    "section": "",
+    "text": "105 How often do you license your software with an open-source licence? []\nQuestion code: open1can\nDetected type: Single response or free text\nRespondents answering: 709\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n5\n382\n53.9%\n\n\n4\n155\n21.9%\n\n\n1\n72\n10.2%\n\n\n3\n66\n9.3%\n\n\n2\n34\n4.8%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>104</span>  <span class='chapter-title'>open1can</span>"
+    ]
+  },
+  {
+    "objectID": "questions/104-likert2b.html",
+    "href": "questions/104-likert2b.html",
+    "title": "105  likert2b",
+    "section": "",
+    "text": "106 How often do you generate a DOI or other persistent identifier for your software? []\nQuestion code: likert2b\nDetected type: Single response or free text\nRespondents answering: 651\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\n1\n215\n33.0%\n\n\n4\n119\n18.3%\n\n\n5\n118\n18.1%\n\n\n3\n114\n17.5%\n\n\n2\n85\n13.1%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>105</span>  <span class='chapter-title'>likert2b</span>"
+    ]
+  },
+  {
+    "objectID": "questions/105-paper2mod.html",
+    "href": "questions/105-paper2mod.html",
+    "title": "106  paper2mod",
+    "section": "",
+    "text": "107 In general, when your software contributes to a paper, are you acknowledged in that paper?\nQuestion code: paper2mod\nDetected type: Question grid\nRespondents answering: 634\n\n\n\nResponse distribution\n\n\n\n\n\nItem\nResponse\nCount\nPercent\n\n\n\n\nAcknowledged in acknowledgements section\n3\n246\n45.5%\n\n\nAcknowledged in acknowledgements section\n1\n110\n20.3%\n\n\nAcknowledged in acknowledgements section\n2\n87\n16.1%\n\n\nAcknowledged in acknowledgements section\n4\n58\n10.7%\n\n\nAcknowledged in acknowledgements section\n5\n40\n7.4%\n\n\nAcknowledged in the main text\n1\n185\n35.1%\n\n\nAcknowledged in the main text\n3\n173\n32.8%\n\n\nAcknowledged in the main text\n4\n62\n11.8%\n\n\nAcknowledged in the main text\n2\n59\n11.2%\n\n\nAcknowledged in the main text\n5\n48\n9.1%\n\n\nNamed as co-author\n3\n214\n35.5%\n\n\nNamed as co-author\n4\n128\n21.2%\n\n\nNamed as co-author\n5\n108\n17.9%\n\n\nNamed as co-author\n1\n89\n14.8%\n\n\nNamed as co-author\n2\n64\n10.6%\n\n\nNamed as main author\n1\n264\n48.7%\n\n\nNamed as main author\n3\n138\n25.5%\n\n\nNamed as main author\n2\n69\n12.7%\n\n\nNamed as main author\n4\n38\n7.0%\n\n\nNamed as main author\n5\n33\n6.1%\n\n\nNot mentioned at all\n1\n169\n31.4%\n\n\nNot mentioned at all\n3\n169\n31.4%\n\n\nNot mentioned at all\n2\n87\n16.1%\n\n\nNot mentioned at all\n4\n60\n11.1%\n\n\nNot mentioned at all\n5\n54\n10.0%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>106</span>  <span class='chapter-title'>paper2mod</span>"
+    ]
+  },
+  {
+    "objectID": "questions/106-currentEmp2q.html",
+    "href": "questions/106-currentEmp2q.html",
+    "title": "107  currentEmp2q",
+    "section": "",
+    "text": "108 Which university do you work for?\nQuestion code: currentEmp2q\nDetected type: Single response or free text\nRespondents answering: 350\n\n\n\nResponse distribution\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nEidgenössische Technische Hochschule Zürich ETH\n19\n5.4%\n\n\nUniversity of Cape Town\n15\n4.3%\n\n\nUniversity of Edinburgh\n13\n3.7%\n\n\nUniversity of Sheffield\n12\n3.4%\n\n\nPrinceton University\n11\n3.1%\n\n\nDelft University of Technology\n10\n2.9%\n\n\nEcole polytechnique fédérale de Lausanne EPFL\n10\n2.9%\n\n\nUniversity of Stuttgart\n10\n2.9%\n\n\nUniversität Zürich UZH\n9\n2.6%\n\n\nUniversity of Gothenburg\n8\n2.3%\n\n\nUtrecht University\n8\n2.3%\n\n\nAalto University\n6\n1.7%\n\n\nUniversity of Cambridge\n6\n1.7%\n\n\nUniversity of Southampton\n6\n1.7%\n\n\nUniversity College London (UCL)\n5\n1.4%\n\n\nUniversity of California, Berkeley\n5\n1.4%\n\n\nUniversity of Hamburg\n5\n1.4%\n\n\nUniversity of Oslo\n5\n1.4%\n\n\nUniversity of Potsdam\n5\n1.4%\n\n\nHeidelberg University\n4\n1.1%\n\n\nImperial College London\n4\n1.1%\n\n\nKing’s College London\n4\n1.1%\n\n\nStanford University\n4\n1.1%\n\n\nThe Arctic University of Norway\n4\n1.1%\n\n\nUniversity of Birmingham\n4\n1.1%\n\n\nUniversity of Helsinki\n4\n1.1%\n\n\nUniversity of Ilinois at Urbana-Champaign\n4\n1.1%\n\n\nUniversity of Manchester\n4\n1.1%\n\n\nGeorgia Institute of Technology\n3\n0.9%\n\n\nHumboldt University of Berlin\n3\n0.9%\n\n\n\nOnly the 30 most frequent of 122 distinct responses are shown.",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>107</span>  <span class='chapter-title'>currentEmp2q</span>"
+    ]
+  },
+  {
+    "objectID": "questions/107-edu1.html",
+    "href": "questions/107-edu1.html",
+    "title": "108  edu1",
+    "section": "",
+    "text": "109 What is the highest level of education you have attained?\nQuestion code: edu1\nDetected type: Single response or free text\nRespondents answering: 632\n\n\n\nResponse distribution\n\n\n\n\n\n\n\n\n\n\nResponse\nCount\nPercent\n\n\n\n\nPhD\n215\n34.0%\n\n\nMasters Degree\n196\n31.0%\n\n\nPromotion/PhD\n95\n15.0%\n\n\nUndergraduate degree\n54\n8.5%\n\n\nDoctoral or equivalent level\n41\n6.5%\n\n\nWO (Wetenschappelijk onderwijs) Masters Degree\n15\n2.4%\n\n\nUniversity of Applied Sciences entrance qualification or subject-specific higher education entrance qualification (or similar)\n5\n0.8%\n\n\nHBO (Hoger beroepsonderwijs) Undergraduate degree\n2\n0.3%\n\n\nPre-Undergraduate degree\n2\n0.3%\n\n\nFurther Education (NVQ A-Level, …)\n1\n0.2%\n\n\nGeneral University Entrance Qualification (or similar)\n1\n0.2%\n\n\nHabilitation\n1\n0.2%\n\n\nHBO (Hoger beroepsonderwijs) Masters Degree\n1\n0.2%\n\n\nSecondary school or lower secondary school certificate (or similar)\n1\n0.2%\n\n\nSome University\n1\n0.2%\n\n\nWO (Wetenschappelijk onderwijs) Undergraduate degree\n1\n0.2%",
+    "crumbs": [
+      "Questions",
+      "<span class='chapter-number'>108</span>  <span class='chapter-title'>edu1</span>"
+    ]
+  }
+]
