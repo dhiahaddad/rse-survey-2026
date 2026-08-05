@@ -12,8 +12,10 @@ applied.
 - [2017 survey](2017/)
 - [2018 survey](2018/)
 - [2022 survey](2022/)
-- [2026 survey — curated analysis](2026/)
+- [2026 survey](2026/)
+- [2026 curated Nordic analysis](2026/insights/)
 
-The 2016–2022 books are generated dynamically from the corresponding response
-and question-metadata files. The 2026 book retains the curated Nordic insights
-and question-by-question analysis.
+All yearly books are generated dynamically from the corresponding response and
+question-metadata files. The separate 2026 Nordic analysis preserves the
+curated narrative and question-by-question analysis using its committed frozen
+results.

@@ -16,6 +16,7 @@ jobs:
   build:
     name: Build ${{ matrix.year }} book
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     permissions:
       contents: read
     strategy:
@@ -42,17 +43,7 @@ jobs:
       - name: Install R dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: |
-            any::dplyr
-            any::forcats
-            any::ggplot2
-            any::gt
-            any::knitr
-            any::patchwork
-            any::purrr
-            any::scales
-            any::stringr
-            any::tidyr
+          extra-packages: any::ggplot2
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -61,19 +52,10 @@ jobs:
         env:
           SURVEY_YEAR: ${{ matrix.year }}
         run: |
-          if [ "$SURVEY_YEAR" = "2026" ]; then
-            mkdir -p RSE_survey_2026_data
-            cp RSE_survey_longitudinal/2026/2026_tf.csv RSE_survey_2026_data/2026_tf.csv
-            cp RSE_survey_longitudinal/2026/2026_cols.csv RSE_survey_2026_data/2026_cols.csv
-            quarto render rse-book --execute
-            mkdir -p .generated/site/2026
-            cp -R rse-book/_book/. .generated/site/2026/
-          else
-            Rscript scripts/build-year-book.R "$SURVEY_YEAR" RSE_survey_longitudinal .generated/year-books
-            quarto render ".generated/year-books/$SURVEY_YEAR"
-            mkdir -p ".generated/site/$SURVEY_YEAR"
-            cp -R ".generated/year-books/$SURVEY_YEAR/_book/." ".generated/site/$SURVEY_YEAR/"
-          fi
+          Rscript scripts/build-year-book.R "$SURVEY_YEAR" RSE_survey_longitudinal .generated/year-books
+          quarto render ".generated/year-books/$SURVEY_YEAR"
+          mkdir -p ".generated/site/$SURVEY_YEAR"
+          cp -R ".generated/year-books/$SURVEY_YEAR/_book/." ".generated/site/$SURVEY_YEAR/"
 
       - name: Upload rendered book
         uses: actions/upload-artifact@v4
@@ -82,9 +64,36 @@ jobs:
           path: .generated/site
           if-no-files-found: error
 
+  curated:
+    name: Build frozen Nordic analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render committed frozen analysis
+        run: |
+          quarto render rse-book --use-freezer --site-url https://dhiahaddad.github.io/rse-survey-2026/2026/insights/
+          mkdir -p .generated/site/2026/insights
+          cp -R rse-book/_book/. .generated/site/2026/insights/
+
+      - name: Upload frozen Nordic analysis
+        uses: actions/upload-artifact@v4
+        with:
+          name: book-2026-insights
+          path: .generated/site
+          if-no-files-found: error
+
   deploy:
     name: Publish survey books
-    needs: build
+    needs: [build, curated]
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: write

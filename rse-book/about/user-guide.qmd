@@ -92,6 +92,12 @@ root. Survey-flow documentation and the generator for the Nordic question
 inventory live in `RSE_survey_outline/`; those documents are separate from the
 book chapters.
 
+This guide covers the curated 2026 book. The generic survey books, including
+2026, are generated independently by `scripts/build-year-book.R` from each
+year's response table and metadata, without cross-year harmonisation. The
+published curated analysis uses the committed `_freeze/` results and appears
+separately at `/2026/insights/`.
+
 ::: {.callout-note title="Exclusion criteria"}
 Analyses include only respondents who **submitted** the survey, identified by
 a non-empty `submitdate_0`. Partial responses saved without a submission
