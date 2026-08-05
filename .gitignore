@@ -1,4 +1,6 @@
 RSE_survey_2026_data
+.generated/
+year-books/_site/
 *_files
 .agents/*
 agent/*

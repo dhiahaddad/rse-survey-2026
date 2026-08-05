@@ -1,0 +1,10 @@
+project:
+  type: website
+  output-dir: _site
+website:
+  title: "International RSE Survey Books"
+  site-url: https://dhiahaddad.github.io/rse-survey-2026/
+format:
+  html:
+    theme: cosmo
+    toc: true
