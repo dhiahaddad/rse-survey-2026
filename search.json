@@ -2,15 +2,15 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "International RSE Survey Books",
+    "title": "German RSE Survey Books",
     "section": "",
-    "text": "Each survey year is presented independently using the questions and answer options contained in that year’s dataset. No cross-year harmonisation is applied."
+    "text": "Each survey year focuses only on respondents working in Germany and is presented independently using the questions and answer options contained in that year’s dataset. No cross-year harmonisation is applied."
   },
   {
     "objectID": "index.html#survey-years",
     "href": "index.html#survey-years",
-    "title": "International RSE Survey Books",
+    "title": "German RSE Survey Books",
     "section": "Survey years",
-    "text": "Survey years\n\n2016 survey\n2017 survey\n2018 survey\n2022 survey\n2026 survey\n2026 curated Nordic analysis\n\nAll yearly books are generated dynamically from the corresponding response and question-metadata files. The separate 2026 Nordic analysis preserves the curated narrative and question-by-question analysis using its committed frozen results. Generic books include submitted and partial records, and each question reports how many of each provided an answer. The curated analysis remains submitted-only."
+    "text": "Survey years\n\n2017 Germany survey\n2018 Germany survey\n2022 Germany survey\n2026 Germany survey\n2026 curated Nordic analysis\n\nThe 2016 export contains only United Kingdom respondents, so it is not included in this Germany-focused publication. All published yearly books are generated dynamically from the corresponding response and question-metadata files. The country is configurable when generating a book, so the same process can produce books for other countries represented in a given year.\nThe separate 2026 Nordic analysis preserves the curated narrative and question-by-question analysis using its committed frozen results. Generic books include submitted and partial records, and each question reports how many of each provided an answer. The curated analysis remains submitted-only."
   }
 ]
