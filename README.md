@@ -1,8 +1,9 @@
 # rse-survey-2026
 
 Analysis and reporting code for the International RSE Surveys. The repository
-contains dynamically generated books for 2016, 2017, 2018, 2022, and 2026,
-plus a curated 2026 Quarto book with Nordic insights.
+contains dynamically generated country-focused books, plus a curated 2026
+Quarto book with Nordic insights. The published generic books focus on Germany
+for 2017, 2018, 2022, and 2026; the 2016 export contains only UK respondents.
 
 ## Data
 
@@ -86,8 +87,21 @@ quarto render .generated/year-books/2022
 ```
 
 The generated book is written to
-`.generated/year-books/2022/_book/index.html`. Substitute `2016`, `2017`,
-`2018`, or `2026` to build another year.
+`.generated/year-books/2022/_book/index.html`. Germany is the default country.
+Substitute `2016`, `2017`, `2018`, or `2026` to build another year where that
+country is represented.
+
+To generate a book for another country, pass its exact `socio1_0` label. Use
+`all` only when an explicitly all-country book is wanted:
+
+```bash
+Rscript scripts/build-year-book.R 2022 ../RSE_survey_longitudinal .generated/year-books --country Netherlands
+Rscript scripts/build-year-book.R 2022 ../RSE_survey_longitudinal .generated/year-books --country all
+```
+
+Only question groups with at least one response in the selected country are
+included. The overview reports both the complete source-row count and the number
+of records matching the country scope.
 
 Generic books include both submitted and partial records by default. Each
 question uses only records containing an answer to that question and reports
@@ -115,11 +129,12 @@ Rscript scripts/build-year-book.R 2026 ../RSE_survey_longitudinal .generated/yea
 The multi-year portal is published to GitHub Pages at
 <https://dhiahaddad.github.io/rse-survey-2026/>.
 
-GitHub Actions generates 2016, 2017, 2018, 2022, and 2026 independently from
-each year's own metadata. The successful outputs are assembled under `/2016/`
-through `/2026/`. The curated Nordic analysis is rendered separately from its
-committed frozen results and added at `/2026/insights/`. Everything is deployed
-together to the `gh-pages` branch.
+GitHub Actions generates Germany-focused books for 2017, 2018, 2022, and 2026
+independently from each year's own metadata. The publishing country is set by
+`BOOK_COUNTRY` in the workflow, and the generator accepts `--country` for local
+builds. The curated Nordic analysis is rendered separately from its committed
+frozen results and added at `/2026/insights/`. Everything is deployed together
+to the `gh-pages` branch.
 
 1. With the survey data available, render the book locally to check analysis
    changes:
@@ -133,7 +148,7 @@ together to the `gh-pages` branch.
    computations change.
 
 3. Push the changes. On every branch, the `Build and publish survey books`
-   workflow downloads the current data and validates all five generic books,
+   workflow downloads the current data and validates all four German books,
    then validates the frozen Nordic analysis without downloading its raw data.
    Successful builds from `main` are assembled and deployed to GitHub Pages;
    feature-branch builds do not publish. You can also run the workflow manually

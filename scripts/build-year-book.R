@@ -8,6 +8,26 @@ if (sum(args == "--include-free-text") > 1L) {
   stop("Specify --include-free-text only once.", call. = FALSE)
 }
 args <- args[args != "--include-free-text"]
+country_filter <- "Germany"
+country_equals <- grep("^--country=", args)
+country_flag <- which(args == "--country")
+if (length(country_equals) + length(country_flag) > 1L) {
+  stop("Specify --country only once.", call. = FALSE)
+}
+if (length(country_equals) == 1L) {
+  country_filter <- sub("^--country=", "", args[[country_equals]])
+  args <- args[-country_equals]
+} else if (length(country_flag) == 1L) {
+  if (country_flag == length(args)) {
+    stop("--country requires a country name or all.", call. = FALSE)
+  }
+  country_filter <- args[[country_flag + 1L]]
+  args <- args[-c(country_flag, country_flag + 1L)]
+}
+country_filter <- trimws(country_filter)
+if (!nzchar(country_filter)) {
+  stop("--country cannot be empty.", call. = FALSE)
+}
 inclusion_mode <- "all"
 inclusion_equals <- grep("^--inclusion=", args)
 inclusion_flag <- which(args == "--inclusion")
@@ -32,7 +52,8 @@ if (length(args) < 2L) {
   stop(
     paste(
       "Usage: Rscript scripts/build-year-book.R YEAR DATA_ROOT [OUTPUT_ROOT]",
-      "[--inclusion all|submitted] [--include-free-text]"
+      "[--country COUNTRY|all] [--inclusion all|submitted]",
+      "[--include-free-text]"
     ),
     call. = FALSE
   )
@@ -221,10 +242,41 @@ question_section <- function(stem) {
   if (length(matches)) matches[[1L]] else "Other questions"
 }
 
-tf_source <- read_survey_csv(tf_path)
+tf_source_all <- read_survey_csv(tf_path)
 meta <- read_survey_csv(cols_path)
 if (!"Option" %in% names(meta)) {
   meta$Option <- ""
+}
+
+country_column <- if ("socio1_0" %in% names(tf_source_all)) "socio1_0" else NULL
+if (is.null(country_column) && tolower(country_filter) != "all") {
+  stop(
+    "Cannot filter by country because the export has no socio1_0 column.",
+    call. = FALSE
+  )
+}
+if (tolower(country_filter) == "all") {
+  tf_source <- tf_source_all
+  country_label <- "All countries"
+  country_note <- "All countries in the export are included."
+} else {
+  countries <- trimws(as.character(tf_source_all[[country_column]]))
+  country_rows <- nonempty(countries) &
+    tolower(countries) == tolower(country_filter)
+  if (!any(country_rows)) {
+    available <- sort(unique(countries[nonempty(countries)]))
+    stop(
+      "No records found for country '", country_filter, "'. Available countries: ",
+      paste(available, collapse = ", "),
+      call. = FALSE
+    )
+  }
+  country_label <- names(sort(table(countries[country_rows]), decreasing = TRUE))[[1L]]
+  tf_source <- tf_source_all[country_rows, , drop = FALSE]
+  country_note <- paste0(
+    "Only respondents whose `socio1_0` value is **", country_label,
+    "** are included."
+  )
 }
 
 has_submission_status <- "submitdate_0" %in% names(tf_source)
@@ -312,6 +364,14 @@ response_columns <- setdiff(
 ordered_stems <- unique(question_stem(response_columns))
 metadata_stems <- unique(question_stem(meta$New_name[nonempty(meta$New_name)]))
 ordered_stems <- ordered_stems[ordered_stems %in% metadata_stems]
+ordered_stems <- ordered_stems[vapply(
+  ordered_stems,
+  function(stem) {
+    columns <- response_columns[question_stem(response_columns) == stem]
+    any(row_has_response(tf[, columns, drop = FALSE]))
+  },
+  logical(1)
+)]
 question_sections <- vapply(ordered_stems, question_section, character(1))
 present_sections <- section_order[section_order %in% question_sections]
 section_summary <- data.frame(
@@ -328,8 +388,7 @@ unknown_families <- unique(vapply(
   character(1)
 ))
 
-country_column <- if ("socio1_0" %in% names(tf)) "socio1_0" else NULL
-country_summary <- if (!is.null(country_column)) {
+country_summary <- if (!is.null(country_column) && tolower(country_filter) == "all") {
   countries <- trimws(as.character(tf[[country_column]]))
   present <- nonempty(countries)
   counts <- sort(table(countries[present]), decreasing = TRUE)
@@ -347,25 +406,38 @@ country_summary <- if (!is.null(country_column)) {
   data.frame()
 }
 
+book_title <- if (tolower(country_filter) == "all") {
+  paste("International RSE Survey", survey_year)
+} else {
+  paste("International RSE Survey", survey_year, "—", country_label)
+}
+
 index_lines <- c(
   "---",
-  paste0("title: ", yaml_string(paste("International RSE Survey", survey_year))),
+  paste0("title: ", yaml_string(book_title)),
   "---",
   "",
   paste0("# Survey overview {.unnumbered}"),
   "",
   paste0(
     "This book presents the **", survey_year,
-    " survey independently**, using the questions and answer options stored in that year's export."
+    " survey independently for ", country_label,
+    "**, using the questions and answer options stored in that year's export."
   ),
   "",
-  paste0("**Source records:** ", nrow(tf_source)),
+  paste0("**Country scope:** ", country_label),
+  "",
+  paste0("**Source records:** ", nrow(tf_source_all)),
+  "",
+  paste0("**Records matching country scope:** ", nrow(tf_source)),
   "",
   paste0("**Respondents included:** ", nrow(tf)),
   "",
   paste0("**Question groups discovered:** ", length(ordered_stems)),
   "",
   submission_note,
+  "",
+  country_note,
   "",
   "No cross-year harmonisation is applied.",
   ""
@@ -629,7 +701,7 @@ quarto_lines <- c(
   "  type: book",
   "  output-dir: _book",
   "book:",
-  paste0("  title: ", yaml_string(paste("International RSE Survey", survey_year))),
+  paste0("  title: ", yaml_string(book_title)),
   "  chapters:",
   "    - index.qmd"
 )
@@ -652,7 +724,8 @@ quarto_lines <- c(
 writeLines(quarto_lines, file.path(project_dir, "_quarto.yml"))
 
 message(
-  "Generated ", survey_year, " book with ", length(chapter_files),
+  "Generated ", survey_year, " book for ", country_label, " with ",
+  length(chapter_files),
   " question chapters in ", length(present_sections), " thematic sections at ",
   project_dir
 )

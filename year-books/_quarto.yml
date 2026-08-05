@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: _site
 website:
-  title: "International RSE Survey Books"
+  title: "German RSE Survey Books"
   site-url: https://dhiahaddad.github.io/rse-survey-2026/
 format:
   html:

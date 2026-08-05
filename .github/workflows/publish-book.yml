@@ -12,6 +12,9 @@ on:
 
 name: Build and publish survey books
 
+env:
+  BOOK_COUNTRY: Germany
+
 jobs:
   build:
     name: Build ${{ matrix.year }} book
@@ -22,7 +25,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        year: ["2016", "2017", "2018", "2022", "2026"]
+        year: ["2017", "2018", "2022", "2026"]
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -52,7 +55,7 @@ jobs:
         env:
           SURVEY_YEAR: ${{ matrix.year }}
         run: |
-          Rscript scripts/build-year-book.R "$SURVEY_YEAR" RSE_survey_longitudinal .generated/year-books
+          Rscript scripts/build-year-book.R "$SURVEY_YEAR" RSE_survey_longitudinal .generated/year-books --country "$BOOK_COUNTRY"
           quarto render ".generated/year-books/$SURVEY_YEAR"
           mkdir -p ".generated/site/$SURVEY_YEAR"
           cp -R ".generated/year-books/$SURVEY_YEAR/_book/." ".generated/site/$SURVEY_YEAR/"
