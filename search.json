@@ -1712,16 +1712,23 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "German RSE Survey Books",
+    "title": "Research Software Engineers in Germany",
     "section": "",
-    "text": "This publication brings the Germany-focused survey results into one book. Choose a year in the page header, then use that year’s left sidebar to navigate by question section and question.\nEach year uses its own questions and answer options; no cross-year harmonisation is applied."
+    "text": "Discover how people who develop software for research in Germany work, learn, collaborate, and build their careers. Choose a survey year to begin."
   },
   {
-    "objectID": "index.html#survey-years",
-    "href": "index.html#survey-years",
-    "title": "German RSE Survey Books",
-    "section": "Survey years",
-    "text": "Survey years\n\n2017 Germany survey\n2018 Germany survey\n2022 Germany survey\n2026 Germany survey\n\nThe 2016 export contains only United Kingdom respondents, so it is not included.\nThe separate 2026 curated Nordic analysis remains available."
+    "objectID": "index.html#explore-the-german-rse-community-over-time",
+    "href": "index.html#explore-the-german-rse-community-over-time",
+    "title": "Research Software Engineers in Germany",
+    "section": "",
+    "text": "Discover how people who develop software for research in Germany work, learn, collaborate, and build their careers. Choose a survey year to begin."
+  },
+  {
+    "objectID": "index.html#how-to-read-this-publication",
+    "href": "index.html#how-to-read-this-publication",
+    "title": "Research Software Engineers in Germany",
+    "section": "How to read this publication",
+    "text": "How to read this publication\n\n\nGermany only\nEvery result is filtered to respondents who selected Germany as their country of work.\n\n\nEach year stands alone\nQuestions and answer options can change between surveys, so results are not automatically harmonised across years.\n\n\nClear response counts\nSubmitted and partial responses are included, with the relevant counts reported for each question."
   },
   {
     "objectID": "2017/questions/001-socio1.html",
