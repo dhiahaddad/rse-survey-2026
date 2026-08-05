@@ -28,9 +28,11 @@ all_cols <- setdiff(all_names[!grepl("^\\.blank", all_names)], sys)
 ordered_stems <- unique(question_stem(all_cols))
 
 meta <- read.csv(
-  file.path(survey_data_dir, "2026_all_cols.csv"),
+  file.path(survey_data_dir, "2026_cols.csv"),
   check.names = FALSE
 )
+empty <- !nzchar(names(meta)) | is.na(names(meta))
+names(meta)[empty] <- paste0(".blank", seq_len(sum(empty)))
 meta2 <- meta |>
   mutate(
     stem = question_stem(New_name),
@@ -182,7 +184,7 @@ md <- c(
   paste0("FILTER = c(", paste0("\"", nordic, "\"", collapse = ", "), ")"),
   "```",
   "",
-  "Derived from `RSE_survey_2026_data/2026_tf.csv` and `2026_all_cols.csv`.",
+  "Derived from `RSE_survey_2026_data/2026_tf.csv` and `2026_cols.csv`.",
   "",
   "---",
   "",

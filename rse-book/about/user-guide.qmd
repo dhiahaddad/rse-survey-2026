@@ -84,7 +84,7 @@ The **raw survey data** is *not* inside `rse-book/`. It lives in a separate
 directory at the repository root (default `RSE_survey_2026_data/`). The
 analysis reads just two files there: `2026_tf.csv` (the full respondent table,
 one row per respondent, used for both country filtering via `socio1_0` and for
-selecting each question's columns) and `2026_all_cols.csv` (question metadata,
+selecting each question's columns) and `2026_cols.csv` (question metadata,
 used to decode multi-response option labels).
 
 Nordic insights helpers live in `RSE_survey_insights_helper/` at the repository

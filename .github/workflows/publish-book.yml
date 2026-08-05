@@ -18,13 +18,51 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Check out 2026 survey data
+        uses: actions/checkout@v4
+        with:
+          repository: softwaresaved/RSE_survey_longitudinal
+          ref: main
+          path: RSE_survey_longitudinal
+          sparse-checkout: 2026
+
+      - name: Prepare survey data
+        run: |
+          mkdir -p RSE_survey_2026_data
+          cp RSE_survey_longitudinal/2026/2026_tf.csv RSE_survey_2026_data/2026_tf.csv
+          cp RSE_survey_longitudinal/2026/2026_cols.csv RSE_survey_2026_data/2026_cols.csv
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Install R dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: |
+            any::dplyr
+            any::forcats
+            any::ggplot2
+            any::gt
+            any::patchwork
+            any::purrr
+            any::scales
+            any::stringr
+            any::tidyr
+
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render and publish to GitHub Pages
+      - name: Render book from survey data
+        run: quarto render --execute
+        working-directory: rse-book
+
+      - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
           path: rse-book
+          render: "false"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
