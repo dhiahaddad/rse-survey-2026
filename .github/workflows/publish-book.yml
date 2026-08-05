@@ -60,7 +60,6 @@ jobs:
         working-directory: rse-book
 
       - name: Publish to GitHub Pages
-        if: github.ref == 'refs/heads/main'
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
