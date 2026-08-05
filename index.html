@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -44,13 +45,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6ac2aec46ad7f46b16024ee4409aa65c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-6493d055a62f6a5fae3ea0397f3ce425.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -76,22 +77,55 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">German RSE Survey Books</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./2017/index.html"> 
+<span class="menu-text">2017</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./2018/index.html"> 
+<span class="menu-text">2018</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./2022/index.html"> 
+<span class="menu-text">2022</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./2026/index.html"> 
+<span class="menu-text">2026</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#survey-years" id="toc-survey-years" class="nav-link active" data-scroll-target="#survey-years">Survey years</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -114,18 +148,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Each survey year focuses only on respondents working in Germany and is presented independently using the questions and answer options contained in that year’s dataset. No cross-year harmonisation is applied.</p>
+<p>This publication brings the Germany-focused survey results into one book. Choose a <strong>year in the page header</strong>, then use that year’s left sidebar to navigate by <strong>question section</strong> and question.</p>
+<p>Each year uses its own questions and answer options; no cross-year harmonisation is applied.</p>
 <section id="survey-years" class="level2">
 <h2 class="anchored" data-anchor-id="survey-years">Survey years</h2>
 <ul>
-<li><a href="2017/">2017 Germany survey</a></li>
-<li><a href="2018/">2018 Germany survey</a></li>
-<li><a href="2022/">2022 Germany survey</a></li>
-<li><a href="2026/">2026 Germany survey</a></li>
-<li><a href="2026/insights/">2026 curated Nordic analysis</a></li>
+<li><a href="./2017/index.html">2017 Germany survey</a></li>
+<li><a href="./2018/index.html">2018 Germany survey</a></li>
+<li><a href="./2022/index.html">2022 Germany survey</a></li>
+<li><a href="./2026/index.html">2026 Germany survey</a></li>
 </ul>
-<p>The 2016 export contains only United Kingdom respondents, so it is not included in this Germany-focused publication. All published yearly books are generated dynamically from the corresponding response and question-metadata files. The country is configurable when generating a book, so the same process can produce books for other countries represented in a given year.</p>
-<p>The separate 2026 Nordic analysis preserves the curated narrative and question-by-question analysis using its committed frozen results. Generic books include submitted and partial records, and each question reports how many of each provided an answer. The curated analysis remains submitted-only.</p>
+<p>The 2016 export contains only United Kingdom respondents, so it is not included.</p>
+<p>The separate <a href="2026/insights/">2026 curated Nordic analysis</a> remains available.</p>
 
 
 </section>
