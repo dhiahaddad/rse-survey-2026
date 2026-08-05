@@ -3,11 +3,9 @@ on:
     branches:
       - "**"
     paths:
-      - "rse-book/**"
       - "year-books/**"
       - "scripts/build-year-book.R"
       - "scripts/build-combined-book.R"
-      - "RSE_survey_insights_helper/**"
       - ".github/workflows/publish-book.yml"
   workflow_dispatch:
 
@@ -67,35 +65,9 @@ jobs:
           path: .generated/combined-book/_site
           if-no-files-found: error
 
-  curated:
-    name: Build frozen Nordic analysis
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: read
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: Render committed frozen analysis
-        run: |
-          quarto render rse-book --use-freezer --site-url https://dhiahaddad.github.io/rse-survey-2026/2026/insights/
-          mkdir -p .generated/site/2026/insights
-          cp -R rse-book/_book/. .generated/site/2026/insights/
-
-      - name: Upload frozen Nordic analysis
-        uses: actions/upload-artifact@v4
-        with:
-          name: book-2026-insights
-          path: .generated/site
-          if-no-files-found: error
-
   deploy:
     name: Publish survey books
-    needs: [build, curated]
+    needs: [build]
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:

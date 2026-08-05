@@ -92,8 +92,6 @@ index_lines <- c(
   paste0("- [", survey_years, " Germany survey](", survey_years, "/index.qmd)"),
   "",
   "The 2016 export contains only United Kingdom respondents, so it is not included.",
-  "",
-  "The separate [2026 curated Nordic analysis](2026/insights/) remains available.",
   ""
 )
 writeLines(index_lines, file.path(output_dir, "index.qmd"))

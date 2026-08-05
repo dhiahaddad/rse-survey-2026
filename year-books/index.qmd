@@ -12,7 +12,6 @@ that year's dataset. No cross-year harmonisation is applied.
 - [2018 Germany survey](2018/)
 - [2022 Germany survey](2022/)
 - [2026 Germany survey](2026/)
-- [2026 curated Nordic analysis](2026/insights/)
 
 The four years are assembled into one publication. Choose a year from the page
 header; the left sidebar will then show only that year's thematic question
@@ -25,7 +24,5 @@ the corresponding response and question-metadata files. The country is
 configurable, so the same process can produce a combined publication for other
 countries represented in the selected years.
 
-The separate 2026 Nordic analysis preserves the curated narrative and
-question-by-question analysis using its committed frozen results. Generic books
-include submitted and partial records, and each question reports how many of
-each provided an answer. The curated analysis remains submitted-only.
+Generic books include submitted and partial records, and each question reports
+how many of each provided an answer.
