@@ -32,10 +32,9 @@ show_within <- length(filter_countries) > 1L
 country_groups <- build_between_country_groups(FILTER, FILTER_COMPARE)
 plot_countries <- countries_from_groups(country_groups)
 
-survey_data_dir <- if (file.exists(file.path(book_root, 
-paste0(DATA_DIR, "/2026_all_cols.csv")))) {
+survey_data_dir <- if (file.exists(file.path(book_root, DATA_DIR, "2026_tf.csv"))) {
   file.path(book_root, DATA_DIR)
 } else {
-  file.path(book_root, paste0("../", DATA_DIR))
+  file.path(book_root, "..", DATA_DIR)
 }
-cols <- read.csv(file.path(survey_data_dir, "2026_all_cols.csv"))
+cols <- read.csv(file.path(survey_data_dir, "2026_cols.csv"))

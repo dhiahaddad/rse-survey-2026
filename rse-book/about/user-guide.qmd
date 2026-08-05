@@ -84,13 +84,19 @@ The **raw survey data** is *not* inside `rse-book/`. It lives in a separate
 directory at the repository root (default `RSE_survey_2026_data/`). The
 analysis reads just two files there: `2026_tf.csv` (the full respondent table,
 one row per respondent, used for both country filtering via `socio1_0` and for
-selecting each question's columns) and `2026_all_cols.csv` (question metadata,
+selecting each question's columns) and `2026_cols.csv` (question metadata,
 used to decode multi-response option labels).
 
 Nordic insights helpers live in `RSE_survey_insights_helper/` at the repository
 root. Survey-flow documentation and the generator for the Nordic question
 inventory live in `RSE_survey_outline/`; those documents are separate from the
 book chapters.
+
+This guide covers the curated 2026 book. The generic survey books, including
+2026, are generated independently by `scripts/build-year-book.R` from each
+year's response table and metadata, without cross-year harmonisation. The
+published curated analysis uses the committed `_freeze/` results and appears
+separately at `/2026/insights/`.
 
 ::: {.callout-note title="Exclusion criteria"}
 Analyses include only respondents who **submitted** the survey, identified by

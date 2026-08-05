@@ -1,16 +1,99 @@
 on:
   push:
     branches:
-      - main
+      - "**"
     paths:
       - "rse-book/**"
+      - "year-books/**"
+      - "scripts/build-year-book.R"
+      - "RSE_survey_insights_helper/**"
       - ".github/workflows/publish-book.yml"
   workflow_dispatch:
 
-name: Publish Quarto book
+name: Build and publish survey books
 
 jobs:
-  build-deploy:
+  build:
+    name: Build ${{ matrix.year }} book
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        year: ["2016", "2017", "2018", "2022", "2026"]
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check out ${{ matrix.year }} survey data
+        uses: actions/checkout@v4
+        with:
+          repository: softwaresaved/RSE_survey_longitudinal
+          ref: main
+          path: RSE_survey_longitudinal
+          sparse-checkout: ${{ matrix.year }}
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Install R dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::ggplot2
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Generate and render year book
+        env:
+          SURVEY_YEAR: ${{ matrix.year }}
+        run: |
+          Rscript scripts/build-year-book.R "$SURVEY_YEAR" RSE_survey_longitudinal .generated/year-books
+          quarto render ".generated/year-books/$SURVEY_YEAR"
+          mkdir -p ".generated/site/$SURVEY_YEAR"
+          cp -R ".generated/year-books/$SURVEY_YEAR/_book/." ".generated/site/$SURVEY_YEAR/"
+
+      - name: Upload rendered book
+        uses: actions/upload-artifact@v4
+        with:
+          name: book-${{ matrix.year }}
+          path: .generated/site
+          if-no-files-found: error
+
+  curated:
+    name: Build frozen Nordic analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render committed frozen analysis
+        run: |
+          quarto render rse-book --use-freezer --site-url https://dhiahaddad.github.io/rse-survey-2026/2026/insights/
+          mkdir -p .generated/site/2026/insights
+          cp -R rse-book/_book/. .generated/site/2026/insights/
+
+      - name: Upload frozen Nordic analysis
+        uses: actions/upload-artifact@v4
+        with:
+          name: book-2026-insights
+          path: .generated/site
+          if-no-files-found: error
+
+  deploy:
+    name: Publish survey books
+    needs: [build, curated]
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -21,10 +104,21 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render and publish to GitHub Pages
+      - name: Render multi-year landing page
+        run: quarto render year-books
+
+      - name: Download rendered books
+        uses: actions/download-artifact@v4
+        with:
+          pattern: book-*
+          path: year-books/_site
+          merge-multiple: true
+
+      - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
-          path: rse-book
+          path: year-books
+          render: "false"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

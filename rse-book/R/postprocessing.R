@@ -184,17 +184,17 @@ question_columns <- function(question_code, all_names) {
   ]
 }
 
-#' Build the column-code -> option-label lookup from `2026_all_cols.csv`
+#' Build the column-code -> option-label lookup from `2026_cols.csv`
 #'
 #' Used to decode multi-response check-box columns (which store `"True"` /
 #' `"False"` in `2026_tf.csv`) into their human-readable option labels.
 #'
-#' @param data_dir Directory holding `2026_all_cols.csv`.
+#' @param data_dir Directory holding `2026_cols.csv`.
 #' @return Named character vector mapping `New_name` (column code) to `Option`.
 #' @keywords internal
 question_label_lookup <- function(data_dir) {
   meta <- read.csv(
-    file.path(data_dir, "2026_all_cols.csv"),
+    file.path(data_dir, "2026_cols.csv"),
     check.names = FALSE
   )
   stats::setNames(as.character(meta$Option), as.character(meta$New_name))
@@ -313,7 +313,7 @@ survey_unsubmitted_n <- function(filter, data_dir = survey_raw_data_dir()) {
 #'   as the name of the returned value column.
 #' @param filter A single country name or a vector of country names, matched
 #'   against the `socio1_0` column of `2026_tf.csv`.
-#' @param data_dir Directory holding `2026_tf.csv` and `2026_all_cols.csv`.
+#' @param data_dir Directory holding `2026_tf.csv` and `2026_cols.csv`.
 #' @return Tibble with `row_id`, `is_other`, and `question_code` columns.
 #' @keywords internal
 load_question_data <- function(

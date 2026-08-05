@@ -101,7 +101,7 @@ insights_citation_fig_cap <- function(ns) {
 #' Sample sizes for every survey question used in the Nordic insights document
 #'
 #' @param filter Country filter vector.
-#' @param meta Survey column metadata from [read.csv()] on `2026_all_cols.csv`.
+#' @param meta Survey column metadata from [read.csv()] on `2026_cols.csv`.
 #' @param df Respondent data frame (defaults to [load_filtered_tf()]).
 #' @return Named list of integer sample sizes.
 #' @export

@@ -1,0 +1,21 @@
+---
+title: "International RSE Survey Books"
+---
+
+Each survey year is presented independently using the questions and answer
+options contained in that year's dataset. No cross-year harmonisation is
+applied.
+
+## Survey years
+
+- [2016 survey](2016/)
+- [2017 survey](2017/)
+- [2018 survey](2018/)
+- [2022 survey](2022/)
+- [2026 survey](2026/)
+- [2026 curated Nordic analysis](2026/insights/)
+
+All yearly books are generated dynamically from the corresponding response and
+question-metadata files. The separate 2026 Nordic analysis preserves the
+curated narrative and question-by-question analysis using its committed frozen
+results.

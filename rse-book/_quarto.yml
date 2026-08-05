@@ -5,7 +5,7 @@ book:
   title: "International RSE Survey 2026"
   author: "RSE Survey Team"
   date: today
-  site-url: https://nordic-rse.github.io/rse-survey-2026/
+  site-url: https://dhiahaddad.github.io/rse-survey-2026/
   chapters:
     - part: "About"
       chapters:
