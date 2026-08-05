@@ -3,6 +3,11 @@
 suppressPackageStartupMessages(library(ggplot2))
 
 args <- commandArgs(trailingOnly = TRUE)
+include_free_text <- any(args == "--include-free-text")
+if (sum(args == "--include-free-text") > 1L) {
+  stop("Specify --include-free-text only once.", call. = FALSE)
+}
+args <- args[args != "--include-free-text"]
 inclusion_mode <- "all"
 inclusion_equals <- grep("^--inclusion=", args)
 inclusion_flag <- which(args == "--inclusion")
@@ -27,7 +32,7 @@ if (length(args) < 2L) {
   stop(
     paste(
       "Usage: Rscript scripts/build-year-book.R YEAR DATA_ROOT [OUTPUT_ROOT]",
-      "[--inclusion all|submitted]"
+      "[--inclusion all|submitted] [--include-free-text]"
     ),
     call. = FALSE
   )
@@ -97,6 +102,57 @@ write_markdown_table <- function(df) {
   divider <- paste0("| ", paste(rep("---", ncol(df)), collapse = " | "), " |")
   rows <- apply(df, 1L, function(x) paste0("| ", paste(x, collapse = " | "), " |"))
   paste(c(header, divider, rows), collapse = "\n")
+}
+
+row_has_response <- function(df) {
+  if (!ncol(df)) return(rep(FALSE, nrow(df)))
+  apply(df, 1L, function(row) any(nonempty(row)))
+}
+
+html_escape <- function(x) {
+  x <- gsub("&", "&amp;", as.character(x), fixed = TRUE)
+  x <- gsub("<", "&lt;", x, fixed = TRUE)
+  x <- gsub(">", "&gt;", x, fixed = TRUE)
+  x <- gsub('"', "&quot;", x, fixed = TRUE)
+  x <- gsub("'", "&#39;", x, fixed = TRUE)
+  gsub("[\r\n]+", "<br>", x)
+}
+
+free_text_details <- function(values, heading = "Recorded answers") {
+  values <- trimws(as.character(values))
+  values <- values[nonempty(values)]
+  if (!length(values)) return(character())
+  counts <- sort(table(values), decreasing = TRUE)
+  labels <- html_escape(names(counts))
+  count_labels <- ifelse(
+    as.integer(counts) > 1L,
+    paste0(" <strong>× ", as.integer(counts), "</strong>"),
+    ""
+  )
+  c(
+    paste0("## ", heading),
+    "",
+    "<details>",
+    paste0(
+      "<summary>Show ", length(values), " recorded answers (",
+      length(counts), " distinct)</summary>"
+    ),
+    "<ul>",
+    paste0("<li>", labels, count_labels, "</li>"),
+    "</ul>",
+    "</details>",
+    ""
+  )
+}
+
+probable_free_text <- function(values) {
+  flat <- trimws(unlist(values, use.names = FALSE))
+  flat <- flat[nonempty(flat)]
+  if (length(flat) < 10L) return(FALSE)
+  distinct <- length(unique(flat))
+  distinct >= 10L &&
+    distinct / length(flat) >= 0.25 &&
+    mean(nchar(flat)) >= 12
 }
 
 metadata_label <- function(meta, column, fallback) {
@@ -212,6 +268,35 @@ answering_summary <- function(answered_rows) {
   )
 }
 
+free_text_status_lines <- function(answered_rows) {
+  answered_rows[is.na(answered_rows)] <- FALSE
+  lines <- c(paste0("Responses recorded: ", sum(answered_rows)))
+  if (has_submission_status) {
+    lines <- c(
+      lines,
+      "",
+      paste0(
+        "Submitted: ",
+        sum(answered_rows & tf$.submission_status == "Submitted")
+      ),
+      "",
+      paste0(
+        "Partial: ",
+        sum(answered_rows & tf$.submission_status == "Partial")
+      )
+    )
+  } else {
+    lines <- c(
+      lines,
+      "",
+      "Submitted: not available",
+      "",
+      "Partial: not available"
+    )
+  }
+  lines
+}
+
 system_columns <- c(
   "id", "submitdate_0", "lastpage", "lastpage_0", "startlanguage",
   "startlanguage_0", "seed", "seed_0", "token", "startdate",
@@ -324,26 +409,51 @@ for (i in seq_along(ordered_stems)) {
   stem <- ordered_stems[[i]]
   columns <- response_columns[question_stem(response_columns) == stem]
   title <- question_text(meta, stem)
-  values <- lapply(tf[, columns, drop = FALSE], as.character)
+  is_other_column <- grepl("[other]", columns, fixed = TRUE)
+  other_columns <- columns[is_other_column]
+  analysis_columns <- columns[!is_other_column]
+  if (!length(analysis_columns)) {
+    analysis_columns <- columns
+    other_columns <- character()
+  }
+  other_values <- if (length(other_columns)) {
+    trimws(unlist(tf[, other_columns, drop = FALSE], use.names = FALSE))
+  } else {
+    character()
+  }
+  other_values <- other_values[nonempty(other_values)]
+  other_answered_rows <- row_has_response(tf[, other_columns, drop = FALSE])
+  values <- lapply(tf[, analysis_columns, drop = FALSE], as.character)
   all_values <- trimws(unlist(values, use.names = FALSE))
   all_values <- all_values[nonempty(all_values)]
   boolean_values <- tolower(unique(all_values))
-  is_boolean_grid <- length(columns) > 1L &&
+  is_boolean_grid <- length(analysis_columns) > 1L &&
     length(boolean_values) > 0L &&
     all(boolean_values %in% c("true", "false", "0", "1"))
+  is_free_text_group <- !length(other_columns) && (
+    probable_free_text(values) ||
+      (length(analysis_columns) > 1L && length(unique(all_values)) > 30L)
+  )
 
-  if (length(columns) == 1L) {
-    type <- "Single response or free text"
-    raw_all <- trimws(as.character(tf[[columns[[1L]]]]))
-    answered_rows <- nonempty(raw_all)
-    raw <- raw_all[answered_rows]
+  if (is_free_text_group) {
+    type <- "Free text"
+    answered_rows <- row_has_response(tf[, analysis_columns, drop = FALSE])
+    display <- data.frame()
+    truncated_note <- NULL
+    plot <- NULL
+  } else if (length(analysis_columns) == 1L) {
+    type <- "Single response"
+    raw_all <- trimws(as.character(tf[[analysis_columns[[1L]]]]))
+    answered_rows <- nonempty(raw_all) | other_answered_rows
+    raw <- raw_all[nonempty(raw_all)]
     counts <- sort(table(raw), decreasing = TRUE)
+    answered_n <- sum(answered_rows)
+    denominator <- if (answered_n > 0L) answered_n else 1L
     result <- data.frame(
       Response = names(counts),
       Count = as.integer(counts),
-      Percent = sprintf("%.1f%%", 100 * as.integer(counts) / sum(counts))
+      Percent = sprintf("%.1f%%", 100 * as.integer(counts) / denominator)
     )
-    answered_n <- sum(answered_rows)
     display <- head(result, 30L)
     truncated_note <- if (nrow(result) > nrow(display)) {
       paste0("Only the 30 most frequent of ", nrow(result), " distinct responses are shown.")
@@ -362,12 +472,12 @@ for (i in seq_along(ordered_stems)) {
     selected <- vapply(values, function(x) {
       sum(tolower(trimws(x)) %in% c("true", "1"), na.rm = TRUE)
     }, integer(1))
-    answered_rows <- apply(tf[, columns, drop = FALSE], 1L, function(row) {
+    answered_rows <- apply(tf[, analysis_columns, drop = FALSE], 1L, function(row) {
       any(tolower(trimws(as.character(row))) %in% c("true", "1"), na.rm = TRUE)
-    })
+    }) | other_answered_rows
     answered_n <- sum(answered_rows)
-    labels <- vapply(seq_along(columns), function(j) {
-      metadata_label(meta, columns[[j]], columns[[j]])
+    labels <- vapply(seq_along(analysis_columns), function(j) {
+      metadata_label(meta, analysis_columns[[j]], analysis_columns[[j]])
     }, character(1))
     denominator <- if (answered_n > 0L) answered_n else 1L
     result <- data.frame(
@@ -385,40 +495,19 @@ for (i in seq_along(ordered_stems)) {
       coord_flip() +
       labs(x = NULL, y = "Selections") +
       theme_minimal(base_size = 11)
-  } else if (length(unique(all_values)) > 30L) {
-    type <- "Repeated free text"
-    counts <- sort(table(all_values), decreasing = TRUE)
-    result <- data.frame(
-      Response = names(counts),
-      Count = as.integer(counts),
-      Percent = sprintf("%.1f%%", 100 * as.integer(counts) / sum(counts))
-    )
-    answered_rows <- apply(tf[, columns, drop = FALSE], 1L, function(row) {
-      any(nonempty(row))
-    })
-    answered_n <- sum(answered_rows)
-    display <- head(result, 30L)
-    truncated_note <- if (nrow(result) > nrow(display)) {
-      paste0("Only the 30 most frequent of ", nrow(result), " distinct responses are shown.")
-    } else {
-      NULL
-    }
-    plot_data <- display
-    names(plot_data)[1L] <- "label"
-    plot <- ggplot(plot_data, aes(x = reorder(label, Count), y = Count)) +
-      geom_col(fill = "#2C7FB8") +
-      coord_flip() +
-      labs(x = NULL, y = "Responses") +
-      theme_minimal(base_size = 11)
   } else {
     type <- "Question grid"
-    rows <- lapply(seq_along(columns), function(j) {
-      raw <- trimws(as.character(tf[[columns[[j]]]]))
+    rows <- lapply(seq_along(analysis_columns), function(j) {
+      raw <- trimws(as.character(tf[[analysis_columns[[j]]]]))
       raw <- raw[nonempty(raw)]
       if (!length(raw)) return(NULL)
       counts <- sort(table(raw), decreasing = TRUE)
       data.frame(
-        Item = metadata_label(meta, columns[[j]], columns[[j]]),
+        Item = metadata_label(
+          meta,
+          analysis_columns[[j]],
+          analysis_columns[[j]]
+        ),
         Response = names(counts),
         Count = as.integer(counts),
         stringsAsFactors = FALSE
@@ -430,9 +519,9 @@ for (i in seq_along(ordered_stems)) {
     }
     totals <- ave(result$Count, result$Item, FUN = sum)
     result$Percent <- if (length(totals)) sprintf("%.1f%%", 100 * result$Count / totals) else character()
-    answered_rows <- apply(tf[, columns, drop = FALSE], 1L, function(row) {
-      any(nonempty(row))
-    })
+    answered_rows <- row_has_response(
+      tf[, analysis_columns, drop = FALSE]
+    ) | other_answered_rows
     answered_n <- sum(answered_rows)
     display <- head(result[order(result$Item, -result$Count), , drop = FALSE], 100L)
     truncated_note <- if (nrow(result) > nrow(display)) {
@@ -451,7 +540,7 @@ for (i in seq_along(ordered_stems)) {
   file_stem <- sprintf("%03d-%s", i, safe_filename(stem))
   figure_rel <- file.path("figures", paste0(file_stem, ".png"))
   figure_path <- file.path(project_dir, figure_rel)
-  if (nrow(display)) {
+  if (!is_free_text_group && nrow(display)) {
     ggsave(figure_path, plot, width = 9, height = max(4.5, min(12, 2.5 + 0.22 * nrow(display))), dpi = 144)
   }
 
@@ -466,20 +555,67 @@ for (i in seq_along(ordered_stems)) {
     paste0("**Question code:** `", stem, "`"),
     "",
     paste0("**Detected type:** ", type),
-    "",
-    answering_summary(answered_rows),
     ""
   )
-  if (nrow(display)) {
+  if (is_free_text_group) {
     chapter_lines <- c(
       chapter_lines,
-      paste0("![Response distribution](../", figure_rel, "){fig-alt='Response distribution for ", stem, ".'}"),
-      "",
-      write_markdown_table(display),
+      free_text_status_lines(answered_rows),
       ""
     )
+    if (include_free_text) {
+      chapter_lines <- c(
+        chapter_lines,
+        free_text_details(all_values)
+      )
+    }
+  } else if (nrow(display)) {
+    chapter_lines <- c(
+      chapter_lines,
+      answering_summary(answered_rows),
+      "",
+      paste0("![Response distribution](../", figure_rel, "){fig-alt='Response distribution for ", stem, ".'}"),
+      ""
+    )
+    if (length(other_values)) {
+      chapter_lines <- c(
+        chapter_lines,
+        paste0("Other responses recorded: ", length(other_values)),
+        ""
+      )
+      if (include_free_text) {
+        chapter_lines <- c(
+          chapter_lines,
+          free_text_details(other_values, "Other responses")
+        )
+      }
+    }
+    chapter_lines <- c(chapter_lines, write_markdown_table(display), "")
   } else {
-    chapter_lines <- c(chapter_lines, "_No responses were recorded for this question._", "")
+    chapter_lines <- c(
+      chapter_lines,
+      answering_summary(answered_rows),
+      ""
+    )
+    if (length(other_values)) {
+      chapter_lines <- c(
+        chapter_lines,
+        paste0("Other responses recorded: ", length(other_values)),
+        ""
+      )
+      if (include_free_text) {
+        chapter_lines <- c(
+          chapter_lines,
+          free_text_details(other_values, "Other responses")
+        )
+      }
+    } else {
+      chapter_lines <- c(
+        chapter_lines,
+        "_No structured responses were recorded for this question._",
+        ""
+      )
+    }
   }
   if (!is.null(truncated_note)) {
     chapter_lines <- c(chapter_lines, paste0("_", truncated_note, "_"), "")

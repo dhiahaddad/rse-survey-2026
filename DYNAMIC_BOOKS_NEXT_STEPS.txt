@@ -1,0 +1,227 @@
+DYNAMIC SURVEY BOOKS: NEXT STEPS BY ROI
+=======================================
+
+ROI here means expected improvement to clarity, correctness, safety, and
+maintainability relative to implementation effort. Items within each tier are
+listed in recommended implementation order.
+
+
+VERY HIGH ROI
+-------------
+
+1. Make inclusion rules and counts explicit
+
+   Status: implemented for the generic generator. Generic books now include
+   submitted and partial records by default, show both counts, and retain a
+   submitted-only command-line option.
+
+   Problem:
+   The Superset dashboard counts records that answered the country question,
+   while the generated books include only records with a non-empty
+   submitdate_0. For Germany in 2026 this previously produced 266 records in the
+   dashboard versus 206 submitted responses in the submitted-only book.
+
+   Change:
+   - Rename "Responses by country" to "Submitted responses by country".
+   - Show source records, records with a country, submitted records, and
+     excluded records on the overview page.
+   - State the inclusion rule prominently.
+   - For years without submitdate_0, state the alternative rule explicitly.
+
+   Benefit:
+   Prevents apparently conflicting totals and makes every analysis denominator
+   auditable.
+
+2. Group chapters into thematic book sections using question codes
+
+   Status: implemented for all currently supported question-code families,
+   with unknown future families retained under Other questions.
+
+   Change:
+   Derive a question family from the code prefix and map it to a book part:
+
+   - rse -> RSE role
+   - edu -> Education
+   - soft -> Software experience
+   - open -> Open science
+   - org, ukrse -> Organisations and community
+   - currentEmp, prevEmp -> Employment
+   - likert -> Attitudes and career
+   - turnOver -> Turnover
+   - currentWork -> Work activities
+   - paper, ref -> Publications
+   - conf -> Conferences
+   - proj -> Project management
+   - stability -> Job stability
+   - train, skill -> Training and skills
+   - fund -> Funding
+   - tool -> Tooling
+   - genAI -> Generative AI
+   - socio -> Demographics
+   - unknown prefixes -> Other questions
+
+   Keep country-specific variants as separate analyses, but place related codes
+   next to each other. Do not merge their data automatically.
+
+   Benefit:
+   Makes books with 60-100+ questions much easier to navigate without requiring
+   cross-year harmonisation.
+
+3. Stop publishing raw free-text answers automatically
+
+   Status: implemented. Free-text groups use count-only pages by default;
+   --include-free-text adds collapsible text lists, and structured charts never
+   use raw values from [other] columns.
+
+   Problem:
+   The generic generator can display frequent raw free-text values. These may
+   contain personal information and often create unhelpful charts.
+
+   Change:
+   - Detect probable free-text questions.
+   - Report only the number of responses by default.
+   - Publish raw text only through an explicit opt-in setting.
+   - Optionally suppress values below a minimum frequency.
+
+   Benefit:
+   Reduces privacy risk and improves output quality with a relatively small
+   change.
+
+4. Fix small generated-output issues
+
+   Change:
+   - Remove the duplicated question heading currently written to each chapter.
+   - Use human-readable question text in navigation where available.
+   - Add an "Other questions" fallback for unrecognised code families.
+
+   Benefit:
+   Immediate visible improvement with very little implementation effort.
+
+
+HIGH ROI
+--------
+
+5. Improve automatic question-type detection
+
+   Change:
+   Distinguish single-select, multi-select, Likert, matrix/grid, numeric input,
+   short free text, and long free text using both metadata and response values.
+   Replace the current broad "single response or free text" category and reduce
+   reliance on the number of distinct values.
+
+   Benefit:
+   Produces more appropriate tables and charts and avoids misleading output.
+
+6. Preserve metadata ordering for answers
+
+   Change:
+   Use option order from the metadata for ordered questions, especially Likert
+   scales, rather than frequency or alphabetical order.
+
+   Benefit:
+   Makes ordinal charts consistent and much easier to interpret.
+
+7. Add a generated data-quality appendix
+
+   Include:
+   - response columns without metadata;
+   - metadata rows without response columns;
+   - duplicate codes;
+   - missing option labels;
+   - empty questions;
+   - unrecognised question families;
+   - inferred question types and inclusion rules.
+
+   Benefit:
+   Makes failures and questionable inferences visible instead of silently
+   producing incomplete books.
+
+8. Record exact data provenance
+
+   Add the source repository, source commit, survey year, generation date,
+   source-row count, included-row count, and inclusion rule to each book.
+
+   Benefit:
+   Makes published results reproducible even when the longitudinal repository's
+   main branch later changes.
+
+
+MEDIUM ROI
+----------
+
+9. Organise country-specific variants within question families
+
+   Detect related codes such as currentEmp1, currentEmp1qde, and
+   currentEmp1qswiss. Present them under one conceptual subsection while keeping
+   wording, options, denominators, and results separate.
+
+   Benefit:
+   Improves discoverability without introducing unsupported harmonisation.
+
+10. Add optional country breakdowns
+
+    Add an opt-in country comparison beneath each overall result, with a minimum
+    response threshold to avoid exposing very small groups.
+
+    Benefit:
+    Adds useful within-year analysis while retaining the dynamic architecture.
+
+11. Improve captions and accessibility
+
+    Generate specific captions and alternative text containing the question,
+    response basis, denominator, and chart form. Use accessible colour choices
+    and avoid generic "Response distribution" descriptions.
+
+    Benefit:
+    Improves usability, citation, and accessibility across every generated
+    book.
+
+12. Produce one downloadable pull-request preview
+
+    Assemble all rendered year artifacts and the frozen Nordic analysis into a
+    single survey-books-preview artifact for feature branches and pull requests.
+    Keep public GitHub Pages deployment restricted to main.
+
+    Benefit:
+    Makes review easier without the complexity and cleanup requirements of
+    publishing a separate public URL for every pull request.
+
+
+LOWER ROI / LATER
+-----------------
+
+13. Add public per-PR preview URLs
+
+    Publish previews under paths such as /pr-123/ and delete them when pull
+    requests close. This requires concurrency protection and careful gh-pages
+    cleanup, so it should follow the simpler downloadable preview artifact.
+
+14. Add selected cross-year comparisons
+
+    Create an explicit harmonisation layer only for a small set of questions
+    where wording, options, populations, and denominators are demonstrably
+    comparable. Keep the separate yearly books as the primary output.
+
+    Benefit:
+    Enables longitudinal insight, but requires substantially more analytical
+    judgment and maintenance than the dynamic yearly books.
+
+
+RECOMMENDED DELIVERY SEQUENCE
+-----------------------------
+
+Phase 1:
+Inclusion/count labels, thematic code grouping, free-text protection, and the
+duplicated-heading fix.
+
+Phase 2:
+Question-type detection, metadata option ordering, data-quality appendix, and
+provenance.
+
+Phase 3:
+Question-variant organisation, optional country breakdowns, accessibility, and
+the combined pull-request preview artifact.
+
+Phase 4:
+Only after the yearly books are stable, consider public PR URLs and selected
+cross-year comparisons.
