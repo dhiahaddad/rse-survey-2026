@@ -123,6 +123,48 @@ safe_filename <- function(x) {
   if (nzchar(value)) value else "question"
 }
 
+question_family <- function(stem) {
+  match <- regexpr("^[A-Za-z]+", stem)
+  if (match[[1L]] < 0L) return("")
+  regmatches(stem, match)
+}
+
+section_families <- list(
+  "RSE role" = c("rse"),
+  "Education" = c("edu"),
+  "Software experience" = c("soft"),
+  "Open science" = c("open"),
+  "Organisations and community" = c("org", "ukrse", "group"),
+  "Employment" = c("currentEmp", "prevEmp"),
+  "Work activities" = c("currentWork", "time", "timeLike"),
+  "Career, recognition and satisfaction" = c(
+    "affRec", "affSat", "percEmp", "perfCheck", "progRSE", "recog", "satisGen"
+  ),
+  "Attitudes and Likert scales" = c("likert"),
+  "Turnover" = c("turnOver"),
+  "Job stability" = c("stability"),
+  "Publications" = c("paper", "ref"),
+  "Conferences" = c("conf"),
+  "Project management" = c("proj"),
+  "Training and skills" = c("train", "skill", "skillNord"),
+  "Funding" = c("fund"),
+  "Tooling" = c("tool"),
+  "Research infrastructure and data" = c("caf", "canarie", "data", "instit"),
+  "Generative AI" = c("genAI"),
+  "Demographics" = c("socio")
+)
+section_order <- c(names(section_families), "Other questions")
+
+question_section <- function(stem) {
+  family <- question_family(stem)
+  matches <- names(section_families)[vapply(
+    section_families,
+    function(families) family %in% families,
+    logical(1)
+  )]
+  if (length(matches)) matches[[1L]] else "Other questions"
+}
+
 tf_source <- read_survey_csv(tf_path)
 meta <- read_survey_csv(cols_path)
 if (!"Option" %in% names(meta)) {
@@ -185,6 +227,21 @@ response_columns <- setdiff(
 ordered_stems <- unique(question_stem(response_columns))
 metadata_stems <- unique(question_stem(meta$New_name[nonempty(meta$New_name)]))
 ordered_stems <- ordered_stems[ordered_stems %in% metadata_stems]
+question_sections <- vapply(ordered_stems, question_section, character(1))
+present_sections <- section_order[section_order %in% question_sections]
+section_summary <- data.frame(
+  Section = present_sections,
+  Questions = vapply(
+    present_sections,
+    function(section) sum(question_sections == section),
+    integer(1)
+  )
+)
+unknown_families <- unique(vapply(
+  ordered_stems[question_sections == "Other questions"],
+  question_family,
+  character(1)
+))
 
 country_column <- if ("socio1_0" %in% names(tf)) "socio1_0" else NULL
 country_summary <- if (!is.null(country_column)) {
@@ -234,6 +291,15 @@ if (has_submission_status) {
     paste0("**Submitted records:** ", sum(tf_source$.submission_status == "Submitted")),
     "",
     paste0("**Partial records:** ", sum(tf_source$.submission_status == "Partial")),
+    ""
+  )
+}
+if (nrow(section_summary)) {
+  index_lines <- c(
+    index_lines,
+    "## Question sections",
+    "",
+    write_markdown_table(section_summary),
     ""
   )
 }
@@ -429,10 +495,19 @@ quarto_lines <- c(
   "book:",
   paste0("  title: ", yaml_string(paste("International RSE Survey", survey_year))),
   "  chapters:",
-  "    - index.qmd",
-  "    - part: Questions",
-  "      chapters:",
-  paste0("        - ", chapter_files),
+  "    - index.qmd"
+)
+for (section in present_sections) {
+  section_chapters <- chapter_files[question_sections == section]
+  quarto_lines <- c(
+    quarto_lines,
+    paste0("    - part: ", yaml_string(section)),
+    "      chapters:",
+    paste0("        - ", section_chapters)
+  )
+}
+quarto_lines <- c(
+  quarto_lines,
   "format:",
   "  html:",
   "    theme: cosmo",
@@ -442,5 +517,13 @@ writeLines(quarto_lines, file.path(project_dir, "_quarto.yml"))
 
 message(
   "Generated ", survey_year, " book with ", length(chapter_files),
-  " question chapters at ", project_dir
+  " question chapters in ", length(present_sections), " thematic sections at ",
+  project_dir
 )
+if (length(unknown_families)) {
+  warning(
+    "Unrecognised question families placed in Other questions: ",
+    paste(unknown_families, collapse = ", "),
+    call. = FALSE
+  )
+}
