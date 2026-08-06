@@ -529,6 +529,88 @@ ordered_response_levels <- function(
   list(levels = levels[ordering], source = "frequency fallback")
 }
 
+semantic_response_palette <- function(levels, kind) {
+  levels <- as.character(levels)
+  if (length(levels) < 2L) return(NULL)
+
+  red <- "#C83E4D"
+  yellow <- "#F7B552"
+  green <- "#2E8B57"
+  grey <- "#8A8F98"
+  lower <- tolower(trimws(gsub("^﻿", "", levels)))
+  non_substantive <- grepl(
+    paste(
+      c(
+        "prefer not", "not applicable", "no answer", "don't know",
+        "do not know", "unknown", "cannot say"
+      ),
+      collapse = "|"
+    ),
+    lower
+  )
+  substantive <- !non_substantive
+  palette <- rep(NA_character_, length(levels))
+
+  yes <- grepl("^(yes|true)$", lower)
+  no <- grepl("^(no|false)$", lower)
+  if (all(!substantive | yes | no) && any(yes) && any(no)) {
+    palette[yes] <- green
+    palette[no] <- red
+    palette[non_substantive] <- grey
+    names(palette) <- levels
+    return(palette)
+  }
+
+  if (kind != "likert") return(NULL)
+
+  numeric_values <- leading_number(levels)
+  if (
+    sum(substantive) >= 2L &&
+      all(!substantive | !is.na(numeric_values)) &&
+      diff(range(numeric_values[substantive])) > 0
+  ) {
+    position <- (
+      numeric_values - min(numeric_values[substantive])
+    ) / diff(range(numeric_values[substantive]))
+    ramp <- grDevices::colorRamp(c(red, yellow, green))
+    palette[substantive] <- grDevices::rgb(
+      ramp(position[substantive]),
+      maxColorValue = 255
+    )
+    palette[non_substantive] <- grey
+    names(palette) <- levels
+    return(palette)
+  }
+
+  score <- rep(NA_real_, length(levels))
+  score[grepl("^strongly disagree|^very dissatisfied|^very unlikely", lower)] <- 1
+  score[grepl("^disagree|^dissatisfied|^unlikely", lower)] <- 2
+  score[grepl("neither|neutral|^sometimes|^occasionally", lower)] <- 3
+  score[grepl("^agree|^satisfied|^likely", lower)] <- 4
+  score[grepl("^strongly agree|^very satisfied|^very likely", lower)] <- 5
+  score[grepl("^never", lower)] <- 1
+  score[grepl("^rarely", lower)] <- 2
+  score[grepl("^often", lower)] <- 4
+  score[grepl("^always", lower)] <- 5
+
+  if (sum(substantive) >= 2L && all(!substantive | !is.na(score))) {
+    position <- (score - min(score[substantive])) /
+      diff(range(score[substantive]))
+    if (all(is.finite(position[substantive]))) {
+      ramp <- grDevices::colorRamp(c(red, yellow, green))
+      palette[substantive] <- grDevices::rgb(
+        ramp(position[substantive]),
+        maxColorValue = 255
+      )
+      palette[non_substantive] <- grey
+      names(palette) <- levels
+      return(palette)
+    }
+  }
+
+  NULL
+}
+
 question_text <- function(meta, stem) {
   hit <- meta[question_stem(meta$New_name) == stem, "Question", drop = TRUE]
   hit <- unique(trimws(as.character(hit[nonempty(hit)])))
@@ -961,8 +1043,19 @@ for (i in seq_along(ordered_stems)) {
       "<br>Count: ", plot_data$Count,
       "<br>Percent: ", plot_data$Percent
     )
-    plot <- ggplot(plot_data, aes(x = label, y = Count, text = hover)) +
-      geom_col(fill = "#2C7FB8") +
+    semantic_colors <- semantic_response_palette(
+      response_order$levels,
+      detected_type$kind
+    )
+    plot <- ggplot(plot_data, aes(x = label, y = Count, text = hover))
+    plot <- if (is.null(semantic_colors)) {
+      plot + geom_col(fill = "#9A3270")
+    } else {
+      plot +
+        geom_col(aes(fill = label)) +
+        scale_fill_manual(values = semantic_colors, guide = "none")
+    }
+    plot <- plot +
       coord_flip() +
       labs(x = NULL, y = "Responses") +
       theme_minimal(base_size = 11)
@@ -1001,7 +1094,7 @@ for (i in seq_along(ordered_stems)) {
       "<br>Percent of respondents: ", plot_data$Percent
     )
     plot <- ggplot(plot_data, aes(x = label, y = Count, text = hover)) +
-      geom_col(fill = "#2C7FB8") +
+      geom_col(fill = "#9A3270") +
       coord_flip() +
       labs(x = NULL, y = "Selections") +
       theme_minimal(base_size = 11)
@@ -1053,6 +1146,10 @@ for (i in seq_along(ordered_stems)) {
       "<br>Count: ", result$Count,
       "<br>Share: ", result$Percent
     )
+    semantic_colors <- semantic_response_palette(
+      response_order$levels,
+      detected_type$kind
+    )
     plot <- ggplot(
       result,
       aes(x = Item, y = Count, fill = Response, text = hover)
@@ -1062,6 +1159,9 @@ for (i in seq_along(ordered_stems)) {
       labs(x = NULL, y = "Share", fill = "Response") +
       theme_minimal(base_size = 10) +
       theme(legend.position = "bottom")
+    if (!is.null(semantic_colors)) {
+      plot <- plot + scale_fill_manual(values = semantic_colors)
+    }
   }
   question_order_sources <- c(question_order_sources, order_source)
 

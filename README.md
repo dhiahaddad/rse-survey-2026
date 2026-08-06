@@ -179,6 +179,14 @@ embedded as a no-JavaScript fallback. Without `--interactive`, the generator
 continues to produce a static PNG followed by its data table. Free-text and
 date/year questions remain count-only in both modes.
 
+Chart colours preserve answer meaning in both modes. Yes/true is green and
+no/false is red. Recognised numeric and textual rating scales progress from red
+at the low end through orange/yellow to green at the high end. Non-substantive
+answers such as “prefer not to answer” are grey. Nominal single-selection and
+multiple-selection bars use the FutuRSI purple instead of implying an ordinal
+relationship. Labels and hover text remain available, so meaning never depends
+on colour alone.
+
 Free-text question groups are reported with response-status counts and without
 charts. Structured questions exclude `[other]` text from their charts. To
 include raw free-text answers as collapsible text lists—including “Other”
