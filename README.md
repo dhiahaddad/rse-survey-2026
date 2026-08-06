@@ -158,6 +158,13 @@ multiple select, Likert/rating scales, matrix/grid questions, numeric inputs,
 date/year inputs, and short and long free text. Numeric inputs use summary
 statistics and histograms rather than categorical frequency charts.
 
+Metadata row order is preserved for multi-select options and matrix items.
+Numeric ranges and recognised Likert, agreement, and frequency scales use their
+natural order. Because the yearly column metadata generally does not enumerate
+the choices of single-select questions, unordered nominal answers use a clearly
+reported frequency fallback. Each generated navigation manifest records the
+detected type and ordering source.
+
 Free-text question groups are reported with response-status counts and without
 charts. Structured questions exclude `[other]` text from their charts. To
 include raw free-text answers as collapsible text lists—including “Other”

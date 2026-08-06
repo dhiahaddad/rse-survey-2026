@@ -362,6 +362,96 @@ metadata_label <- function(meta, column, fallback) {
   fallback
 }
 
+metadata_column_order <- function(meta, columns) {
+  positions <- match(columns, as.character(meta$New_name))
+  ordering <- order(is.na(positions), positions, seq_along(columns))
+  ordered <- columns[ordering]
+  source <- if (any(!is.na(positions))) {
+    "metadata item order"
+  } else {
+    "export column order"
+  }
+  list(columns = ordered, source = source)
+}
+
+leading_number <- function(values) {
+  cleaned <- trimws(gsub("^﻿", "", as.character(values)))
+  valid <- grepl("^[+-]?[0-9]+([.,][0-9]+)?", cleaned)
+  extracted <- sub(
+    "^([+-]?[0-9]+([.,][0-9]+)?).*$",
+    "\\1",
+    cleaned
+  )
+  extracted <- sub(",", ".", extracted, fixed = TRUE)
+  result <- rep(NA_real_, length(values))
+  result[valid] <- as.numeric(extracted[valid])
+  result
+}
+
+ordered_response_levels <- function(
+  values,
+  kind = "single_select",
+  metadata_levels = character()
+) {
+  levels <- unique(trimws(as.character(values)))
+  levels <- levels[nonempty(levels)]
+  if (!length(levels)) {
+    return(list(levels = character(), source = "no recorded answers"))
+  }
+  lower <- tolower(trimws(gsub("^﻿", "", levels)))
+
+  metadata_levels <- unique(trimws(as.character(metadata_levels)))
+  metadata_levels <- metadata_levels[nonempty(metadata_levels)]
+  metadata_levels <- metadata_levels[metadata_levels %in% levels]
+  if (length(metadata_levels) == length(levels)) {
+    return(list(levels = metadata_levels, source = "metadata answer order"))
+  }
+
+  numeric_prefix <- leading_number(levels)
+  numeric_coverage <- mean(!is.na(numeric_prefix))
+  if (numeric_coverage >= 0.6 && sum(!is.na(numeric_prefix)) >= 2L) {
+    ordering <- order(
+      is.na(numeric_prefix),
+      numeric_prefix,
+      grepl("prefer not|no answer|not applicable", lower),
+      seq_along(levels)
+    )
+    return(list(levels = levels[ordering], source = "numeric answer order"))
+  }
+
+  semantic_rank <- rep(NA_real_, length(levels))
+  semantic_rank[grepl("^strongly disagree", lower)] <- 1
+  semantic_rank[grepl("^disagree", lower)] <- 2
+  semantic_rank[grepl("neither.*agree|neutral", lower)] <- 3
+  semantic_rank[grepl("^agree", lower)] <- 4
+  semantic_rank[grepl("^strongly agree", lower)] <- 5
+
+  semantic_rank[grepl("^never", lower)] <- 1
+  semantic_rank[grepl("^rarely", lower)] <- 2
+  semantic_rank[grepl("^monthly", lower)] <- 3
+  semantic_rank[grepl("^weekly", lower)] <- 4
+  semantic_rank[grepl("^daily", lower)] <- 5
+
+  semantic_rank[grepl("^decrease", lower)] <- 1
+  semantic_rank[grepl("^same$|no change", lower)] <- 2
+  semantic_rank[grepl("^increase", lower)] <- 3
+
+  semantic_rank[grepl("^true$|^yes$", lower)] <- 1
+  semantic_rank[grepl("^false$|^no$", lower)] <- 2
+  semantic_rank[grepl("prefer not|no answer|not applicable", lower)] <- Inf
+
+  if (sum(!is.na(semantic_rank)) >= 2L && (
+    kind == "likert" || all(!is.na(semantic_rank))
+  )) {
+    ordering <- order(is.na(semantic_rank), semantic_rank, seq_along(levels))
+    return(list(levels = levels[ordering], source = "semantic answer order"))
+  }
+
+  counts <- table(factor(values, levels = levels))
+  ordering <- order(-as.integer(counts), seq_along(levels))
+  list(levels = levels[ordering], source = "frequency fallback")
+}
+
 question_text <- function(meta, stem) {
   hit <- meta[question_stem(meta$New_name) == stem, "Question", drop = TRUE]
   hit <- unique(trimws(as.character(hit[nonempty(hit)])))
@@ -667,10 +757,13 @@ writeLines(index_lines, file.path(project_dir, "index.qmd"))
 
 chapter_files <- character()
 question_types <- character()
+question_order_sources <- character()
 
 for (i in seq_along(ordered_stems)) {
   stem <- ordered_stems[[i]]
   columns <- response_columns[question_stem(response_columns) == stem]
+  column_order <- metadata_column_order(meta, columns)
+  columns <- column_order$columns
   title <- question_text(meta, stem)
   is_other_column <- grepl("[other]", columns, fixed = TRUE)
   other_columns <- columns[is_other_column]
@@ -688,6 +781,9 @@ for (i in seq_along(ordered_stems)) {
   other_answered_rows <- row_has_response(tf[, other_columns, drop = FALSE])
   values <- lapply(tf[, analysis_columns, drop = FALSE], as.character)
   all_values <- flatten_responses(values)
+  response_metadata_levels <- as.character(
+    meta$Option[question_stem(meta$New_name) == stem]
+  )
   detected_type <- detect_question_type(
     stem,
     analysis_columns,
@@ -701,11 +797,13 @@ for (i in seq_along(ordered_stems)) {
   is_count_only_group <- is_free_text_group || detected_type$kind == "date"
 
   if (is_count_only_group) {
+    order_source <- "not applicable"
     answered_rows <- row_has_response(tf[, analysis_columns, drop = FALSE])
     display <- data.frame()
     truncated_note <- NULL
     plot <- NULL
   } else if (detected_type$kind == "numeric") {
+    order_source <- "numeric values"
     raw_all <- trimws(as.character(tf[[analysis_columns[[1L]]]]))
     answered_rows <- nonempty(raw_all)
     raw <- raw_all[nonempty(raw_all)]
@@ -743,7 +841,13 @@ for (i in seq_along(ordered_stems)) {
     raw_all <- trimws(as.character(tf[[analysis_columns[[1L]]]]))
     answered_rows <- nonempty(raw_all) | other_answered_rows
     raw <- raw_all[nonempty(raw_all)]
-    counts <- sort(table(raw), decreasing = TRUE)
+    response_order <- ordered_response_levels(
+      raw,
+      detected_type$kind,
+      response_metadata_levels
+    )
+    order_source <- response_order$source
+    counts <- table(factor(raw, levels = response_order$levels))
     answered_n <- sum(answered_rows)
     denominator <- if (answered_n > 0L) answered_n else 1L
     result <- data.frame(
@@ -759,12 +863,17 @@ for (i in seq_along(ordered_stems)) {
     }
     plot_data <- display
     names(plot_data)[1L] <- "label"
-    plot <- ggplot(plot_data, aes(x = reorder(label, Count), y = Count)) +
+    plot_data$label <- factor(
+      plot_data$label,
+      levels = rev(as.character(plot_data$label))
+    )
+    plot <- ggplot(plot_data, aes(x = label, y = Count)) +
       geom_col(fill = "#2C7FB8") +
       coord_flip() +
       labs(x = NULL, y = "Responses") +
       theme_minimal(base_size = 11)
   } else if (detected_type$kind == "multiple_select") {
+    order_source <- column_order$source
     selected <- vapply(values, function(x) {
       sum(tolower(trimws(x)) %in% selection_true_values, na.rm = TRUE)
     }, integer(1))
@@ -784,22 +893,31 @@ for (i in seq_along(ordered_stems)) {
       Count = selected,
       Percent = sprintf("%.1f%%", 100 * selected / denominator)
     )
-    result <- result[order(result$Count, decreasing = TRUE), , drop = FALSE]
     display <- result
     truncated_note <- NULL
     plot_data <- result
     names(plot_data)[1L] <- "label"
-    plot <- ggplot(plot_data, aes(x = reorder(label, Count), y = Count)) +
+    plot_data$label <- factor(
+      plot_data$label,
+      levels = rev(as.character(plot_data$label))
+    )
+    plot <- ggplot(plot_data, aes(x = label, y = Count)) +
       geom_col(fill = "#2C7FB8") +
       coord_flip() +
       labs(x = NULL, y = "Selections") +
       theme_minimal(base_size = 11)
   } else {
+    response_order <- ordered_response_levels(
+      all_values,
+      detected_type$kind,
+      response_metadata_levels
+    )
+    order_source <- paste(column_order$source, response_order$source, sep = "; ")
     rows <- lapply(seq_along(analysis_columns), function(j) {
       raw <- trimws(as.character(tf[[analysis_columns[[j]]]]))
       raw <- raw[nonempty(raw)]
       if (!length(raw)) return(NULL)
-      counts <- sort(table(raw), decreasing = TRUE)
+      counts <- table(factor(raw, levels = response_order$levels))
       data.frame(
         Item = metadata_label(
           meta,
@@ -821,19 +939,23 @@ for (i in seq_along(ordered_stems)) {
       tf[, analysis_columns, drop = FALSE]
     ) | other_answered_rows
     answered_n <- sum(answered_rows)
-    display <- head(result[order(result$Item, -result$Count), , drop = FALSE], 100L)
+    display <- head(result, 100L)
     truncated_note <- if (nrow(result) > nrow(display)) {
       paste0("Only the first 100 of ", nrow(result), " item-response rows are shown.")
     } else {
       NULL
     }
+    item_levels <- unique(as.character(result$Item))
+    result$Item <- factor(result$Item, levels = rev(item_levels))
+    result$Response <- factor(result$Response, levels = response_order$levels)
     plot <- ggplot(result, aes(x = Item, y = Count, fill = Response)) +
-      geom_col(position = "fill") +
+      geom_col(position = position_fill(reverse = TRUE)) +
       coord_flip() +
       labs(x = NULL, y = "Share", fill = "Response") +
       theme_minimal(base_size = 10) +
       theme(legend.position = "bottom")
   }
+  question_order_sources <- c(question_order_sources, order_source)
 
   file_stem <- sprintf("%03d-%s", i, safe_filename(stem))
   figure_rel <- file.path("figures", paste0(file_stem, ".png"))
@@ -853,7 +975,12 @@ for (i in seq_along(ordered_stems)) {
     paste0("**Question code:** `", stem, "`"),
     "",
     paste0("**Detected type:** ", type),
-    ""
+    "",
+    if (order_source != "not applicable") {
+      c(paste0("**Answer order:** ", order_source), "")
+    } else {
+      character()
+    }
   )
   if (is_count_only_group) {
     chapter_lines <- c(
@@ -948,6 +1075,7 @@ navigation <- data.frame(
   Chapter = chapter_files,
   Title = vapply(ordered_stems, function(stem) question_text(meta, stem), character(1)),
   DetectedType = question_types,
+  AnswerOrder = question_order_sources,
   stringsAsFactors = FALSE
 )
 write.csv(

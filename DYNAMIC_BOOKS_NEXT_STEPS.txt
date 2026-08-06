@@ -118,6 +118,12 @@ HIGH ROI
 
 6. Preserve metadata ordering for answers
 
+   Status: implemented where the yearly exports provide ordering metadata.
+   Multi-select options and matrix items retain metadata row order. Numeric
+   ranges and recognised rating scales use natural or semantic order, while
+   nominal answers without enumerated metadata use a documented frequency
+   fallback.
+
    Change:
    Use option order from the metadata for ordered questions, especially Likert
    scales, rather than frequency or alphabetical order.
