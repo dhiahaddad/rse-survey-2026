@@ -175,14 +175,180 @@ free_text_details <- function(values, heading = "Recorded answers") {
   )
 }
 
-probable_free_text <- function(values) {
+flatten_responses <- function(values) {
   flat <- trimws(unlist(values, use.names = FALSE))
-  flat <- flat[nonempty(flat)]
-  if (length(flat) < 10L) return(FALSE)
-  distinct <- length(unique(flat))
-  distinct >= 10L &&
-    distinct / length(flat) >= 0.25 &&
-    mean(nchar(flat)) >= 12
+  flat[nonempty(flat)]
+}
+
+selection_true_values <- c("true", "1", "yes", "y", "selected", "checked")
+selection_false_values <- c("false", "0", "no", "n", "unselected", "unchecked")
+
+is_boolean_selection <- function(values) {
+  flat <- tolower(flatten_responses(values))
+  length(flat) > 0L && all(flat %in% c(selection_true_values, selection_false_values))
+}
+
+parse_numeric_responses <- function(values) {
+  cleaned <- trimws(as.character(values))
+  cleaned <- sub("%$", "", cleaned)
+  decimal_comma <- grepl("^[+-]?[0-9]+,[0-9]+$", cleaned)
+  cleaned[decimal_comma] <- sub(",", ".", cleaned[decimal_comma], fixed = TRUE)
+  valid <- grepl("^[+-]?([0-9]+([.][0-9]+)?|[.][0-9]+)$", cleaned)
+  result <- rep(NA_real_, length(cleaned))
+  result[valid] <- as.numeric(cleaned[valid])
+  result
+}
+
+looks_like_date_values <- function(values) {
+  values <- trimws(as.character(values))
+  values <- values[nonempty(values)]
+  if (!length(values)) return(FALSE)
+  patterns <- c(
+    "^[0-9]{4}-[0-9]{2}-[0-9]{2}",
+    "^[0-9]{2}[./-][0-9]{2}[./-][0-9]{4}",
+    "^[0-9]{4}$"
+  )
+  mean(vapply(values, function(value) {
+    any(vapply(patterns, grepl, logical(1), x = value))
+  }, logical(1))) >= 0.8
+}
+
+detect_question_type <- function(stem, columns, values, meta, prompt) {
+  flat <- flatten_responses(values)
+  unique_values <- unique(flat)
+  lower_values <- tolower(unique_values)
+  prompt_lower <- tolower(prompt)
+  family <- question_family(stem)
+  n_columns <- length(columns)
+  n_values <- length(flat)
+  n_distinct <- length(unique_values)
+  distinct_ratio <- if (n_values) n_distinct / n_values else 0
+  mean_length <- if (n_values) mean(nchar(flat)) else 0
+  upper_length <- if (n_values) unname(quantile(nchar(flat), 0.75)) else 0
+
+  metadata_rows <- meta[question_stem(meta$New_name) == stem, , drop = FALSE]
+  metadata_options <- if ("Option" %in% names(metadata_rows)) {
+    trimws(as.character(metadata_rows$Option))
+  } else {
+    character()
+  }
+  metadata_options <- metadata_options[nonempty(metadata_options)]
+  has_structured_metadata <- n_columns > 1L &&
+    length(metadata_options) >= max(1L, n_columns - 1L)
+
+  if (n_columns > 1L && is_boolean_selection(values)) {
+    return(list(kind = "multiple_select", label = "Multiple select"))
+  }
+  explicit_boolean <- length(lower_values) > 0L && all(
+    lower_values %in% c("true", "false", "yes", "no", "y", "n")
+  )
+  if (n_columns == 1L && explicit_boolean) {
+    return(list(kind = "single_select", label = "Single select"))
+  }
+
+  scale_value_pattern <- paste(
+    c(
+      "strongly agree", "strongly disagree", "neither.*agree", "satisfied",
+      "dissatisfied", "not at all", "completely", "never", "always",
+      "all the time", "all my time", "mostly me", "mostly other", "rarely",
+      "daily", "weekly", "monthly", "very likely", "very unlikely"
+    ),
+    collapse = "|"
+  )
+  scale_prompt <- grepl(
+    paste(
+      c(
+        "how often", "how frequently", "how satisfied", "to what extent",
+        "how much .*time", "on average, how much", "agree or disagree",
+        "who uses .*code"
+      ),
+      collapse = "|"
+    ),
+    prompt_lower
+  )
+  scale_values <- any(grepl(scale_value_pattern, lower_values))
+  compact_numeric_scale <- FALSE
+  if (n_columns > 1L && n_distinct >= 3L && n_distinct <= 11L) {
+    scale_numbers <- parse_numeric_responses(unique_values)
+    compact_numeric_scale <- all(!is.na(scale_numbers)) &&
+      min(scale_numbers) >= 0 && max(scale_numbers) <= 10
+  }
+  is_rating_scale <- family == "likert" || compact_numeric_scale ||
+    (n_distinct >= 1L && n_distinct <= 11L && (scale_prompt || scale_values))
+  if (is_rating_scale) {
+    return(list(kind = "likert", label = "Likert / rating scale"))
+  }
+
+  long_text_prompt <- grepl(
+    paste(
+      c(
+        "explain", "describe", "further suggestion", "further comment",
+        "additional comment", "in your own words", "how did you learn",
+        "what .* do you think", "what would .* need", "what specific activities",
+        "suggestions or wishes"
+      ),
+      collapse = "|"
+    ),
+    prompt_lower
+  )
+  short_text_prompt <- grepl(
+    paste(
+      c(
+        "please enter", "please specify", "please list", "list any",
+        "job title", "which .*tools", "which conference", "at which conference",
+        "what training programs", "what three skills", "which online collaboration"
+      ),
+      collapse = "|"
+    ),
+    prompt_lower
+  )
+  high_cardinality_text <- !has_structured_metadata && n_distinct >= 10L &&
+    mean_length >= 12 && distinct_ratio >= 0.6
+  probable_text <- long_text_prompt || short_text_prompt || high_cardinality_text
+
+  date_prompt <- grepl(
+    "(^|[^a-z])(date|when did|what year|which year|in what year)([^a-z]|$)",
+    prompt_lower
+  )
+  if (n_columns == 1L && date_prompt && looks_like_date_values(flat)) {
+    return(list(kind = "date", label = "Date / year input"))
+  }
+
+  numeric_values <- parse_numeric_responses(flat)
+  numeric_ratio <- if (n_values) mean(!is.na(numeric_values)) else 0
+  numeric_prompt <- grepl(
+    paste(
+      c(
+        "how many", "what percentage", "percentage of", "duration .*years",
+        "duration \\(in years\\)", "number of", "bus factor"
+      ),
+      collapse = "|"
+    ),
+    prompt_lower
+  )
+  is_numeric_input <- n_columns == 1L && !probable_text && (
+    numeric_ratio == 1 ||
+      (numeric_prompt && numeric_ratio >= 0.8 && n_distinct > 10L)
+  )
+  if (is_numeric_input) {
+    return(list(kind = "numeric", label = "Numeric input"))
+  }
+
+  if (probable_text) {
+    is_long <- long_text_prompt || mean_length >= 80 || upper_length >= 120 ||
+      any(grepl("[\r\n]", flat))
+    return(if (is_long) {
+      list(kind = "long_text", label = "Long free text")
+    } else {
+      list(kind = "short_text", label = "Short free text")
+    })
+  }
+
+  if (n_columns == 1L) {
+    return(list(kind = "single_select", label = "Single select"))
+  }
+
+  list(kind = "matrix", label = "Matrix / grid")
 }
 
 metadata_label <- function(meta, column, fallback) {
@@ -379,7 +545,7 @@ system_columns <- c(
   "startdate_0", "datestamp", "ipaddr", "refurl", "email",
   "emailstatus", "sent", "remindersent", "remindercount",
   "lastreminder", "usesleft", "completed", "language", "row_id",
-  "Year_0"
+  "Year", "Year_0"
 )
 response_columns <- setdiff(
   names(tf)[!startsWith(names(tf), ".index")],
@@ -500,6 +666,7 @@ if (nrow(country_summary)) {
 writeLines(index_lines, file.path(project_dir, "index.qmd"))
 
 chapter_files <- character()
+question_types <- character()
 
 for (i in seq_along(ordered_stems)) {
   stem <- ordered_stems[[i]]
@@ -520,25 +687,59 @@ for (i in seq_along(ordered_stems)) {
   other_values <- other_values[nonempty(other_values)]
   other_answered_rows <- row_has_response(tf[, other_columns, drop = FALSE])
   values <- lapply(tf[, analysis_columns, drop = FALSE], as.character)
-  all_values <- trimws(unlist(values, use.names = FALSE))
-  all_values <- all_values[nonempty(all_values)]
-  boolean_values <- tolower(unique(all_values))
-  is_boolean_grid <- length(analysis_columns) > 1L &&
-    length(boolean_values) > 0L &&
-    all(boolean_values %in% c("true", "false", "0", "1"))
-  is_free_text_group <- !length(other_columns) && (
-    probable_free_text(values) ||
-      (length(analysis_columns) > 1L && length(unique(all_values)) > 30L)
+  all_values <- flatten_responses(values)
+  detected_type <- detect_question_type(
+    stem,
+    analysis_columns,
+    values,
+    meta,
+    title
   )
+  type <- detected_type$label
+  question_types <- c(question_types, type)
+  is_free_text_group <- detected_type$kind %in% c("short_text", "long_text")
+  is_count_only_group <- is_free_text_group || detected_type$kind == "date"
 
-  if (is_free_text_group) {
-    type <- "Free text"
+  if (is_count_only_group) {
     answered_rows <- row_has_response(tf[, analysis_columns, drop = FALSE])
     display <- data.frame()
     truncated_note <- NULL
     plot <- NULL
+  } else if (detected_type$kind == "numeric") {
+    raw_all <- trimws(as.character(tf[[analysis_columns[[1L]]]]))
+    answered_rows <- nonempty(raw_all)
+    raw <- raw_all[nonempty(raw_all)]
+    numeric_values <- parse_numeric_responses(raw)
+    valid_numeric <- numeric_values[!is.na(numeric_values)]
+    display <- data.frame(
+      Statistic = c("Numeric responses", "Median", "Mean", "Minimum", "Maximum"),
+      Value = c(
+        length(valid_numeric),
+        format(round(median(valid_numeric), 2), trim = TRUE),
+        format(round(mean(valid_numeric), 2), trim = TRUE),
+        format(min(valid_numeric), trim = TRUE),
+        format(max(valid_numeric), trim = TRUE)
+      ),
+      stringsAsFactors = FALSE
+    )
+    omitted_numeric <- length(raw) - length(valid_numeric)
+    truncated_note <- if (omitted_numeric > 0L) {
+      paste0(
+        omitted_numeric,
+        " recorded value(s) could not be interpreted as numbers and are omitted from the histogram."
+      )
+    } else {
+      NULL
+    }
+    plot <- ggplot(data.frame(Value = valid_numeric), aes(x = Value)) +
+      geom_histogram(
+        bins = min(30L, max(5L, ceiling(sqrt(length(valid_numeric))))),
+        fill = "#2C7FB8",
+        colour = "white"
+      ) +
+      labs(x = NULL, y = "Responses") +
+      theme_minimal(base_size = 11)
   } else if (length(analysis_columns) == 1L) {
-    type <- "Single response"
     raw_all <- trimws(as.character(tf[[analysis_columns[[1L]]]]))
     answered_rows <- nonempty(raw_all) | other_answered_rows
     raw <- raw_all[nonempty(raw_all)]
@@ -563,13 +764,15 @@ for (i in seq_along(ordered_stems)) {
       coord_flip() +
       labs(x = NULL, y = "Responses") +
       theme_minimal(base_size = 11)
-  } else if (is_boolean_grid) {
-    type <- "Multiple response"
+  } else if (detected_type$kind == "multiple_select") {
     selected <- vapply(values, function(x) {
-      sum(tolower(trimws(x)) %in% c("true", "1"), na.rm = TRUE)
+      sum(tolower(trimws(x)) %in% selection_true_values, na.rm = TRUE)
     }, integer(1))
     answered_rows <- apply(tf[, analysis_columns, drop = FALSE], 1L, function(row) {
-      any(tolower(trimws(as.character(row))) %in% c("true", "1"), na.rm = TRUE)
+      any(
+        tolower(trimws(as.character(row))) %in% selection_true_values,
+        na.rm = TRUE
+      )
     }) | other_answered_rows
     answered_n <- sum(answered_rows)
     labels <- vapply(seq_along(analysis_columns), function(j) {
@@ -592,7 +795,6 @@ for (i in seq_along(ordered_stems)) {
       labs(x = NULL, y = "Selections") +
       theme_minimal(base_size = 11)
   } else {
-    type <- "Question grid"
     rows <- lapply(seq_along(analysis_columns), function(j) {
       raw <- trimws(as.character(tf[[analysis_columns[[j]]]]))
       raw <- raw[nonempty(raw)]
@@ -636,7 +838,7 @@ for (i in seq_along(ordered_stems)) {
   file_stem <- sprintf("%03d-%s", i, safe_filename(stem))
   figure_rel <- file.path("figures", paste0(file_stem, ".png"))
   figure_path <- file.path(project_dir, figure_rel)
-  if (!is_free_text_group && nrow(display)) {
+  if (!is_count_only_group && nrow(display)) {
     ggsave(figure_path, plot, width = 9, height = max(4.5, min(12, 2.5 + 0.22 * nrow(display))), dpi = 144)
   }
 
@@ -653,13 +855,13 @@ for (i in seq_along(ordered_stems)) {
     paste0("**Detected type:** ", type),
     ""
   )
-  if (is_free_text_group) {
+  if (is_count_only_group) {
     chapter_lines <- c(
       chapter_lines,
       free_text_status_lines(answered_rows),
       ""
     )
-    if (include_free_text) {
+    if (include_free_text && is_free_text_group) {
       chapter_lines <- c(
         chapter_lines,
         free_text_details(all_values)
@@ -742,8 +944,10 @@ navigation <- data.frame(
   Section = question_sections,
   SectionOrder = match(question_sections, section_order),
   QuestionOrder = seq_along(chapter_files),
+  QuestionCode = ordered_stems,
   Chapter = chapter_files,
   Title = vapply(ordered_stems, function(stem) question_text(meta, stem), character(1)),
+  DetectedType = question_types,
   stringsAsFactors = FALSE
 )
 write.csv(

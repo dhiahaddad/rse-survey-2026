@@ -152,9 +152,15 @@ organised as thematic question section → question, so other years never appear
 in the current sidebar. The redundant right-hand per-page table of contents is
 disabled.
 
-Probable free-text question groups are reported with response-status counts and
-without charts. Structured questions exclude `[other]` text from their charts.
-To include raw free-text answers as collapsible text lists—including “Other”
+Question types are inferred from question codes and wording, metadata labels,
+column structure, and recorded values. The generator distinguishes single and
+multiple select, Likert/rating scales, matrix/grid questions, numeric inputs,
+date/year inputs, and short and long free text. Numeric inputs use summary
+statistics and histograms rather than categorical frequency charts.
+
+Free-text question groups are reported with response-status counts and without
+charts. Structured questions exclude `[other]` text from their charts. To
+include raw free-text answers as collapsible text lists—including “Other”
 answers beneath the relevant structured chart—add:
 
 ```bash

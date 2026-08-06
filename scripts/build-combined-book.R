@@ -238,7 +238,6 @@ quarto_lines <- c(
   "  navbar:",
   "    logo: futursi-logo.png",
   "    logo-alt: 'FutuRSI — Next-Level RSE in Germany'",
-  "    logo-href: https://www.futursi.de/",
   "    search: true",
   "    left:",
   "      - text: 'Home'",

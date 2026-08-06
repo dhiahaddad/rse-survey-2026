@@ -103,6 +103,10 @@ HIGH ROI
 
 5. Improve automatic question-type detection
 
+   Status: implemented. Detection now combines question-code families,
+   question wording, metadata labels, column structure, and response values.
+   Generated navigation manifests record the inferred type for auditing.
+
    Change:
    Distinguish single-select, multi-select, Likert, matrix/grid, numeric input,
    short free text, and long free text using both metadata and response values.
