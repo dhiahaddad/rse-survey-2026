@@ -28,6 +28,15 @@ country_filter <- trimws(country_filter)
 if (!nzchar(country_filter)) {
   stop("--country cannot be empty.", call. = FALSE)
 }
+country_filters <- trimws(strsplit(country_filter, ",", fixed = TRUE)[[1L]])
+if (any(!nzchar(country_filters))) {
+  stop("--country contains an empty country name.", call. = FALSE)
+}
+all_countries <- length(country_filters) == 1L &&
+  tolower(country_filters[[1L]]) == "all"
+if (!all_countries && any(tolower(country_filters) == "all")) {
+  stop("Use --country all by itself.", call. = FALSE)
+}
 inclusion_mode <- "all"
 inclusion_equals <- grep("^--inclusion=", args)
 inclusion_flag <- which(args == "--inclusion")
@@ -52,7 +61,7 @@ if (length(args) < 2L) {
   stop(
     paste(
       "Usage: Rscript scripts/build-year-book.R YEAR DATA_ROOT [OUTPUT_ROOT]",
-      "[--country COUNTRY|all] [--inclusion all|submitted]",
+      "[--country COUNTRY[,COUNTRY...]|all] [--inclusion all|submitted]",
       "[--include-free-text]"
     ),
     call. = FALSE
@@ -250,34 +259,48 @@ if (!"Option" %in% names(meta)) {
 }
 
 country_column <- if ("socio1_0" %in% names(tf_source_all)) "socio1_0" else NULL
-if (is.null(country_column) && tolower(country_filter) != "all") {
+if (is.null(country_column) && !all_countries) {
   stop(
     "Cannot filter by country because the export has no socio1_0 column.",
     call. = FALSE
   )
 }
-if (tolower(country_filter) == "all") {
+if (all_countries) {
   tf_source <- tf_source_all
   country_label <- "All countries"
   country_note <- "All countries in the export are included."
 } else {
   countries <- trimws(as.character(tf_source_all[[country_column]]))
   country_rows <- nonempty(countries) &
-    tolower(countries) == tolower(country_filter)
-  if (!any(country_rows)) {
-    available <- sort(unique(countries[nonempty(countries)]))
+    tolower(countries) %in% tolower(country_filters)
+  available <- sort(unique(countries[nonempty(countries)]))
+  missing_countries <- country_filters[
+    !tolower(country_filters) %in% tolower(available)
+  ]
+  if (length(missing_countries)) {
     stop(
-      "No records found for country '", country_filter, "'. Available countries: ",
+      "No records found for: ", paste(missing_countries, collapse = ", "),
+      ". Available countries: ",
       paste(available, collapse = ", "),
       call. = FALSE
     )
   }
-  country_label <- names(sort(table(countries[country_rows]), decreasing = TRUE))[[1L]]
+  country_labels <- vapply(country_filters, function(requested) {
+    available[tolower(available) == tolower(requested)][[1L]]
+  }, character(1))
+  country_label <- paste(country_labels, collapse = ", ")
   tf_source <- tf_source_all[country_rows, , drop = FALSE]
-  country_note <- paste0(
-    "Only respondents whose `socio1_0` value is **", country_label,
-    "** are included."
-  )
+  country_note <- if (length(country_labels) == 1L) {
+    paste0(
+      "Only respondents whose `socio1_0` value is **",
+      country_labels[[1L]], "** are included."
+    )
+  } else {
+    paste0(
+      "Only respondents whose `socio1_0` value is one of **",
+      paste(country_labels, collapse = "**, **"), "** are included."
+    )
+  }
 }
 
 has_submission_status <- "submitdate_0" %in% names(tf_source)
@@ -389,7 +412,7 @@ unknown_families <- unique(vapply(
   character(1)
 ))
 
-country_summary <- if (!is.null(country_column) && tolower(country_filter) == "all") {
+country_summary <- if (!is.null(country_column) && all_countries) {
   countries <- trimws(as.character(tf[[country_column]]))
   present <- nonempty(countries)
   counts <- sort(table(countries[present]), decreasing = TRUE)
@@ -407,7 +430,7 @@ country_summary <- if (!is.null(country_column) && tolower(country_filter) == "a
   data.frame()
 }
 
-book_title <- if (tolower(country_filter) == "all") {
+book_title <- if (all_countries) {
   paste("International RSE Survey", survey_year)
 } else {
   paste("International RSE Survey", survey_year, "—", country_label)

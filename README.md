@@ -1,9 +1,16 @@
-# rse-survey-2026
+# RSE Survey Germany
 
-Analysis and reporting code for the International RSE Surveys. The repository
-contains dynamically generated country-focused books, plus a curated 2026
-Quarto book with Nordic insights. The published generic books focus on Germany
-for 2017, 2018, 2022, and 2026; the 2016 export contains only UK respondents.
+<a href="https://www.futursi.de/"><img src="year-books/futursi-logo.png" alt="FutuRSI — Next-Level RSE in Germany" width="260"></a>
+
+An independent, dynamically generated analysis of the International RSE
+Surveys, developed and maintained by [FutuRSI](https://www.futursi.de/). The
+published book focuses on Germany for 2017, 2018, 2022, and 2026.
+
+The project is Germany-focused by default, while its generators are designed
+to make an equivalent publication for another country—or a selected group of
+countries—with minimal configuration changes. The 2016 export contains only UK
+respondents. The existing curated Nordic analysis remains in the repository as
+an unpublished reference implementation.
 
 ## Data
 
@@ -20,25 +27,37 @@ For local work on the curated 2026 book, place the survey exports in
 - `2026_cols.csv`: question text and option metadata.
 
 The data are not committed to this repository.
+They are used under CC BY 4.0; see [NOTICE.md](NOTICE.md) for the required
+attribution, provenance, and dataset citation.
 
 ## Repository structure
 
 | Path | Purpose |
 |------|---------|
-| [`rse-book/`](rse-book/) | Main Quarto book; About part (insights + user guide) plus question-by-question chapters |
-| [`rse-book/index.qmd`](rse-book/index.qmd) | Nordic insights landing page |
+| [`rse-book/`](rse-book/) | Unpublished curated Nordic analysis retained as a reference for future country insights |
+| [`rse-book/index.qmd`](rse-book/index.qmd) | Existing Nordic insights landing page, not included in deployment |
 | [`rse-book/about/user-guide.qmd`](rse-book/about/user-guide.qmd) | User guide for working with the book |
 | [`rse-book/chapters/`](rse-book/chapters/) | One Quarto chapter per survey question or question group |
 | [`rse-book/R/`](rse-book/R/) | Book configuration, data preparation, analysis, and plotting code |
 | [`rse-book/R/recodes/`](rse-book/R/recodes/) | Reusable free-text recoding maps |
 | [`scripts/build-year-book.R`](scripts/build-year-book.R) | Generates a standalone generic book from one year's response and metadata files |
+| [`scripts/build-combined-book.R`](scripts/build-combined-book.R) | Assembles generated years into one publication with nested left-sidebar navigation |
 | [`year-books/`](year-books/) | Multi-year landing page assembled with the rendered year books during deployment |
+| [`year-books/futursi-logo.png`](year-books/futursi-logo.png) | Official FutuRSI logo used in the publication header and home page |
+| [`NOTICE.md`](NOTICE.md) | Software and survey-data attribution and provenance |
 | [`RSE_survey_insights_helper/`](RSE_survey_insights_helper/) | Data, plotting, caption, theme, and setup modules for the Nordic insights page |
 | [`RSE_survey_outline/survey-process.md`](RSE_survey_outline/survey-process.md) | Global survey flow, routing, and analysis filtering |
 | [`RSE_survey_outline/survey-process-nordics.md`](RSE_survey_outline/survey-process-nordics.md) | Generated Nordic question inventory with per-question **N** and routing notes |
 | [`RSE_survey_outline/build-survey-process-nordics.R`](RSE_survey_outline/build-survey-process-nordics.R) | Generator for the Nordic survey-process document |
 
-## Configuration
+## Country configuration
+
+The published workflow uses `BOOK_COUNTRY: Germany`. The generic generator's
+`--country` setting accepts one country, a comma-separated group of countries,
+or `all`. Country names are matched case-insensitively against `socio1_0`.
+
+The files under `rse-book/` are the unpublished curated Nordic reference. They
+have their own older configuration in `rse-book/R/.config`:
 
 Book and report code share `rse-book/R/.config`:
 
@@ -91,11 +110,13 @@ The generated book is written to
 Substitute `2016`, `2017`, `2018`, or `2026` to build another year where that
 country is represented.
 
-To generate a book for another country, pass its exact `socio1_0` label. Use
-`all` only when an explicitly all-country book is wanted:
+To generate a book for another country, pass its `socio1_0` label. Separate
+multiple countries with commas. Use `all` only when an explicitly all-country
+book is wanted:
 
 ```bash
 Rscript scripts/build-year-book.R 2022 ../RSE_survey_longitudinal .generated/year-books --country Netherlands
+Rscript scripts/build-year-book.R 2022 ../RSE_survey_longitudinal .generated/year-books --country "Germany,Netherlands"
 Rscript scripts/build-year-book.R 2022 ../RSE_survey_longitudinal .generated/year-books --country all
 ```
 
@@ -113,7 +134,23 @@ from their question-code families; unrecognised families are retained under
 Rscript scripts/build-year-book.R 2026 ../RSE_survey_longitudinal .generated/year-books --inclusion submitted
 ```
 
-The curated Nordic analysis remains submitted-only.
+The unpublished curated Nordic analysis remains submitted-only.
+
+To assemble several generated years into the same publication:
+
+```bash
+for year in 2017 2018 2022 2026; do
+  Rscript scripts/build-year-book.R "$year" ../RSE_survey_longitudinal .generated/year-books
+done
+Rscript scripts/build-combined-book.R .generated/year-books .generated/combined-book 2017 2018 2022 2026
+quarto render .generated/combined-book
+```
+
+The combined output is `.generated/combined-book/_site/index.html`. Survey
+years are selected in the page header. Each year has its own left sidebar,
+organised as thematic question section → question, so other years never appear
+in the current sidebar. The redundant right-hand per-page table of contents is
+disabled.
 
 Probable free-text question groups are reported with response-status counts and
 without charts. Structured questions exclude `[other]` text from their charts.
@@ -129,35 +166,26 @@ Rscript scripts/build-year-book.R 2026 ../RSE_survey_longitudinal .generated/yea
 The multi-year portal is published to GitHub Pages at
 <https://dhiahaddad.github.io/rse-survey-2026/>.
 
-GitHub Actions generates Germany-focused books for 2017, 2018, 2022, and 2026
-independently from each year's own metadata. The publishing country is set by
-`BOOK_COUNTRY` in the workflow, and the generator accepts `--country` for local
-builds. The curated Nordic analysis is rendered separately from its committed
-frozen results and added at `/2026/insights/`. Everything is deployed together
-to the `gh-pages` branch.
+GitHub Actions generates Germany-focused results for 2017, 2018, 2022, and 2026
+from each year's own metadata, then assembles them into one publication. The
+publishing country is set by `BOOK_COUNTRY` in the workflow, and the generator
+accepts `--country` for local builds. The Nordic analysis is not rendered,
+linked, or deployed. The German publication is deployed to the `gh-pages`
+branch.
 
-1. With the survey data available, render the book locally to check analysis
-   changes:
+Push the changes. On every branch, the `Build and publish survey books`
+workflow downloads the current data and validates the combined German book.
+Successful builds from `main` are deployed to GitHub Pages; feature-branch
+builds do not publish. You can also run the workflow manually from the Actions
+tab.
 
-   ```bash
-   cd rse-book
-   quarto render
-   ```
+## License, attribution, and citation
 
-2. Commit updated files under `rse-book/_freeze/` whenever the curated analysis
-   computations change.
+The software remains under the [MIT License](LICENSE). The original Nordic RSE
+copyright notice is preserved, and FutuRSI project contributors are identified
+for the fork's subsequent work.
 
-3. Push the changes. On every branch, the `Build and publish survey books`
-   workflow downloads the current data and validates all four German books,
-   then validates the frozen Nordic analysis without downloading its raw data.
-   Successful builds from `main` are assembled and deployed to GitHub Pages;
-   feature-branch builds do not publish. You can also run the workflow manually
-   from the Actions tab.
-
-The publishing workflow deliberately uses `rse-book/_freeze/` for the curated
-analysis. This keeps that snapshot reproducible without putting its full R
-dependency installation or live-data execution on the critical publishing
-path.
-
-## How to cite
-Bockting, F. & Wittke, S. (2026). Analysis Book for the International RSE Survey 2026 (Nordic Focus) (Version 0.1.0). Zenodo. https://doi.org/10.5281/zenodo.21716004
+The survey data are separately licensed under CC BY 4.0. This publication is
+an independent transformation of those data and is not presented as an official
+publication or endorsement by the dataset creators. See [NOTICE.md](NOTICE.md)
+for full attribution and [`CITATION.cff`](CITATION.cff) for citation metadata.

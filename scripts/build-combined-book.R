@@ -48,6 +48,7 @@ dir.create(output_dir, recursive = TRUE)
 
 navigation_by_year <- list()
 records_by_year <- integer()
+scope_by_year <- character()
 for (survey_year in survey_years) {
   source_dir <- file.path(year_root, survey_year)
   manifest_path <- file.path(source_dir, "navigation.csv")
@@ -74,6 +75,15 @@ for (survey_year in survey_years) {
   } else {
     NA_integer_
   }
+  scope_line <- grep(
+    "^\\*\\*Country scope:\\*\\* ",
+    year_index,
+    value = TRUE
+  )
+  if (!length(scope_line)) {
+    stop("Missing country scope in ", source_dir, "/index.qmd", call. = FALSE)
+  }
+  scope_by_year[[survey_year]] <- sub("^.*\\*\\* ", "", scope_line[[1L]])
   navigation_by_year[[survey_year]] <- read.csv(
     manifest_path,
     stringsAsFactors = FALSE,
@@ -89,6 +99,34 @@ for (survey_year in survey_years) {
   ]
 }
 
+publication_scopes <- unique(unname(scope_by_year))
+if (length(publication_scopes) != 1L) {
+  stop(
+    "Generated years do not use the same country scope: ",
+    paste(publication_scopes, collapse = "; "),
+    call. = FALSE
+  )
+}
+publication_scope <- publication_scopes[[1L]]
+scope_countries <- trimws(strsplit(publication_scope, ",", fixed = TRUE)[[1L]])
+publication_scope_text <- if (length(scope_countries) == 1L) {
+  scope_countries[[1L]]
+} else if (length(scope_countries) == 2L) {
+  paste(scope_countries, collapse = " and ")
+} else {
+  paste0(
+    paste(scope_countries[-length(scope_countries)], collapse = ", "),
+    ", and ", scope_countries[[length(scope_countries)]]
+  )
+}
+publication_title <- paste("Research Software Engineers in", publication_scope_text)
+website_title <- paste("RSE Survey", publication_scope_text, "| FutuRSI")
+survey_year_label <- if (length(survey_years) == 1L) {
+  survey_years[[1L]]
+} else {
+  paste0(survey_years[[1L]], "–", survey_years[[length(survey_years)]])
+}
+
 year_card <- function(survey_year) {
   navigation <- navigation_by_year[[survey_year]]
   response_label <- if (is.na(records_by_year[[survey_year]])) {
@@ -99,7 +137,7 @@ year_card <- function(survey_year) {
   c(
     paste0('<a class="year-card" href="', survey_year, '/index.qmd">'),
     paste0('<span class="year-card__year">', survey_year, '</span>'),
-    '<span class="year-card__label">Germany survey</span>',
+    paste0('<span class="year-card__label">', publication_scope_text, ' survey</span>'),
     paste0(
       '<span class="year-card__meta">', response_label, ' · ',
       nrow(navigation), ' question groups</span>'
@@ -111,17 +149,29 @@ year_card <- function(survey_year) {
 
 index_lines <- c(
   "---",
-  "title: 'Research Software Engineers in Germany'",
-  "subtitle: 'International RSE Survey results, 2017–2026'",
+  paste0("title: ", yaml_string(publication_title)),
+  paste0(
+    "subtitle: ",
+    yaml_string(paste("International RSE Survey results,", survey_year_label))
+  ),
   "title-block-banner: true",
   "page-layout: full",
   "---",
   "",
+  "::: {.home-maintainer}",
+  paste0(
+    '<a href="https://www.futursi.de/" aria-label="FutuRSI website">',
+    '<span>Developed and maintained by</span>',
+    '<img src="futursi-logo.png" alt="FutuRSI — Next-Level RSE in Germany">',
+    '</a>'
+  ),
+  ":::",
+  "",
   "::: {.home-intro}",
-  "## Explore the German RSE community over time",
+  paste("## Explore the RSE community in", publication_scope_text, "over time"),
   "",
   paste(
-    "Discover how people who develop software for research in Germany work,",
+    paste("Discover how people who develop software for research in", publication_scope_text, "work,"),
     "learn, collaborate, and build their careers. Choose a survey year to begin."
   ),
   ":::",
@@ -135,8 +185,11 @@ index_lines <- c(
   "",
   ":::: {.home-method__grid}",
   "::: {.home-method__item}",
-  "### Germany only",
-  "Every result is filtered to respondents who selected Germany as their country of work.",
+  "### Selected country scope",
+  paste0(
+    "Every result is filtered to the selected country-of-work scope: **",
+    publication_scope_text, "**."
+  ),
   ":::",
   "::: {.home-method__item}",
   "### Each year stands alone",
@@ -146,21 +199,31 @@ index_lines <- c(
   "### Clear response counts",
   "Submitted and partial responses are included, with the relevant counts reported for each question.",
   ":::",
+  "::: {.home-method__item}",
+  "### Reusable by design",
+  "The same generators can focus an equivalent publication on another country or a selected group of countries.",
+  ":::",
   "::::",
   ":::::",
   "",
   "::: {.home-footnote}",
-  "The 2016 export contains only United Kingdom respondents and is therefore not included.",
+  if (identical(publication_scope, "Germany")) {
+    "The 2016 export contains only United Kingdom respondents and is therefore not included."
+  } else {
+    "Only survey years containing records for the selected country scope are included."
+  },
   ":::",
   ""
 )
 writeLines(index_lines, file.path(output_dir, "index.qmd"))
 
 home_css <- file.path("year-books", "home.css")
-if (!file.exists(home_css)) {
-  stop("Missing home-page stylesheet: ", home_css, call. = FALSE)
+brand_logo <- file.path("year-books", "futursi-logo.png")
+if (!file.exists(home_css) || !file.exists(brand_logo)) {
+  stop("Missing home-page stylesheet or FutuRSI logo.", call. = FALSE)
 }
 file.copy(home_css, file.path(output_dir, "home.css"), overwrite = TRUE)
+file.copy(brand_logo, file.path(output_dir, "futursi-logo.png"), overwrite = TRUE)
 
 quarto_lines <- c(
   "project:",
@@ -170,9 +233,12 @@ quarto_lines <- c(
   "    - index.qmd",
   paste0("    - ", survey_years, "/**/*.qmd"),
   "website:",
-  "  title: 'German RSE Survey Books'",
+  paste0("  title: ", yaml_string(website_title)),
   "  site-url: https://dhiahaddad.github.io/rse-survey-2026/",
   "  navbar:",
+  "    logo: futursi-logo.png",
+  "    logo-alt: 'FutuRSI — Next-Level RSE in Germany'",
+  "    logo-href: https://www.futursi.de/",
   "    search: true",
   "    left:",
   "      - text: 'Home'",

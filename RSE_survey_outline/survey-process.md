@@ -2,7 +2,7 @@
 
 This document describes how the 2026 survey is structured in the raw data: the order in which questions appear, how respondents are routed to country- or answer-specific follow-ups, and how the analysis pipeline filters responses before reporting.
 
-It is derived from `RSE_survey_2026_data/2026_tf.csv` (column order and response patterns) and `2026_all_cols.csv` (question text and option labels), together with the filtering logic in `rse-book/R/postprocessing.R`.
+It is derived from `RSE_survey_2026_data/2026_tf.csv` (column order and response patterns) and `2026_cols.csv` (question text and option labels), together with the filtering logic in `rse-book/R/postprocessing.R`.
 
 ---
 
@@ -11,10 +11,10 @@ It is derived from `RSE_survey_2026_data/2026_tf.csv` (column order and response
 | File | Role |
 |------|------|
 | `2026_tf.csv` | One row per respondent; column order reflects the survey flow used in this book |
-| `2026_all_cols.csv` | Maps each column code (`New_name`) to question text and multi-select option labels |
+| `2026_cols.csv` | Maps each column code (`New_name`) to question text and multi-select option labels |
 | `2026_merged.csv` | Extended export with additional demographic/salary columns not present in `2026_tf.csv` |
 
-The analysis book reads only `2026_tf.csv` and `2026_all_cols.csv`.
+The analysis book reads only `2026_tf.csv` and `2026_cols.csv`.
 
 ---
 
@@ -351,7 +351,7 @@ Each chapter in `rse-book/` follows the same pipeline:
 1. **Load** `2026_tf.csv`
 2. **Filter** to submitted rows with `socio1_0 ∈ FILTER`
 3. **Select columns** for one question code (exact match or `code[...]_0` sub-columns)
-4. **Decode** values: multi-select `"True"`/`"False"` → option labels from `2026_all_cols.csv`; single Yes/No `"True"`/`"False"` → `"Yes"`/`"No"`
+4. **Decode** values: multi-select `"True"`/`"False"` → option labels from `2026_cols.csv`; single Yes/No `"True"`/`"False"` → `"Yes"`/`"No"`
 5. **Visualise** multi-select answers as heatmaps; recode free text via chapter-specific regex maps
 6. **Cache** raw-to-category allocation tables for the Recoding appendix
 

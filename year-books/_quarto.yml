@@ -2,8 +2,12 @@ project:
   type: website
   output-dir: _site
 website:
-  title: "German RSE Survey Books"
+  title: "RSE Survey Germany | FutuRSI"
   site-url: https://dhiahaddad.github.io/rse-survey-2026/
+  navbar:
+    logo: futursi-logo.png
+    logo-alt: "FutuRSI — Next-Level RSE in Germany"
+    logo-href: https://www.futursi.de/
 format:
   html:
     theme: cosmo

@@ -5,6 +5,10 @@ title-block-banner: true
 page-layout: full
 ---
 
+::: {.home-maintainer}
+<a href="https://www.futursi.de/" aria-label="FutuRSI website"><span>Developed and maintained by</span><img src="futursi-logo.png" alt="FutuRSI — Next-Level RSE in Germany"></a>
+:::
+
 ## Explore the German RSE community over time
 
 Discover how people who develop software for research in Germany work, learn,
@@ -22,5 +26,7 @@ collaborate, and build their careers. Choose a survey year to begin.
 - **Germany only:** results are filtered by respondents' country of work.
 - **Each year stands alone:** questions are not automatically harmonised.
 - **Clear counts:** submitted and partial responses are reported separately.
+- **Reusable by design:** the generators can target another country or a
+  selected group of countries.
 
 The 2016 export contains only United Kingdom respondents and is not included.

@@ -1,46 +1,55 @@
-# This CITATION.cff file was generated with cffinit.
-# Visit https://bit.ly/cffinit to generate yours today!
-
 cff-version: 1.2.0
-title: >-
-  Analysis Book for the International RSE Survey 2026
-  (Nordic Focus)
 message: >-
-  If you use this software, please cite it using the
-  metadata from this file.
+  If you use this software, developed within the FutuRSI project, please cite
+  it and the underlying survey dataset using the metadata in this file.
+title: Germany-Focused International RSE Survey Publication — FutuRSI
 type: software
 authors:
-  - given-names: Florence
-    family-names: Bockting
-    affiliation: Aalto University
-    orcid: 'https://orcid.org/0000-0003-0924-6413'
-    email: florence.bockting@aalto.fi
-  - given-names: Samantha
-    family-names: Wittke
-    affiliation: >-
-      CSC - IT Center for Science (Finland), Aalto
-      University, Finnish Geospatial Research Institute
-    orcid: 'https://orcid.org/0000-0002-9625-7235'
-identifiers:
-  - type: doi
-    value: 10.5281/zenodo.21716004
-    description: 'Zenodo, Version 0.1.0'
-repository-code: 'https://github.com/nordic-rse/rse-survey-2026'
-url: 'https://nordic-rse.org/rse-survey-2026/'
+  - given-names: Dhia
+    family-names: Haddad
+    affiliation: Helmholtz-Zentrum Dresden-Rossendorf (HZDR)
+    orcid: 'https://orcid.org/0000-0001-6816-3672'
+repository-code: 'https://github.com/dhiahaddad/rse-survey-2026'
+url: 'https://dhiahaddad.github.io/rse-survey-2026/'
 abstract: >-
-  Quarto analysis book for the International RSE Survey
-  2026, with a focus on Nordic respondents. It includes a
-  Nordic insights summary of career paths, skills, tools,
-  generative AI use, community priorities, and related
-  topics, plus question-by-question chapters with tables and
-  figures. The book was produced by Nordic-RSE using Quarto
-  and R. 
+  A dynamically generated, Germany-focused publication of International RSE
+  Survey results for 2017, 2018, 2022, and 2026, developed within the federated
+  FutuRSI project. The software is designed so that maintainers can readily
+  generate equivalent publications for another country or a selected group of
+  countries.
 keywords:
   - Research Software Engineering
   - RSE
-  - International RSE Survey 2026
-  - Nordic-RSE
+  - Germany
+  - International RSE Survey
+  - FutuRSI
   - survey analysis
 license: MIT
-version: 0.1.0
-date-released: '2026-07-31'
+date-released: '2026-08-06'
+references:
+  - type: dataset
+    title: RSE Survey longitudinal dataset
+    authors:
+      - given-names: Simon
+        family-names: Hettrick
+    doi: 10.5281/zenodo.21258278
+    version: v2026.0.0
+    date-released: '2026-07-08'
+  - type: software
+    title: >-
+      Analysis Book for the International RSE Survey 2026 (Nordic Focus)
+    authors:
+      - given-names: Florence
+        family-names: Bockting
+        affiliation: Aalto University
+        orcid: 'https://orcid.org/0000-0003-0924-6413'
+        email: florence.bockting@aalto.fi
+      - given-names: Samantha
+        family-names: Wittke
+        affiliation: >-
+          CSC - IT Center for Science (Finland), Aalto University, Finnish
+          Geospatial Research Institute
+        orcid: 'https://orcid.org/0000-0002-9625-7235'
+    doi: 10.5281/zenodo.21716004
+    version: 0.1.0
+    date-released: '2026-07-31'
