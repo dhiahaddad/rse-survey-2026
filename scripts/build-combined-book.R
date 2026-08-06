@@ -11,6 +11,7 @@ if (length(args) < 3L) {
   )
 }
 
+
 year_root <- normalizePath(args[[1L]], mustWork = TRUE)
 output_dir <- args[[2L]]
 survey_years <- args[-c(1L, 2L)]
