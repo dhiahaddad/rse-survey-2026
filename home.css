@@ -31,6 +31,11 @@ body {
   color: var(--color-purple) !important;
 }
 
+.navbar-logo {
+  width: auto;
+  max-height: 42px;
+}
+
 .quarto-title-banner {
   background: var(--color-purple);
   color: var(--color-white);
@@ -53,11 +58,49 @@ body {
 }
 
 .home-intro,
+.home-maintainer,
 .year-grid,
 .home-method,
 .home-footnote {
   width: min(1180px, calc(100% - 2rem));
   margin-inline: auto;
+}
+
+.home-maintainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.home-maintainer > p {
+  margin: 0;
+}
+
+.home-maintainer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--color-purple) 18%, var(--color-white));
+  border-radius: 14px;
+  background: var(--color-white);
+  color: color-mix(in srgb, var(--color-dark) 68%, var(--color-white));
+  font-size: 0.8rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.home-maintainer a:hover,
+.home-maintainer a:focus-visible {
+  border-color: var(--color-purple);
+  color: var(--color-purple);
+}
+
+.home-maintainer img {
+  width: 150px;
+  height: auto;
 }
 
 .home-intro {
@@ -176,7 +219,7 @@ body {
 
 .home-method__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 2rem;
 }
 
@@ -204,6 +247,10 @@ body {
   .year-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .home-method__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 640px) {
@@ -222,5 +269,10 @@ body {
 
   .home-method {
     padding: 1.5rem;
+  }
+
+  .home-maintainer a {
+    flex-direction: column;
+    gap: 0.4rem;
   }
 }
