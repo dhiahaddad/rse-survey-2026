@@ -45,7 +45,10 @@ jobs:
       - name: Install R dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::ggplot2
+          extra-packages: |
+            any::ggplot2
+            any::plotly
+            any::htmlwidgets
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -53,7 +56,7 @@ jobs:
       - name: Generate and render combined book
         run: |
           for SURVEY_YEAR in 2017 2018 2022 2026; do
-            Rscript scripts/build-year-book.R "$SURVEY_YEAR" RSE_survey_longitudinal .generated/year-books --country "$BOOK_COUNTRY"
+            Rscript scripts/build-year-book.R "$SURVEY_YEAR" RSE_survey_longitudinal .generated/year-books --country "$BOOK_COUNTRY" --interactive
           done
           Rscript scripts/build-combined-book.R .generated/year-books .generated/combined-book 2017 2018 2022 2026
           quarto render .generated/combined-book

@@ -99,6 +99,10 @@ for (survey_year in survey_years) {
   ]
 }
 
+interactive_years <- survey_years[dir.exists(
+  file.path(output_dir, survey_years, "figures", "widget-lib")
+)]
+
 publication_scopes <- unique(unname(scope_by_year))
 if (length(publication_scopes) != 1L) {
   stop(
@@ -231,7 +235,17 @@ quarto_lines <- c(
   "  output-dir: _site",
   "  render:",
   "    - index.qmd",
-  paste0("    - ", survey_years, "/**/*.qmd"),
+  paste0("    - ", survey_years, "/**/*.qmd")
+)
+if (length(interactive_years)) {
+  quarto_lines <- c(
+    quarto_lines,
+    "  resources:",
+    paste0("    - ", interactive_years, "/figures/widget-lib/**")
+  )
+}
+quarto_lines <- c(
+  quarto_lines,
   "website:",
   paste0("  title: ", yaml_string(website_title)),
   "  site-url: https://dhiahaddad.github.io/rse-survey-2026/",

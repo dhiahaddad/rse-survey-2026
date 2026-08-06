@@ -165,6 +165,20 @@ the choices of single-select questions, unordered nominal answers use a clearly
 reported frequency fallback. Each generated navigation manifest records the
 detected type and ordering source.
 
+For interactive HTML charts, install the R packages `plotly` and `htmlwidgets`
+and add `--interactive`:
+
+```bash
+Rscript scripts/build-year-book.R 2026 ../RSE_survey_longitudinal .generated/year-books --interactive
+```
+
+Interactive charts provide hover details for counts and percentages, legend
+selection, zooming, panning, and image export. Their visible data tables are
+omitted because the values are available from the chart; a static PNG remains
+embedded as a no-JavaScript fallback. Without `--interactive`, the generator
+continues to produce a static PNG followed by its data table. Free-text and
+date/year questions remain count-only in both modes.
+
 Free-text question groups are reported with response-status counts and without
 charts. Structured questions exclude `[other]` text from their charts. To
 include raw free-text answers as collapsible text lists—including “Other”
@@ -179,8 +193,9 @@ Rscript scripts/build-year-book.R 2026 ../RSE_survey_longitudinal .generated/yea
 The multi-year portal is published to GitHub Pages at
 <https://dhiahaddad.github.io/rse-survey-2026/>.
 
-GitHub Actions generates Germany-focused results for 2017, 2018, 2022, and 2026
-from each year's own metadata, then assembles them into one publication. The
+GitHub Actions generates Germany-focused interactive results for 2017, 2018,
+2022, and 2026 from each year's own metadata, then assembles them into one
+publication. The
 publishing country is set by `BOOK_COUNTRY` in the workflow, and the generator
 accepts `--country` for local builds. The Nordic analysis is not rendered,
 linked, or deployed. The German publication is deployed to the `gh-pages`

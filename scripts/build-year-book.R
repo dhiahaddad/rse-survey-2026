@@ -3,6 +3,11 @@
 suppressPackageStartupMessages(library(ggplot2))
 
 args <- commandArgs(trailingOnly = TRUE)
+interactive_charts <- any(args == "--interactive")
+if (sum(args == "--interactive") > 1L) {
+  stop("Specify --interactive only once.", call. = FALSE)
+}
+args <- args[args != "--interactive"]
 include_free_text <- any(args == "--include-free-text")
 if (sum(args == "--include-free-text") > 1L) {
   stop("Specify --include-free-text only once.", call. = FALSE)
@@ -62,7 +67,7 @@ if (length(args) < 2L) {
     paste(
       "Usage: Rscript scripts/build-year-book.R YEAR DATA_ROOT [OUTPUT_ROOT]",
       "[--country COUNTRY[,COUNTRY...]|all] [--inclusion all|submitted]",
-      "[--include-free-text]"
+      "[--include-free-text] [--interactive]"
     ),
     call. = FALSE
   )
@@ -82,6 +87,23 @@ cols_path <- file.path(data_dir, paste0(survey_year, "_cols.csv"))
 
 if (!file.exists(tf_path) || !file.exists(cols_path)) {
   stop("Missing survey files for ", survey_year, " in ", data_dir, call. = FALSE)
+}
+
+if (interactive_charts) {
+  missing_packages <- c("plotly", "htmlwidgets")[!vapply(
+    c("plotly", "htmlwidgets"),
+    requireNamespace,
+    quietly = TRUE,
+    FUN.VALUE = logical(1)
+  )]
+  if (length(missing_packages)) {
+    stop(
+      "Interactive charts require the R package(s): ",
+      paste(missing_packages, collapse = ", "),
+      ". Install them before using --interactive.",
+      call. = FALSE
+    )
+  }
 }
 
 if (dir.exists(project_dir)) {
@@ -146,6 +168,61 @@ html_escape <- function(x) {
   x <- gsub('"', "&quot;", x, fixed = TRUE)
   x <- gsub("'", "&#39;", x, fixed = TRUE)
   gsub("[\r\n]+", "<br>", x)
+}
+
+interactive_chart_html <- function(
+  plot,
+  widget_path,
+  png_rel,
+  stem,
+  height,
+  chart_summary = NULL
+) {
+  tooltip <- if (!is.null(plot$mapping$text)) "text" else c("x", "y")
+  widget <- plotly::ggplotly(plot, tooltip = tooltip)
+  widget <- plotly::config(
+    widget,
+    responsive = TRUE,
+    displaylogo = FALSE,
+    modeBarButtonsToRemove = c("lasso2d", "select2d")
+  )
+  if (!is.null(chart_summary)) {
+    widget <- plotly::layout(
+      widget,
+      title = list(
+        text = chart_summary,
+        x = 0,
+        xanchor = "left",
+        font = list(size = 12)
+      )
+    )
+  }
+  widget$width <- "100%"
+  widget$height <- height
+  htmlwidgets::saveWidget(
+    widget,
+    widget_path,
+    selfcontained = FALSE,
+    libdir = "widget-lib",
+    background = "transparent"
+  )
+  c(
+    paste0(
+      "<iframe class=\"survey-interactive-chart\" src=\"../figures/",
+      html_escape(basename(widget_path)),
+      "\" title=\"Interactive response distribution for ",
+      html_escape(stem),
+      "\" loading=\"lazy\" style=\"width:100%;height:",
+      height,
+      "px;border:0;\"></iframe>"
+    ),
+    "<noscript>",
+    paste0(
+      "<img src=\"../", html_escape(png_rel),
+      "\" alt=\"Response distribution for ", html_escape(stem), ".\">"
+    ),
+    "</noscript>"
+  )
 }
 
 free_text_details <- function(values, heading = "Recorded answers") {
@@ -795,6 +872,7 @@ for (i in seq_along(ordered_stems)) {
   question_types <- c(question_types, type)
   is_free_text_group <- detected_type$kind %in% c("short_text", "long_text")
   is_count_only_group <- is_free_text_group || detected_type$kind == "date"
+  chart_summary <- NULL
 
   if (is_count_only_group) {
     order_source <- "not applicable"
@@ -820,6 +898,13 @@ for (i in seq_along(ordered_stems)) {
       ),
       stringsAsFactors = FALSE
     )
+    chart_summary <- paste0(
+      "n = ", length(valid_numeric),
+      " · median = ", format(round(median(valid_numeric), 2), trim = TRUE),
+      " · mean = ", format(round(mean(valid_numeric), 2), trim = TRUE),
+      " · range = ", format(min(valid_numeric), trim = TRUE),
+      "–", format(max(valid_numeric), trim = TRUE)
+    )
     omitted_numeric <- length(raw) - length(valid_numeric)
     truncated_note <- if (omitted_numeric > 0L) {
       paste0(
@@ -835,7 +920,11 @@ for (i in seq_along(ordered_stems)) {
         fill = "#2C7FB8",
         colour = "white"
       ) +
-      labs(x = NULL, y = "Responses") +
+      labs(
+        x = NULL,
+        y = "Responses",
+        subtitle = chart_summary
+      ) +
       theme_minimal(base_size = 11)
   } else if (length(analysis_columns) == 1L) {
     raw_all <- trimws(as.character(tf[[analysis_columns[[1L]]]]))
@@ -855,7 +944,7 @@ for (i in seq_along(ordered_stems)) {
       Count = as.integer(counts),
       Percent = sprintf("%.1f%%", 100 * as.integer(counts) / denominator)
     )
-    display <- head(result, 30L)
+    display <- if (interactive_charts) result else head(result, 30L)
     truncated_note <- if (nrow(result) > nrow(display)) {
       paste0("Only the 30 most frequent of ", nrow(result), " distinct responses are shown.")
     } else {
@@ -867,7 +956,12 @@ for (i in seq_along(ordered_stems)) {
       plot_data$label,
       levels = rev(as.character(plot_data$label))
     )
-    plot <- ggplot(plot_data, aes(x = label, y = Count)) +
+    plot_data$hover <- paste0(
+      as.character(plot_data$label),
+      "<br>Count: ", plot_data$Count,
+      "<br>Percent: ", plot_data$Percent
+    )
+    plot <- ggplot(plot_data, aes(x = label, y = Count, text = hover)) +
       geom_col(fill = "#2C7FB8") +
       coord_flip() +
       labs(x = NULL, y = "Responses") +
@@ -901,7 +995,12 @@ for (i in seq_along(ordered_stems)) {
       plot_data$label,
       levels = rev(as.character(plot_data$label))
     )
-    plot <- ggplot(plot_data, aes(x = label, y = Count)) +
+    plot_data$hover <- paste0(
+      as.character(plot_data$label),
+      "<br>Selections: ", plot_data$Count,
+      "<br>Percent of respondents: ", plot_data$Percent
+    )
+    plot <- ggplot(plot_data, aes(x = label, y = Count, text = hover)) +
       geom_col(fill = "#2C7FB8") +
       coord_flip() +
       labs(x = NULL, y = "Selections") +
@@ -948,7 +1047,16 @@ for (i in seq_along(ordered_stems)) {
     item_levels <- unique(as.character(result$Item))
     result$Item <- factor(result$Item, levels = rev(item_levels))
     result$Response <- factor(result$Response, levels = response_order$levels)
-    plot <- ggplot(result, aes(x = Item, y = Count, fill = Response)) +
+    result$hover <- paste0(
+      as.character(result$Item),
+      "<br>", as.character(result$Response),
+      "<br>Count: ", result$Count,
+      "<br>Share: ", result$Percent
+    )
+    plot <- ggplot(
+      result,
+      aes(x = Item, y = Count, fill = Response, text = hover)
+    ) +
       geom_col(position = position_fill(reverse = TRUE)) +
       coord_flip() +
       labs(x = NULL, y = "Share", fill = "Response") +
@@ -960,8 +1068,36 @@ for (i in seq_along(ordered_stems)) {
   file_stem <- sprintf("%03d-%s", i, safe_filename(stem))
   figure_rel <- file.path("figures", paste0(file_stem, ".png"))
   figure_path <- file.path(project_dir, figure_rel)
+  chart_height <- max(450L, min(1200L, round(250 + 22 * nrow(display))))
   if (!is_count_only_group && nrow(display)) {
-    ggsave(figure_path, plot, width = 9, height = max(4.5, min(12, 2.5 + 0.22 * nrow(display))), dpi = 144)
+    ggsave(
+      figure_path,
+      plot,
+      width = 9,
+      height = chart_height / 100,
+      dpi = 144
+    )
+  }
+
+  chart_lines <- if (interactive_charts && !is_count_only_group && nrow(display)) {
+    widget_path <- file.path(
+      project_dir,
+      "figures",
+      paste0(file_stem, ".html")
+    )
+    interactive_chart_html(
+      plot,
+      widget_path,
+      figure_rel,
+      stem,
+      chart_height,
+      chart_summary
+    )
+  } else {
+    paste0(
+      "![Response distribution](../", figure_rel,
+      "){fig-alt='Response distribution for ", stem, ".'}"
+    )
   }
 
   chapter_rel <- file.path("questions", paste0(file_stem, ".qmd"))
@@ -999,7 +1135,7 @@ for (i in seq_along(ordered_stems)) {
       chapter_lines,
       answering_summary(answered_rows),
       "",
-      paste0("![Response distribution](../", figure_rel, "){fig-alt='Response distribution for ", stem, ".'}"),
+      chart_lines,
       ""
     )
     if (length(other_values)) {
@@ -1015,7 +1151,9 @@ for (i in seq_along(ordered_stems)) {
         )
       }
     }
-    chapter_lines <- c(chapter_lines, write_markdown_table(display), "")
+    if (!interactive_charts) {
+      chapter_lines <- c(chapter_lines, write_markdown_table(display), "")
+    }
   } else {
     chapter_lines <- c(
       chapter_lines,
@@ -1052,7 +1190,17 @@ for (i in seq_along(ordered_stems)) {
 quarto_lines <- c(
   "project:",
   "  type: book",
-  "  output-dir: _book",
+  "  output-dir: _book"
+)
+if (interactive_charts) {
+  quarto_lines <- c(
+    quarto_lines,
+    "  resources:",
+    "    - figures/widget-lib/**"
+  )
+}
+quarto_lines <- c(
+  quarto_lines,
   "book:",
   paste0("  title: ", yaml_string(book_title)),
   "  chapters:",
