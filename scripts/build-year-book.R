@@ -436,6 +436,22 @@ metadata_label <- function(meta, column, fallback) {
       return(trimws(option))
     }
   }
+  if (nrow(hit) && "Question" %in% names(hit)) {
+    question <- trimws(as.character(hit$Question[[1L]]))
+    if (
+      !is.na(question) &&
+        grepl("\\[[^][]+\\]\\s*$", question)
+    ) {
+      bracketed_label <- sub(
+        "^.*\\[([^][]+)\\]\\s*$",
+        "\\1",
+        question
+      )
+      if (nzchar(trimws(bracketed_label))) {
+        return(trimws(bracketed_label))
+      }
+    }
+  }
   fallback
 }
 
