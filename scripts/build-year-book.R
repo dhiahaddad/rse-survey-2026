@@ -611,6 +611,19 @@ semantic_response_palette <- function(levels, kind) {
   NULL
 }
 
+chart_height_pixels <- function(kind, row_count, legend_count = 0L) {
+  if (kind == "numeric") return(420L)
+
+  row_count <- max(1L, as.integer(row_count))
+  base_height <- if (kind == "matrix") 130L else 90L
+  legend_height <- if (kind == "matrix" && legend_count > 0L) {
+    28L * ceiling(legend_count / 5L)
+  } else {
+    0L
+  }
+  max(200L, min(1200L, base_height + 42L * row_count + legend_height))
+}
+
 question_text <- function(meta, stem) {
   hit <- meta[question_stem(meta$New_name) == stem, "Question", drop = TRUE]
   hit <- unique(trimws(as.character(hit[nonempty(hit)])))
@@ -955,6 +968,9 @@ for (i in seq_along(ordered_stems)) {
   is_free_text_group <- detected_type$kind %in% c("short_text", "long_text")
   is_count_only_group <- is_free_text_group || detected_type$kind == "date"
   chart_summary <- NULL
+  chart_row_count <- 0L
+  chart_legend_count <- 0L
+  chart_layout <- "bars"
 
   if (is_count_only_group) {
     order_source <- "not applicable"
@@ -963,6 +979,7 @@ for (i in seq_along(ordered_stems)) {
     truncated_note <- NULL
     plot <- NULL
   } else if (detected_type$kind == "numeric") {
+    chart_layout <- "numeric"
     order_source <- "numeric values"
     raw_all <- trimws(as.character(tf[[analysis_columns[[1L]]]]))
     answered_rows <- nonempty(raw_all)
@@ -996,6 +1013,7 @@ for (i in seq_along(ordered_stems)) {
     } else {
       NULL
     }
+    chart_row_count <- 1L
     plot <- ggplot(data.frame(Value = valid_numeric), aes(x = Value)) +
       geom_histogram(
         bins = min(30L, max(5L, ceiling(sqrt(length(valid_numeric))))),
@@ -1027,6 +1045,7 @@ for (i in seq_along(ordered_stems)) {
       Percent = sprintf("%.1f%%", 100 * as.integer(counts) / denominator)
     )
     display <- if (interactive_charts) result else head(result, 30L)
+    chart_row_count <- nrow(display)
     truncated_note <- if (nrow(result) > nrow(display)) {
       paste0("Only the 30 most frequent of ", nrow(result), " distinct responses are shown.")
     } else {
@@ -1049,10 +1068,10 @@ for (i in seq_along(ordered_stems)) {
     )
     plot <- ggplot(plot_data, aes(x = label, y = Count, text = hover))
     plot <- if (is.null(semantic_colors)) {
-      plot + geom_col(fill = "#9A3270")
+      plot + geom_col(fill = "#9A3270", width = 0.72)
     } else {
       plot +
-        geom_col(aes(fill = label)) +
+        geom_col(aes(fill = label), width = 0.72) +
         scale_fill_manual(values = semantic_colors, guide = "none")
     }
     plot <- plot +
@@ -1081,6 +1100,7 @@ for (i in seq_along(ordered_stems)) {
       Percent = sprintf("%.1f%%", 100 * selected / denominator)
     )
     display <- result
+    chart_row_count <- nrow(display)
     truncated_note <- NULL
     plot_data <- result
     names(plot_data)[1L] <- "label"
@@ -1094,11 +1114,12 @@ for (i in seq_along(ordered_stems)) {
       "<br>Percent of respondents: ", plot_data$Percent
     )
     plot <- ggplot(plot_data, aes(x = label, y = Count, text = hover)) +
-      geom_col(fill = "#9A3270") +
+      geom_col(fill = "#9A3270", width = 0.72) +
       coord_flip() +
       labs(x = NULL, y = "Selections") +
       theme_minimal(base_size = 11)
   } else {
+    chart_layout <- "matrix"
     response_order <- ordered_response_levels(
       all_values,
       detected_type$kind,
@@ -1138,6 +1159,8 @@ for (i in seq_along(ordered_stems)) {
       NULL
     }
     item_levels <- unique(as.character(result$Item))
+    chart_row_count <- length(item_levels)
+    chart_legend_count <- length(response_order$levels)
     result$Item <- factor(result$Item, levels = rev(item_levels))
     result$Response <- factor(result$Response, levels = response_order$levels)
     result$hover <- paste0(
@@ -1154,7 +1177,7 @@ for (i in seq_along(ordered_stems)) {
       result,
       aes(x = Item, y = Count, fill = Response, text = hover)
     ) +
-      geom_col(position = position_fill(reverse = TRUE)) +
+      geom_col(position = position_fill(reverse = TRUE), width = 0.72) +
       coord_flip() +
       labs(x = NULL, y = "Share", fill = "Response") +
       theme_minimal(base_size = 10) +
@@ -1168,7 +1191,11 @@ for (i in seq_along(ordered_stems)) {
   file_stem <- sprintf("%03d-%s", i, safe_filename(stem))
   figure_rel <- file.path("figures", paste0(file_stem, ".png"))
   figure_path <- file.path(project_dir, figure_rel)
-  chart_height <- max(450L, min(1200L, round(250 + 22 * nrow(display))))
+  chart_height <- chart_height_pixels(
+    chart_layout,
+    chart_row_count,
+    chart_legend_count
+  )
   if (!is_count_only_group && nrow(display)) {
     ggsave(
       figure_path,
@@ -1241,13 +1268,13 @@ for (i in seq_along(ordered_stems)) {
     if (length(other_values)) {
       chapter_lines <- c(
         chapter_lines,
-        paste0("Other responses recorded: ", length(other_values)),
+        paste0("Other free-text answers provided: ", length(other_values)),
         ""
       )
       if (include_free_text) {
         chapter_lines <- c(
           chapter_lines,
-          free_text_details(other_values, "Other responses")
+          free_text_details(other_values, "Other free-text answers")
         )
       }
     }
@@ -1263,13 +1290,13 @@ for (i in seq_along(ordered_stems)) {
     if (length(other_values)) {
       chapter_lines <- c(
         chapter_lines,
-        paste0("Other responses recorded: ", length(other_values)),
+        paste0("Other free-text answers provided: ", length(other_values)),
         ""
       )
       if (include_free_text) {
         chapter_lines <- c(
           chapter_lines,
-          free_text_details(other_values, "Other responses")
+          free_text_details(other_values, "Other free-text answers")
         )
       }
     } else {

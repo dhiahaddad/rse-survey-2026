@@ -187,6 +187,11 @@ multiple-selection bars use the FutuRSI purple instead of implying an ordinal
 relationship. Labels and hover text remain available, so meaning never depends
 on colour alone.
 
+Figure height scales with the number of displayed bars so short and long charts
+use a consistent visual bar thickness. Matrix height is based on its number of
+items rather than its underlying item-response table rows, with additional room
+reserved for the legend. Extremely long charts are capped to keep pages usable.
+
 Free-text question groups are reported with response-status counts and without
 charts. Structured questions exclude `[other]` text from their charts. To
 include raw free-text answers as collapsible text lists—including “Other”
