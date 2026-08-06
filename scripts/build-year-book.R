@@ -1228,22 +1228,33 @@ for (i in seq_along(ordered_stems)) {
   }
 
   chapter_rel <- file.path("questions", paste0(file_stem, ".qmd"))
-  chapter_lines <- c(
-    "---",
-    paste0("title: ", yaml_string(stem)),
-    "---",
-    "",
-    paste0("# ", markdown_text(title)),
-    "",
-    paste0("**Question code:** `", stem, "`"),
-    "",
-    paste0("**Detected type:** ", type),
-    "",
+  question_details <- c(
+    "<details class=\"question-details\">",
+    "<summary>Question details</summary>",
+    paste0(
+      "<p><strong>Question code:</strong> <code>",
+      html_escape(stem),
+      "</code></p>"
+    ),
+    paste0("<p><strong>Detected type:</strong> ", html_escape(type), "</p>"),
     if (order_source != "not applicable") {
-      c(paste0("**Answer order:** ", order_source), "")
+      paste0(
+        "<p><strong>Answer order:</strong> ",
+        html_escape(order_source),
+        "</p>"
+      )
     } else {
       character()
-    }
+    },
+    "</details>",
+    ""
+  )
+  chapter_lines <- c(
+    "---",
+    paste0("title: ", yaml_string(title)),
+    "---",
+    "",
+    question_details
   )
   if (is_count_only_group) {
     chapter_lines <- c(

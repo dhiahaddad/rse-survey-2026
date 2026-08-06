@@ -158,6 +158,10 @@ multiple select, Likert/rating scales, matrix/grid questions, numeric inputs,
 date/year inputs, and short and long free text. Numeric inputs use summary
 statistics and histograms rather than categorical frequency charts.
 
+Each question page uses the full question wording as its title. Technical
+metadata—the question code, detected type, and answer-order source—is available
+in a “Question details” disclosure that is collapsed by default.
+
 Metadata row order is preserved for multi-select options and matrix items.
 Numeric ranges and recognised Likert, agreement, and frequency scales use their
 natural order. Because the yearly column metadata generally does not enumerate
