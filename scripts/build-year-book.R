@@ -841,6 +841,25 @@ ordered_stems <- ordered_stems[vapply(
   logical(1)
 )]
 question_sections <- vapply(ordered_stems, question_section, character(1))
+question_titles <- vapply(
+  ordered_stems,
+  function(stem) question_text(meta, stem),
+  character(1)
+)
+unnamed_groups <- question_titles == ordered_stems & vapply(
+  ordered_stems,
+  function(stem) {
+    sum(question_stem(response_columns) == stem) > 1L
+  },
+  logical(1)
+)
+for (section in unique(question_sections[unnamed_groups])) {
+  section_groups <- which(unnamed_groups & question_sections == section)
+  question_titles[section_groups] <- paste0(
+    "Group of questions - ",
+    seq_along(section_groups)
+  )
+}
 present_sections <- section_order[section_order %in% question_sections]
 section_summary <- data.frame(
   Section = present_sections,
@@ -952,7 +971,7 @@ for (i in seq_along(ordered_stems)) {
   columns <- response_columns[question_stem(response_columns) == stem]
   column_order <- metadata_column_order(meta, columns)
   columns <- column_order$columns
-  title <- question_text(meta, stem)
+  title <- question_titles[[i]]
   is_other_column <- grepl("[other]", columns, fixed = TRUE)
   other_columns <- columns[is_other_column]
   analysis_columns <- columns[!is_other_column]
@@ -1168,9 +1187,13 @@ for (i in seq_along(ordered_stems)) {
       tf[, analysis_columns, drop = FALSE]
     ) | other_answered_rows
     answered_n <- sum(answered_rows)
-    display <- head(result, 100L)
-    truncated_note <- if (nrow(result) > nrow(display)) {
-      paste0("Only the first 100 of ", nrow(result), " item-response rows are shown.")
+    display <- if (interactive_charts) result else head(result, 100L)
+    truncated_note <- if (!interactive_charts && nrow(result) > nrow(display)) {
+      paste0(
+        "The response table is limited to the first 100 of ",
+        nrow(result),
+        " item–answer combinations; the chart includes all combinations."
+      )
     } else {
       NULL
     }
@@ -1375,7 +1398,7 @@ navigation <- data.frame(
   QuestionOrder = seq_along(chapter_files),
   QuestionCode = ordered_stems,
   Chapter = chapter_files,
-  Title = vapply(ordered_stems, function(stem) question_text(meta, stem), character(1)),
+  Title = question_titles,
   DetectedType = question_types,
   AnswerOrder = question_order_sources,
   stringsAsFactors = FALSE

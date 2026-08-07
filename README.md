@@ -160,7 +160,10 @@ statistics and histograms rather than categorical frequency charts.
 
 Each question page uses the full question wording as its title. Technical
 metadata—the question code, detected type, and answer-order source—is available
-in a “Question details” disclosure that is collapsed by default.
+in a “Question details” disclosure that is collapsed by default. When an export
+contains several item labels but no shared title for their group, the generator
+uses section-local titles such as “Group of questions - 1” instead of exposing
+an internal question code.
 
 Metadata row order is preserved for multi-select options and matrix items.
 Numeric ranges and recognised Likert, agreement, and frequency scales use their
@@ -181,7 +184,10 @@ selection, zooming, panning, and image export. Their visible data tables are
 omitted because the values are available from the chart; a static PNG remains
 embedded as a no-JavaScript fallback. Without `--interactive`, the generator
 continues to produce a static PNG followed by its data table. Free-text and
-date/year questions remain count-only in both modes.
+date/year questions remain count-only in both modes. Interactive matrix charts
+include every item–answer combination and do not display table-truncation
+notices. In static mode, any truncated response table is explicitly described
+as item–answer combinations rather than respondent rows.
 
 Chart colours preserve answer meaning in both modes. Yes/true is green and
 no/false is red. Recognised numeric and textual rating scales progress from red
