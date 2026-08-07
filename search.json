@@ -254,13 +254,13 @@
   {
     "objectID": "2026/questions/027-likert5b.html",
     "href": "2026/questions/027-likert5b.html",
-    "title": "likert5b",
+    "title": "Group of questions - 1",
     "section": "",
     "text": "Question details\n\n\nQuestion code: likert5b\n\n\nDetected type: Likert / rating scale\n\n\nAnswer order: metadata item order; semantic answer order\n\n\nRespondents answering: 223 (199 submitted; 24 partial)",
     "crumbs": [
       "2026",
       "Attitudes and Likert scales",
-      "likert5b"
+      "Group of questions - 1"
     ]
   },
   {
@@ -1462,13 +1462,13 @@
   {
     "objectID": "2017/questions/038-likert3.html",
     "href": "2017/questions/038-likert3.html",
-    "title": "likert3",
+    "title": "Group of questions - 4",
     "section": "",
     "text": "Question details\n\n\nQuestion code: likert3\n\n\nDetected type: Likert / rating scale\n\n\nAnswer order: metadata item order; numeric answer order\n\n\nRespondents answering: 269",
     "crumbs": [
       "2017",
       "Attitudes and Likert scales",
-      "likert3"
+      "Group of questions - 4"
     ]
   },
   {
@@ -1853,13 +1853,13 @@
   {
     "objectID": "2017/questions/021-likert2.html",
     "href": "2017/questions/021-likert2.html",
-    "title": "likert2",
+    "title": "Group of questions - 1",
     "section": "",
     "text": "Question details\n\n\nQuestion code: likert2\n\n\nDetected type: Likert / rating scale\n\n\nAnswer order: metadata item order; semantic answer order\n\n\nRespondents answering: 269",
     "crumbs": [
       "2017",
       "Attitudes and Likert scales",
-      "likert2"
+      "Group of questions - 1"
     ]
   },
   {
@@ -1925,13 +1925,13 @@
   {
     "objectID": "2017/questions/033-likert0.html",
     "href": "2017/questions/033-likert0.html",
-    "title": "likert0",
+    "title": "Group of questions - 2",
     "section": "",
     "text": "Question details\n\n\nQuestion code: likert0\n\n\nDetected type: Likert / rating scale\n\n\nAnswer order: metadata item order; numeric answer order\n\n\nRespondents answering: 325",
     "crumbs": [
       "2017",
       "Attitudes and Likert scales",
-      "likert0"
+      "Group of questions - 2"
     ]
   },
   {
@@ -1949,13 +1949,13 @@
   {
     "objectID": "2017/questions/037-likert1.html",
     "href": "2017/questions/037-likert1.html",
-    "title": "likert1",
+    "title": "Group of questions - 3",
     "section": "",
-    "text": "Question details\n\n\nQuestion code: likert1\n\n\nDetected type: Likert / rating scale\n\n\nAnswer order: metadata item order; numeric answer order\n\n\nRespondents answering: 272\n\n\n\n\n\nOnly the first 100 of 110 item-response rows are shown.",
+    "text": "Question details\n\n\nQuestion code: likert1\n\n\nDetected type: Likert / rating scale\n\n\nAnswer order: metadata item order; numeric answer order\n\n\nRespondents answering: 272",
     "crumbs": [
       "2017",
       "Attitudes and Likert scales",
-      "likert1"
+      "Group of questions - 3"
     ]
   },
   {
